@@ -1,0 +1,155 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 用户模型
+model User {
+  id              String            @id @default(cuid())
+  name            String?
+  email           String?           @unique
+  passwordHash    String?
+  grade           Int               // 年级 (7-9 初中, 10-12 高中)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  sessions        Session[]
+  questions       Question[]
+  knowledgePoints KnowledgePoint[]
+  exams           Exam[]
+}
+
+// 学习会话
+model Session {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subject   String    // 科目 (数学/物理/化学/英语等)
+  startTime DateTime  @default(now())
+  endTime   DateTime?
+  messages  Message[]
+}
+
+// 对话消息
+model Message {
+  id        String   @id @default(cuid())
+  sessionId String
+  session   Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role      String   // user/assistant
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+}
+
+// 练习题记录
+model Question {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subject     String   // 科目
+  content     String   @db.Text  // 题目内容
+  userAnswer  String?  @db.Text  // 学生答案
+  isCorrect   Boolean? // 是否正确
+  knowledgePoints String[] // 关联的知识点
+  difficulty  Int?     // 难度 (1-5)
+  createdAt   DateTime @default(now())
+}
+
+// 知识点掌握情况
+model KnowledgePoint {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name          String   // 知识点名称
+  subject       String   // 科目
+  masteryLevel  Float    @default(0) // 掌握程度 (0-1)
+  practiceCount Int      @default(0) // 练习次数
+  correctCount  Int      @default(0) // 正确次数
+  correctRate   Float    @default(0) // 正确率
+  lastPracticed DateTime? // 最后练习时间
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([userId, name, subject])
+}
+
+// 题库（用于RAG检索）
+model QuestionBank {
+  id            String   @id @default(cuid())
+  subject       String   // 科目
+  content       String   @db.Text // 题目内容
+  answer        String   @db.Text // 答案
+  explanation   String?  @db.Text // 解析
+  knowledgePoints String[] // 关联的知识点
+  difficulty    Int      // 难度 (1-5)
+  grade         Int      // 适用年级
+  embedding     Float[]? // 向量嵌入（用于RAG）
+  createdAt     DateTime @default(now())
+}
+
+// ============================================
+// 试卷分析相关模型
+// ============================================
+
+// 试卷
+model Exam {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subject      String   // 科目
+  examType     String   // 试卷类型: 期中/期末/月考/练习/模拟
+  examDate     DateTime @default(now()) // 考试日期
+  title        String?  // 试卷标题
+  totalScore   Float    // 总分
+  obtainedScore Float?  // 得分
+  status       String   @default("parsing") // parsing/parsed/analyzing/completed
+  content      String   @db.Text // 原始试卷内容
+  summary      String?  @db.Text // AI生成的摘要
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  questions    ExamQuestion[]
+  analysis     ExamAnalysis?
+
+  @@index([userId, createdAt])
+}
+
+// 试卷题目
+model ExamQuestion {
+  id              String   @id @default(cuid())
+  examId          String
+  exam            Exam     @relation(fields: [examId], references: [id], onDelete: Cascade)
+  questionNumber  Int      // 题号
+  type            String   // 题型: choice/fill/answer/calculation
+  content         String   @db.Text // 题目内容
+  options         String?  @db.Text // 选项（JSON字符串）
+  knowledgePoints String[] // 知识点
+  difficulty      Int      @default(3) // 难度 1-5
+  score           Float    // 分值
+  correctAnswer   String?  @db.Text // 正确答案（AI推断或用户标注）
+  userAnswer      String?  @db.Text // 用户答案
+  isCorrect       Boolean? // 是否正确
+  isSkipped       Boolean  @default(false) // 是否未做
+  explanation     String?  @db.Text // 解析
+  createdAt       DateTime @default(now())
+
+  @@index([examId, questionNumber])
+}
+
+// 试卷分析结果
+model ExamAnalysis {
+  id              String   @id @default(cuid())
+  examId          String   @unique
+  exam            Exam     @relation(fields: [examId], references: [id], onDelete: Cascade)
+  summary         String   @db.Text // 分析摘要
+  knowledgeAnalysis String? @db.Text // 知识点分析（JSON）
+  weakPoints      String[] // 薄弱知识点
+  strongPoints    String[] // 优势知识点
+  suggestions     String[] // 学习建议
+  aiReport        String?  @db.Text // AI生成的详细报告
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
