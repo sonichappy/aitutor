@@ -87,7 +87,6 @@ model QuestionBank {
   knowledgePoints String[] // 关联的知识点
   difficulty    Int      // 难度 (1-5)
   grade         Int      // 适用年级
-  embedding     Float[]? // 向量嵌入（用于RAG）
   createdAt     DateTime @default(now())
 }
 

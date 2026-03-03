@@ -46,6 +46,12 @@ export default function DashboardLayout({
               >
                 个性化学习
               </Link>
+              <Link
+                href="/settings"
+                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium"
+              >
+                设置
+              </Link>
             </nav>
             <div className="text-sm text-gray-500 dark:text-gray-400">
               {DEFAULT_USER.name}

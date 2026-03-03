@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { getEnabledSubjects, type Subject } from "@/types/subject"
 
 interface Message {
   id: string
@@ -13,18 +14,27 @@ interface Message {
 }
 
 export default function TutorPage() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: "1",
-      role: "assistant",
-      content: "你好！我是你的AI学习助手。有什么数学、物理、化学或英语问题需要帮助吗？",
-      timestamp: new Date(),
-    },
-  ])
+  const [subjects, setSubjects] = useState<Subject[]>([])
+  const [selectedSubject, setSelectedSubject] = useState("")
+  const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [selectedSubject, setSelectedSubject] = useState<"数学" | "物理" | "化学" | "英语">("数学")
   const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const enabledSubjects = getEnabledSubjects()
+    setSubjects(enabledSubjects)
+    if (enabledSubjects.length > 0) {
+      setSelectedSubject(enabledSubjects[0].name)
+      // 设置欢迎消息
+      setMessages([{
+        id: "1",
+        role: "assistant",
+        content: `你好！我是你的AI学习助手。有什么${enabledSubjects.map(s => s.name).join("、")}问题需要帮助吗？`,
+        timestamp: new Date(),
+      }])
+    }
+  }, [])
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -50,7 +60,6 @@ export default function TutorPage() {
     setIsLoading(true)
 
     try {
-      // 调用AI API
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -87,6 +96,24 @@ export default function TutorPage() {
     }
   }
 
+  // 没有启用学科时显示提示
+  if (subjects.length === 0) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Card className="text-center">
+          <CardContent className="pt-6">
+            <p className="text-gray-500 mb-4">
+              尚未启用任何学科，请先在设置中启用学科
+            </p>
+            <Button onClick={() => window.location.href = "/settings"}>
+              前往设置
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
   return (
     <div className="h-[calc(100vh-8rem)] flex flex-col">
       <Card className="flex-1 flex flex-col overflow-hidden">
@@ -96,15 +123,16 @@ export default function TutorPage() {
               <CardTitle>AI 学习辅导</CardTitle>
               <CardDescription>选择科目，随时提问</CardDescription>
             </div>
-            <div className="flex gap-2">
-              {(["数学", "物理", "化学", "英语"] as const).map((subject) => (
+            <div className="flex gap-2 flex-wrap">
+              {subjects.map((subject) => (
                 <Button
-                  key={subject}
-                  variant={selectedSubject === subject ? "default" : "outline"}
+                  key={subject.id}
+                  variant={selectedSubject === subject.name ? "default" : "outline"}
                   size="sm"
-                  onClick={() => setSelectedSubject(subject)}
+                  onClick={() => setSelectedSubject(subject.name)}
+                  title={subject.name}
                 >
-                  {subject}
+                  {subject.icon} {subject.name}
                 </Button>
               ))}
             </div>

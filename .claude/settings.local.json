@@ -4,7 +4,13 @@
       "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src --import-alias \"@/*\" --use-npm)",
       "Bash(git init)",
       "Bash(git remote add origin https://github.com/sonichappy/aitutor.git)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit:*)",
+      "Bash(git config user.email \"sonichappy@users.noreply.github.com\")",
+      "Bash(git config user.name \"sonichappy\")",
+      "Bash(git branch -M main)",
+      "Bash(git push -u origin main)",
+      "Bash(npm install)"
     ]
   }
 }

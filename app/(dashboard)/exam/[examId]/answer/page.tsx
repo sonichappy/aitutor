@@ -274,7 +274,7 @@ export default function ExamAnswerPage() {
           <div>{renderQuestionInput()}</div>
 
           {/* 结果标注 */}
-          <div className="border-t pt-4">
+          <div className="border-t pt-4" key={`result-${currentQuestion.number}`}>
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
               答题结果:
             </label>

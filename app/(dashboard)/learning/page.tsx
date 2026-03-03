@@ -1,12 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { getEnabledSubjects, type Subject } from "@/types/subject"
 
 export default function LearningPage() {
-  const [selectedSubject, setSelectedSubject] = useState<"数学" | "物理" | "化学" | "英语">("数学")
+  const [subjects, setSubjects] = useState<Subject[]>([])
+  const [selectedSubject, setSelectedSubject] = useState("")
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [showAnswer, setShowAnswer] = useState(false)
   const [userAnswer, setUserAnswer] = useState("")
@@ -35,20 +37,78 @@ export default function LearningPage() {
     },
     {
       id: 3,
-      subject: "物理",
-      knowledgePoint: "牛顿第二定律",
+      subject: "语文",
+      knowledgePoint: "古诗词",
       difficulty: 2,
-      content: "一个质量为 2kg 的物体受到 10N 的水平推力作用，求物体的加速度是多少？",
-      options: ["2 m/s²", "5 m/s²", "10 m/s²", "20 m/s²"],
+      content: "\"大漠孤烟直，长河落日圆\"出自哪首诗？",
+      options: ["《使至塞上》", "《凉州词》", "《出塞》", "《塞下曲》"],
+      correctAnswer: 0,
+      explanation: "这句诗出自唐代诗人王维的《使至塞上》，描绘了塞外奇特壮丽的风光。",
+    },
+    {
+      id: 4,
+      subject: "英语",
+      knowledgePoint: "时态",
+      difficulty: 2,
+      content: "She _____ to school every day.",
+      options: ["go", "goes", "going", "went"],
       correctAnswer: 1,
-      explanation: "根据牛顿第二定律 F = ma，\na = F/m = 10N / 2kg = 5 m/s²",
+      explanation: "主语是第三人称单数，且every day表示一般现在时，所以用goes。",
+    },
+    {
+      id: 5,
+      subject: "生物",
+      knowledgePoint: "细胞结构",
+      difficulty: 1,
+      content: "细胞的基本结构包括：细胞膜、细胞质和什么？",
+      options: ["细胞核", "线粒体", "叶绿体", "液泡"],
+      correctAnswer: 0,
+      explanation: "细胞的基本结构包括细胞膜、细胞质和细胞核，其中细胞核是细胞的控制中心。",
+    },
+    {
+      id: 6,
+      subject: "历史",
+      knowledgePoint: "古代史",
+      difficulty: 2,
+      content: "中国古代四大发明不包括以下哪项？",
+      options: ["地动仪", "造纸术", "印刷术", "火药"],
+      correctAnswer: 0,
+      explanation: "四大发明是指造纸术、印刷术、火药和指南针。地动仪是张衡发明的，但不属于四大发明。",
+    },
+    {
+      id: 7,
+      subject: "地理",
+      knowledgePoint: "中国地理",
+      difficulty: 1,
+      content: "中国最长的河流是？",
+      options: ["黄河", "长江", "珠江", "淮河"],
+      correctAnswer: 1,
+      explanation: "长江是中国最长的河流，全长约6300公里，发源于青藏高原，注入东海。",
+    },
+    {
+      id: 8,
+      subject: "道法",
+      knowledgePoint: "公民权利",
+      difficulty: 1,
+      content: "以下哪项不是公民的基本权利？",
+      options: ["受教育权", "劳动权", "选举权", "遵守宪法"],
+      correctAnswer: 3,
+      explanation: "遵守宪法是公民的基本义务，而非权利。公民的基本权利包括受教育权、劳动权、选举权等。",
     },
   ]
+
+  useEffect(() => {
+    const enabledSubjects = getEnabledSubjects()
+    setSubjects(enabledSubjects)
+    if (enabledSubjects.length > 0) {
+      setSelectedSubject(enabledSubjects[0].name)
+    }
+  }, [])
 
   const currentQ = questions[currentQuestion]
   const subjectQuestions = questions.filter((q) => q.subject === selectedSubject)
 
-  const handleSubjectChange = (subject: typeof selectedSubject) => {
+  const handleSubjectChange = (subject: string) => {
     setSelectedSubject(subject)
     setCurrentQuestion(0)
     setShowAnswer(false)
@@ -79,6 +139,24 @@ export default function LearningPage() {
     }
   }
 
+  // 没有启用学科时显示提示
+  if (subjects.length === 0) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Card className="text-center">
+          <CardContent className="pt-6">
+            <p className="text-gray-500 mb-4">
+              尚未启用任何学科，请先在设置中启用学科
+            </p>
+            <Button onClick={() => window.location.href = "/settings"}>
+              前往设置
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-8">
       {/* 标题 */}
@@ -93,13 +171,13 @@ export default function LearningPage() {
 
       {/* 科目选择 */}
       <div className="flex gap-2 flex-wrap">
-        {(["数学", "物理", "化学", "英语"] as const).map((subject) => (
+        {subjects.map((subject) => (
           <Button
-            key={subject}
-            variant={selectedSubject === subject ? "default" : "outline"}
-            onClick={() => handleSubjectChange(subject)}
+            key={subject.id}
+            variant={selectedSubject === subject.name ? "default" : "outline"}
+            onClick={() => handleSubjectChange(subject.name)}
           >
-            {subject}
+            {subject.icon} {subject.name}
           </Button>
         ))}
       </div>
@@ -118,12 +196,12 @@ export default function LearningPage() {
                   </CardDescription>
                 </div>
                 <span className="text-sm text-gray-500">
-                  {currentQuestion + 1} / {subjectQuestions.length}
+                  {subjectQuestions.length > 0 ? currentQuestion + 1 : 0} / {subjectQuestions.length}
                 </span>
               </div>
             </CardHeader>
             <CardContent className="space-y-6">
-              {currentQ && (
+              {currentQ ? (
                 <>
                   {/* 题目内容 */}
                   <div className="prose dark:prose-invert max-w-none">
@@ -131,34 +209,36 @@ export default function LearningPage() {
                   </div>
 
                   {/* 选项 */}
-                  <div className="space-y-3">
-                    {currentQ.options.map((option, index) => (
-                      <button
-                        key={index}
-                        onClick={() => !showAnswer && handleAnswerSelect(index)}
-                        disabled={showAnswer}
-                        className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
-                          showAnswer
-                            ? index === currentQ.correctAnswer
-                              ? "border-green-500 bg-green-50 dark:bg-green-900/20"
+                  {currentQ.options && (
+                    <div className="space-y-3">
+                      {currentQ.options.map((option, index) => (
+                        <button
+                          key={index}
+                          onClick={() => !showAnswer && handleAnswerSelect(index)}
+                          disabled={showAnswer}
+                          className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
+                            showAnswer
+                              ? index === currentQ.correctAnswer
+                                ? "border-green-500 bg-green-50 dark:bg-green-900/20"
+                                : userAnswer === index.toString()
+                                  ? "border-red-500 bg-red-50 dark:bg-red-900/20"
+                                  : "border-gray-200 dark:border-gray-700"
                               : userAnswer === index.toString()
-                              ? "border-red-500 bg-red-50 dark:bg-red-900/20"
-                              : "border-gray-200 dark:border-gray-700"
-                            : userAnswer === index.toString()
-                            ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-                            : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
-                        }`}
-                      >
-                        <span className="font-medium mr-2">
-                          {String.fromCharCode(65 + index)}.
-                        </span>
-                        {option}
-                      </button>
-                    ))}
-                  </div>
+                                ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                                : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                          }`}
+                        >
+                          <span className="font-medium mr-2">
+                            {String.fromCharCode(65 + index)}.
+                          </span>
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                  )}
 
                   {/* 答案解析 */}
-                  {showAnswer && (
+                  {showAnswer && currentQ.explanation && (
                     <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                       <h4 className="font-medium mb-2">📝 答案解析</h4>
                       <p className="whitespace-pre-wrap text-sm text-gray-700 dark:text-gray-300">
@@ -195,6 +275,10 @@ export default function LearningPage() {
                     </div>
                   </div>
                 </>
+              ) : (
+                <CardContent className="py-12 text-center text-gray-500">
+                  该学科暂无练习题
+                </CardContent>
               )}
             </CardContent>
           </Card>
@@ -209,16 +293,16 @@ export default function LearningPage() {
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-center gap-3">
-                <input type="checkbox" checked className="rounded" />
-                <span className="text-sm">完成5道二次函数题目</span>
+                <input type="checkbox" className="rounded" />
+                <span className="text-sm">完成5道练习题</span>
               </div>
               <div className="flex items-center gap-3">
                 <input type="checkbox" className="rounded" />
-                <span className="text-sm">复习三角函数基础</span>
+                <span className="text-sm">复习薄弱知识点</span>
               </div>
               <div className="flex items-center gap-3">
                 <input type="checkbox" className="rounded" />
-                <span className="text-sm">学习力学综合题</span>
+                <span className="text-sm">学习30分钟</span>
               </div>
             </CardContent>
           </Card>
@@ -229,7 +313,7 @@ export default function LearningPage() {
               <CardTitle className="text-base">推荐学习</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              {["二次函数图像", "三角函数公式", "牛顿运动定律"].map((item, index) => (
+              {["基础概念", "错题回顾", "知识点巩固"].map((item, index) => (
                 <Button
                   key={index}
                   variant="ghost"

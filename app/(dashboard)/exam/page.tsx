@@ -1,19 +1,28 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { getEnabledSubjects, type Subject } from "@/types/subject"
 
 export default function ExamPage() {
   const router = useRouter()
   const [activeTab, setActiveTab] = useState<"text" | "image">("text")
   const [content, setContent] = useState("")
-  const [subject, setSubject] = useState<"数学" | "物理" | "化学" | "英语">("数学")
+  const [subjects, setSubjects] = useState<Subject[]>([])
+  const [selectedSubject, setSelectedSubject] = useState("数学")
   const [examType, setExamType] = useState<"期中" | "期末" | "月考" | "练习" | "模拟">("期末")
   const [totalScore, setTotalScore] = useState("100")
   const [isParsing, setIsParsing] = useState(false)
+
+  useEffect(() => {
+    setSubjects(getEnabledSubjects())
+    if (getEnabledSubjects().length > 0) {
+      setSelectedSubject(getEnabledSubjects()[0].name)
+    }
+  }, [])
 
   const handleParse = async () => {
     if (!content.trim()) {
@@ -29,7 +38,7 @@ export default function ExamPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           content,
-          subject,
+          subject: selectedSubject,
           examType,
           totalScore: parseFloat(totalScore),
         }),
@@ -38,7 +47,6 @@ export default function ExamPage() {
       if (!response.ok) throw new Error("解析失败")
 
       const data = await response.json()
-      // 跳转到答案录入页面
       router.push(`/exam/${data.examId}/answer`)
     } catch (error) {
       console.error(error)
@@ -93,14 +101,15 @@ A. (2,-1)    B. (2,1)    C. (-2,-1)    D. (-2,1)
             <div className="space-y-2">
               <label className="text-sm font-medium">科目</label>
               <select
-                value={subject}
-                onChange={(e) => setSubject(e.target.value as any)}
-                className="w-full h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm"
+                value={selectedSubject}
+                onChange={(e) => setSelectedSubject(e.target.value)}
+                className="w-full h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option>数学</option>
-                <option>物理</option>
-                <option>化学</option>
-                <option>英语</option>
+                {subjects.map((subject) => (
+                  <option key={subject.id} value={subject.name}>
+                    {subject.icon} {subject.name}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="space-y-2">
@@ -108,7 +117,7 @@ A. (2,-1)    B. (2,1)    C. (-2,-1)    D. (-2,1)
               <select
                 value={examType}
                 onChange={(e) => setExamType(e.target.value as any)}
-                className="w-full h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm"
+                className="w-full h-10 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option>期中</option>
                 <option>期末</option>
@@ -225,15 +234,19 @@ A. 选项A    B. 选项B    C. 选项C    D. 选项D
         </Card>
       )}
 
-      {/* 我的试卷列表 */}
-      <Card>
-        <CardHeader>
-          <CardTitle>我的试卷</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-gray-500 text-sm">暂无试卷记录</p>
-        </CardContent>
-      </Card>
+      {/* 无学科提示 */}
+      {subjects.length === 0 && (
+        <Card>
+          <CardContent className="py-12 text-center">
+            <p className="text-gray-500 mb-4">
+              尚未启用任何学科，请先在设置中启用学科
+            </p>
+            <Button onClick={() => router.push("/settings")}>
+              前往设置
+            </Button>
+          </CardContent>
+        </Card>
+      )}
     </div>
   )
 }
