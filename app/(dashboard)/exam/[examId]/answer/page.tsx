@@ -14,6 +14,7 @@ interface Question {
   score: number
   difficulty: number
   knowledgePoints: string[]
+  userAnswer?: string  // 从 OCR 识别的学生答案
 }
 
 interface AnswerData {
@@ -21,6 +22,10 @@ interface AnswerData {
   userAnswer: string
   isCorrect?: boolean
   isSkipped: boolean
+  errorAnalysis?: string  // AI 分析的错误原因
+  weakPoints?: string[]  // 薄弱知识点
+  improvement?: string  // 改进建议
+  aiExplanation?: string  // AI 详细解析
 }
 
 export default function ExamAnswerPage() {
@@ -33,6 +38,8 @@ export default function ExamAnswerPage() {
   const [answers, setAnswers] = useState<Record<string, AnswerData>>({})
   const [loading, setLoading] = useState(true)
   const [submitted, setSubmitted] = useState(false)
+  const [analyzingAI, setAnalyzingAI] = useState(false)
+  const [examSubject, setExamSubject] = useState("")
 
   useEffect(() => {
     // 加载试卷数据
@@ -45,6 +52,7 @@ export default function ExamAnswerPage() {
       const cache = (global as any).examCache?.[examId]
       if (cache) {
         setQuestions(cache.questions)
+        setExamSubject(cache.subject || "")
       } else {
         // 如果缓存没有，显示错误
         alert("试卷数据不存在，请重新上传")
@@ -84,6 +92,50 @@ export default function ExamAnswerPage() {
         isSkipped: result === "skipped",
       },
     })
+  }
+
+  const handleAIAnalyze = async () => {
+    if (!currentAnswer.trim()) {
+      alert("请先输入学生答案")
+      return
+    }
+
+    setAnalyzingAI(true)
+
+    try {
+      const response = await fetch("/api/exam/analyze-question", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: currentQuestion,
+          userAnswer: currentAnswer,
+          subject: examSubject,
+        }),
+      })
+
+      if (!response.ok) throw new Error("AI分析失败")
+
+      const data = await response.json()
+
+      // 更新答案数据，包含 AI 分析结果
+      setAnswers({
+        ...answers,
+        [currentQuestion.number]: {
+          ...answers[currentQuestion.number],
+          questionId: currentQuestion.number.toString(),
+          userAnswer: currentAnswer,
+          errorAnalysis: data.errorAnalysis,
+          weakPoints: data.weakPoints || [],
+          improvement: data.improvement,
+          aiExplanation: data.explanation,
+        },
+      })
+    } catch (error) {
+      console.error(error)
+      alert("AI分析失败，请重试")
+    } finally {
+      setAnalyzingAI(false)
+    }
   }
 
   const handlePrevious = () => {
@@ -275,9 +327,22 @@ export default function ExamAnswerPage() {
 
           {/* 结果标注 */}
           <div className="border-t pt-4" key={`result-${currentQuestion.number}`}>
-            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              答题结果:
-            </label>
+            <div className="flex justify-between items-center">
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                答题结果:
+              </label>
+              {(currentResult === false || (currentAnswer && !currentResult)) && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleAIAnalyze}
+                  disabled={analyzingAI}
+                  className="text-purple-600 hover:text-purple-700"
+                >
+                  {analyzingAI ? "分析中..." : "🤖 AI 错因分析"}
+                </Button>
+              )}
+            </div>
             <div className="flex gap-4 mt-2">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -311,6 +376,69 @@ export default function ExamAnswerPage() {
               </label>
             </div>
           </div>
+
+          {/* AI 分析结果 */}
+          {answers[currentQuestion.number]?.errorAnalysis && (
+            <div className="border-t pt-4">
+              <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 space-y-3">
+                <h4 className="font-medium text-purple-900 dark:text-purple-300">
+                  🤖 AI 分析结果
+                </h4>
+
+                {answers[currentQuestion.number].errorAnalysis && (
+                  <div>
+                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      错误原因:
+                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      {answers[currentQuestion.number].errorAnalysis}
+                    </p>
+                  </div>
+                )}
+
+                {answers[currentQuestion.number].weakPoints &&
+                  answers[currentQuestion.number].weakPoints!.length > 0 && (
+                  <div>
+                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      薄弱知识点:
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                      {answers[currentQuestion.number].weakPoints!.map((point, i) => (
+                        <span
+                          key={i}
+                          className="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-xs rounded"
+                        >
+                          {point}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {answers[currentQuestion.number].improvement && (
+                  <div>
+                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      改进建议:
+                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      {answers[currentQuestion.number].improvement}
+                    </p>
+                  </div>
+                )}
+
+                {answers[currentQuestion.number].aiExplanation && (
+                  <details className="mt-2">
+                    <summary className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer">
+                      📝 查看详细解析
+                    </summary>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 whitespace-pre-wrap">
+                      {answers[currentQuestion.number].aiExplanation}
+                    </p>
+                  </details>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* 导航按钮 */}
           <div className="flex justify-between pt-4 border-t">

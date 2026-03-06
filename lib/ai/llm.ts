@@ -6,6 +6,7 @@
 export interface ChatMessage {
   role: "system" | "user" | "assistant"
   content: string
+  images?: string[]  // base64 encoded images
 }
 
 export interface LLMResponse {
@@ -39,6 +40,37 @@ function getDefaultOptions(): LLMOptions {
 }
 
 /**
+ * 将消息转换为支持视觉的格式
+ * 注意：不同 AI 提供商的视觉格式不同
+ */
+function convertMessagesForVision(messages: ChatMessage[], provider: AIProvider): any[] {
+  return messages.map(msg => {
+    if (msg.images && msg.images.length > 0 && msg.role === "user") {
+      // DeepSeek 目前不支持图片输入，跳过图片
+      if (provider === "deepseek") {
+        return { role: msg.role, content: msg.content }
+      }
+      // OpenAI 格式
+      if (provider === "openai") {
+        return {
+          role: msg.role,
+          content: [
+            { type: "text", text: msg.content },
+            ...msg.images.map(img => ({
+              type: "image_url",
+              image_url: { url: img }
+            }))
+          ]
+        }
+      }
+      // 其他情况暂时不支持图片
+      return { role: msg.role, content: msg.content }
+    }
+    return { role: msg.role, content: msg.content }
+  })
+}
+
+/**
  * DeepSeek API 调用
  */
 async function callDeepSeek(
@@ -53,6 +85,16 @@ async function callDeepSeek(
     throw new Error("DEEPSEEK_API_KEY is not set")
   }
 
+  // 检查是否有图片
+  const hasImages = messages.some(m => m.images && m.images.length > 0)
+
+  // DeepSeek 暂不支持图片输入，如果有图片则警告并忽略
+  if (hasImages) {
+    console.warn("DeepSeek 目前不支持图片输入，将忽略图片仅使用文本")
+  }
+
+  const convertedMessages = convertMessagesForVision(messages, "deepseek")
+
   const response = await fetch(`${baseUrl}/v1/chat/completions`, {
     method: "POST",
     headers: {
@@ -61,7 +103,7 @@ async function callDeepSeek(
     },
     body: JSON.stringify({
       model,
-      messages,
+      messages: convertedMessages,
       temperature: options.temperature,
       max_tokens: options.maxTokens,
     }),
@@ -147,6 +189,12 @@ async function callOpenAI(
     throw new Error("OPENAI_API_KEY is not set")
   }
 
+  // 检查是否有图片
+  const hasImages = messages.some(m => m.images && m.images.length > 0)
+  const convertedMessages = hasImages
+    ? convertMessagesForVision(messages, "openai")
+    : messages
+
   const response = await fetch(`${baseUrl}/chat/completions`, {
     method: "POST",
     headers: {
@@ -155,7 +203,7 @@ async function callOpenAI(
     },
     body: JSON.stringify({
       model,
-      messages,
+      messages: convertedMessages,
       temperature: options.temperature,
       max_tokens: options.maxTokens,
     }),
@@ -196,6 +244,27 @@ async function callAnthropic(
   const systemMessage = messages.find(m => m.role === "system")
   const chatMessages = messages.filter(m => m.role !== "system")
 
+  // 转换为 Claude 格式，支持图片
+  const convertedMessages = chatMessages.map(msg => {
+    if (msg.images && msg.images.length > 0) {
+      return {
+        role: msg.role,
+        content: [
+          { type: "text", text: msg.content },
+          ...msg.images.map(img => ({
+            type: "image",
+            source: {
+              type: "base64",
+              media_type: "image/jpeg",
+              data: img.split(",")[1]
+            }
+          }))
+        ]
+      }
+    }
+    return { role: msg.role, content: msg.content }
+  })
+
   const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -205,7 +274,7 @@ async function callAnthropic(
     },
     body: JSON.stringify({
       model,
-      messages: chatMessages,
+      messages: convertedMessages,
       system: systemMessage?.content,
       max_tokens: options.maxTokens,
       temperature: options.temperature,

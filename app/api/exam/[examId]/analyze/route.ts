@@ -146,9 +146,53 @@ ${strongPoints.join(", ")}
       analysis: analysisData,
     }
 
+    // 保存错题到错题本
+    const wrongQuestionsCache = (global as any).wrongQuestionsCache || []
+
+    answers.forEach((answer: any) => {
+      const question = questions.find((q: any) => q.number === parseInt(answer.questionId))
+      if (question && answer.isCorrect === false && answer.userAnswer) {
+        // 检查是否已存在
+        const exists = wrongQuestionsCache.some(
+          (wq: any) => wq.content === question.content && wq.userAnswer === answer.userAnswer
+        )
+        if (exists) return
+
+        const wrongQuestion = {
+          id: `wq-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          userId: DEFAULT_USER_ID,
+          subject: examData.subject,
+          type: question.type,
+          content: question.content,
+          options: question.options ? JSON.stringify(question.options) : undefined,
+          correctAnswer: answer.correctAnswer || "",
+          userAnswer: answer.userAnswer,
+          knowledgePoints: question.knowledgePoints || [],
+          difficulty: question.difficulty || 3,
+          errorReason: answer.errorReason,
+          errorAnalysis: answer.errorAnalysis,
+          weakPoints: answer.weakPoints || [],
+          improvement: answer.improvement,
+          aiExplanation: answer.aiExplanation,
+          reviewCount: 0,
+          nextReviewAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(), // 5分钟后
+          status: "active",
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          originalExamId: examId,
+          originalQuestionId: question.number.toString(),
+        }
+
+        wrongQuestionsCache.push(wrongQuestion)
+      }
+    })
+
+    ;(global as any).wrongQuestionsCache = wrongQuestionsCache
+
     return NextResponse.json({
       success: true,
       analysis: analysisData,
+      wrongQuestionsAdded: wrongQuestionsCache.length,
     })
   } catch (error) {
     console.error("Exam analysis error:", error)

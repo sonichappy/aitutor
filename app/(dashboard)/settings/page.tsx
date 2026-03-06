@@ -40,8 +40,8 @@ export default function SettingsPage() {
   }
 
   const enabledCount = subjects.filter(s => s.enabled).length
-  const理科Count = subjects.filter(s => s.enabled && s.category === "理科").length
-  const文科Count = subjects.filter(s => s.enabled && s.category === "文科").length
+  const scienceCount = subjects.filter(s => s.enabled && s.category === "理科").length
+  const liberalCount = subjects.filter(s => s.enabled && s.category === "文科").length
 
   const colorClasses: Record<string, string> = {
     blue: "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300",
@@ -78,13 +78,13 @@ export default function SettingsPage() {
         <Card>
           <CardHeader className="pb-2">
             <CardDescription>理科</CardDescription>
-            <CardTitle className="text-3xl">{理科Count} 个</CardTitle>
+            <CardTitle className="text-3xl">{scienceCount} 个</CardTitle>
           </CardHeader>
         </Card>
         <Card>
           <CardHeader className="pb-2">
             <CardDescription>文科</CardDescription>
-            <CardTitle className="text-3xl">{文科Count} 个</CardTitle>
+            <CardTitle className="text-3xl">{liberalCount} 个</CardTitle>
           </CardHeader>
         </Card>
       </div>

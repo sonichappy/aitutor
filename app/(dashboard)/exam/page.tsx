@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { ImageUpload } from "@/components/ImageUpload"
 import { getEnabledSubjects, type Subject } from "@/types/subject"
 
 export default function ExamPage() {
@@ -16,6 +17,8 @@ export default function ExamPage() {
   const [examType, setExamType] = useState<"期中" | "期末" | "月考" | "练习" | "模拟">("期末")
   const [totalScore, setTotalScore] = useState("100")
   const [isParsing, setIsParsing] = useState(false)
+  const [imageFile, setImageFile] = useState<File | null>(null)
+  const [imagePreview, setImagePreview] = useState<string | null>(null)
 
   useEffect(() => {
     setSubjects(getEnabledSubjects())
@@ -25,35 +28,74 @@ export default function ExamPage() {
   }, [])
 
   const handleParse = async () => {
-    if (!content.trim()) {
+    if (activeTab === "text" && !content.trim()) {
       alert("请输入试卷内容")
+      return
+    }
+    if (activeTab === "image" && !imageFile) {
+      alert("请上传试卷图片")
       return
     }
 
     setIsParsing(true)
 
     try {
-      const response = await fetch("/api/exam/parse", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          content,
-          subject: selectedSubject,
-          examType,
-          totalScore: parseFloat(totalScore),
-        }),
-      })
+      let response: Response
+      let errorMsg = ""
 
-      if (!response.ok) throw new Error("解析失败")
+      if (activeTab === "image") {
+        // 图片上传 - 使用 OCR 解析
+        const formData = new FormData()
+        formData.append("file", imageFile!)
+        formData.append("subject", selectedSubject)
+        formData.append("examType", examType)
+        formData.append("totalScore", totalScore)
+
+        response = await fetch("/api/exam/parse-image", {
+          method: "POST",
+          body: formData,
+        })
+        errorMsg = "图片解析失败"
+      } else {
+        // 文本解析
+        response = await fetch("/api/exam/parse", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            content,
+            subject: selectedSubject,
+            examType,
+            totalScore: parseFloat(totalScore),
+          }),
+        })
+        errorMsg = "试卷解析失败"
+      }
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: response.statusText }))
+        console.error("Parse error:", errorData)
+        throw new Error(errorData.error || errorMsg)
+      }
 
       const data = await response.json()
-      router.push(`/exam/${data.examId}/answer`)
-    } catch (error) {
-      console.error(error)
-      alert("试卷解析失败，请检查内容格式")
+      // 跳转到确认页面，让用户验证解析结果
+      router.push(`/exam/${data.examId}/review`)
+    } catch (error: any) {
+      console.error("Parse error:", error)
+      alert(`${activeTab === "image" ? "图片" : "试卷"}解析失败：${error.message || "请检查网络连接和API配置"}`)
     } finally {
       setIsParsing(false)
     }
+  }
+
+  const handleImageSelect = (file: File, preview: string) => {
+    setImageFile(file)
+    setImagePreview(preview)
+  }
+
+  const handleImageRemove = () => {
+    setImageFile(null)
+    setImagePreview(null)
   }
 
   const exampleContent = `一、选择题（每题3分，共30分）
@@ -144,7 +186,7 @@ A. (2,-1)    B. (2,1)    C. (-2,-1)    D. (-2,1)
         <CardHeader>
           <CardTitle>选择录入方式</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-4">
           <div className="flex gap-4">
             <Button
               variant={activeTab === "text" ? "default" : "outline"}
@@ -155,11 +197,17 @@ A. (2,-1)    B. (2,1)    C. (-2,-1)    D. (-2,1)
             <Button
               variant={activeTab === "image" ? "default" : "outline"}
               onClick={() => setActiveTab("image")}
-              disabled
             >
-              📷 图片上传（开发中）
+              📷 图片上传
             </Button>
           </div>
+          {activeTab === "image" && (
+            <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+              <p className="text-sm text-yellow-800 dark:text-yellow-300">
+                ⚠️ 当前使用 DeepSeek AI，图片上传功能暂不可用。请使用文本粘贴方式，或在 .env 中将 AI_PROVIDER 设置为 openai。
+              </p>
+            </div>
+          )}
         </CardContent>
       </Card>
 
@@ -221,15 +269,26 @@ A. 选项A    B. 选项B    C. 选项C    D. 选项D
       {/* 图片录入 */}
       {activeTab === "image" && (
         <Card>
-          <CardContent className="py-12 text-center">
-            <div className="text-6xl mb-4">📷</div>
-            <h3 className="text-lg font-medium mb-2">图片上传功能开发中</h3>
-            <p className="text-gray-500 mb-4">
-              敬请期待 OCR 图片识别功能
-            </p>
-            <p className="text-sm text-gray-400">
-              目前请使用文本粘贴方式录入试卷
-            </p>
+          <CardHeader>
+            <CardTitle>上传试卷图片</CardTitle>
+            <CardDescription>
+              支持 JPG、PNG 格式，建议图片清晰，光线充足
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <ImageUpload
+              onImageSelect={handleImageSelect}
+              onImageRemove={handleImageRemove}
+            />
+            <div className="flex justify-end">
+              <Button
+                onClick={handleParse}
+                disabled={isParsing || !imageFile}
+                size="lg"
+              >
+                {isParsing ? "解析中..." : "开始解析"}
+              </Button>
+            </div>
           </CardContent>
         </Card>
       )}
