@@ -27,7 +27,10 @@
         "y": 340,
         "width": 120,
         "height": 40
-      }
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-08T15:54:28.243Z"
     },
     {
       "number": 7,
@@ -118,7 +121,10 @@
         "y": 580,
         "width": 180,
         "height": 60
-      }
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-08T15:54:31.123Z"
     },
     {
       "number": 1,
@@ -210,7 +216,10 @@
         "y": 400,
         "width": 180,
         "height": 40
-      }
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-08T15:54:40.558Z"
     },
     {
       "number": 5,
@@ -233,7 +242,10 @@
         "y": 460,
         "width": 180,
         "height": 40
-      }
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-08T15:54:41.421Z"
     },
     {
       "number": 6,
@@ -255,7 +267,10 @@
         "y": 520,
         "width": 180,
         "height": 40
-      }
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-08T15:54:45.021Z"
     },
     {
       "number": 7,
@@ -278,7 +293,10 @@
         "y": 580,
         "width": 180,
         "height": 40
-      }
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-08T15:54:46.386Z"
     }
   ],
   "createdAt": "2026-03-07T18:02:12.267Z",
@@ -297,5 +315,5 @@
       "choice": 12
     }
   },
-  "updatedAt": "2026-03-08T03:24:22.801Z"
+  "updatedAt": "2026-03-08T15:54:47.567Z"
 }

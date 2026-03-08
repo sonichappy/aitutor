@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { AddExamDialog } from "@/components/AddExamDialog"
-import { getEnabledSubjects, getSubjectByName, type Subject } from "@/types/subject"
+import { getEnabledSubjects, clearSubjectsCache, type Subject } from "@/types/subject"
 import { clsx } from "clsx"
 import { Trash2, CheckSquare, Square, X } from "lucide-react"
 
@@ -54,6 +54,12 @@ interface ExamListItem {
     isEssay?: boolean
     essayType?: string
   }
+  questions?: Array<{
+    number: number
+    score: number
+    isCorrect?: boolean
+    isSkipped?: boolean
+  }>
   answerStats?: {
     correct?: number
     wrong?: number
@@ -86,9 +92,19 @@ export default function ExamPage() {
     loadAccuracyColors()
   }, [])
 
-  const loadSubjects = () => {
-    const enabledSubjects = getEnabledSubjects()
-    setSubjects(enabledSubjects)
+  const loadSubjects = async () => {
+    try {
+      const enabledSubjects = await getEnabledSubjects()
+      setSubjects(enabledSubjects)
+    } catch (error) {
+      console.error("Failed to load subjects:", error)
+      // 使用默认的已启用学科
+      setSubjects([
+        { id: "math", name: "数学", icon: "📐", color: "blue", enabled: true, category: "理科" },
+        { id: "chinese", name: "语文", icon: "📖", color: "red", enabled: true, category: "文科" },
+        { id: "english", name: "英语", icon: "🔤", color: "purple", enabled: true, category: "文科" },
+      ])
+    }
   }
 
   const loadExamMetadata = async () => {
@@ -130,49 +146,63 @@ export default function ExamPage() {
         const data = await response.json()
         const exams = data.exams || []
 
-        // 从 sessionStorage 读取每张试卷的题目标记状态并计算正确率
+        // 从题目对象计算答题统计
         const examsWithStats = exams.map((exam: ExamListItem) => {
-          const marks = sessionStorage.getItem(`exam_marks_${exam.id}`)
-          const examData = sessionStorage.getItem(`exam_${exam.id}`)
-          const questions = examData ? JSON.parse(examData).questions : []
+          // 如果服务器已经有 answerStats 且有数据，直接使用
+          if (exam.answerStats && exam.answerStats.total && exam.answerStats.total > 0) {
+            return exam
+          }
 
-          // 计算统计数据（未标记的题目默认为做对）
+          // 从题目对象计算统计信息
+          if (!exam.questions || exam.questions.length === 0) {
+            return exam
+          }
+
           let correctCount = 0  // 明确标记为做对的数量
           let wrongCount = 0     // 标记为做错的数量
           let skippedCount = 0   // 标记为不会做的数量
-          let unmarkedCount = 0  // 未标记的数量（也视为做对）
+          let markedCount = 0    // 已标记的数量
           let correctScore = 0   // 做对题目得分
           let totalScore = 0     // 题目总分
 
-          questions.forEach((q: any) => {
-            totalScore += q.score
-            const mark = marks ? JSON.parse(marks)[q.number] : null
+          exam.questions.forEach((q: any) => {
+            totalScore += q.score || 0
 
-            if (mark === 'correct') {
+            if (q.isCorrect === true) {
               correctCount++
-              correctScore += q.score
-            } else if (mark === 'wrong') {
+              correctScore += q.score || 0
+              markedCount++
+            } else if (q.isCorrect === false) {
               wrongCount++
-            } else if (mark === 'skipped') {
+              markedCount++
+            } else if (q.isSkipped) {
               skippedCount++
-            } else {
-              // 未标记，默认为做对
-              unmarkedCount++
-              correctScore += q.score
+              markedCount++
             }
+            // 未标记的题目不计入统计
           })
 
-          // 正确率 = 做对题目得分 / 题目总分
-          // 做对题目得分 = (明确标记做对 + 未标记题目) 的得分
-          const accuracy = totalScore > 0 ? Math.round((correctScore / totalScore) * 100) : 0
+          // 只有当有标记过的题目时才计算正确率
+          if (markedCount === 0) {
+            return exam // 没有任何标记，不显示统计
+          }
+
+          // 未标记的题目默认为做对
+          const unmarkedCount = exam.questions.length - markedCount
+          const totalCorrect = correctCount + unmarkedCount
+          totalScore = exam.questions.reduce((sum, q) => sum + (q.score || 0), 0)
+
+          // 计算正确率：做对题目得分 / 题目总分
+          const finalCorrectScore = correctScore + unmarkedCount * (totalScore / exam.questions.length)
+          const accuracy = totalScore > 0 ? Math.round((finalCorrectScore / totalScore) * 100) : 0
 
           return {
             ...exam,
             answerStats: {
-              correct: correctCount + unmarkedCount,  // 包括未标记的
+              correct: totalCorrect,
               wrong: wrongCount,
               skipped: skippedCount,
-              total: questions.length,
+              total: exam.questions.length,
               accuracy,
             },
           }
@@ -281,7 +311,7 @@ export default function ExamPage() {
   }
 
   const getSubjectInfo = (subjectName: string) => {
-    return getSubjectByName(subjectName)
+    return subjects.find(s => s.name === subjectName)
   }
 
   const getExamTypeInfo = (exam: ExamListItem) => {
@@ -332,7 +362,7 @@ export default function ExamPage() {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-            试卷分析
+            试卷中心
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-2">
             管理和分析你的试卷
@@ -593,6 +623,26 @@ export default function ExamPage() {
                                   </span>
                                 )}
                               </div>
+
+                              {/* 答题统计 - 显示对题、错题、跳过数量 */}
+                              {exam.answerStats && (exam.answerStats.total ?? 0) > 0 && (
+                                <div className="flex items-center gap-3 text-sm">
+                                  <span className="flex items-center gap-1">
+                                    <span className="text-green-600">✓</span>
+                                    <span className="text-gray-600 dark:text-gray-400">对 {exam.answerStats.correct || 0}</span>
+                                  </span>
+                                  <span className="flex items-center gap-1">
+                                    <span className="text-red-600">✗</span>
+                                    <span className="text-gray-600 dark:text-gray-400">错 {exam.answerStats.wrong || 0}</span>
+                                  </span>
+                                  {(exam.answerStats.skipped || 0) > 0 && (
+                                    <span className="flex items-center gap-1">
+                                      <span className="text-gray-400">○</span>
+                                      <span className="text-gray-600 dark:text-gray-400">跳过 {exam.answerStats.skipped || 0}</span>
+                                    </span>
+                                  )}
+                                </div>
+                              )}
 
                               {/* 作文类型标识 */}
                               {exam.metadata?.isEssay && (

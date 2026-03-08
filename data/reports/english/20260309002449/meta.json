@@ -1,0 +1,68 @@
+{
+  "userId": "user-1",
+  "subject": "英语",
+  "subjectId": "english",
+  "title": "英语学习报告",
+  "startDate": "2026-02-06",
+  "endDate": "2026-03-08",
+  "generatedAt": "2026-03-08T16:24:49.121Z",
+  "stats": {
+    "totalExams": 5,
+    "totalQuestions": 60,
+    "markedQuestions": 25,
+    "correctQuestions": 0,
+    "wrongQuestions": 25,
+    "skippedQuestions": 0,
+    "avgAccuracy": 0.5833333333333334
+  },
+  "analysis": {
+    "knowledgeMatrix": {
+      "description": "知识点覆盖矩阵",
+      "topWeakPoints": [
+        {
+          "point": "可数/不可数名词辨析及量词搭配",
+          "errorRate": 88,
+          "count": 14
+        },
+        {
+          "point": "主谓一致特殊结构（not...but, many a, nobody but, along with等）",
+          "errorRate": 75,
+          "count": 6
+        },
+        {
+          "point": "名词所有格与复合名词构成",
+          "errorRate": 67,
+          "count": 6
+        }
+      ]
+    },
+    "abilityAssessment": {
+      "description": "能力维度评估",
+      "mainIssue": "基础识记模糊",
+      "analysis": "学生对核心名词属性（可数性、不可数性）存在系统性混淆，如将advice、furniture、weather、pollution等典型不可数名词误作可数处理；在量词选择上频繁混淆much/many与a pair of/a lot of等搭配逻辑；对主谓一致的语法敏感度不足，尤其在插入语、并列主语、部分否定结构中无法准确识别真正主语。错误集中于基础规则应用层，而非高阶推理，表明词汇语义认知与语法形式匹配尚未固化，属于典型的‘知其然不知其所以然’型薄弱点。"
+    },
+    "errorPatterns": {
+      "description": "错误模式挖掘",
+      "patterns": [
+        "不可数名词强制复数化（如advices, furnitures, pollutions）",
+        "量词与名词可数性错配（如too many hamburger, too much hamburgers）",
+        "忽略所有格标记导致结构错误（如a day work vs a day's work）",
+        "主语中心被修饰成分干扰（如along with, but, and连接的同位语误判为复数主语）"
+      ]
+    },
+    "prediction": {
+      "description": "潜能与风险预判",
+      "nextChapterRisks": [
+        "在完成时态与非谓语动词章节中，因名词属性不清导致宾语搭配错误（如enjoy doing sth. vs enjoy sth.）",
+        "在阅读理解中误判抽象名词指代范围，影响主旨推断",
+        "写作中出现大量冠词滥用（a/an/the）与量化表达失当（e.g., 'a lot of informations'）"
+      ],
+      "recommendations": [
+        "开展‘名词可数性三步诊断法’专项训练：①查词典确认属性 ②归类高频易混词（advice, furniture, news, luggage等） ③构建量词-名词匹配表",
+        "设计主谓一致‘主语锚定’可视化练习：用下划线标出真正主语，排除干扰成分",
+        "引入真实语料对比：展示母语者如何自然使用a pair of stockings / today's newspaper / a friend of my brother's，强化语感内化"
+      ]
+    }
+  },
+  "id": "20260309002449"
+}

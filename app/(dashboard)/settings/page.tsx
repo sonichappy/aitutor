@@ -3,19 +3,30 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { DEFAULT_SUBJECTS, getSubjects, saveSubjects, resetSubjects, type Subject } from "@/types/subject"
+import { getSubjects, saveSubjects, resetSubjects, DEFAULT_SUBJECTS, clearSubjectsCache, type Subject } from "@/types/subject"
 
 export default function SettingsPage() {
   const [subjects, setSubjects] = useState<Subject[]>([])
   const [hasChanges, setHasChanges] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     loadSubjects()
   }, [])
 
-  const loadSubjects = () => {
-    setSubjects(getSubjects())
-    setHasChanges(false)
+  const loadSubjects = async () => {
+    setIsLoading(true)
+    try {
+      const data = await getSubjects()
+      setSubjects(data)
+      setHasChanges(false)
+    } catch (error) {
+      console.error("Failed to load subjects:", error)
+      // 使用默认值
+      setSubjects(DEFAULT_SUBJECTS)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleToggle = (id: string) => {
@@ -26,16 +37,28 @@ export default function SettingsPage() {
     setHasChanges(true)
   }
 
-  const handleSave = () => {
-    saveSubjects(subjects)
-    setHasChanges(false)
-    alert("学科设置已保存")
+  const handleSave = async () => {
+    try {
+      await saveSubjects(subjects)
+      setHasChanges(false)
+      clearSubjectsCache()
+      alert("学科设置已保存")
+    } catch (error) {
+      console.error("Failed to save subjects:", error)
+      alert("保存失败，请重试")
+    }
   }
 
-  const handleReset = () => {
+  const handleReset = async () => {
     if (confirm("确定要重置为默认设置吗？")) {
-      resetSubjects()
-      loadSubjects()
+      try {
+        await resetSubjects()
+        await loadSubjects()
+        clearSubjectsCache()
+      } catch (error) {
+        console.error("Failed to reset subjects:", error)
+        alert("重置失败，请重试")
+      }
     }
   }
 
@@ -196,7 +219,7 @@ export default function SettingsPage() {
             </div>
           </div>
           <p className="mt-4 text-sm text-gray-500">
-            禁用的学科将在 AI 辅导、试卷分析等功能中隐藏。
+            禁用的学科将在学科中心、试卷中心等功能中隐藏。
           </p>
         </CardContent>
       </Card>

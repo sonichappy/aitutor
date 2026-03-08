@@ -27,7 +27,9 @@
       "Bash(cat:*)",
       "Bash(npx next:*)",
       "Bash(rm:*)",
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(git add:*)",
+      "Bash(pkill:*)"
     ]
   }
 }

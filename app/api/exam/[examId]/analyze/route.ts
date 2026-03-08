@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { callLLM, type ChatMessage } from "@/lib/ai/llm"
-import { getExamData, saveExamData, saveWrongQuestion, wrongQuestionExists } from "@/lib/storage"
+import { getExamData, saveExamData, saveWrongQuestion, wrongQuestionExists, type ExamQuestion } from "@/lib/storage"
 
 // 默认用户ID
 const DEFAULT_USER_ID = "user-1"
@@ -22,25 +22,43 @@ export async function POST(
       )
     }
 
+    // 将答题数据合并到 questions 数组中
+    const questionsWithAnswers: ExamQuestion[] = questions.map((q: any) => {
+      const answer = answers.find((a: any) => parseInt(a.questionId) === q.number)
+      if (!answer) return q
+
+      return {
+        ...q,
+        userAnswer: answer.userAnswer || undefined,
+        isCorrect: answer.isCorrect,
+        isSkipped: answer.isSkipped || false,
+        markedAt: answer.markedAt,
+        correctAnswer: answer.correctAnswer,
+        errorAnalysis: answer.errorAnalysis,
+        weakPoints: answer.weakPoints,
+        improvement: answer.improvement,
+        aiExplanation: answer.aiExplanation,
+      }
+    })
+
     // 计算得分
     let totalScore = 0
     let obtainedScore = 0
     const answeredQuestions: any[] = []
 
-    answers.forEach((answer: any) => {
-      const question = questions.find((q: any) => q.number === parseInt(answer.questionId))
-      if (question) {
-        totalScore += question.score
-        if (answer.isCorrect) {
-          obtainedScore += question.score
-        }
+    questionsWithAnswers.forEach((question: any) => {
+      totalScore += question.score || 0
+      if (question.isCorrect === true) {
+        obtainedScore += question.score || 0
+      }
 
-        // 统计知识点
+      // 统计知识点
+      if (question.isCorrect !== undefined) {
         question.knowledgePoints?.forEach((kp: string) => {
           answeredQuestions.push({
             knowledgePoint: kp,
             score: question.score,
-            obtained: answer.isCorrect ? question.score : 0,
+            obtained: question.isCorrect ? question.score : 0,
           })
         })
       }
@@ -140,35 +158,22 @@ ${strongPoints.join(", ")}
       aiReport,
     }
 
-    // 保存分析结果到文件
+    // 保存分析结果到文件（答题数据保存在题目对象中）
     await saveExamData(examId, {
       ...examData,
-      answers,
+      questions: questionsWithAnswers,
       analysis: analysisData,
-      // 保存答题统计（只统计已判定的题目）
-      answerStats: {
-        correct: answers.filter((a: any) => a.isCorrect === true).length,
-        wrong: answers.filter((a: any) => a.isCorrect === false).length,
-        total: answers.filter((a: any) => a.isCorrect !== undefined).length,
-        accuracy: (() => {
-          const graded = answers.filter((a: any) => a.isCorrect !== undefined)
-          if (graded.length === 0) return 0
-          const correct = graded.filter((a: any) => a.isCorrect === true).length
-          return Math.round((correct / graded.length) * 100)
-        })(),
-        completedAt: new Date().toISOString(),
-      },
     })
-    let wrongQuestionsAdded = 0
 
-    for (const answer of answers) {
-      const question = questions.find((q: any) => q.number === parseInt(answer.questionId))
-      if (question && answer.isCorrect === false && answer.userAnswer) {
+    // 从题目对象中创建错题
+    let wrongQuestionsAdded = 0
+    for (const question of questionsWithAnswers) {
+      if (question.isCorrect === false && question.userAnswer) {
         // 检查是否已存在
         const exists = await wrongQuestionExists(
           DEFAULT_USER_ID,
           question.content,
-          answer.userAnswer
+          question.userAnswer
         )
         if (exists) continue
 
@@ -179,15 +184,15 @@ ${strongPoints.join(", ")}
           type: question.type,
           content: question.content,
           options: question.options ? JSON.stringify(question.options) : undefined,
-          correctAnswer: answer.correctAnswer || "",
-          userAnswer: answer.userAnswer,
+          correctAnswer: question.correctAnswer || "",
+          userAnswer: question.userAnswer,
           knowledgePoints: question.knowledgePoints || [],
           difficulty: question.difficulty || 3,
-          errorReason: answer.errorReason,
-          errorAnalysis: answer.errorAnalysis,
-          weakPoints: answer.weakPoints || [],
-          improvement: answer.improvement,
-          aiExplanation: answer.aiExplanation,
+          errorReason: question.errorReason,
+          errorAnalysis: question.errorAnalysis,
+          weakPoints: question.weakPoints || [],
+          improvement: question.improvement,
+          aiExplanation: question.aiExplanation,
           reviewCount: 0,
           nextReviewAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
           status: "active",

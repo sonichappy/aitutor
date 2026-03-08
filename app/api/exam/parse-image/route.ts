@@ -99,10 +99,13 @@ export async function POST(request: NextRequest) {
 4. 字数要尽量准确估算
 
 **普通试卷重要要求：**
-1. 必须为每道题提供 bbox 字段
-2. bbox 使用百分比坐标，范围 0-100
-3. detectedSubject 必须是具体的科目名称
-4. options 数组中只填选项的纯文本内容，不要包含前缀
+1. **CRITICAL: 必须识别图片中的每一道题目，不要遗漏任何题目**
+2. **CRITICAL: 如果不同章节有相同的题号（如"语法一致"第1题和"就近一致"第1题），必须都添加到 questions 数组，它们是不同的题目**
+3. **CRITICAL: 绝对不要因为题号相同就覆盖前面的题目，每个题目都要独立添加到数组**
+4. 必须为每道题提供 bbox 字段
+5. bbox 使用百分比坐标，范围 0-100
+6. detectedSubject 必须是具体的科目名称
+7. options 数组中只填选项的纯文本内容，不要包含前缀
 
 只返回JSON，不要有其他内容。`
 
@@ -110,6 +113,12 @@ export async function POST(request: NextRequest) {
       {
         role: "system",
         content: `你是专业的试卷OCR和解析系统。你的任务是：
+
+**最重要的规则 - 必须遵守**：
+- 试卷中不同章节的题目可能有相同的题号（例如："语法一致原则"章节有第1题，"就近一致原则"章节也有第1题）
+- 这是完全正常的，两个第1题是不同的题目，必须都添加到 questions 数组中
+- 绝对不能因为题号相同就跳过、覆盖或合并任何题目
+- 每个题目都应该出现在 JSON 的 questions 数组中，按从左到右、从上到下的顺序
 
 **作文识别重点**：
 1. 优先判断是否为作文试卷（语文作文、英语作文）
@@ -225,10 +234,21 @@ export async function POST(request: NextRequest) {
     // 尝试解析修复后的 JSON
     try {
       parsed = JSON.parse(fixedJsonStr)
-      console.log('[Parse Image] Parsed questions with bbox:')
-      parsed.questions?.forEach((q: any, i: number) => {
-        console.log(`  Q${q.number}: bbox=`, q.bbox ? 'YES' : 'NO', q.bbox || '')
-      })
+      console.log('[Parse Image] Total questions parsed:', parsed.questions?.length || 0)
+
+      // 检查是否有重复题号
+      if (parsed.questions && parsed.questions.length > 0) {
+        const numbers = parsed.questions.map((q: any) => q.number)
+        const duplicates = numbers.filter((n: number, i: number) => numbers.indexOf(n) !== i)
+        if (duplicates.length > 0) {
+          console.log('[Parse Image] WARNING: Found duplicate question numbers:', [...new Set(duplicates)])
+        }
+
+        console.log('[Parse Image] Question list:')
+        parsed.questions.forEach((q: any, i: number) => {
+          console.log(`  [${i}] Number: ${q.number}, Type: ${q.type}, Content: ${q.content?.substring(0, 40)}...`)
+        })
+      }
     } catch (e: any) {
       console.error("[Parse Image] JSON parse error even after fixes:", e.message)
       console.error("[Parse Image] Fixed JSON (first 500 chars):", fixedJsonStr.substring(0, 500))
@@ -253,7 +273,12 @@ export async function POST(request: NextRequest) {
 
     // 清理解析结果中的重复标识符
     const cleanedQuestions = cleanParsedQuestions(parsed.questions || [])
-    console.log('[Parse Image] Cleaned questions:', cleanedQuestions.length)
+    console.log('[Parse Image] Cleaned questions count:', cleanedQuestions.length, '(original:', parsed.questions?.length || 0, ')')
+
+    // 验证清理后的题目数量是否一致
+    if (cleanedQuestions.length !== (parsed.questions?.length || 0)) {
+      console.error('[Parse Image] WARNING: Question count changed after cleaning!')
+    }
 
     // 计算整体平均难度
     const avgDifficulty = cleanedQuestions.length > 0

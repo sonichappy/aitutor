@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
     // 获取用户的所有试卷
     const exams = await getUserExams(DEFAULT_USER_ID)
 
-    // 返回精简的试卷信息用于列表展示
+    // 返回试卷信息（包含题目对象用于计算统计）
     const examList = exams.map(exam => ({
       id: exam.id,
       subject: exam.subject,
@@ -22,7 +22,13 @@ export async function GET(request: NextRequest) {
       createdAt: exam.createdAt,
       updatedAt: exam.updatedAt,
       metadata: exam.metadata,
-      answerStats: exam.answerStats,
+      // 返回题目对象的标记字段用于计算统计
+      questions: exam.questions?.map((q: any) => ({
+        number: q.number,
+        score: q.score,
+        isCorrect: q.isCorrect,
+        isSkipped: q.isSkipped,
+      })),
     }))
 
     console.log(`[API] Found ${examList.length} exams for user`)

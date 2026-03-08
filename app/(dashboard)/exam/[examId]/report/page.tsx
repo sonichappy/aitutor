@@ -208,7 +208,7 @@ export default function ExamReportPage() {
         <Card>
           <CardHeader>
             <CardTitle>AI 学习建议</CardTitle>
-            <CardDescription>基于试卷分析生成的个性化建议</CardDescription>
+            <CardDescription>基于试卷智能分析生成的个性化建议</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="prose dark:prose-invert max-w-none whitespace-pre-wrap">

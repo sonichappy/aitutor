@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ImageUpload } from "@/components/ImageUpload"
-import { getEnabledSubjects, type Subject } from "@/types/subject"
+import { getEnabledSubjects, clearSubjectsCache, type Subject } from "@/types/subject"
 
 interface ExamType {
   id: string
@@ -31,10 +31,8 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
   const router = useRouter()
   const [activeTab, setActiveTab] = useState<"text" | "image">("image")
   const [content, setContent] = useState("")
-  const [subjects] = useState<Subject[]>(getEnabledSubjects())
-  const [selectedSubject, setSelectedSubject] = useState(
-    getEnabledSubjects()[0]?.name || ""
-  )
+  const [subjects, setSubjects] = useState<Subject[]>([])
+  const [selectedSubject, setSelectedSubject] = useState("")
   const [examTypes, setExamTypes] = useState<ExamType[]>([])
   const [selectedExamType, setSelectedExamType] = useState("")
   const [totalScore, setTotalScore] = useState("100")
@@ -44,7 +42,20 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
 
   useEffect(() => {
     loadExamMetadata()
+    loadSubjects()
   }, [])
+
+  const loadSubjects = async () => {
+    try {
+      const enabledSubjects = await getEnabledSubjects()
+      setSubjects(enabledSubjects)
+      if (enabledSubjects.length > 0) {
+        setSelectedSubject(enabledSubjects[0].name)
+      }
+    } catch (error) {
+      console.error("Failed to load subjects:", error)
+    }
+  }
 
   const loadExamMetadata = async () => {
     try {

@@ -33,6 +33,18 @@ export interface ExamQuestion {
   // 作文相关字段
   essayGenre?: string  // 作文体裁：记叙文、议论文、说明文、应用文等
   wordCount?: number  // 预估字数
+  // 答题标记字段（记录在每道题中）
+  userAnswer?: string  // 用户答案
+  isCorrect?: boolean  // 是否正确（undefined=未标记，true=正确，false=错误）
+  isSkipped?: boolean  // 是否跳过
+  markedAt?: string  // 标记时间
+  // AI 分析结果字段
+  correctAnswer?: string  // 正确答案
+  errorReason?: string  // 错误原因（旧字段，兼容保留）
+  errorAnalysis?: string  // 错误原因分析
+  weakPoints?: string[]  // 薄弱知识点
+  improvement?: string  // 改进建议
+  aiExplanation?: string  // 详细解析
 }
 
 export interface ExamData {
@@ -284,4 +296,291 @@ export async function wrongQuestionExists(
   return questions.some(
     q => q.content === content && q.userAnswer === userAnswer
   )
+}
+
+// ============================================
+// 学科报告管理
+// ============================================
+
+const REPORTS_DIR = path.join(DATA_DIR, 'reports')
+
+// 报告数据接口
+export interface SubjectReport {
+  id?: string  // 报告ID（可选，保存时自动生成）
+  userId: string
+  subject: string
+  subjectId: string  // 学科ID，如 english, math
+  title: string
+  startDate: string
+  endDate: string
+  generatedAt: string
+  stats: {
+    totalExams: number
+    totalQuestions: number
+    markedQuestions: number
+    correctQuestions: number
+    wrongQuestions: number
+    skippedQuestions: number
+    avgAccuracy: number
+  }
+  analysis?: {
+    knowledgeMatrix?: {
+      description: string
+      topWeakPoints: Array<{
+        point: string
+        errorRate: number
+        count: number
+      }>
+    }
+    abilityAssessment?: {
+      description: string
+      mainIssue: string
+      analysis: string
+    }
+    errorPatterns?: {
+      description: string
+      patterns: string[]
+    }
+    prediction?: {
+      description: string
+      nextChapterRisks: string[]
+      recommendations: string[]
+    }
+  }
+  content: string  // Markdown 格式的报告内容
+}
+
+// 初始化报告目录
+async function ensureReportsDir() {
+  await initStorage()
+  await ensureDir(REPORTS_DIR)
+}
+
+// 根据学科名称获取学科ID
+async function getSubjectIdByName(subjectName: string): Promise<string> {
+  // 学科名称到ID的映射
+  const nameToIdMap: Record<string, string> = {
+    "数学": "math",
+    "代数": "algebra",
+    "几何": "geometry",
+    "语文": "chinese",
+    "英语": "english",
+    "物理": "physics",
+    "化学": "chemistry",
+    "生物": "biology",
+    "历史": "history",
+    "地理": "geography",
+    "道法": "politics",
+    "政治": "politics2",
+  }
+
+  // 先尝试精确匹配
+  if (nameToIdMap[subjectName]) {
+    return nameToIdMap[subjectName]
+  }
+
+  // 如果找不到，返回小写并替换空格
+  return subjectName.toLowerCase().replace(/\s+/g, '-')
+}
+
+// 生成时间戳格式的文件夹名 (YYYYMMDDHHmmss)
+function generateTimestampFolderName(date: Date): string {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  const hours = String(date.getHours()).padStart(2, '0')
+  const minutes = String(date.getMinutes()).padStart(2, '0')
+  const seconds = String(date.getSeconds()).padStart(2, '0')
+
+  return `${year}${month}${day}${hours}${minutes}${seconds}`
+}
+
+// 保存学科报告
+export async function saveSubjectReport(report: SubjectReport): Promise<SubjectReport> {
+  await ensureReportsDir()
+
+  // 生成报告ID和时间戳文件夹名
+  const generatedDate = new Date(report.generatedAt)
+  const timestamp = generateTimestampFolderName(generatedDate)
+
+  if (!report.id) {
+    report.id = timestamp
+  }
+
+  // 获取学科ID
+  const subjectId = report.subjectId || await getSubjectIdByName(report.subject)
+  report.subjectId = subjectId
+
+  // 创建学科子目录
+  const subjectDir = path.join(REPORTS_DIR, subjectId)
+  await ensureDir(subjectDir)
+
+  // 创建报告文件夹
+  const reportDir = path.join(subjectDir, timestamp)
+  await ensureDir(reportDir)
+
+  // 保存报告为 report.md
+  const mdPath = path.join(reportDir, 'report.md')
+  await fs.writeFile(mdPath, report.content, 'utf-8')
+
+  // 保存元数据为 meta.json
+  const metaPath = path.join(reportDir, 'meta.json')
+  const { content, ...meta } = report
+  await fs.writeFile(metaPath, JSON.stringify(meta, null, 2), 'utf-8')
+
+  return report
+}
+
+// 获取某个学科的所有报告
+export async function getSubjectReports(subject: string): Promise<SubjectReport[]> {
+  await ensureReportsDir()
+
+  const reports: SubjectReport[] = []
+  const subjectId = await getSubjectIdByName(subject)
+  const subjectDir = path.join(REPORTS_DIR, subjectId)
+
+  try {
+    await fs.access(subjectDir)
+  } catch {
+    // 目录不存在，返回空数组
+    return reports
+  }
+
+  try {
+    const folders = await fs.readdir(subjectDir)
+
+    for (const folder of folders) {
+      try {
+        const reportDirPath = path.join(subjectDir, folder)
+        const stat = await fs.stat(reportDirPath)
+
+        // 只处理目录
+        if (!stat.isDirectory()) continue
+
+        // 尝试新格式: meta.json 和 report.md
+        let metaPath = path.join(reportDirPath, 'meta.json')
+        let mdPath = path.join(reportDirPath, 'report.md')
+        let metaContent: string | null = null
+        let mdContent: string | null = null
+
+        try {
+          [metaContent, mdContent] = await Promise.all([
+            fs.readFile(metaPath, 'utf-8'),
+            fs.readFile(mdPath, 'utf-8')
+          ])
+        } catch {
+          // 新格式不存在，尝试旧格式
+          const files = await fs.readdir(reportDirPath)
+          const metaFile = files.find(f => f.endsWith('.meta.json'))
+          const mdFile = files.find(f => f.endsWith('.md'))
+
+          if (metaFile && mdFile) {
+            try {
+              [metaContent, mdContent] = await Promise.all([
+                fs.readFile(path.join(reportDirPath, metaFile), 'utf-8'),
+                fs.readFile(path.join(reportDirPath, mdFile), 'utf-8')
+              ])
+            } catch (err) {
+              console.error(`Failed to read old format report ${folder}:`, err)
+              continue
+            }
+          } else {
+            console.error(`No valid report files found in ${folder}`)
+            continue
+          }
+        }
+
+        if (!metaContent || !mdContent) {
+          console.error(`Missing content for report ${folder}`)
+          continue
+        }
+
+        const meta = JSON.parse(metaContent) as Omit<SubjectReport, 'content'>
+
+        // 为旧报告添加 subjectId 字段
+        if (!meta.subjectId) {
+          meta.subjectId = subjectId
+        }
+
+        reports.push({
+          ...meta,
+          content: mdContent
+        })
+      } catch (error) {
+        console.error(`Failed to read report ${folder}:`, error)
+      }
+    }
+  } catch (error) {
+    console.error(`Failed to read reports for ${subject}:`, error)
+  }
+
+  // 按生成时间倒序排列
+  return reports.sort((a, b) =>
+    new Date(b.generatedAt).getTime() - new Date(a.generatedAt).getTime()
+  )
+}
+
+// 获取单个报告
+export async function getSubjectReport(subject: string, reportId: string): Promise<SubjectReport | null> {
+  const subjectId = await getSubjectIdByName(subject)
+  const subjectDir = path.join(REPORTS_DIR, subjectId)
+  const reportDir = path.join(subjectDir, reportId)
+
+  try {
+    // 尝试新格式
+    let metaPath = path.join(reportDir, 'meta.json')
+    let mdPath = path.join(reportDir, 'report.md')
+    let metaContent: string | null = null
+    let mdContent: string | null = null
+
+    try {
+      [metaContent, mdContent] = await Promise.all([
+        fs.readFile(metaPath, 'utf-8'),
+        fs.readFile(mdPath, 'utf-8')
+      ])
+    } catch {
+      // 新格式不存在，尝试旧格式
+      const files = await fs.readdir(reportDir)
+      const metaFile = files.find(f => f.endsWith('.meta.json'))
+      const mdFile = files.find(f => f.endsWith('.md'))
+
+      if (metaFile && mdFile) {
+        [metaContent, mdContent] = await Promise.all([
+          fs.readFile(path.join(reportDir, metaFile), 'utf-8'),
+          fs.readFile(path.join(reportDir, mdFile), 'utf-8')
+        ])
+      }
+    }
+
+    if (!metaContent || !mdContent) {
+      return null
+    }
+
+    const meta = JSON.parse(metaContent) as Omit<SubjectReport, 'content'>
+
+    // 为旧报告添加 subjectId 字段
+    if (!meta.subjectId) {
+      (meta as any).subjectId = subjectId
+    }
+
+    return {
+      ...meta,
+      content: mdContent
+    }
+  } catch (error) {
+    console.error(`Failed to read report ${reportId}:`, error)
+    return null
+  }
+}
+
+// 删除报告
+export async function deleteSubjectReport(subject: string, reportId: string): Promise<void> {
+  const subjectId = await getSubjectIdByName(subject)
+  const reportDir = path.join(REPORTS_DIR, subjectId, reportId)
+
+  try {
+    await fs.rm(reportDir, { recursive: true, force: true })
+  } catch (error) {
+    console.error(`Failed to delete report ${reportId}:`, error)
+  }
 }

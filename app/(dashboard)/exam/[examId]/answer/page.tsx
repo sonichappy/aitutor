@@ -1,5 +1,8 @@
 "use client"
 
+// VERSION: 2026-03-08-v2 - Fixed to load/save answers from server
+console.log('[ExamAnswerPage] LOADED VERSION 2026-03-08-v2')
+
 import { useState, useEffect } from "react"
 import { useRouter, useParams } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -14,7 +17,17 @@ interface Question {
   score: number
   difficulty: number
   knowledgePoints: string[]
-  userAnswer?: string  // 从 OCR 识别的学生答案
+  // 答题标记字段
+  userAnswer?: string  // 用户答案
+  isCorrect?: boolean  // 是否正确（undefined=未标记，true=正确，false=错误）
+  isSkipped?: boolean  // 是否跳过
+  markedAt?: string  // 标记时间
+  // AI 分析结果字段
+  correctAnswer?: string  // 正确答案
+  errorAnalysis?: string  // 错误原因分析
+  weakPoints?: string[]  // 薄弱知识点
+  improvement?: string  // 改进建议
+  aiExplanation?: string  // 详细解析
 }
 
 interface AnswerData {
@@ -22,6 +35,8 @@ interface AnswerData {
   userAnswer: string
   isCorrect?: boolean
   isSkipped: boolean
+  markedAt?: string  // 标记时间
+  correctAnswer?: string  // 正确答案（AI分析后填充）
   errorAnalysis?: string  // AI 分析的错误原因
   weakPoints?: string[]  // 薄弱知识点
   improvement?: string  // 改进建议
@@ -49,13 +64,38 @@ export default function ExamAnswerPage() {
 
   const loadExamData = async () => {
     try {
-      // 从全局缓存获取（模拟数据库）
-      const cache = (global as any).examCache?.[examId]
-      if (cache) {
-        setQuestions(cache.questions)
-        setExamSubject(cache.subject || "")
+      // 首先从服务器加载试卷数据（包含已保存的答题记录）
+      const examResponse = await fetch(`/api/exam/${examId}/data`)
+      if (examResponse.ok) {
+        const examData = await examResponse.json()
+        setQuestions(examData.questions || [])
+        setExamSubject(examData.subject || "")
+
+        // 从题目对象中加载答题记录（使用索引作为 key）
+        const loadedAnswers: Record<string, AnswerData> = {}
+
+        examData.questions?.forEach((q: any, index: number) => {
+          // 检查题目对象中是否有答题数据
+          if (q.userAnswer !== undefined || q.isCorrect !== undefined) {
+            loadedAnswers[index] = {
+              questionId: index.toString(),
+              userAnswer: q.userAnswer || '',
+              isCorrect: q.isCorrect,
+              isSkipped: q.isSkipped || false,
+              markedAt: q.markedAt,
+              correctAnswer: q.correctAnswer,
+              errorAnalysis: q.errorAnalysis,
+              weakPoints: q.weakPoints,
+              improvement: q.improvement,
+              aiExplanation: q.aiExplanation,
+            }
+          }
+        })
+
+        setAnswers(loadedAnswers)
+        console.log('[loadExamData] Loaded', Object.keys(loadedAnswers).length, 'saved answers from server')
       } else {
-        // 如果缓存没有，尝试从 sessionStorage 读取
+        // 降级方案：从 sessionStorage 读取
         const stored = sessionStorage.getItem(`exam_${examId}`)
         if (stored) {
           const data = JSON.parse(stored)
@@ -66,45 +106,46 @@ export default function ExamAnswerPage() {
           router.push("/exam")
           return
         }
-      }
 
-      // 加载题目标记状态
-      const marks = sessionStorage.getItem(`exam_marks_${examId}`)
-      if (marks) {
-        const marksData = JSON.parse(marks)
-        const initialAnswers: Record<string, AnswerData> = {}
-        Object.entries(marksData).forEach(([qNum, status]: [string, any]) => {
-          if (status !== null) {  // 只加载明确标记的题目
-            initialAnswers[qNum] = {
-              questionId: qNum,
-              userAnswer: '',
-              isCorrect: status === 'correct' ? true : status === 'wrong' ? false : undefined,
-              isSkipped: status === 'skipped',
+        // 加载题目标记状态（从 sessionStorage 降级方案）
+        const marks = sessionStorage.getItem(`exam_marks_${examId}`)
+        if (marks) {
+          const marksData = JSON.parse(marks)
+          const initialAnswers: Record<string, AnswerData> = {}
+          Object.entries(marksData).forEach(([qNum, status]: [string, any]) => {
+            if (status !== null) {  // 只加载明确标记的题目
+              initialAnswers[qNum] = {
+                questionId: qNum,
+                userAnswer: '',
+                isCorrect: status === 'correct' ? true : status === 'wrong' ? false : undefined,
+                isSkipped: status === 'skipped',
+              }
             }
-          }
-        })
-        setAnswers(initialAnswers)
+          })
+          setAnswers(initialAnswers)
+        }
       }
     } catch (error) {
-      console.error(error)
+      console.error('[loadExamData] Error:', error)
     } finally {
       setLoading(false)
     }
   }
 
   const currentQuestion = questions[currentIndex]
-  const currentAnswer = answers[currentQuestion?.number]?.userAnswer || ""
+  // 使用索引作为 key（因为题号可能重复）
+  const currentAnswer = answers[currentIndex]?.userAnswer || ""
   // 未标记的题目默认为做对
-  const hasMark = currentQuestion && answers[currentQuestion.number] !== undefined
-  const currentResult = hasMark ? answers[currentQuestion.number]?.isCorrect : true  // 默认为正确
-  const currentSkipped = hasMark ? (answers[currentQuestion.number]?.isSkipped || false) : false
+  const hasMark = currentQuestion && answers[currentIndex] !== undefined
+  const currentResult = hasMark ? answers[currentIndex]?.isCorrect : true  // 默认为正确
+  const currentSkipped = hasMark ? (answers[currentIndex]?.isSkipped || false) : false
 
   const handleAnswerChange = (value: string) => {
     if (submitted) return
     setAnswers({
       ...answers,
-      [currentQuestion.number]: {
-        questionId: currentQuestion.number.toString(),
+      [currentIndex]: {
+        questionId: currentIndex.toString(),
         userAnswer: value,
         isCorrect: true,  // 默认为做对了
         isSkipped: false,
@@ -112,7 +153,9 @@ export default function ExamAnswerPage() {
     })
   }
 
-  const handleResultChange = (result: "correct" | "wrong" | "skipped") => {
+  const handleResultChange = async (result: "correct" | "wrong" | "skipped") => {
+    console.log('[handleResultChange] Called with result:', result, 'for index:', currentIndex)
+
     // 如果点击当前状态，则取消标记（恢复为未标记，默认做对）
     const isCurrentlyCorrect = !currentSkipped && currentResult === true
     const isCurrentlyWrong = !currentSkipped && currentResult === false
@@ -123,35 +166,89 @@ export default function ExamAnswerPage() {
         (result === 'skipped' && isCurrentlySkipped)) {
       // 取消标记
       const newAnswers = { ...answers }
-      delete newAnswers[currentQuestion.number]
+      delete newAnswers[currentIndex]
       setAnswers(newAnswers)
+      console.log('[handleResultChange] Removing mark for index', currentIndex)
 
-      // 更新 sessionStorage
-      const marks = sessionStorage.getItem(`exam_marks_${examId}`)
-      if (marks) {
-        const marksData = JSON.parse(marks)
-        delete marksData[currentQuestion.number]
-        sessionStorage.setItem(`exam_marks_${examId}`, JSON.stringify(marksData))
-      }
+      // 保存到服务器
+      await saveAnswersToServer(newAnswers)
       return
     }
 
     // 设置新标记
-    setAnswers({
+    const newAnswers = {
       ...answers,
-      [currentQuestion.number]: {
-        questionId: currentQuestion.number.toString(),
+      [currentIndex]: {
+        questionId: currentIndex.toString(),
         userAnswer: currentAnswer,
         isCorrect: result === 'skipped' ? undefined : result === 'correct',
         isSkipped: result === 'skipped',
+        markedAt: new Date().toISOString(),
       },
-    })
+    }
+    setAnswers(newAnswers)
+    console.log('[handleResultChange] Setting new mark for index', currentIndex, '->', result)
 
-    // 更新 sessionStorage
-    const marks = sessionStorage.getItem(`exam_marks_${examId}`)
-    const marksData = marks ? JSON.parse(marks) : {}
-    marksData[currentQuestion.number] = result
-    sessionStorage.setItem(`exam_marks_${examId}`, JSON.stringify(marksData))
+    // 保存到服务器
+    await saveAnswersToServer(newAnswers)
+  }
+
+  // 保存答题记录到服务器（直接更新题目对象）
+  const saveAnswersToServer = async (currentAnswers: Record<string, AnswerData>) => {
+    console.log('[saveAnswersToServer] Starting save with', Object.keys(currentAnswers).length, 'answers')
+    try {
+      // 将答题数据合并到 questions 数组中（按索引匹配）
+      const updatedQuestions = questions.map((q, index) => {
+        const answer = currentAnswers[index]
+        if (!answer) return q
+
+        return {
+          ...q,
+          userAnswer: answer.userAnswer || undefined,
+          isCorrect: answer.isCorrect,
+          isSkipped: answer.isSkipped || false,
+          markedAt: answer.markedAt,
+          correctAnswer: answer.correctAnswer,
+          errorAnalysis: answer.errorAnalysis,
+          weakPoints: answer.weakPoints,
+          improvement: answer.improvement,
+          aiExplanation: answer.aiExplanation,
+        }
+      })
+
+      // 打印第一个有答题数据的题目用于调试
+      const firstAnswered = updatedQuestions.find(q => q.userAnswer !== undefined || q.isCorrect !== undefined)
+      if (firstAnswered) {
+        console.log('[saveAnswersToServer] First answered question:', JSON.stringify(firstAnswered, null, 2))
+      }
+
+      console.log('[saveAnswersToServer] Sending request to', `/api/exam/${examId}/update`)
+
+      // 调用 API 保存（只发送更新后的 questions 数组）
+      const response = await fetch(`/api/exam/${examId}/update`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          questions: updatedQuestions,
+        }),
+      })
+
+      console.log('[saveAnswersToServer] Response status:', response.status)
+
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error('[saveAnswersToServer] Save failed:', errorText)
+        return
+      }
+
+      const result = await response.json()
+      console.log('[saveAnswersToServer] Save successful:', result)
+
+      // 更新本地 questions 状态
+      setQuestions(updatedQuestions)
+    } catch (error) {
+      console.error('[saveAnswersToServer] Error:', error)
+    }
   }
 
   const handleAIAnalyze = async () => {
@@ -178,11 +275,11 @@ export default function ExamAnswerPage() {
       const data = await response.json()
 
       // 更新答案数据，包含 AI 分析结果和正确性判定
-      setAnswers({
+      const newAnswers = {
         ...answers,
-        [currentQuestion.number]: {
-          ...answers[currentQuestion.number],
-          questionId: currentQuestion.number.toString(),
+        [currentIndex]: {
+          ...answers[currentIndex],
+          questionId: currentIndex.toString(),
           userAnswer: currentAnswer,
           isCorrect: data.isCorrect,
           correctAnswer: data.correctAnswer,
@@ -191,8 +288,13 @@ export default function ExamAnswerPage() {
           improvement: data.improvement,
           aiExplanation: data.explanation,
           isSkipped: false,
+          markedAt: new Date().toISOString(),
         },
-      })
+      }
+      setAnswers(newAnswers)
+
+      // 保存到服务器
+      await saveAnswersToServer(newAnswers)
     } catch (error) {
       console.error(error)
       alert("AI分析失败，请重试")
@@ -203,11 +305,13 @@ export default function ExamAnswerPage() {
 
   // 一键判题所有已答题但标记为做错的题目
   const handleAutoGradeAll = async () => {
-    // 找出所有已答题且标记为做错的题目
-    const needAnalysis = questions.filter(q => {
-      const ans = answers[q.number]
-      return ans?.userAnswer && ans.userAnswer.trim() && ans.isCorrect === false && !ans.isSkipped && !ans.errorAnalysis
-    })
+    // 找出所有已答题且标记为做错的题目（带索引）
+    const needAnalysis = questions
+      .map((q, index) => ({ q, index }))
+      .filter(({ q, index }) => {
+        const ans = answers[index]
+        return ans?.userAnswer && ans.userAnswer.trim() && ans.isCorrect === false && !ans.isSkipped && !ans.errorAnalysis
+      })
 
     if (needAnalysis.length === 0) {
       alert("没有需要分析的题目（请先标记做错的题目）")
@@ -223,8 +327,8 @@ export default function ExamAnswerPage() {
     try {
       let analyzed = 0
 
-      for (const question of needAnalysis) {
-        const answer = answers[question.number]
+      for (const { q: question, index } of needAnalysis) {
+        const answer = answers[index]
 
         try {
           const response = await fetch("/api/exam/analyze-question", {
@@ -242,8 +346,8 @@ export default function ExamAnswerPage() {
 
             setAnswers(prev => ({
               ...prev,
-              [question.number]: {
-                ...prev[question.number],
+              [index]: {
+                ...prev[index],
                 isCorrect: data.isCorrect,
                 correctAnswer: data.correctAnswer,
                 errorAnalysis: data.errorAnalysis,
@@ -254,7 +358,7 @@ export default function ExamAnswerPage() {
             }))
           }
         } catch (error) {
-          console.error(`Failed to analyze question ${question.number}:`, error)
+          console.error(`Failed to analyze question at index ${index}:`, error)
         }
 
         analyzed++
@@ -401,14 +505,14 @@ export default function ExamAnswerPage() {
             </div>
             <div className="flex gap-1">
               {questions.map((q, i) => {
-                const answered = answers[q.number]?.userAnswer
-                const isCorrect = answers[q.number]?.isCorrect !== false  // 默认为正确
-                const isWrong = answers[q.number]?.isCorrect === false
-                const isSkipped = answers[q.number]?.isSkipped
+                const answered = answers[i]?.userAnswer
+                const isCorrect = answers[i]?.isCorrect !== false  // 默认为正确
+                const isWrong = answers[i]?.isCorrect === false
+                const isSkipped = answers[i]?.isSkipped
 
                 return (
                   <div
-                    key={q.number}
+                    key={i}
                     onClick={() => setCurrentIndex(i)}
                     className={`w-8 h-8 flex items-center justify-center text-xs rounded cursor-pointer ${
                       i === currentIndex
@@ -523,32 +627,32 @@ export default function ExamAnswerPage() {
           </div>
 
           {/* AI 分析结果 */}
-          {answers[currentQuestion.number]?.errorAnalysis && (
+          {answers[currentIndex]?.errorAnalysis && (
             <div className="border-t pt-4">
               <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 space-y-3">
                 <h4 className="font-medium text-purple-900 dark:text-purple-300">
                   🤖 AI 分析结果
                 </h4>
 
-                {answers[currentQuestion.number].errorAnalysis && (
+                {answers[currentIndex].errorAnalysis && (
                   <div>
                     <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       错误原因:
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {answers[currentQuestion.number].errorAnalysis}
+                      {answers[currentIndex].errorAnalysis}
                     </p>
                   </div>
                 )}
 
-                {answers[currentQuestion.number].weakPoints &&
-                  answers[currentQuestion.number].weakPoints!.length > 0 && (
+                {answers[currentIndex].weakPoints &&
+                  answers[currentIndex].weakPoints!.length > 0 && (
                   <div>
                     <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       薄弱知识点:
                     </p>
                     <div className="flex flex-wrap gap-1">
-                      {answers[currentQuestion.number].weakPoints!.map((point, i) => (
+                      {answers[currentIndex].weakPoints!.map((point, i) => (
                         <span
                           key={i}
                           className="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-xs rounded"
@@ -560,24 +664,24 @@ export default function ExamAnswerPage() {
                   </div>
                 )}
 
-                {answers[currentQuestion.number].improvement && (
+                {answers[currentIndex].improvement && (
                   <div>
                     <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       改进建议:
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {answers[currentQuestion.number].improvement}
+                      {answers[currentIndex].improvement}
                     </p>
                   </div>
                 )}
 
-                {answers[currentQuestion.number].aiExplanation && (
+                {answers[currentIndex].aiExplanation && (
                   <details className="mt-2">
                     <summary className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer">
                       📝 查看详细解析
                     </summary>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 whitespace-pre-wrap">
-                      {answers[currentQuestion.number].aiExplanation}
+                      {answers[currentIndex].aiExplanation}
                     </p>
                   </details>
                 )}

@@ -40,11 +40,15 @@ interface Question {
   // 作文相关字段
   essayGenre?: string  // 作文体裁
   wordCount?: number  // 字数
+  // 答题标记字段（记录在每道题中）
+  isCorrect?: boolean  // 是否正确（undefined=未标记，true=正确，false=错误）
+  isSkipped?: boolean  // 是否跳过
+  markedAt?: string  // 标记时间
 }
 
-// 题目标记状态
+// 题目标记状态（使用数组索引）
 interface QuestionMark {
-  number: number
+  index: number
   status: 'correct' | 'wrong' | 'skipped' | null  // null = 未标记
 }
 
@@ -84,7 +88,7 @@ export default function ExamReviewPage() {
   const [annotatingQuestion, setAnnotatingQuestion] = useState<number | null>(null)  // 正在标注的题目
   const [examMetadata, setExamMetadata] = useState<ExamMetadata | null>(null)
   const [editingExamType, setEditingExamType] = useState(false)
-  const [questionMarks, setQuestionMarks] = useState<Record<number, 'correct' | 'wrong' | 'skipped'>>({})
+  const [questionMarks, setQuestionMarks] = useState<Record<number, 'correct' | 'wrong' | 'skipped'>>({})  // 使用数组索引作为 key
 
   useEffect(() => {
     loadExamData()
@@ -95,24 +99,6 @@ export default function ExamReviewPage() {
     console.log(`[Review] Loading exam data for examId: ${examId}`)
 
     try {
-      // 加载题目标记状态
-      const marks = sessionStorage.getItem(`exam_marks_${examId}`)
-      if (marks) {
-        setQuestionMarks(JSON.parse(marks))
-      }
-
-      // 优先从 sessionStorage 读取
-      const stored = sessionStorage.getItem(`exam_${examId}`)
-      console.log(`[Review] sessionStorage stored:`, stored ? 'YES' : 'NO')
-      if (stored) {
-        const data = JSON.parse(stored)
-        console.log(`[Review] Loaded from sessionStorage, questions:`, data.questions?.length)
-        setExamData(data)
-        setQuestions(data.questions || [])
-        setLoading(false)
-        return
-      }
-
       // 从服务端 API 获取数据
       console.log(`[Review] Fetching from API: /api/exam/${examId}/data`)
       const response = await fetch(`/api/exam/${examId}/data`)
@@ -123,8 +109,21 @@ export default function ExamReviewPage() {
         console.log(`[Review] Loaded from API, questions:`, data.questions?.length)
         setExamData(data)
         setQuestions(data.questions || [])
-        // 存储到 sessionStorage
-        sessionStorage.setItem(`exam_${examId}`, JSON.stringify(data))
+
+        // 从题目对象中加载答题标记状态（使用数组索引作为 key）
+        const marksFromQuestions: Record<number, 'correct' | 'wrong' | 'skipped'> = {}
+        data.questions?.forEach((q: Question, index: number) => {
+          if (q.isCorrect === true) {
+            marksFromQuestions[index] = 'correct'
+          } else if (q.isCorrect === false) {
+            marksFromQuestions[index] = 'wrong'
+          } else if (q.isSkipped) {
+            marksFromQuestions[index] = 'skipped'
+          }
+        })
+        setQuestionMarks(marksFromQuestions)
+        console.log(`[Review] Loaded ${Object.keys(marksFromQuestions).length} question marks from questions`)
+
         setLoading(false)
         return
       }
@@ -257,7 +256,7 @@ export default function ExamReviewPage() {
       return
     }
 
-    // 先同步数据到服务端
+    // 同步数据到服务端
     try {
       const response = await fetch(`/api/exam/${examId}/update`, {
         method: "POST",
@@ -267,15 +266,15 @@ export default function ExamReviewPage() {
 
       if (!response.ok) {
         const error = await response.json()
-        alert(`同步失败: ${error.error || "未知错误"}`)
+        alert(`保存失败: ${error.error || "未知错误"}`)
         return
       }
 
-      // 同步成功后跳转
-      router.push(`/exam/${examId}/answer`)
+      // 保存成功提示
+      alert("保存成功！")
     } catch (error) {
       console.error("Sync error:", error)
-      alert("同步数据失败，请重试")
+      alert("保存数据失败，请重试")
     }
   }
 
@@ -341,44 +340,74 @@ export default function ExamReviewPage() {
     })
   }
 
-  // 标记题目状态
-  const handleQuestionMark = (questionNum: number, status: 'correct' | 'wrong' | 'skipped') => {
-    const currentMark = questionMarks[questionNum]
+  // 标记题目状态（直接保存到题目对象，使用数组索引）
+  const handleQuestionMark = async (questionIndex: number, status: 'correct' | 'wrong' | 'skipped') => {
+    const currentMark = questionMarks[questionIndex]
 
     // 如果点击当前状态，则取消标记
     if (currentMark === status) {
-      setQuestionMarks(prev => {
-        const newMarks = { ...prev }
-        delete newMarks[questionNum]
-        return newMarks
+      // 取消标记 - 移除答题标记字段
+      const updatedQuestions = questions.map((q, i) => {
+        if (i !== questionIndex) return q
+        const { isCorrect, isSkipped, markedAt, ...rest } = q
+        return rest
       })
+      setQuestions(updatedQuestions)
 
-      // 更新 sessionStorage
-      const marks = sessionStorage.getItem(`exam_marks_${examId}`)
-      if (marks) {
-        const marksData = JSON.parse(marks)
-        delete marksData[questionNum]
-        sessionStorage.setItem(`exam_marks_${examId}`, JSON.stringify(marksData))
-      }
+      const newMarks = { ...questionMarks }
+      delete newMarks[questionIndex]
+      setQuestionMarks(newMarks)
+
+      // 同步到服务端
+      await saveQuestionsToServer(updatedQuestions)
       return
     }
 
     // 设置新标记
-    setQuestionMarks(prev => ({
-      ...prev,
-      [questionNum]: status,
-    }))
+    const updatedQuestions = questions.map((q, i) => {
+      if (i !== questionIndex) return q
 
-    // 保存到 sessionStorage
-    const marks = sessionStorage.getItem(`exam_marks_${examId}`)
-    const marksData = marks ? JSON.parse(marks) : {}
-    marksData[questionNum] = status
-    sessionStorage.setItem(`exam_marks_${examId}`, JSON.stringify(marksData))
+      return {
+        ...q,
+        isCorrect: status === 'skipped' ? undefined : status === 'correct',
+        isSkipped: status === 'skipped',
+        markedAt: new Date().toISOString(),
+      }
+    })
+    setQuestions(updatedQuestions)
+
+    const newMarks = {
+      ...questionMarks,
+      [questionIndex]: status,
+    }
+    setQuestionMarks(newMarks)
+
+    // 同步到服务端
+    await saveQuestionsToServer(updatedQuestions)
   }
 
-  // 获取题目标记状态
-  const getQuestionMark = (questionNum: number) => {
-    return questionMarks[questionNum] || null
+  // 保存题目到服务器
+  const saveQuestionsToServer = async (updatedQuestions: Question[]) => {
+    try {
+      const response = await fetch(`/api/exam/${examId}/update`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ questions: updatedQuestions }),
+      })
+
+      if (response.ok) {
+        console.log('[Review] Saved to server successfully')
+      } else {
+        console.error('[Review] Failed to save to server')
+      }
+    } catch (error) {
+      console.error('[Review] Save to server error:', error)
+    }
+  }
+
+  // 获取题目标记状态（使用索引）
+  const getQuestionMark = (index: number) => {
+    return questionMarks[index] || null
   }
 
   const getQuestionTypeLabel = (type: string) => {
@@ -450,9 +479,9 @@ export default function ExamReviewPage() {
             // 计算正确率：做对题目得分 / 题目总分
             let correctScore = 0
             let totalScore = 0
-            questions.forEach((q: any) => {
+            questions.forEach((q: any, index: number) => {
               totalScore += q.score
-              const mark = questionMarks[q.number]
+              const mark = questionMarks[index]
               if (mark === 'wrong' || mark === 'skipped') {
                 // 做错或不会做，不计入得分
               } else {
@@ -615,8 +644,8 @@ export default function ExamReviewPage() {
 
       {/* 题目列表 */}
       <div className="space-y-4">
-        {questions.map((question) => (
-          <Card key={question.number} className={editingQuestion === question.number ? "ring-2 ring-blue-500" : ""}>
+        {questions.map((question, index) => (
+          <Card key={index} className={editingQuestion === question.number ? "ring-2 ring-blue-500" : ""}>
             <CardHeader>
               <div className="flex justify-between items-start">
                 <div>
@@ -635,9 +664,9 @@ export default function ExamReviewPage() {
                 <div className="flex gap-2 flex-wrap">
                   {/* 快速标记按钮 */}
                   <button
-                    onClick={() => handleQuestionMark(question.number, 'correct')}
+                    onClick={() => handleQuestionMark(index, 'correct')}
                     className={`px-3 py-1.5 rounded-lg border-2 text-sm font-medium transition-all ${
-                      getQuestionMark(question.number) === 'correct'
+                      getQuestionMark(index) === 'correct'
                         ? 'bg-green-500 border-green-500 text-white'
                         : 'bg-white border-gray-200 text-gray-600 hover:border-green-300 hover:bg-green-50'
                     }`}
@@ -646,9 +675,9 @@ export default function ExamReviewPage() {
                     ✓
                   </button>
                   <button
-                    onClick={() => handleQuestionMark(question.number, 'wrong')}
+                    onClick={() => handleQuestionMark(index, 'wrong')}
                     className={`px-3 py-1.5 rounded-lg border-2 text-sm font-medium transition-all ${
-                      getQuestionMark(question.number) === 'wrong'
+                      getQuestionMark(index) === 'wrong'
                         ? 'bg-red-500 border-red-500 text-white'
                         : 'bg-white border-gray-200 text-gray-600 hover:border-red-300 hover:bg-red-50'
                     }`}
@@ -657,9 +686,9 @@ export default function ExamReviewPage() {
                     ✗
                   </button>
                   <button
-                    onClick={() => handleQuestionMark(question.number, 'skipped')}
+                    onClick={() => handleQuestionMark(index, 'skipped')}
                     className={`px-3 py-1.5 rounded-lg border-2 text-sm font-medium transition-all ${
-                      getQuestionMark(question.number) === 'skipped'
+                      getQuestionMark(index) === 'skipped'
                         ? 'bg-gray-400 border-gray-400 text-white'
                         : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'
                     }`}
@@ -786,7 +815,7 @@ export default function ExamReviewPage() {
           重新上传
         </Button>
         <Button onClick={handleConfirm} size="lg">
-          确认无误，继续 ({questions.length} 题)
+          💾 保存 ({questions.length} 题)
         </Button>
       </div>
     </div>

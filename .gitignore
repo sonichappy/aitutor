@@ -14,7 +14,8 @@
 /build
 
 # Data storage
-/data
+/data/exams/
+!/data/*.json
 
 # Misc
 .DS_Store

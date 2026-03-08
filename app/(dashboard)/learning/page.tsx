@@ -98,11 +98,14 @@ export default function LearningPage() {
   ]
 
   useEffect(() => {
-    const enabledSubjects = getEnabledSubjects()
-    setSubjects(enabledSubjects)
-    if (enabledSubjects.length > 0) {
-      setSelectedSubject(enabledSubjects[0].name)
+    const loadSubjects = async () => {
+      const enabledSubjects = await getEnabledSubjects()
+      setSubjects(enabledSubjects)
+      if (enabledSubjects.length > 0) {
+        setSelectedSubject(enabledSubjects[0].name)
+      }
     }
+    loadSubjects()
   }, [])
 
   const currentQ = questions[currentQuestion]

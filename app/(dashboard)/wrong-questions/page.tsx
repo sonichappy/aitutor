@@ -35,10 +35,15 @@ export default function WrongQuestionsPage() {
   const [selectedSubject, setSelectedSubject] = useState("全部")
   const [selectedStatus, setSelectedStatus] = useState<"all" | "active" | "mastered" | "archived">("active")
   const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null)
-  const [subjects] = useState<Subject[]>(getEnabledSubjects())
+  const [subjects, setSubjects] = useState<Subject[]>([])
 
   useEffect(() => {
-    loadWrongQuestions()
+    const loadData = async () => {
+      const enabledSubjects = await getEnabledSubjects()
+      setSubjects(enabledSubjects)
+      loadWrongQuestions()
+    }
+    loadData()
   }, [])
 
   const loadWrongQuestions = () => {
@@ -295,7 +300,7 @@ export default function WrongQuestionsPage() {
             <div className="text-6xl mb-4">📝</div>
             <p className="text-gray-500">
               {questions.length === 0
-                ? "还没有错题记录，完成试卷分析后会自动添加"
+                ? "还没有错题记录，完成试卷上传后会自动添加"
                 : "没有符合条件的错题"}
             </p>
           </CardContent>

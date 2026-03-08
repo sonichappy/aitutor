@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Reports API</title>
+</head>
+<body>
+  <h1>Test Reports API</h1>
+  <div id="output"></div>
+
+  <script>
+    async function testAPI() {
+      const output = document.getElementById('output');
+      output.innerHTML = '<p>Testing /api/reports/英语...</p>';
+
+      try {
+        const response = await fetch('/api/reports/' + encodeURIComponent('英语'));
+        output.innerHTML += '<p>Response status: ' + response.status + '</p>';
+
+        if (response.ok) {
+          const data = await response.json();
+          output.innerHTML += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        } else {
+          const text = await response.text();
+          output.innerHTML += '<p style="color: red;">Error: ' + text + '</p>';
+        }
+      } catch (error) {
+        output.innerHTML += '<p style="color: red;">Exception: ' + error.message + '</p>';
+      }
+    }
+
+    testAPI();
+  </script>
+</body>
+</html>
