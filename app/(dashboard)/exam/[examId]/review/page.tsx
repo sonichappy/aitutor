@@ -37,6 +37,9 @@ interface Question {
     page: number
     region: string
   }
+  // 作文相关字段
+  essayGenre?: string  // 作文体裁
+  wordCount?: number  // 字数
 }
 
 // 题目标记状态
@@ -55,6 +58,15 @@ interface ExamData {
   rawText?: string
   questions: Question[]
   createdAt: string
+  metadata?: {
+    detectedSubject?: string
+    overallDifficulty?: number
+    estimatedTime?: number
+    knowledgePointsSummary?: string[]
+    questionTypeStats?: Record<string, number>
+    isEssay?: boolean
+    essayType?: string
+  }
 }
 
 export default function ExamReviewPage() {

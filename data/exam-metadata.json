@@ -55,6 +55,13 @@
       "description": "针对性专项训练",
       "icon": "🎯",
       "color": "teal"
+    },
+    {
+      "id": "composition",
+      "name": "作文",
+      "description": "语文/英语作文",
+      "icon": "✍️",
+      "color": "rose"
     }
   ],
   "questionTypes": [

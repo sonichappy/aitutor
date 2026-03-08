@@ -50,6 +50,8 @@ interface ExamListItem {
     estimatedTime?: number
     knowledgePointsSummary?: string[]
     questionTypeStats?: Record<string, number>
+    isEssay?: boolean
+    essayType?: string
   }
   answerStats?: {
     correct?: number
@@ -443,6 +445,19 @@ export default function ExamPage() {
                                   </span>
                                 )}
                               </div>
+
+                              {/* 作文类型标识 */}
+                              {exam.metadata?.isEssay && (
+                                <div className="pt-2 border-t">
+                                  <span className={`text-xs px-2 py-1 rounded ${
+                                    exam.metadata.essayType === '英语作文'
+                                      ? 'bg-purple-100 text-purple-700'
+                                      : 'bg-rose-100 text-rose-700'
+                                  }`}>
+                                    ✍️ {exam.metadata.essayType || '作文'}
+                                  </span>
+                                </div>
+                              )}
 
                               {/* 知识点 */}
                               {exam.metadata?.knowledgePointsSummary && exam.metadata.knowledgePointsSummary.length > 0 && (

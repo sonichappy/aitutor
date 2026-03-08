@@ -42,11 +42,24 @@ export async function POST(request: NextRequest) {
     // 2. 调用 AI 进行 OCR 和解析
     const prompt = `请仔细分析这张试卷图片，完成以下任务：
 
-1. **科目识别**：根据试卷内容识别科目（数学、语文、英语、物理、化学、生物、历史、地理、道法、政治等）
-2. **版面分析**：识别试卷的整体布局，找出所有题目
-3. **逐题定位**：为每道题目确定精确的边界框位置
-4. **题目提取**：提取每道题的文字内容
-5. **难度评估**：评估试卷整体难度（1-5，1为最简单，5为最难）
+1. **试卷类型判断**：首先判断这是否是作文试卷
+   - 如果是语文作文或英语作文，将 questionType 设为 "essay"
+   - 如果包含作文题目/要求，提取出来
+   - 如果有学生手写的作文内容，进行完整的文字识别(OCR)
+
+2. **科目识别**：根据试卷内容识别科目（数学、语文、英语、物理、化学、生物、历史、地理、道法、政治等）
+
+3. **作文试卷特殊处理**（如果是作文）：
+   - 提取作文题目/提示语（如果有）
+   - 完整识别学生手写的作文内容，保留段落结构
+   - 识别作文的体裁（记叙文、议论文、说明文、应用文等）
+   - 评估字数（大约）
+
+4. **普通试卷处理**（如果不是作文）：
+   - 版面分析：识别试卷的整体布局，找出所有题目
+   - 逐题定位：为每道题目确定精确的边界框位置
+   - 题目提取：提取每道题的文字内容
+   - 难度评估：评估试卷整体难度（1-5）
 
 请按以下 JSON 格式返回解析结果：
 {
@@ -55,12 +68,14 @@ export async function POST(request: NextRequest) {
   "overallDifficulty": 整体难度(1-5),
   "estimatedTime": 预估完成时间(分钟),
   "knowledgePointsSummary": ["主要知识点1", "主要知识点2"],
-  "rawText": "OCR识别的完整文本内容",
+  "rawText": "OCR识别的完整文本内容（作文要保留完整文字）",
+  "isEssay": true/false,  // 是否是作文试卷
+  "essayType": "语文作文/英语作文",  // 如果是作文
   "questions": [
     {
       "number": 题号,
-      "type": "题型(choice/fill/answer/calculation)",
-      "content": "题目内容",
+      "type": "题型(choice/fill/answer/calculation/essay)",
+      "content": "题目内容（作文包含题目要求和学生作文全文）",
       "options": ["选项A内容", "选项B内容", "选项C内容", "选项D内容"],
       "score": 分值,
       "difficulty": 难度(1-5),
@@ -70,17 +85,24 @@ export async function POST(request: NextRequest) {
         "y": 左上角Y百分比(0-100),
         "width": 宽度百分比(0-100),
         "height": 高度百分比(0-100)
-      }
+      },
+      "essayGenre": "记叙文/议论文/说明文/应用文",  // 仅作文
+      "wordCount": 预估字数  // 仅作文
     }
   ]
 }
 
-**重要要求：**
+**作文识别重要要求：**
+1. 完整识别学生手写的作文内容，包括所有段落
+2. 保留作文的原始结构，不要省略任何内容
+3. 识别作文中的标点符号和格式
+4. 字数要尽量准确估算
+
+**普通试卷重要要求：**
 1. 必须为每道题提供 bbox 字段
 2. bbox 使用百分比坐标，范围 0-100
-3. detectedSubject 必须是具体的科目名称（如：数学、物理、化学、英语等）
-4. overallDifficulty 根据题目复杂度和深度综合评估
-5. options 数组中只填选项的纯文本内容，不要包含 "A."、"B." 等前缀
+3. detectedSubject 必须是具体的科目名称
+4. options 数组中只填选项的纯文本内容，不要包含前缀
 
 只返回JSON，不要有其他内容。`
 
@@ -88,6 +110,15 @@ export async function POST(request: NextRequest) {
       {
         role: "system",
         content: `你是专业的试卷OCR和解析系统。你的任务是：
+
+**作文识别重点**：
+1. 优先判断是否为作文试卷（语文作文、英语作文）
+2. 对于作文，必须进行完整的文字识别(OCR)，保留所有段落和结构
+3. 准确识别手写文字，包括标点符号
+4. 提取作文题目/要求
+5. 识别作文体裁和预估字数
+
+**普通试卷**：
 1. 准确识别试卷图片中的所有文字内容
 2. 提取并结构化所有题目信息
 3. 按照指定的JSON格式返回结果
@@ -281,6 +312,9 @@ export async function POST(request: NextRequest) {
         estimatedTime: parsed.estimatedTime || cleanedQuestions.length * 5,  // 默认每题5分钟
         knowledgePointsSummary: parsed.knowledgePointsSummary || [],
         questionTypeStats,  // 题目分类统计
+        // 作文相关元数据
+        isEssay: parsed.isEssay || false,
+        essayType: parsed.essayType || null,  // "语文作文" 或 "英语作文"
       },
     }
     await saveExamData(examId, examData)

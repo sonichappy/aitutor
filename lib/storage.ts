@@ -30,6 +30,9 @@ export interface ExamQuestion {
   difficulty: number
   knowledgePoints: string[]
   bbox?: { x: number; y: number; width: number; height: number }
+  // 作文相关字段
+  essayGenre?: string  // 作文体裁：记叙文、议论文、说明文、应用文等
+  wordCount?: number  // 预估字数
 }
 
 export interface ExamData {
@@ -53,6 +56,9 @@ export interface ExamData {
     knowledgePointsSummary?: string[]  // 主要知识点汇总
     tags?: string[]  // 标签
     questionTypeStats?: Record<string, number>  // 题目类型统计
+    // 作文相关
+    isEssay?: boolean  // 是否是作文试卷
+    essayType?: string  // "语文作文" 或 "英语作文"
   }
   // 答题统计（在答题后更新）
   answerStats?: {
