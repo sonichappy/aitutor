@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -10,7 +10,7 @@ import { WORD_CATEGORIES, PARTS_OF_SPEECH } from "@/types/english"
 
 type ViewMode = "list" | "flashcard" | "add" | "review"
 
-export default function EnglishVocabularyPage() {
+function VocabularyPageContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const mode = (searchParams.get("mode") as ViewMode) || "list"
@@ -554,5 +554,13 @@ export default function EnglishVocabularyPage() {
         </Card>
       )}
     </div>
+  )
+}
+
+export default function EnglishVocabularyPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><p>加载中...</p></div>}>
+      <VocabularyPageContent />
+    </Suspense>
   )
 }

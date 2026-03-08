@@ -24,7 +24,7 @@ export interface LLMOptions {
 }
 
 // 支持的 AI 提供商类型
-export type AIProvider = "deepseek" | "dashscope" | "openai" | "anthropic"
+export type AIProvider = "deepseek" | "dashscope" | "openai" | "anthropic" | "gemini"
 
 // 从环境变量获取当前配置的提供商
 function getProvider(): AIProvider {
@@ -52,6 +52,19 @@ function convertMessagesForVision(messages: ChatMessage[], provider: AIProvider)
       }
       // OpenAI 格式
       if (provider === "openai") {
+        return {
+          role: msg.role,
+          content: [
+            { type: "text", text: msg.content },
+            ...msg.images.map(img => ({
+              type: "image_url",
+              image_url: { url: img }
+            }))
+          ]
+        }
+      }
+      // Gemini 格式 - 直接在 content 数组中
+      if (provider === "gemini") {
         return {
           role: msg.role,
           content: [
@@ -128,17 +141,43 @@ async function callDeepSeek(
 
 /**
  * 通义千问 API 调用
+ * 支持文本模型（qwen-plus）和视觉模型（qwen-vl-plus）
  */
 async function callDashScope(
   messages: ChatMessage[],
   options: LLMOptions
 ): Promise<LLMResponse> {
   const apiKey = process.env.DASHSCOPE_API_KEY
-  const model = process.env.DASHSCOPE_MODEL || "qwen-plus"
 
   if (!apiKey) {
     throw new Error("DASHSCOPE_API_KEY is not set")
   }
+
+  // 检查是否有图片，自动切换到视觉模型
+  const hasImages = messages.some(m => m.images && m.images.length > 0)
+  const model = hasImages
+    ? (process.env.DASHSCOPE_VL_MODEL || "qwen-vl-plus")
+    : (process.env.DASHSCOPE_MODEL || "qwen-plus")
+
+  console.log(`[DashScope] Using model: ${model} (images: ${hasImages})`)
+
+  // 转换消息格式
+  const formattedMessages = messages.map(msg => {
+    if (msg.images && msg.images.length > 0 && msg.role === "user") {
+      // 视觉模型格式
+      return {
+        role: msg.role,
+        content: [
+          { type: "text", text: msg.content },
+          ...msg.images.map(img => ({
+            type: "image_url",
+            image_url: { url: img }
+          }))
+        ]
+      }
+    }
+    return { role: msg.role, content: msg.content }
+  })
 
   const response = await fetch(
     "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
@@ -150,16 +189,19 @@ async function callDashScope(
       },
       body: JSON.stringify({
         model,
-        messages,
+        messages: formattedMessages,
         temperature: options.temperature,
         max_tokens: options.maxTokens,
       }),
+      // 添加超时设置（5分钟）
+      signal: AbortSignal.timeout(5 * 60 * 1000),
     }
   )
 
   if (!response.ok) {
-    const error = await response.text()
-    throw new Error(`DashScope API error: ${response.status} - ${error}`)
+    const errorText = await response.text()
+    console.error(`[DashScope] API error: ${response.status} - ${errorText}`)
+    throw new Error(`DashScope API error: ${response.status} - ${errorText}`)
   }
 
   const data = await response.json()
@@ -299,6 +341,122 @@ async function callAnthropic(
 }
 
 /**
+ * Google Gemini API 调用
+ * 支持多模态：图像、视频、PDF
+ */
+async function callGemini(
+  messages: ChatMessage[],
+  options: LLMOptions
+): Promise<LLMResponse> {
+  const apiKey = process.env.GEMINI_API_KEY
+  const model = process.env.GEMINI_MODEL || "gemini-2.0-flash-exp"
+
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY is not set")
+  }
+
+  // Gemini API 使用不同的消息格式
+  const systemMessage = messages.find(m => m.role === "system")
+  const chatMessages = messages.filter(m => m.role !== "system")
+
+  // 转换为 Gemini 格式，支持图片
+  const contents = chatMessages.map(msg => {
+    if (msg.images && msg.images.length > 0) {
+      // Gemini 多模态格式
+      const parts = [
+        { text: msg.content },
+        ...msg.images.map(img => {
+          // 提取 base64 数据
+          const base64Data = img.includes("base64,") ? img.split("base64,")[1] : img
+          return {
+            inlineData: {
+              mimeType: "image/jpeg",
+              data: base64Data
+            }
+          }
+        })
+      ]
+      return { role: msg.role === "assistant" ? "model" : "user", parts }
+    }
+    return {
+      role: msg.role === "assistant" ? "model" : "user",
+      parts: [{ text: msg.content }]
+    }
+  })
+
+  // 构建请求体
+  const requestBody: any = {
+    contents,
+    generationConfig: {
+      temperature: options.temperature,
+      maxOutputTokens: options.maxTokens,
+    }
+  }
+
+  // Gemini 使用 systemInstruction 字段
+  if (systemMessage) {
+    requestBody.systemInstruction = {
+      parts: [{ text: systemMessage.content }]
+    }
+  }
+
+  // 构建请求 URL
+  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
+
+  const response = await fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(requestBody),
+  })
+
+  console.log(`[Gemini] API response status: ${response.status}`)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error(`[Gemini] API error: ${response.status} - ${errorText}`)
+    throw new Error(`Gemini API error: ${response.status} - ${errorText}`)
+  }
+
+  const data = await response.json()
+  console.log(`[Gemini] Response data:`, JSON.stringify(data).substring(0, 500))
+
+  if (!data.candidates || data.candidates.length === 0) {
+    console.error(`[Gemini] No candidates in response:`, JSON.stringify(data))
+    throw new Error("Gemini API returned no candidates")
+  }
+
+  const candidate = data.candidates[0]
+
+  // 检查是否被内容过滤器阻止
+  if (candidate.finishReason === "SAFETY") {
+    throw new Error("Content was blocked by safety filters")
+  }
+
+  if (!candidate.content || !candidate.content.parts || candidate.content.parts.length === 0) {
+    console.error(`[Gemini] Invalid content structure:`, JSON.stringify(candidate))
+    throw new Error("Gemini API returned invalid content structure")
+  }
+
+  const content = candidate.content.parts[0].text
+
+  if (!content) {
+    console.error(`[Gemini] Empty text in response`)
+    throw new Error("Gemini API returned empty content")
+  }
+
+  return {
+    content,
+    usage: {
+      promptTokens: data.usageMetadata?.promptTokenCount || 0,
+      completionTokens: data.usageMetadata?.candidatesTokenCount || 0,
+      totalTokens: data.usageMetadata?.totalTokenCount || 0,
+    },
+  }
+}
+
+/**
  * 提供商调用映射
  */
 const PROVIDER_CALLERS: Record<AIProvider, (messages: ChatMessage[], options: LLMOptions) => Promise<LLMResponse>> = {
@@ -306,6 +464,7 @@ const PROVIDER_CALLERS: Record<AIProvider, (messages: ChatMessage[], options: LL
   dashscope: callDashScope,
   openai: callOpenAI,
   anthropic: callAnthropic,
+  gemini: callGemini,
 }
 
 /**

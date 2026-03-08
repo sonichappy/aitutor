@@ -10,7 +10,24 @@
       "Bash(git config user.name \"sonichappy\")",
       "Bash(git branch -M main)",
       "Bash(git push -u origin main)",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "Bash(node:*)",
+      "Bash(netstat:*)",
+      "Bash(curl:*)",
+      "Bash(taskkill:*)",
+      "Bash(powershell:*)",
+      "Bash(grep:*)",
+      "Bash(lsof:*)",
+      "Bash(npm run:*)",
+      "Bash(xargs -I {} taskkill /F /PID {})",
+      "Bash(npm install:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(\"D:\\\\code\\\\aitutor\\\\app\\\\api\\\\config\\\\route.ts\":*)",
+      "Bash(npx tsc:*)",
+      "Bash(cat:*)",
+      "Bash(npx next:*)",
+      "Bash(rm:*)",
+      "Bash(wc:*)"
     ]
   }
 }

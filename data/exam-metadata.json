@@ -1,0 +1,92 @@
+{
+  "examTypes": [
+    {
+      "id": "daily_homework",
+      "name": "日常作业",
+      "description": "日常练习作业",
+      "icon": "📝",
+      "color": "blue"
+    },
+    {
+      "id": "unit_test",
+      "name": "单元测试",
+      "description": "单元练习或测试",
+      "icon": "📋",
+      "color": "green"
+    },
+    {
+      "id": "midterm_exam",
+      "name": "期中考试",
+      "description": "期中阶段性考试",
+      "icon": "📊",
+      "color": "orange"
+    },
+    {
+      "id": "final_exam",
+      "name": "期末考试",
+      "description": "期末总结性考试",
+      "icon": "🎯",
+      "color": "red"
+    },
+    {
+      "id": "tutoring",
+      "name": "课外辅导",
+      "description": "课外辅导练习",
+      "icon": "👨‍🏫",
+      "color": "purple"
+    },
+    {
+      "id": "mock_exam",
+      "name": "模拟考试",
+      "description": "模拟/仿真考试",
+      "icon": "🔔",
+      "color": "indigo"
+    },
+    {
+      "id": "competition",
+      "name": "竞赛练习",
+      "description": "学科竞赛练习",
+      "icon": "🏆",
+      "color": "yellow"
+    },
+    {
+      "id": "special_practice",
+      "name": "专项练习",
+      "description": "针对性专项训练",
+      "icon": "🎯",
+      "color": "teal"
+    }
+  ],
+  "questionTypes": [
+    {
+      "id": "choice",
+      "name": "选择题",
+      "icon": "🔘"
+    },
+    {
+      "id": "fill",
+      "name": "填空题",
+      "icon": "▭"
+    },
+    {
+      "id": "answer",
+      "name": "解答题",
+      "icon": "✍"
+    },
+    {
+      "id": "calculation",
+      "name": "计算题",
+      "icon": "🧮"
+    },
+    {
+      "id": "essay",
+      "name": "作文/论述题",
+      "icon": "📄"
+    },
+    {
+      "id": "reading",
+      "name": "阅读理解",
+      "icon": "📖"
+    }
+  ]
+}

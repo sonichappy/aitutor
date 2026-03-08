@@ -13,6 +13,9 @@
 # Production
 /build
 
+# Data storage
+/data
+
 # Misc
 .DS_Store
 *.pem

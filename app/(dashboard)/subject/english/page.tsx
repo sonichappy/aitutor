@@ -149,13 +149,12 @@ export default function EnglishSubjectPage() {
                       {module.action}
                     </Button>
                   ) : (
-                    <Button
-                      asChild
-                      size="sm"
-                      className={`bg-gradient-to-r ${module.color} hover:opacity-90`}
+                    <Link
+                      href={module.href}
+                      className={`inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-gradient-to-r ${module.color} hover:opacity-90 h-9 px-4 py-2`}
                     >
-                      <Link href={module.href}>{module.action}</Link>
-                    </Button>
+                      {module.action}
+                    </Link>
                   )}
                 </div>
               </CardContent>
@@ -170,46 +169,34 @@ export default function EnglishSubjectPage() {
           <CardTitle>快速操作</CardTitle>
         </CardHeader>
         <CardContent className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <Button
-            asChild
-            variant="outline"
-            className="h-20 flex flex-col items-center justify-center gap-2"
+          <Link
+            href="/subject/english/vocabulary?mode=add"
+            className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input bg-background hover:bg-accent hover:text-accent-foreground h-20 flex flex-col items-center justify-center gap-2"
           >
-            <Link href="/subject/english/vocabulary?mode=add">
-              <span className="text-2xl">➕</span>
-              <span className="text-sm">添加单词</span>
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="h-20 flex flex-col items-center justify-center gap-2"
+            <span className="text-2xl">➕</span>
+            <span className="text-sm">添加单词</span>
+          </Link>
+          <Link
+            href="/subject/english/vocabulary?mode=review"
+            className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input bg-background hover:bg-accent hover:text-accent-foreground h-20 flex flex-col items-center justify-center gap-2"
           >
-            <Link href="/subject/english/vocabulary?mode=review">
-              <span className="text-2xl">🔄</span>
-              <span className="text-sm">复习单词</span>
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="h-20 flex flex-col items-center justify-center gap-2"
+            <span className="text-2xl">🔄</span>
+            <span className="text-sm">复习单词</span>
+          </Link>
+          <Link
+            href="/subject/english/vocabulary?mode=practice"
+            className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input bg-background hover:bg-accent hover:text-accent-foreground h-20 flex flex-col items-center justify-center gap-2"
           >
-            <Link href="/subject/english/vocabulary?mode=practice">
-              <span className="text-2xl">🎯</span>
-              <span className="text-sm">单词测试</span>
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="h-20 flex flex-col items-center justify-center gap-2"
+            <span className="text-2xl">🎯</span>
+            <span className="text-sm">单词测试</span>
+          </Link>
+          <Link
+            href="/subject/english/grammar"
+            className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input bg-background hover:bg-accent hover:text-accent-foreground h-20 flex flex-col items-center justify-center gap-2"
           >
-            <Link href="/subject/english/grammar">
-              <span className="text-2xl">📖</span>
-              <span className="text-sm">语法学习</span>
-            </Link>
-          </Button>
+            <span className="text-2xl">📖</span>
+            <span className="text-sm">语法学习</span>
+          </Link>
         </CardContent>
       </Card>
 
@@ -225,9 +212,12 @@ export default function EnglishSubjectPage() {
                 数学、语文、地理、历史、生物、道法
               </p>
             </div>
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/dashboard">返回首页</Link>
-            </Button>
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+            >
+              返回首页
+            </Link>
           </div>
         </CardContent>
       </Card>

@@ -1,19 +1,20 @@
 import { NextRequest, NextResponse } from "next/server"
 import { callLLM, type ChatMessage } from "@/lib/ai/llm"
+import { getExamData, saveExamData, saveWrongQuestion, wrongQuestionExists } from "@/lib/storage"
 
 // 默认用户ID
 const DEFAULT_USER_ID = "user-1"
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { examId: string } }
+  { params }: { params: Promise<{ examId: string }> }
 ) {
   try {
-    const examId = params.examId
+    const { examId } = await params
     const { answers, questions } = await request.json()
 
-    // 从缓存获取试卷数据
-    const examData = (global as any).examCache?.[examId]
+    // 从文件系统读取试卷数据
+    const examData = await getExamData(examId)
     if (!examData) {
       return NextResponse.json(
         { error: "试卷不存在" },
@@ -139,24 +140,37 @@ ${strongPoints.join(", ")}
       aiReport,
     }
 
-    // 更新缓存
-    ;(global as any).examCache[examId] = {
-      ...(global as any).examCache[examId],
+    // 保存分析结果到文件
+    await saveExamData(examId, {
+      ...examData,
       answers,
       analysis: analysisData,
-    }
+      // 保存答题统计（只统计已判定的题目）
+      answerStats: {
+        correct: answers.filter((a: any) => a.isCorrect === true).length,
+        wrong: answers.filter((a: any) => a.isCorrect === false).length,
+        total: answers.filter((a: any) => a.isCorrect !== undefined).length,
+        accuracy: (() => {
+          const graded = answers.filter((a: any) => a.isCorrect !== undefined)
+          if (graded.length === 0) return 0
+          const correct = graded.filter((a: any) => a.isCorrect === true).length
+          return Math.round((correct / graded.length) * 100)
+        })(),
+        completedAt: new Date().toISOString(),
+      },
+    })
+    let wrongQuestionsAdded = 0
 
-    // 保存错题到错题本
-    const wrongQuestionsCache = (global as any).wrongQuestionsCache || []
-
-    answers.forEach((answer: any) => {
+    for (const answer of answers) {
       const question = questions.find((q: any) => q.number === parseInt(answer.questionId))
       if (question && answer.isCorrect === false && answer.userAnswer) {
         // 检查是否已存在
-        const exists = wrongQuestionsCache.some(
-          (wq: any) => wq.content === question.content && wq.userAnswer === answer.userAnswer
+        const exists = await wrongQuestionExists(
+          DEFAULT_USER_ID,
+          question.content,
+          answer.userAnswer
         )
-        if (exists) return
+        if (exists) continue
 
         const wrongQuestion = {
           id: `wq-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
@@ -175,7 +189,7 @@ ${strongPoints.join(", ")}
           improvement: answer.improvement,
           aiExplanation: answer.aiExplanation,
           reviewCount: 0,
-          nextReviewAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(), // 5分钟后
+          nextReviewAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
           status: "active",
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
@@ -183,16 +197,15 @@ ${strongPoints.join(", ")}
           originalQuestionId: question.number.toString(),
         }
 
-        wrongQuestionsCache.push(wrongQuestion)
+        await saveWrongQuestion(wrongQuestion)
+        wrongQuestionsAdded++
       }
-    })
-
-    ;(global as any).wrongQuestionsCache = wrongQuestionsCache
+    }
 
     return NextResponse.json({
       success: true,
       analysis: analysisData,
-      wrongQuestionsAdded: wrongQuestionsCache.length,
+      wrongQuestionsAdded,
     })
   } catch (error) {
     console.error("Exam analysis error:", error)
@@ -206,10 +219,10 @@ ${strongPoints.join(", ")}
 // GET 获取分析结果
 export async function GET(
   request: NextRequest,
-  { params }: { params: { examId: string } }
+  { params }: { params: Promise<{ examId: string }> }
 ) {
-  const examId = params.examId
-  const examData = (global as any).examCache?.[examId]
+  const { examId } = await params
+  const examData = await getExamData(examId)
 
   if (!examData?.analysis) {
     return NextResponse.json(

@@ -110,5 +110,3 @@ export default function DashboardLayout({
   )
 }
 
-// 导出默认用户ID供其他组件使用
-export { DEFAULT_USER }

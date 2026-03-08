@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import type { GrammarPoint, GrammarExample } from "@/types/english"
 import { GRAMMAR_CATEGORIES, GRAMMAR_LEVELS } from "@/types/english"
 
@@ -76,8 +77,6 @@ export default function EnglishGrammarPage() {
       masteryLevel: 0,
       practiceCount: 0,
       status: "active",
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
     }
 
     const updated = [...grammars, grammar]

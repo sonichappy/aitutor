@@ -42,6 +42,11 @@ export function checkAIConfig(): AIConfigStatus {
       hasModel = !!process.env.ANTHROPIC_MODEL
       if (!hasApiKey) missing.push("ANTHROPIC_API_KEY")
       break
+    case "gemini":
+      hasApiKey = !!process.env.GEMINI_API_KEY
+      hasModel = !!process.env.GEMINI_MODEL
+      if (!hasApiKey) missing.push("GEMINI_API_KEY")
+      break
   }
 
   return {
@@ -92,6 +97,20 @@ Anthropic Claude 配置：
 3. 设置环境变量：
    ANTHROPIC_API_KEY=sk-xxx
    ANTHROPIC_MODEL=claude-sonnet-4-20250514 (可选)
+`,
+
+    gemini: `
+Google Gemini 配置：
+1. 访问 https://aistudio.google.com/app/apikey
+2. 创建 API Key
+3. 设置环境变量：
+   GEMINI_API_KEY=AIzaxxx
+   GEMINI_MODEL=gemini-2.0-flash-exp (可选)
+
+推荐模型：
+• gemini-2.0-flash-exp - 快速、便宜 (推荐试卷识别)
+• gemini-2.5-pro-exp - 能力最强
+• gemini-1.5-flash - 稳定版本
 `,
   }
 
