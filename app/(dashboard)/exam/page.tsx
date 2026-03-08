@@ -354,16 +354,22 @@ export default function ExamPage() {
                     <Button
                       variant="destructive"
                       onClick={handleDeleteConfirm}
+                      className="gap-2"
                     >
-                      <Trash2 className="w-4 h-4 mr-1" />
+                      <span className="flex items-center">
+                        <Trash2 className="w-4 h-4" />
+                      </span>
                       删除 ({selectedExams.size})
                     </Button>
                   )}
                   <Button
                     variant="outline"
                     onClick={toggleManageMode}
+                    className="gap-2"
                   >
-                    <X className="w-4 h-4 mr-1" />
+                    <span className="flex items-center">
+                      <X className="w-4 h-4" />
+                    </span>
                     取消
                   </Button>
                 </>
@@ -496,7 +502,7 @@ export default function ExamPage() {
                             {/* 管理模式：选择框 */}
                             {isManageMode && (
                               <div className="absolute top-3 left-3 z-10">
-                                <div className="w-6 h-6 rounded border-2 border-blue-300 flex items-center justify-center bg-white shadow-sm">
+                                <div className="w-6 h-6 rounded border-2 border-blue-300 flex items-center justify-center bg-white shadow-sm [&>svg]:w-4 [&>svg]:h-4">
                                   {selectedExams.has(exam.id) ? (
                                     <CheckSquare className="w-4 h-4 text-blue-600" />
                                   ) : (
