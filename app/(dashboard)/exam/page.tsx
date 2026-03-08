@@ -496,11 +496,11 @@ export default function ExamPage() {
                             {/* 管理模式：选择框 */}
                             {isManageMode && (
                               <div className="absolute top-3 left-3 z-10">
-                                <div className="w-6 h-6 rounded border-2 flex items-center justify-center bg-white shadow-sm">
+                                <div className="w-6 h-6 rounded border-2 border-blue-300 flex items-center justify-center bg-white shadow-sm">
                                   {selectedExams.has(exam.id) ? (
-                                    <CheckSquare className="w-5 h-5 text-blue-600" />
+                                    <CheckSquare className="w-4 h-4 text-blue-600" />
                                   ) : (
-                                    <Square className="w-5 h-5 text-gray-400" />
+                                    <Square className="w-4 h-4 text-gray-400" />
                                   )}
                                 </div>
                               </div>
