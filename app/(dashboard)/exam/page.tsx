@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { AddExamDialog } from "@/components/AddExamDialog"
 import { getEnabledSubjects, getSubjectByName, type Subject } from "@/types/subject"
 import { clsx } from "clsx"
+import { Trash2, CheckSquare, Square, X } from "lucide-react"
 
 interface ExamType {
   id: string
@@ -72,6 +73,11 @@ export default function ExamPage() {
   const [selectedSubject, setSelectedSubject] = useState<string>("all")
   const [examMetadata, setExamMetadata] = useState<ExamMetadata | null>(null)
   const [accuracyColors, setAccuracyColors] = useState<AccuracyColorsConfig | null>(null)
+
+  // 管理模式相关状态
+  const [isManageMode, setIsManageMode] = useState(false)
+  const [selectedExams, setSelectedExams] = useState<Set<string>>(new Set())
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
   useEffect(() => {
     loadSubjects()
@@ -185,6 +191,79 @@ export default function ExamPage() {
     router.push(`/exam/${examId}/review`)
   }
 
+  // 管理模式相关函数
+  const toggleManageMode = () => {
+    setIsManageMode(!isManageMode)
+    setSelectedExams(new Set())
+  }
+
+  const toggleExamSelection = (examId: string) => {
+    const newSelected = new Set(selectedExams)
+    if (newSelected.has(examId)) {
+      newSelected.delete(examId)
+    } else {
+      newSelected.add(examId)
+    }
+    setSelectedExams(newSelected)
+  }
+
+  const toggleSelectAll = () => {
+    if (selectedExams.size === exams.length) {
+      // 全部取消选中
+      setSelectedExams(new Set())
+    } else {
+      // 全部选中
+      setSelectedExams(new Set(exams.map(e => e.id)))
+    }
+  }
+
+  const handleDeleteConfirm = async () => {
+    if (selectedExams.size === 0) {
+      alert("请先选择要删除的试卷")
+      return
+    }
+
+    const examCount = selectedExams.size
+    if (!confirm(`确定要删除选中的 ${examCount} 份试卷吗？此操作不可恢复。`)) {
+      return
+    }
+
+    try {
+      // 调用删除API
+      const response = await fetch("/api/exam/batch-delete", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          examIds: Array.from(selectedExams)
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("删除失败")
+      }
+
+      // 从本地状态中移除已删除的试卷
+      setExams(exams.filter(e => !selectedExams.has(e.id)))
+
+      // 退出管理模式
+      setIsManageMode(false)
+      setSelectedExams(new Set())
+
+      alert(`成功删除 ${examCount} 份试卷`)
+    } catch (error) {
+      console.error("Delete error:", error)
+      alert("删除失败，请重试")
+    }
+  }
+
+  const handleCardClick = (examId: string) => {
+    if (isManageMode) {
+      toggleExamSelection(examId)
+    } else {
+      handleExamClick(examId)
+    }
+  }
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
     // 返回年-月-日格式，如 2025-03-08
@@ -259,13 +338,62 @@ export default function ExamPage() {
             管理和分析你的试卷
           </p>
         </div>
-        <Button onClick={() => setIsAddDialogOpen(true)} size="lg">
-          + 添加试卷
-        </Button>
+        <div className="flex gap-2">
+          {exams.length > 0 && (
+            <>
+              {isManageMode ? (
+                <>
+                  <Button
+                    variant="outline"
+                    onClick={toggleSelectAll}
+                    disabled={exams.length === 0}
+                  >
+                    {selectedExams.size === exams.length ? "取消全选" : "全选"}
+                  </Button>
+                  {selectedExams.size > 0 && (
+                    <Button
+                      variant="destructive"
+                      onClick={handleDeleteConfirm}
+                    >
+                      <Trash2 className="w-4 h-4 mr-1" />
+                      删除 ({selectedExams.size})
+                    </Button>
+                  )}
+                  <Button
+                    variant="outline"
+                    onClick={toggleManageMode}
+                  >
+                    <X className="w-4 h-4 mr-1" />
+                    取消
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  variant="outline"
+                  onClick={toggleManageMode}
+                >
+                  管理
+                </Button>
+              )}
+            </>
+          )}
+          <Button onClick={() => setIsAddDialogOpen(true)} size="lg">
+            + 添加试卷
+          </Button>
+        </div>
       </div>
 
+      {/* 管理模式提示 */}
+      {isManageMode && (
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
+          <p className="text-sm text-blue-800 dark:text-blue-300">
+            💡 管理模式：点击试卷卡片进行选择，选中后可批量删除
+          </p>
+        </div>
+      )}
+
       {/* 科目筛选 */}
-      {exams.length > 0 && (
+      {exams.length > 0 && !isManageMode && (
         <div className="flex gap-2 overflow-x-auto pb-2">
           <Button
             variant={selectedSubject === "all" ? "default" : "outline"}
@@ -358,22 +486,36 @@ export default function ExamPage() {
                           <Card
                             key={exam.id}
                             className={clsx(
-                              "cursor-pointer hover:shadow-lg transition-shadow",
+                              "cursor-pointer hover:shadow-lg transition-shadow relative",
                               exam.answerStats?.accuracy !== undefined && (exam.answerStats.total ?? 0) > 0 && accuracyLevel?.bgColor,
-                              exam.answerStats?.accuracy !== undefined && (exam.answerStats.total ?? 0) > 0 && accuracyLevel?.borderColor
+                              exam.answerStats?.accuracy !== undefined && (exam.answerStats.total ?? 0) > 0 && accuracyLevel?.borderColor,
+                              isManageMode && selectedExams.has(exam.id) && "ring-2 ring-blue-500"
                             )}
-                            onClick={() => handleExamClick(exam.id)}
+                            onClick={() => handleCardClick(exam.id)}
                           >
-                          <CardHeader className="pb-3">
-                            <div className="flex items-start justify-between gap-2">
-                              <div className="flex-1">
-                                <CardTitle className="text-base">
-                                  {getExamTypeInfo(exam)?.icon && <span className="mr-1">{getExamTypeInfo(exam)?.icon}</span>}
-                                  {getExamTypeInfo(exam)?.name || exam.examType}
-                                </CardTitle>
-                                {/* 日期 - 突出显示 */}
-                                <div className="text-sm font-semibold text-blue-600 mt-1">
-                                  {formatDate(exam.createdAt)}
+                            {/* 管理模式：选择框 */}
+                            {isManageMode && (
+                              <div className="absolute top-3 left-3 z-10">
+                                <div className="w-6 h-6 rounded border-2 flex items-center justify-center bg-white shadow-sm">
+                                  {selectedExams.has(exam.id) ? (
+                                    <CheckSquare className="w-5 h-5 text-blue-600" />
+                                  ) : (
+                                    <Square className="w-5 h-5 text-gray-400" />
+                                  )}
+                                </div>
+                              </div>
+                            )}
+
+                            <CardHeader className={clsx("pb-3", isManageMode && "pl-12")}>
+                              <div className="flex items-start justify-between gap-2">
+                                <div className="flex-1">
+                                  <CardTitle className="text-base">
+                                    {getExamTypeInfo(exam)?.icon && <span className="mr-1">{getExamTypeInfo(exam)?.icon}</span>}
+                                    {getExamTypeInfo(exam)?.name || exam.examType}
+                                  </CardTitle>
+                                  {/* 日期 - 突出显示 */}
+                                  <div className="text-sm font-semibold text-blue-600 mt-1">
+                                    {formatDate(exam.createdAt)}
                                 </div>
                               </div>
                               {/* 正确率（如果已完成） */}
