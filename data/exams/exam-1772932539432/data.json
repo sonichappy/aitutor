@@ -1,0 +1,191 @@
+{
+  "id": "exam-1772932539432",
+  "userId": "user-1",
+  "subject": "数学",
+  "examType": "daily_homework",
+  "totalScore": 100,
+  "rawText": "二、综合应用\n10. 若直线a与直线b相交于点A，则直线b上到直线a距离等于4cm的点的个数为（C）\nA. 0        B. 1        C. 2        D. 3\n11. 如图，AD⊥BD，BC⊥CD，AB=a，BC=b，则BD的范围是（D）\nA. 大于a    B. 小于b    C. 大于a或小于b    D. 大于b且小于a\n12. 如图，在三角形ABC中，∠ABC=90°，BD⊥AC，垂足为D。\n若AC=10，AB=6，BC=8，则点B到直线AC的距离4.8。\n13. 如图，将一副三角板叠放在一起，使直角顶点重合于点O，\n则∠AOB+∠DOC=180°。\n14. 如图，点O为直线AB上一点，过点O作射线OC，使∠BOC=135°。\n将直角三角板MON绕点O旋转一周，当直线OM与直线OC互相垂直时，\n∠AOM的度数是45°或135°。\n15. 如图，在△ABC中，AB=9，BC=8，AE为BC边上的高，AE=7，\nP为AB上一动点，则PC的最小值为56/9。\n16. 如图，直线AB与CD相交于点O，OE平分∠BOC。\n（1）当∠COE=27°时，求∠AOD的度数；\n（2）若OF⊥OE，∠DOF=2∠BOC，求∠AOC的度数。\n17. 已知：直线AB与直线CD交于点O，过点O作OE⊥AB。\n（1）如图1，∠BOC=2∠AOC，求∠COE的度数；\n（2）如图2，在（1）的条件下，过点O作OF⊥CD，\n射线OM平分∠BOD，在不添加任何辅助线的情况下，\n请直接写出图2中所有与∠AOC互余的角。\n三、能力拓展\n（1）∵∠COE=27°，OE平分∠BOC\n∴∠BOC=2∠COE=2×27°=54°\n∵AB与CD相交于点O\n∴∠AOD与∠BOC为对顶角\n∴∠AOD=∠BOC=54°\n（2）∵∠DOF=2∠BOC，OE平分∠BOC\n设∠BOC=2x，∠DOF=2x，∠BOF=90-½x\n∴x+90-½x+2x=180\n5/2x=90\nx=36\n5x=180\n∴∠AOC=180°-36°=144°\n图1：\n（1）如图1，∠BOC=2∠AOC，\n设∠COE=x，则∠AOC=90-x\n∵∠BOC=2∠AOC\n∴90+x=2(90-x)\n90+x=180-2x\n3x=90\nx=30\n∴∠COE=30°\n图2：\n（2）在（1）条件下，∠AOC=60°，∠BOC=120°，\nOE⊥AB ⇒ ∠AOE=90°，\nOF⊥CD ⇒ ∠COF=90°，\nOM平分∠BOD ⇒ ∠BOM=∠MOD=60°\n与∠AOC（60°）互余的角（即30°角）有：\n∠1=30°，∠2=30°，∠3=30°，∠4=30°，∠5=30°，∠6=30°\n（注：图中标注∠1~∠6均为30°）",
+  "questions": [
+    {
+      "number": 10,
+      "type": "choice",
+      "content": "若直线a与直线b相交于点A，则直线b上到直线a距离等于4cm的点的个数为",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "点到直线距离",
+        "几何轨迹"
+      ],
+      "bbox": {
+        "x": 105,
+        "y": 280,
+        "width": 180,
+        "height": 80
+      }
+    },
+    {
+      "number": 11,
+      "type": "choice",
+      "content": "如图，AD⊥BD，BC⊥CD，AB=a，BC=b，则BD的范围是",
+      "options": [
+        "大于a",
+        "小于b",
+        "大于a或小于b",
+        "大于b且小于a"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "直角三角形性质",
+        "线段长度范围"
+      ],
+      "bbox": {
+        "x": 70.11810374539344,
+        "y": 13.30315440006054,
+        "width": 13.700787072350522,
+        "height": 7.272391072033093
+      }
+    },
+    {
+      "number": 12,
+      "type": "fill",
+      "content": "如图，在三角形ABC中，∠ABC=90°，BD⊥AC，垂足为D。若AC=10，AB=6，BC=8，则点B到直线AC的距离",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "直角三角形面积法",
+        "点到直线距离"
+      ],
+      "bbox": {
+        "x": 68.93700141157012,
+        "y": 20.043419296091216,
+        "width": 15.118109872938504,
+        "height": 6.2081387200282485
+      }
+    },
+    {
+      "number": 13,
+      "type": "fill",
+      "content": "如图，将一副三角板叠放在一起，使直角顶点重合于点O，则∠AOB+∠DOC=",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "角度和",
+        "三角板角度特性"
+      ],
+      "bbox": {
+        "x": 65.03936370995316,
+        "y": 25.63074414411664,
+        "width": 19.015747574555462,
+        "height": 7.006327984031884
+      }
+    },
+    {
+      "number": 14,
+      "type": "fill",
+      "content": "如图，点O为直线AB上一点，过点O作射线OC，使∠BOC=135°。将直角三角板MON绕点O旋转一周，当直线OM与直线OC互相垂直时，∠AOM的度数是",
+      "options": [],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "角度旋转",
+        "垂直关系",
+        "补角与余角"
+      ],
+      "bbox": {
+        "x": 66.10235581039414,
+        "y": 32.45969673614772,
+        "width": 17.244094073820477,
+        "height": 7.272391072033088
+      }
+    },
+    {
+      "number": 15,
+      "type": "fill",
+      "content": "如图，在△ABC中，AB=9，BC=8，AE为BC边上的高，AE=7，P为AB上一动点，则PC的最小值为",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "动点最短距离",
+        "垂线段最短",
+        "面积法"
+      ],
+      "bbox": {
+        "x": 66.81101721068814,
+        "y": 39.08171182193347,
+        "width": 11.45669263808621,
+        "height": 8.247955728037532
+      }
+    },
+    {
+      "number": 16,
+      "type": "calculation",
+      "content": "如图，直线AB与CD相交于点O，OE平分∠BOC。（1）当∠COE=27°时，求∠AOD的度数；（2）若OF⊥OE，∠DOF=2∠BOC，求∠AOC的度数。",
+      "options": [],
+      "score": 8,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "对顶角",
+        "角平分线",
+        "垂直关系",
+        "方程思想"
+      ],
+      "bbox": {
+        "x": 64.0944818428945,
+        "y": 47.0636040390739,
+        "width": 18.30708617426147,
+        "height": 9.223520384041976
+      }
+    },
+    {
+      "number": 17,
+      "type": "answer",
+      "content": "已知：直线AB与直线CD交于点O，过点O作OE⊥AB。（1）如图1，∠BOC=2∠AOC，求∠COE的度数；（2）如图2，在（1）的条件下，过点O作OF⊥CD，射线OM平分∠BOD，在不添加任何辅助线的情况下，请直接写出图2中所有与∠AOC互余的角。",
+      "options": [],
+      "score": 10,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "互余角定义",
+        "角平分线",
+        "垂直线性质",
+        "综合推理"
+      ],
+      "bbox": {
+        "x": 54.763773405690266,
+        "y": 72.60566091008602,
+        "width": 29.527558345583024,
+        "height": 12.327589744056112
+      }
+    }
+  ],
+  "createdAt": "2026-03-08 09:15:39",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 4,
+    "estimatedTime": 45,
+    "knowledgePointsSummary": [
+      "几何图形性质",
+      "角的计算与关系",
+      "垂直与平行线性质",
+      "三角形全等与相似",
+      "动点问题",
+      "辅助线构造"
+    ],
+    "questionTypeStats": {
+      "choice": 2,
+      "fill": 4,
+      "calculation": 1,
+      "answer": 1
+    }
+  },
+  "updatedAt": "2026-03-08T01:17:08.865Z"
+}

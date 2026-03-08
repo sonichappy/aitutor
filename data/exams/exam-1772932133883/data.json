@@ -1,0 +1,174 @@
+{
+  "id": "exam-1772932133883",
+  "userId": "user-1",
+  "subject": "数学",
+  "examType": "daily_homework",
+  "totalScore": 100,
+  "rawText": "7.2.1 平行线的概念\n一、基础落实\n1. 下列图片中，不包含平行线的是（ B ）\n梯子  彩虹  斑马线  栅栏\nA      B       C        D\n2. 如图，将一张长方形纸对折两次，产生的折痕之间的位置关系是（ A ）\nA. 平行    B. 垂直    C. 平行或垂直    D. 无法确定\n3. 已知在同一平面内，有直线a, b, c，若a//b, b//c，则直线a与直线c的位置关系是（ A ）\nA. 平行    B. 相交    C. 垂直    D. 平行或相交\n4. 在同一平面内有三条直线，若其中有两条且只有两条直线平行，则它们交点的个数为（ C ）\nA. 0个    B. 1个    C. 2个    D. 3个\n5. 下列说法正确的有（ C ）\n①同一平面内，不相交的两条直线是平行线； ②同一平面内，两条直线的位置关系有两种；\n③若线段AB与CD没有交点，则AB//CD； ④若a//b, b//c，则a与c不相交。\nA. 1个    B. 2个    C. 3个    D. 4个\n6. 如图，过点P画直线PE平行于OA，PE与OB相交于点E；画直线PH平行于OB，PH与OA相交于点H.\n7. 如图，按要求画平行线，已知△ABC.\n(1) 过A点作AE//BC，过C点作CE//AB交AE于点E.\n(2) 过B点作BD//AC交EA的延长线于点D，交EC的延长线于点F.\n第6题图\n第7题图",
+  "questions": [
+    {
+      "number": 1,
+      "type": "choice",
+      "content": "下列图片中，不包含平行线的是（ ）",
+      "options": [
+        "梯子",
+        "彩虹",
+        "斑马线",
+        "栅栏"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的直观识别"
+      ],
+      "bbox": {
+        "x": 26.653537860695238,
+        "y": 19.333917728087986,
+        "width": 43.22834541793354,
+        "height": 10.465148128047623
+      }
+    },
+    {
+      "number": 2,
+      "type": "choice",
+      "content": "如图，将一张长方形纸对折两次，产生的折痕之间的位置关系是（ ）",
+      "options": [
+        "平行",
+        "垂直",
+        "平行或垂直",
+        "无法确定"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "折叠对称性与平行/垂直关系"
+      ],
+      "bbox": {
+        "x": 31.023616495841523,
+        "y": 32.371009040147314,
+        "width": 36.49606211514062,
+        "height": 6.6515772000302675
+      }
+    },
+    {
+      "number": 3,
+      "type": "choice",
+      "content": "已知在同一平面内，有直线a, b, c，若a//b, b//c，则直线a与直线c的位置关系是（ ）",
+      "options": [
+        "平行",
+        "相交",
+        "垂直",
+        "平行或相交"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行公理的推论（传递性）"
+      ],
+      "bbox": {
+        "x": 420,
+        "y": 240,
+        "width": 480,
+        "height": 120
+      }
+    },
+    {
+      "number": 4,
+      "type": "choice",
+      "content": "在同一平面内有三条直线，若其中有两条且只有两条直线平行，则它们交点的个数为（ ）",
+      "options": [
+        "0个",
+        "1个",
+        "2个",
+        "3个"
+      ],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "三线交点计数"
+      ],
+      "bbox": {
+        "x": 480,
+        "y": 320,
+        "width": 420,
+        "height": 100
+      }
+    },
+    {
+      "number": 5,
+      "type": "choice",
+      "content": "下列说法正确的有（ ）\n①同一平面内，不相交的两条直线是平行线； ②同一平面内，两条直线的位置关系有两种；\n③若线段AB与CD没有交点，则AB//CD； ④若a//b, b//c，则a与c不相交。",
+      "options": [
+        "1个",
+        "2个",
+        "3个",
+        "4个"
+      ],
+      "score": 3,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线定义辨析",
+        "线段与直线区别",
+        "平行传递性"
+      ],
+      "bbox": {
+        "x": 550,
+        "y": 200,
+        "width": 400,
+        "height": 200
+      }
+    },
+    {
+      "number": 6,
+      "type": "calculation",
+      "content": "如图，过点P画直线PE平行于OA，PE与OB相交于点E；画直线PH平行于OB，PH与OA相交于点H.",
+      "options": [],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "尺规作图：作平行线"
+      ],
+      "bbox": {
+        "x": 20.748026191578635,
+        "y": 81.26749300388106,
+        "width": 25.748030877348395,
+        "height": 11.795463568053677
+      }
+    },
+    {
+      "number": 7,
+      "type": "calculation",
+      "content": "如图，按要求画平行线，已知△ABC.\n(1) 过A点作AE//BC，过C点作CE//AB交AE于点E.\n(2) 过B点作BD//AC交EA的延长线于点D，交EC的延长线于点F.",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行四边形构造",
+        "平行线作图综合应用"
+      ],
+      "bbox": {
+        "x": 52.51967897142597,
+        "y": 79.93717756387501,
+        "width": 28.110235544995014,
+        "height": 18.447040768083937
+      }
+    }
+  ],
+  "createdAt": "2026-03-08 09:08:53",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "平行线的定义",
+      "平行线的判定与性质",
+      "空间中直线的位置关系",
+      "尺规作图（平行线）"
+    ],
+    "questionTypeStats": {
+      "choice": 5,
+      "calculation": 2
+    }
+  },
+  "updatedAt": "2026-03-08T01:10:15.628Z"
+}

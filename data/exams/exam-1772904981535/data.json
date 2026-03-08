@@ -1,0 +1,367 @@
+{
+  "id": "exam-1772904981535",
+  "userId": "user-1",
+  "subject": "英语",
+  "examType": "special_practice",
+  "totalScore": 100,
+  "rawText": "A. are B. had been C. were D. was (A) 8) Mary, along with her parents, ______ to Paris. A. have moved B. has moved C. are moving D. have been moving (C) 9) The factory, including its machines, ______ burnt last night. A. were B. had been C. was D. has been (D) 10) Either of the books ______ mine. A. belong to B. is of C. is D. are (B) 11) This pair of trousers ______ too long for me. Please show me another. A. are B. were C. is D. was (C) 12) A number of their products ______ put on exhibition. A. has been B. is C. have been D. are (D) 13) His parents as well as he ______ very kind to me. A. is B. are C. do D. does (D) 14) What they needed ______ experienced English teachers. A. is B. are C. was D. were (B) 15) Every door and every window ______ to be cleaned. A. is B. are C. do D. does (C) 16) Asia as well as other continents ______ very rich natural resources. A. has B. have C. are D. is (B) 17) What they have done ______ useful to the people. A. are considered B. is considered C. have been considered D. will be considered (C) 18) Those who have applied for the post ______ in the office. A. are being interviewed B. will interviewed C. are interviewed D. to be interviewed (C) 19) The audience, as well as the chairman, ______ deeply moved by the speech given by the teacher. A. was B. were C. are D. is (B) 20) Writing stories and poems ______ what I enjoy most. A. is B. are C. was D. were ii. 就近一致原则 (C) 1) Either you or he ______ wrong. A. are B. have C. is D. has",
+  "questions": [
+    {
+      "number": 8,
+      "type": "choice",
+      "content": "Mary, along with her parents, ______ to Paris.",
+      "options": [
+        "have moved",
+        "has moved",
+        "are moving",
+        "have been moving"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "主谓一致"
+      ],
+      "bbox": [
+        [
+          130,
+          40,
+          870,
+          70
+        ]
+      ]
+    },
+    {
+      "number": 9,
+      "type": "choice",
+      "content": "The factory, including its machines, ______ burnt last night.",
+      "options": [
+        "were",
+        "had been",
+        "was",
+        "has been"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致",
+        "时态"
+      ],
+      "bbox": [
+        [
+          130,
+          70,
+          870,
+          100
+        ]
+      ]
+    },
+    {
+      "number": 10,
+      "type": "choice",
+      "content": "Either of the books ______ mine.",
+      "options": [
+        "belong to",
+        "is of",
+        "is",
+        "are"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "主谓一致"
+      ],
+      "bbox": [
+        [
+          130,
+          100,
+          870,
+          130
+        ]
+      ]
+    },
+    {
+      "number": 11,
+      "type": "choice",
+      "content": "This pair of trousers ______ too long for me. Please show me another.",
+      "options": [
+        "are",
+        "were",
+        "is",
+        "was"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "主谓一致"
+      ],
+      "bbox": [
+        [
+          130,
+          130,
+          870,
+          160
+        ]
+      ]
+    },
+    {
+      "number": 12,
+      "type": "choice",
+      "content": "A number of their products ______ put on exhibition.",
+      "options": [
+        "has been",
+        "is",
+        "have been",
+        "are"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致",
+        "时态"
+      ],
+      "bbox": [
+        [
+          130,
+          160,
+          870,
+          190
+        ]
+      ]
+    },
+    {
+      "number": 13,
+      "type": "choice",
+      "content": "His parents as well as he ______ very kind to me.",
+      "options": [
+        "is",
+        "are",
+        "do",
+        "does"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致"
+      ],
+      "bbox": [
+        [
+          130,
+          190,
+          870,
+          220
+        ]
+      ]
+    },
+    {
+      "number": 14,
+      "type": "choice",
+      "content": "What they needed ______ experienced English teachers.",
+      "options": [
+        "is",
+        "are",
+        "was",
+        "were"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致",
+        "时态"
+      ],
+      "bbox": [
+        [
+          130,
+          220,
+          870,
+          250
+        ]
+      ]
+    },
+    {
+      "number": 15,
+      "type": "choice",
+      "content": "Every door and every window ______ to be cleaned.",
+      "options": [
+        "is",
+        "are",
+        "do",
+        "does"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致"
+      ],
+      "bbox": [
+        [
+          130,
+          250,
+          870,
+          280
+        ]
+      ]
+    },
+    {
+      "number": 16,
+      "type": "choice",
+      "content": "Asia as well as other continents ______ very rich natural resources.",
+      "options": [
+        "has",
+        "have",
+        "are",
+        "is"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致"
+      ],
+      "bbox": [
+        [
+          130,
+          280,
+          870,
+          310
+        ]
+      ]
+    },
+    {
+      "number": 17,
+      "type": "choice",
+      "content": "What they have done ______ useful to the people.",
+      "options": [
+        "are considered",
+        "is considered",
+        "have been considered",
+        "will be considered"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致",
+        "被动语态"
+      ],
+      "bbox": [
+        [
+          130,
+          310,
+          870,
+          340
+        ]
+      ]
+    },
+    {
+      "number": 18,
+      "type": "choice",
+      "content": "Those who have applied for the post ______ in the office.",
+      "options": [
+        "are being interviewed",
+        "will interviewed",
+        "are interviewed",
+        "to be interviewed"
+      ],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "主谓一致",
+        "被动语态"
+      ],
+      "bbox": [
+        [
+          130,
+          340,
+          870,
+          370
+        ]
+      ]
+    },
+    {
+      "number": 19,
+      "type": "choice",
+      "content": "The audience, as well as the chairman, ______ deeply moved by the speech given by the teacher.",
+      "options": [
+        "was",
+        "were",
+        "are",
+        "is"
+      ],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "主谓一致"
+      ],
+      "bbox": [
+        [
+          130,
+          370,
+          870,
+          400
+        ]
+      ]
+    },
+    {
+      "number": 20,
+      "type": "choice",
+      "content": "Writing stories and poems ______ what I enjoy most.",
+      "options": [
+        "is",
+        "are",
+        "was",
+        "were"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致"
+      ],
+      "bbox": [
+        [
+          130,
+          400,
+          870,
+          430
+        ]
+      ]
+    },
+    {
+      "number": 1,
+      "type": "choice",
+      "content": "Either you or he ______ wrong.",
+      "options": [
+        "are",
+        "have",
+        "is",
+        "has"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致"
+      ],
+      "bbox": [
+        [
+          130,
+          430,
+          870,
+          460
+        ]
+      ]
+    }
+  ],
+  "createdAt": "2026-03-07T17:36:21.550Z",
+  "metadata": {
+    "detectedSubject": "英语",
+    "overallDifficulty": 3,
+    "estimatedTime": 45,
+    "knowledgePointsSummary": [
+      "主谓一致",
+      "时态（现在完成时、过去进行时等)",
+      "被动语态",
+      "主从复合句"
+    ],
+    "questionTypeStats": {
+      "choice": 14
+    }
+  },
+  "updatedAt": "2026-03-07T17:37:06.617Z"
+}

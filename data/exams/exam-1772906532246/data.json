@@ -1,0 +1,301 @@
+{
+  "id": "exam-1772906532246",
+  "userId": "user-1",
+  "subject": "英语",
+  "examType": "special_practice",
+  "totalScore": 100,
+  "rawText": "A. Nobel's B. Nobels' C. Nobel D. The Nobel's\n6) Tom's and Peter's ______ are good friends.\nA. father B. Father C. fathers D. Fathers\n7) My scarf is softer than ______.\nA. Kitty B. Kitty's C. Kittys D. Kittys'\n8) Susan and Betty live in the same flat. It is ______.\nA. Susan and Betty B. Susan's and Betty C. Susan and Betty's D. Susan's and Betty's\n9) Three-fourths of ______ surface is covered with water.\nA. the earth's B. the earth C. earth's D. the earths'\n10) — What have you finished?\n— I have finished ______.\nA. a day work B. a day's work C. day's working D. a-day-work\nIII. 主谓一致\ni. 语法一致原则\n选择填空。\n1) To say something ______ one thing, to do it ______ another.\nA. is ... are B. are ... is C. is ... is D. are ... are\n2) She and I ______ classmates when we were at college.\nA. am B. was C. are D. were\n3) Both Tom and Mary ______ the exam.\nA. has passed B. have passed C. have been passed D. had passed\n4) Not the students but the teacher ______ there just now.\nA. was seen B. were seen C. have seen D. has seen\n5) The singer and dancer ______ our party this evening.\nA. is to attend B. are going to attend C. shall be attend D. were to attend\n6) Many a student ______ there.\nA. have been B. have gone C. shall be attend D. has been\n7) Nobody but Smith and John ______ in the laboratory yesterday.\nA. have been B. have gone C. has been D. has been to",
+  "questions": [
+    {
+      "number": 6,
+      "type": "choice",
+      "content": "Tom's and Peter's ______ are good friends.",
+      "options": [
+        "father",
+        "Father",
+        "fathers",
+        "Fathers"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "名词所有格",
+        "主谓一致"
+      ],
+      "bbox": {
+        "x": 75,
+        "y": 340,
+        "width": 120,
+        "height": 40
+      }
+    },
+    {
+      "number": 7,
+      "type": "choice",
+      "content": "My scarf is softer than ______.",
+      "options": [
+        "Kitty",
+        "Kitty's",
+        "Kittys",
+        "Kittys'"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "名词所有格",
+        "比较级"
+      ],
+      "bbox": {
+        "x": 75,
+        "y": 400,
+        "width": 120,
+        "height": 40
+      }
+    },
+    {
+      "number": 8,
+      "type": "choice",
+      "content": "Susan and Betty live in the same flat. It is ______.",
+      "options": [
+        "Susan and Betty",
+        "Susan's and Betty",
+        "Susan and Betty's",
+        "Susan's and Betty's"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "名词所有格（共同所有 vs 分别所有）"
+      ],
+      "bbox": {
+        "x": 75,
+        "y": 460,
+        "width": 180,
+        "height": 40
+      }
+    },
+    {
+      "number": 9,
+      "type": "choice",
+      "content": "Three-fourths of ______ surface is covered with water.",
+      "options": [
+        "the earth's",
+        "the earth",
+        "earth's",
+        "the earths'"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "冠词与名词所有格搭配",
+        "地理常识"
+      ],
+      "bbox": {
+        "x": 75,
+        "y": 520,
+        "width": 180,
+        "height": 40
+      }
+    },
+    {
+      "number": 10,
+      "type": "choice",
+      "content": "— What have you finished? — I have finished ______.",
+      "options": [
+        "a day work",
+        "a day's work",
+        "day's working",
+        "a-day-work"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "名词所有格构成",
+        "复合名词"
+      ],
+      "bbox": {
+        "x": 75,
+        "y": 580,
+        "width": 180,
+        "height": 60
+      }
+    },
+    {
+      "number": 1,
+      "type": "choice",
+      "content": "To say something ______ one thing, to do it ______ another.",
+      "options": [
+        "is ... are",
+        "are ... is",
+        "is ... is",
+        "are ... are"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致（不定式作主语）"
+      ],
+      "bbox": {
+        "x": 560,
+        "y": 220,
+        "width": 180,
+        "height": 40
+      }
+    },
+    {
+      "number": 2,
+      "type": "choice",
+      "content": "She and I ______ classmates when we were at college.",
+      "options": [
+        "am",
+        "was",
+        "are",
+        "were"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "主谓一致（并列主语）",
+        "时态（一般过去时）"
+      ],
+      "bbox": {
+        "x": 560,
+        "y": 280,
+        "width": 180,
+        "height": 40
+      }
+    },
+    {
+      "number": 3,
+      "type": "choice",
+      "content": "Both Tom and Mary ______ the exam.",
+      "options": [
+        "has passed",
+        "have passed",
+        "have been passed",
+        "had passed"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致（both...and）",
+        "时态（现在完成时）"
+      ],
+      "bbox": {
+        "x": 560,
+        "y": 340,
+        "width": 180,
+        "height": 40
+      }
+    },
+    {
+      "number": 4,
+      "type": "choice",
+      "content": "Not the students but the teacher ______ there just now.",
+      "options": [
+        "was seen",
+        "were seen",
+        "have seen",
+        "has seen"
+      ],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "主谓一致（not...but结构）",
+        "被动语态",
+        "时态（一般过去时）"
+      ],
+      "bbox": {
+        "x": 560,
+        "y": 400,
+        "width": 180,
+        "height": 40
+      }
+    },
+    {
+      "number": 5,
+      "type": "choice",
+      "content": "The singer and dancer ______ our party this evening.",
+      "options": [
+        "is to attend",
+        "are going to attend",
+        "shall be attend",
+        "were to attend"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致（同位语主语）",
+        "将来时表达"
+      ],
+      "bbox": {
+        "x": 560,
+        "y": 460,
+        "width": 180,
+        "height": 40
+      }
+    },
+    {
+      "number": 6,
+      "type": "choice",
+      "content": "Many a student ______ there.",
+      "options": [
+        "have been",
+        "have gone",
+        "shall be attend",
+        "has been"
+      ],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "主谓一致（many a + 单数名词）"
+      ],
+      "bbox": {
+        "x": 560,
+        "y": 520,
+        "width": 180,
+        "height": 40
+      }
+    },
+    {
+      "number": 7,
+      "type": "choice",
+      "content": "Nobody but Smith and John ______ in the laboratory yesterday.",
+      "options": [
+        "have been",
+        "have gone",
+        "has been",
+        "has been to"
+      ],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "主谓一致（nobody but...结构）",
+        "时态（一般过去时）"
+      ],
+      "bbox": {
+        "x": 560,
+        "y": 580,
+        "width": 180,
+        "height": 40
+      }
+    }
+  ],
+  "createdAt": "2026-03-07T18:02:12.267Z",
+  "metadata": {
+    "detectedSubject": "英语",
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "主谓一致",
+      "名词所有格",
+      "冠词与名词搭配",
+      "动词时态（现在完成时、一般过去时、将来时）",
+      "代词与主语一致性"
+    ],
+    "questionTypeStats": {
+      "choice": 12
+    }
+  },
+  "updatedAt": "2026-03-07T18:04:42.440Z"
+}

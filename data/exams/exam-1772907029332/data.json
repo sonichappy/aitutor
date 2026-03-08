@@ -1,0 +1,335 @@
+{
+  "id": "exam-1772907029332",
+  "userId": "user-1",
+  "subject": "英语",
+  "examType": "special_practice",
+  "totalScore": 100,
+  "rawText": "GRAMMAR 初中英语 语法 精练\n第1章 名词\nI. 选择填空。\n( B ) 1) I need ______ scissors to cut the paper.\nA. any  B. many  C. much  D. lot of\n( A ) 2) Don't eat ______ chocolate. It's bad for your teeth.\nA. a  B. a pair of  C. a piece of  D. two\n( B ) 3) We need huge amounts of ______ about computers.\nA. too much  B. so much  C. too many  D. so many\n( B ) 4) We have ______ in our new flat.\nA. books  B. notes  C. newspapers  D. information\n( D ) 5) You may find ______ rubbish at a building site.\nA. much furniture  B. many furnitures  C. plenty furniture  D. a lot of furnitures\n( B ) 6) Mr. and Mrs. Green are a happy ______.\nA. many  B. a lot of  C. plenty  D. amount of\n( A ) 7) Electrical appliances are powered by ______.\nA. pair  B. group  C. couple  D. people\n( A ) 8) Would the students like to have a discussion on ______ in class?\nA. electric  B. electricity  C. electricities  D. electrics\n( A ) 9) What ______ we are having today!\nA. a pollution  B. pollution  C. some pollutions  D. some pollutions\n( B ) 10) Li Dong is a friend of my ______. We often play card games together.\nA. brother  B. brothers  C. brother's  D. brother's\n( C ) 2) The children enjoyed themselves at the ______ Palace.\nA. Childrens'  B. Children  C. Children's  D. Childrens'\n( B ) 3) It's twenty ______ walk from my home to school.\nA. minute  B. minutes  C. minute's  D. minutes'\n( D ) 4) Is there any news in ______ newspaper?\nA. today  B. today's  C. todays'  D. today of\n( D ) 5) ______ explosive was used for making roads.\nA. such a nice weather  B. a nice weather  C. so nice a weather  D. nice weather\nII. 名词所有格\n选择填空。",
+  "questions": [
+    {
+      "number": 1,
+      "type": "choice",
+      "content": "I need ______ scissors to cut the paper.",
+      "options": [
+        "any",
+        "many",
+        "much",
+        "lot of"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "不可数名词与量词搭配"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 170,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 2,
+      "type": "choice",
+      "content": "Don't eat ______ chocolate. It's bad for your teeth.",
+      "options": [
+        "a",
+        "a pair of",
+        "a piece of",
+        "two"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "不可数名词与量词搭配"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 210,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 3,
+      "type": "choice",
+      "content": "We need huge amounts of ______ about computers.",
+      "options": [
+        "too much",
+        "so much",
+        "too many",
+        "so many"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "不可数名词与量词搭配"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 250,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 4,
+      "type": "choice",
+      "content": "We have ______ in our new flat.",
+      "options": [
+        "books",
+        "notes",
+        "newspapers",
+        "information"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "可数/不可数名词辨析"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 290,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 5,
+      "type": "choice",
+      "content": "You may find ______ rubbish at a building site.",
+      "options": [
+        "much furniture",
+        "many furnitures",
+        "plenty furniture",
+        "a lot of furnitures"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "不可数名词（furniture）误用复数"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 330,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 6,
+      "type": "choice",
+      "content": "Mr. and Mrs. Green are a happy ______.",
+      "options": [
+        "many",
+        "a lot of",
+        "plenty",
+        "amount of"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "固定搭配：a happy couple"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 370,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 7,
+      "type": "choice",
+      "content": "Electrical appliances are powered by ______.",
+      "options": [
+        "pair",
+        "group",
+        "couple",
+        "people"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "名词搭配：powered by electricity"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 410,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 8,
+      "type": "choice",
+      "content": "Would the students like to have a discussion on ______ in class?",
+      "options": [
+        "electric",
+        "electricity",
+        "electricities",
+        "electrics"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "抽象不可数名词：electricity"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 450,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 9,
+      "type": "choice",
+      "content": "What ______ we are having today!",
+      "options": [
+        "a pollution",
+        "pollution",
+        "some pollutions",
+        "some pollutions"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "不可数名词无复数，感叹句结构"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 490,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 10,
+      "type": "choice",
+      "content": "Li Dong is a friend of my ______. We often play card games together.",
+      "options": [
+        "brother",
+        "brothers",
+        "brother's",
+        "brother's"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "双重所有格：a friend of my brother's"
+      ],
+      "bbox": {
+        "x": 50,
+        "y": 530,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 2,
+      "type": "choice",
+      "content": "The children enjoyed themselves at the ______ Palace.",
+      "options": [
+        "Childrens'",
+        "Children",
+        "Children's",
+        "Childrens'"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "复数名词所有格：children's"
+      ],
+      "bbox": {
+        "x": 70,
+        "y": 570,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 3,
+      "type": "choice",
+      "content": "It's twenty ______ walk from my home to school.",
+      "options": [
+        "minute",
+        "minutes",
+        "minute's",
+        "minutes'"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "名词作定语：twenty minutes' walk"
+      ],
+      "bbox": {
+        "x": 70,
+        "y": 610,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 4,
+      "type": "choice",
+      "content": "Is there any news in ______ newspaper?",
+      "options": [
+        "today",
+        "today's",
+        "todays'",
+        "today of"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "时间名词所有格：today's newspaper"
+      ],
+      "bbox": {
+        "x": 70,
+        "y": 650,
+        "width": 40,
+        "height": 15
+      }
+    },
+    {
+      "number": 5,
+      "type": "choice",
+      "content": "______ explosive was used for making roads.",
+      "options": [
+        "such a nice weather",
+        "a nice weather",
+        "so nice a weather",
+        "nice weather"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "weather为不可数名词，不能加冠词；此处应为名词短语作主语，但选项均错误，实际应为'an explosive'或'explosive'，题目有瑕疵；按选项选D最合理"
+      ],
+      "bbox": {
+        "x": 70,
+        "y": 690,
+        "width": 40,
+        "height": 15
+      }
+    }
+  ],
+  "createdAt": "2026-03-07T18:10:29.353Z",
+  "metadata": {
+    "detectedSubject": "英语",
+    "overallDifficulty": 2,
+    "estimatedTime": 15,
+    "knowledgePointsSummary": [
+      "不可数名词与量词搭配",
+      "可数名词复数形式",
+      "名词所有格",
+      "名词作定语",
+      "名词在句中的功能"
+    ],
+    "questionTypeStats": {
+      "choice": 14
+    }
+  },
+  "updatedAt": "2026-03-07T18:10:56.286Z"
+}
