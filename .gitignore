@@ -14,7 +14,7 @@
 /build
 
 # Data storage
-/data/exams/
+# /data/exams/  # Removed to allow exam data tracking
 !/data/*.json
 
 # Misc

@@ -1,0 +1,540 @@
+{
+  "id": "exam-1773070969690",
+  "userId": "user-1",
+  "subject": "english",
+  "subjectName": "英语",
+  "rawText": "2025级北大附中初一下 Unit 1 —— Target Language\n词汇：请写出英文和词性\n1. 狐狸 fox n.\n2. 长颈鹿 giraffe n.\n3. 雕；鹰 eagle n.\n4. 狼 wolf n.\n5. 企鹅 penguin n.\n6. 鲨鱼 shark n.\n7. 鲸 whale n.\n8. 蛇 snake n.\n9. 三明治 sandwich n.\n10. 脖子 neck n.\n11. 吓人的 scary adj.\n12. 猜测，估计 guess\n13. 巨大的 huge adj.\n14. 危险的 dangerous adj.\n15. 救；储蓄；保存 save v.\n16. 拿，提 carry v.\n17. 爱嬉戏的 playful adj.\n18. 文化 culture n.\n19. 然而；不过 however adv.\n20. 森林 forest n.\n21. 杀死 kill v.\n22. 友好的 friendly adj.\n23. 瞎的，失明的 blind adj.\n24. 听力 hearing n.\n25. 照顾，处理 (phr.) take care of (phr.)\n26. 拿起，举起 (phr.) pick up (phr.)\n27. 互相 (phr.) one another (phr.)\n28. 处于危险中 (phr.) in danger (phr.)\n29. 砍伐 (phr.) cut down (phr.)\n30. 由...制成 (phr.) made of\n31. 照顾 (phr.) look after\n32. 一点也不 (phr.) not at all\n句型：请写出对应的英语句子。\n1. 你最喜欢的动物是什么？ What's you favourite animals?\n2. 企鹅来自哪里？—它们来自南极洲。 Where are penguins from? They are from Antarctica.\n3. 你为什么不喜欢蛇？—因为它们真的吓人。 Why are you doesn't like snakes? Because they are really scary.\n4. 大象看起来和其它动物非常不同。 Elephants look very different from other animals.\n5. 大象是泰国生活和文化中非常重要的一部分。 Elephants are an important part of Thai life and culture.\n6. 让我们保护森林，不买象牙制品。 Let's save the forests and not buy made of ivory things.",
+  "questions": [
+    {
+      "number": "1",
+      "type": "dictation",
+      "content": "1. 狐狸",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "userAnswer": "fox n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "2",
+      "type": "dictation",
+      "content": "2. 长颈鹿",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "userAnswer": "giraffe n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "3",
+      "type": "dictation",
+      "content": "3. 雕；鹰",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "userAnswer": "eagle n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "4",
+      "type": "dictation",
+      "content": "4. 狼",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "userAnswer": "wolf n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "5",
+      "type": "dictation",
+      "content": "5. 企鹅",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "userAnswer": "penguin n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "6",
+      "type": "dictation",
+      "content": "6. 鲨鱼",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "userAnswer": "shark n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "7",
+      "type": "dictation",
+      "content": "7. 鲸",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "userAnswer": "whale n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "8",
+      "type": "dictation",
+      "content": "8. 蛇",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "userAnswer": "snake n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "9",
+      "type": "dictation",
+      "content": "9. 三明治",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "食物词汇"
+      ],
+      "userAnswer": "sandwich n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "10",
+      "type": "dictation",
+      "content": "10. 脖子",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "身体部位词汇"
+      ],
+      "userAnswer": "neck n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "11",
+      "type": "dictation",
+      "content": "11. 吓人的",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "userAnswer": "scary adj.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "12",
+      "type": "dictation",
+      "content": "12. 猜测，估计",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词"
+      ],
+      "userAnswer": "guess",
+      "correctAnswer": ""
+    },
+    {
+      "number": "13",
+      "type": "dictation",
+      "content": "13. 巨大的",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "userAnswer": "huge adj.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "14",
+      "type": "dictation",
+      "content": "14. 危险的",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "userAnswer": "dangerous adj.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "15",
+      "type": "dictation",
+      "content": "15. 救；储蓄；保存",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词"
+      ],
+      "userAnswer": "save v.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "16",
+      "type": "dictation",
+      "content": "16. 拿，提",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词"
+      ],
+      "userAnswer": "carry v.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "17",
+      "type": "dictation",
+      "content": "17. 爱嬉戏的",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "userAnswer": "playful adj.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "18",
+      "type": "dictation",
+      "content": "18. 文化",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "名词"
+      ],
+      "userAnswer": "culture n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "19",
+      "type": "dictation",
+      "content": "19. 然而；不过",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "副词"
+      ],
+      "userAnswer": "however adv.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "20",
+      "type": "dictation",
+      "content": "20. 森林",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "名词"
+      ],
+      "userAnswer": "forest n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "21",
+      "type": "dictation",
+      "content": "21. 杀死",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词"
+      ],
+      "userAnswer": "kill v.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "22",
+      "type": "dictation",
+      "content": "22. 友好的",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "userAnswer": "friendly adj.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "23",
+      "type": "dictation",
+      "content": "23. 瞎的，失明的",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "userAnswer": "blind adj.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "24",
+      "type": "dictation",
+      "content": "24. 听力",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "名词"
+      ],
+      "userAnswer": "hearing n.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "25",
+      "type": "dictation",
+      "content": "25. 照顾，处理 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "短语"
+      ],
+      "userAnswer": "take care of (phr.)",
+      "correctAnswer": ""
+    },
+    {
+      "number": "26",
+      "type": "dictation",
+      "content": "26. 拿起，举起 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "短语"
+      ],
+      "userAnswer": "pick up (phr.)",
+      "correctAnswer": ""
+    },
+    {
+      "number": "27",
+      "type": "dictation",
+      "content": "27. 互相 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "短语"
+      ],
+      "userAnswer": "one another (phr.)",
+      "correctAnswer": "",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T15:43:43.870Z"
+    },
+    {
+      "number": "28",
+      "type": "dictation",
+      "content": "28. 处于危险中 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "短语"
+      ],
+      "userAnswer": "in danger (phr.)",
+      "correctAnswer": ""
+    },
+    {
+      "number": "29",
+      "type": "dictation",
+      "content": "29. 砍伐 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "短语"
+      ],
+      "userAnswer": "cut down (phr.)",
+      "correctAnswer": ""
+    },
+    {
+      "number": "30",
+      "type": "dictation",
+      "content": "30. 由...制成 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "短语"
+      ],
+      "userAnswer": "made of",
+      "correctAnswer": ""
+    },
+    {
+      "number": "31",
+      "type": "dictation",
+      "content": "31. 照顾 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "短语"
+      ],
+      "userAnswer": "look after",
+      "correctAnswer": ""
+    },
+    {
+      "number": "32",
+      "type": "dictation",
+      "content": "32. 一点也不 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "短语"
+      ],
+      "userAnswer": "not at all",
+      "correctAnswer": ""
+    },
+    {
+      "number": "1",
+      "type": "translation",
+      "content": "句型 1. 你最喜欢的动物是什么？",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "特殊疑问句",
+        "形容词性物主代词"
+      ],
+      "userAnswer": "What's you favourite animals?",
+      "correctAnswer": "",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T15:43:11.784Z"
+    },
+    {
+      "number": "2",
+      "type": "translation",
+      "content": "句型 2. 企鹅来自哪里？—它们来自南极洲。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "be from 用法",
+        "地名"
+      ],
+      "userAnswer": "Where are penguins from? They are from Antarctica.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "3",
+      "type": "translation",
+      "content": "句型 3. 你为什么不喜欢蛇？—因为它们真的吓人。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "助动词用法",
+        "原因状语从句"
+      ],
+      "userAnswer": "Why are you doesn't like snakes? Because they are really scary.",
+      "correctAnswer": "",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T15:43:22.982Z"
+    },
+    {
+      "number": "4",
+      "type": "translation",
+      "content": "句型 4. 大象看起来和其它动物非常不同。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "系动词 look",
+        "be different from"
+      ],
+      "userAnswer": "Elephants look very different from other animals.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "5",
+      "type": "translation",
+      "content": "句型 5. 大象是泰国生活和文化中非常重要的一部分。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "名词所有格",
+        "part of"
+      ],
+      "userAnswer": "Elephants are an important part of Thai life and culture.",
+      "correctAnswer": ""
+    },
+    {
+      "number": "6",
+      "type": "translation",
+      "content": "句型 6. 让我们保护森林，不买象牙制品。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "Let's 句型",
+        "动词不定式否定"
+      ],
+      "userAnswer": "Let's save the forests and not buy made of ivory things.",
+      "correctAnswer": "",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T15:43:31.373Z"
+    }
+  ],
+  "createdAt": "2026-03-09 23:42:49",
+  "metadata": {
+    "detectedSubject": "英语",
+    "overallDifficulty": 2,
+    "estimatedTime": 30,
+    "knowledgePointsSummary": [
+      "动物名称词汇",
+      "形容词与动词用法",
+      "短语搭配",
+      "特殊疑问句与陈述句翻译"
+    ],
+    "questionTypeStats": {
+      "dictation": 32,
+      "translation": 6
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-09T15:53:38.686Z"
+}
