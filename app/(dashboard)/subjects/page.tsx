@@ -163,7 +163,7 @@ export default function SubjectsPage() {
       {/* 头部 */}
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">学科中心</h1>
+          <h1 className="text-3xl font-bold text-gray-900">学科报告</h1>
           <p className="text-gray-600 mt-2">
             查看各学科的学习报告，获取针对性的分析和建议
           </p>

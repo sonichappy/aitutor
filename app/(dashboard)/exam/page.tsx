@@ -311,7 +311,13 @@ export default function ExamPage() {
   }
 
   const getSubjectInfo = (subjectName: string) => {
-    return subjects.find(s => s.name === subjectName)
+    // 首先尝试通过名称查找（向后兼容）
+    let subject = subjects.find(s => s.name === subjectName)
+    // 如果没找到，尝试通过文件夹名称查找
+    if (!subject) {
+      subject = subjects.find(s => s.folderName === subjectName)
+    }
+    return subject
   }
 
   const getExamTypeInfo = (exam: ExamListItem) => {
@@ -441,6 +447,7 @@ export default function ExamPage() {
           {allSubjects.slice(1).map((subject) => {
             const subjectInfo = getSubjectInfo(subject)
             const count = exams.filter(e => e.subject === subject).length
+            const displayName = subjectInfo?.name || subject
             return (
               <Button
                 key={subject}
@@ -448,7 +455,7 @@ export default function ExamPage() {
                 size="sm"
                 onClick={() => setSelectedSubject(subject)}
               >
-                {subjectInfo?.icon || "📚"} {subject} ({count})
+                {subjectInfo?.icon || "📚"} {displayName} ({count})
               </Button>
             )
           })}
@@ -498,6 +505,7 @@ export default function ExamPage() {
               {subjectList.map((subject) => {
                 const subjectInfo = getSubjectInfo(subject)
                 const subjectExams = groupedExams[subject]
+                const displayName = subjectInfo?.name || subject
 
                 return (
                   <div key={subject}>
@@ -506,7 +514,7 @@ export default function ExamPage() {
                       <span className="text-3xl">{subjectInfo?.icon || "📚"}</span>
                       <div>
                         <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                          {subject}
+                          {displayName}
                         </h2>
                         <p className="text-sm text-gray-500">
                           {subjectExams.length} 份试卷

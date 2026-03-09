@@ -6,22 +6,23 @@ export interface Subject {
   color: string
   enabled: boolean
   category: "理科" | "文科" | "其他"
+  folderName: string  // 英文文件夹名称，用于存储数据
 }
 
 // 默认学科列表
 export const DEFAULT_SUBJECTS: Subject[] = [
-  { id: "math", name: "数学", icon: "📐", color: "blue", enabled: true, category: "理科" },
-  { id: "algebra", name: "代数", icon: "🔢", color: "blue", enabled: false, category: "理科" },
-  { id: "geometry", name: "几何", icon: "📐", color: "blue", enabled: false, category: "理科" },
-  { id: "chinese", name: "语文", icon: "📖", color: "red", enabled: true, category: "文科" },
-  { id: "english", name: "英语", icon: "🔤", color: "purple", enabled: true, category: "文科" },
-  { id: "physics", name: "物理", icon: "⚛️", color: "orange", enabled: false, category: "理科" },
-  { id: "chemistry", name: "化学", icon: "🧪", color: "green", enabled: false, category: "理科" },
-  { id: "biology", name: "生物", icon: "🧬", color: "lime", enabled: true, category: "理科" },
-  { id: "history", name: "历史", icon: "📜", color: "amber", enabled: true, category: "文科" },
-  { id: "geography", name: "地理", icon: "🌍", color: "cyan", enabled: true, category: "文科" },
-  { id: "politics", name: "道法", icon: "⚖️", color: "indigo", enabled: true, category: "文科" },
-  { id: "politics2", name: "政治", icon: "🏛️", color: "indigo", enabled: false, category: "文科" },
+  { id: "math", name: "数学", icon: "📐", color: "blue", enabled: true, category: "理科", folderName: "math" },
+  { id: "algebra", name: "代数", icon: "🔢", color: "blue", enabled: false, category: "理科", folderName: "algebra" },
+  { id: "geometry", name: "几何", icon: "📐", color: "blue", enabled: false, category: "理科", folderName: "geometry" },
+  { id: "chinese", name: "语文", icon: "📖", color: "red", enabled: true, category: "文科", folderName: "chinese" },
+  { id: "english", name: "英语", icon: "🔤", color: "purple", enabled: true, category: "文科", folderName: "english" },
+  { id: "physics", name: "物理", icon: "⚛️", color: "orange", enabled: false, category: "理科", folderName: "physics" },
+  { id: "chemistry", name: "化学", icon: "🧪", color: "green", enabled: false, category: "理科", folderName: "chemistry" },
+  { id: "biology", name: "生物", icon: "🧬", color: "lime", enabled: true, category: "理科", folderName: "biology" },
+  { id: "history", name: "历史", icon: "📜", color: "amber", enabled: true, category: "文科", folderName: "history" },
+  { id: "geography", name: "地理", icon: "🌍", color: "cyan", enabled: true, category: "文科", folderName: "geography" },
+  { id: "politics", name: "道法", icon: "⚖️", color: "indigo", enabled: true, category: "文科", folderName: "politics" },
+  { id: "politics2", name: "政治", icon: "🏛️", color: "indigo", enabled: false, category: "文科", folderName: "politics2" },
 ]
 
 // 从 API 获取学科配置
@@ -154,4 +155,21 @@ export function getSubjectIcon(name: string, subjects?: Subject[]): string {
   // 同步回退：检查默认学科列表
   const subject = DEFAULT_SUBJECTS.find(s => s.name === name)
   return subject?.icon || "📚"
+}
+
+// 根据学科名称获取文件夹名称（同步版本）
+export function getSubjectFolderName(subjectName: string): string {
+  const subject = DEFAULT_SUBJECTS.find(s => s.name === subjectName)
+  return subject?.folderName || subjectName.toLowerCase().replace(/\s+/g, '-')
+}
+
+// 根据学科ID获取文件夹名称
+export function getFolderNameById(subjectId: string): string {
+  const subject = DEFAULT_SUBJECTS.find(s => s.id === subjectId)
+  return subject?.folderName || subjectId
+}
+
+// 根据文件夹名称获取学科
+export function getSubjectByFolderName(folderName: string): Subject | undefined {
+  return DEFAULT_SUBJECTS.find(s => s.folderName === folderName)
 }

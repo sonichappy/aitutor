@@ -3,12 +3,15 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { getSubjects, saveSubjects, resetSubjects, DEFAULT_SUBJECTS, clearSubjectsCache, type Subject } from "@/types/subject"
 
 export default function SettingsPage() {
   const [subjects, setSubjects] = useState<Subject[]>([])
   const [hasChanges, setHasChanges] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [editingFolder, setEditingFolder] = useState<string | null>(null)
+  const [folderValue, setFolderValue] = useState("")
 
   useEffect(() => {
     loadSubjects()
@@ -35,6 +38,26 @@ export default function SettingsPage() {
     )
     setSubjects(updated)
     setHasChanges(true)
+  }
+
+  const handleStartEditFolder = (subject: Subject) => {
+    setEditingFolder(subject.id)
+    setFolderValue(subject.folderName)
+  }
+
+  const handleSaveFolder = (subjectId: string) => {
+    const updated = subjects.map(s =>
+      s.id === subjectId ? { ...s, folderName: folderValue.trim() || s.id } : s
+    )
+    setSubjects(updated)
+    setHasChanges(true)
+    setEditingFolder(null)
+    setFolderValue("")
+  }
+
+  const handleCancelEditFolder = () => {
+    setEditingFolder(null)
+    setFolderValue("")
   }
 
   const handleSave = async () => {
@@ -78,6 +101,86 @@ export default function SettingsPage() {
     indigo: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300",
   }
 
+  const renderSubjectCard = (subject: Subject) => (
+    <div
+      key={subject.id}
+      className={`p-4 rounded-lg border-2 transition-all ${
+        subject.enabled
+          ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+          : "border-gray-200 dark:border-gray-700 opacity-60"
+      }`}
+    >
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">{subject.icon}</span>
+          <span className="font-medium">{subject.name}</span>
+        </div>
+        <button
+          onClick={() => handleToggle(subject.id)}
+          className={`w-12 h-6 rounded-full transition-colors ${
+            subject.enabled ? "bg-blue-500" : "bg-gray-300 dark:bg-gray-600"
+          }`}
+        >
+          <div
+            className={`w-5 h-5 bg-white rounded-full shadow transition-transform ${
+              subject.enabled ? "translate-x-6" : "translate-x-0.5"
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* 文件夹名称编辑 */}
+      <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+        <span className="text-xs text-gray-500 dark:text-gray-400 min-w-[60px]">文件夹:</span>
+        {editingFolder === subject.id ? (
+          <div className="flex items-center gap-2 flex-1">
+            <Input
+              value={folderValue}
+              onChange={(e) => setFolderValue(e.target.value)}
+              className="h-7 text-sm flex-1"
+              placeholder="英文名称"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleSaveFolder(subject.id)
+                if (e.key === "Escape") handleCancelEditFolder()
+              }}
+              autoFocus
+            />
+            <Button
+              size="sm"
+              variant="ghost"
+              className="h-7 px-2"
+              onClick={() => handleSaveFolder(subject.id)}
+            >
+              ✓
+            </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              className="h-7 px-2"
+              onClick={handleCancelEditFolder}
+            >
+              ✗
+            </Button>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2 flex-1">
+            <code className="text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+              {subject.folderName}
+            </code>
+            <Button
+              size="sm"
+              variant="ghost"
+              className="h-7 px-2 text-gray-500 hover:text-gray-700"
+              onClick={() => handleStartEditFolder(subject)}
+            >
+              编辑
+            </Button>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       {/* 标题 */}
@@ -117,7 +220,7 @@ export default function SettingsPage() {
         <CardHeader>
           <CardTitle>学科列表</CardTitle>
           <CardDescription>
-            点击切换开关来启用或禁用学科
+            点击切换开关来启用或禁用学科，编辑文件夹名称用于数据存储
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -129,31 +232,7 @@ export default function SettingsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {subjects
                 .filter(s => s.category === "理科")
-                .map((subject) => (
-                  <button
-                    key={subject.id}
-                    onClick={() => handleToggle(subject.id)}
-                    className={`flex items-center justify-between p-4 rounded-lg border-2 transition-all ${
-                      subject.enabled
-                        ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-                        : "border-gray-200 dark:border-gray-700 opacity-60"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{subject.icon}</span>
-                      <span className="font-medium">{subject.name}</span>
-                    </div>
-                    <div className={`w-12 h-6 rounded-full transition-colors ${
-                      subject.enabled ? "bg-blue-500" : "bg-gray-300 dark:bg-gray-600"
-                    }`}>
-                      <div
-                        className={`w-5 h-5 bg-white rounded-full shadow transition-transform ${
-                          subject.enabled ? "translate-x-6" : "translate-x-0.5"
-                        }`}
-                      />
-                    </div>
-                  </button>
-                ))}
+                .map(renderSubjectCard)}
             </div>
           </div>
 
@@ -165,31 +244,7 @@ export default function SettingsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {subjects
                 .filter(s => s.category === "文科")
-                .map((subject) => (
-                  <button
-                    key={subject.id}
-                    onClick={() => handleToggle(subject.id)}
-                    className={`flex items-center justify-between p-4 rounded-lg border-2 transition-all ${
-                      subject.enabled
-                        ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-                        : "border-gray-200 dark:border-gray-700 opacity-60"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{subject.icon}</span>
-                      <span className="font-medium">{subject.name}</span>
-                    </div>
-                    <div className={`w-12 h-6 rounded-full transition-colors ${
-                      subject.enabled ? "bg-blue-500" : "bg-gray-300 dark:bg-gray-600"
-                    }`}>
-                      <div
-                        className={`w-5 h-5 bg-white rounded-full shadow transition-transform ${
-                          subject.enabled ? "translate-x-6" : "translate-x-0.5"
-                        }`}
-                      />
-                    </div>
-                  </button>
-                ))}
+                .map(renderSubjectCard)}
             </div>
           </div>
         </CardContent>
@@ -208,7 +263,7 @@ export default function SettingsPage() {
       {/* 提示信息 */}
       <Card>
         <CardContent className="pt-6">
-          <div className="flex gap-4 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
             <div className="flex items-center gap-2">
               <span className="w-4 h-4 rounded-full bg-blue-500"></span>
               <span>已启用</span>
@@ -218,8 +273,11 @@ export default function SettingsPage() {
               <span>已禁用</span>
             </div>
           </div>
-          <p className="mt-4 text-sm text-gray-500">
-            禁用的学科将在学科中心、试卷中心等功能中隐藏。
+          <p className="text-sm text-gray-500">
+            禁用的学科将在学科报告、试卷中心等功能中隐藏。
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
+            文件夹名称用于试卷和报告的存储分类，建议使用英文命名，修改后现有数据不会自动迁移。
           </p>
         </CardContent>
       </Card>

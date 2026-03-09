@@ -50,7 +50,7 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
       const enabledSubjects = await getEnabledSubjects()
       setSubjects(enabledSubjects)
       if (enabledSubjects.length > 0) {
-        setSelectedSubject(enabledSubjects[0].name)
+        setSelectedSubject(enabledSubjects[0].folderName)
       }
     } catch (error) {
       console.error("Failed to load subjects:", error)
@@ -220,7 +220,7 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
                   className="w-full h-9 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   {subjects.map((subject) => (
-                    <option key={subject.id} value={subject.name}>
+                    <option key={subject.id} value={subject.folderName}>
                       {subject.icon} {subject.name}
                     </option>
                   ))}

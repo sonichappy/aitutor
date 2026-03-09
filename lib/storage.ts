@@ -1,9 +1,24 @@
 import fs from 'fs/promises'
 import path from 'path'
+import { getSubjectFolderName, DEFAULT_SUBJECTS } from '@/types/subject'
 
 // 数据存储根目录
 const DATA_DIR = path.join(process.cwd(), 'data')
 const EXAMS_DIR = path.join(DATA_DIR, 'exams')
+
+// 获取学科的文件夹名称（使用设置中心配置的名称）
+function getSubjectFolderNameFromSettings(subjectName: string): string {
+  return getSubjectFolderName(subjectName)
+}
+
+// 从日期字符串生成日期文件夹（YYYYMMDD格式）
+function getDateFolder(dateString?: string): string {
+  const date = dateString ? new Date(dateString) : new Date()
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}${month}${day}`
+}
 
 // 确保目录存在
 async function ensureDir(dir: string) {
@@ -83,10 +98,22 @@ export interface ExamData {
   }
 }
 
+// 获取试卷目录路径（按学科和日期分类）
+function getExamDirPath(examId: string, subject?: string, createdAt?: string): string {
+  if (subject) {
+    // 使用设置中心配置的文件夹名称
+    const folderName = getSubjectFolderNameFromSettings(subject)
+    const dateFolder = getDateFolder(createdAt)
+    return path.join(EXAMS_DIR, folderName, dateFolder, examId)
+  }
+  // 如果没有指定学科，返回旧路径（向后兼容）
+  return path.join(EXAMS_DIR, examId)
+}
+
 // 保存试卷数据
 export async function saveExamData(examId: string, data: ExamData) {
   await initStorage()
-  const examDir = path.join(EXAMS_DIR, examId)
+  const examDir = getExamDirPath(examId, data.subject, data.createdAt)
   await ensureDir(examDir)
 
   // 更新时间戳
@@ -99,10 +126,70 @@ export async function saveExamData(examId: string, data: ExamData) {
   return data
 }
 
+// 查找试卷所在目录（搜索所有学科文件夹和日期文件夹）
+async function findExamDir(examId: string): Promise<string | null> {
+  try {
+    // 首先尝试直接读取（旧格式兼容）
+    const oldPath = path.join(EXAMS_DIR, examId, 'data.json')
+    try {
+      await fs.access(oldPath)
+      return path.join(EXAMS_DIR, examId)
+    } catch {
+      // 旧格式不存在，继续搜索学科文件夹
+    }
+
+    // 搜索所有学科文件夹
+    const subjects = await fs.readdir(EXAMS_DIR)
+    for (const subject of subjects) {
+      const subjectPath = path.join(EXAMS_DIR, subject)
+      const stat = await fs.stat(subjectPath)
+      if (stat.isDirectory()) {
+        // 首先尝试直接在学科文件夹下查找（向后兼容）
+        const examPathNoDate = path.join(subjectPath, examId, 'data.json')
+        try {
+          await fs.access(examPathNoDate)
+          return path.join(subjectPath, examId)
+        } catch {
+          // 继续搜索日期文件夹
+        }
+
+        // 搜索日期文件夹
+        try {
+          const dateFolders = await fs.readdir(subjectPath)
+          for (const dateFolder of dateFolders) {
+            const datePath = path.join(subjectPath, dateFolder)
+            const dateStat = await fs.stat(datePath)
+            if (dateStat.isDirectory()) {
+              const examPath = path.join(datePath, examId, 'data.json')
+              try {
+                await fs.access(examPath)
+                return path.join(datePath, examId)
+              } catch {
+                continue
+              }
+            }
+          }
+        } catch {
+          // 读取日期文件夹失败，继续
+        }
+      }
+    }
+  } catch {
+    // 忽略错误
+  }
+  return null
+}
+
 // 读取试卷数据
 export async function getExamData(examId: string): Promise<ExamData | null> {
   try {
-    const dataPath = path.join(EXAMS_DIR, examId, 'data.json')
+    const examDir = await findExamDir(examId)
+    if (!examDir) {
+      console.error(`[Storage] Exam ${examId} not found`)
+      return null
+    }
+
+    const dataPath = path.join(examDir, 'data.json')
     console.log(`[Storage] Reading exam data from: ${dataPath}`)
     const content = await fs.readFile(dataPath, 'utf-8')
     const data = JSON.parse(content)
@@ -116,13 +203,8 @@ export async function getExamData(examId: string): Promise<ExamData | null> {
 
 // 检查试卷是否存在
 export async function examExists(examId: string): Promise<boolean> {
-  try {
-    const dataPath = path.join(EXAMS_DIR, examId, 'data.json')
-    await fs.access(dataPath)
-    return true
-  } catch {
-    return false
-  }
+  const examDir = await findExamDir(examId)
+  return examDir !== null
 }
 
 // 更新试卷题目
@@ -139,7 +221,13 @@ export async function updateExamQuestions(examId: string, questions: ExamQuestio
 // 保存试卷图片
 export async function saveExamImage(examId: string, base64Image: string) {
   await initStorage()
-  const examDir = path.join(EXAMS_DIR, examId)
+
+  // 获取试卷数据以确定学科和创建时间
+  const examData = await getExamData(examId)
+  const subject = examData?.subject
+  const createdAt = examData?.createdAt
+
+  const examDir = getExamDirPath(examId, subject, createdAt)
   await ensureDir(examDir)
 
   // 解析 mime 类型
@@ -165,7 +253,10 @@ export async function saveExamImage(examId: string, base64Image: string) {
 // 读取试卷图片
 export async function getExamImage(examId: string): Promise<{ data: Buffer; mimeType: string } | null> {
   try {
-    const examDir = path.join(EXAMS_DIR, examId)
+    const examDir = await findExamDir(examId)
+    if (!examDir) {
+      return null
+    }
 
     // 尝试不同的图片格式
     const formats = ['jpg', 'jpeg', 'png', 'webp']
@@ -189,8 +280,10 @@ export async function getExamImage(examId: string): Promise<{ data: Buffer; mime
 // 删除试卷
 export async function deleteExam(examId: string) {
   try {
-    const examDir = path.join(EXAMS_DIR, examId)
-    await fs.rm(examDir, { recursive: true, force: true })
+    const examDir = await findExamDir(examId)
+    if (examDir) {
+      await fs.rm(examDir, { recursive: true, force: true })
+    }
   } catch {
     // 忽略删除错误
   }
@@ -202,15 +295,96 @@ export async function getUserExams(userId: string): Promise<ExamData[]> {
   const exams: ExamData[] = []
 
   try {
-    const examDirs = await fs.readdir(EXAMS_DIR)
-    for (const examId of examDirs) {
-      const data = await getExamData(examId)
-      if (data && data.userId === userId) {
-        exams.push(data)
+    // 读取exams目录下的所有内容（包括学科文件夹和直接的考试文件夹）
+    const entries = await fs.readdir(EXAMS_DIR, { withFileTypes: true })
+
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        const entryPath = path.join(EXAMS_DIR, entry.name)
+
+        // 检查是否是学科文件夹（包含data.json的文件夹直接视为考试文件夹）
+        // 学科文件夹内会包含多个考试文件夹
+        const isExamFolder = await checkIfExamFolder(entryPath)
+
+        if (isExamFolder) {
+          // 这是直接的考试文件夹（旧格式）
+          const data = await getExamData(entry.name)
+          if (data && data.userId === userId) {
+            exams.push(data)
+          }
+        } else {
+          // 这是学科文件夹，读取其中的考试（包括日期文件夹）
+          try {
+            await scanSubjectFolderForExams(entryPath, userId, exams)
+          } catch {
+            // 忽略读取错误
+          }
+        }
       }
     }
   } catch {
     // 忽略错误
+  }
+
+  return exams.sort((a, b) =>
+    new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  )
+}
+
+// 递归扫描学科文件夹下的考试（支持日期文件夹）
+async function scanSubjectFolderForExams(folderPath: string, userId: string, exams: ExamData[]): Promise<void> {
+  const entries = await fs.readdir(folderPath, { withFileTypes: true })
+
+  for (const entry of entries) {
+    const entryPath = path.join(folderPath, entry.name)
+
+    if (entry.isDirectory()) {
+      // 检查是否是考试文件夹（包含data.json）
+      const isExam = await checkIfExamDir(entryPath)
+      if (isExam) {
+        // 这是考试文件夹，读取数据
+        const examId = entry.name
+        const data = await getExamData(examId)
+        if (data && data.userId === userId) {
+          exams.push(data)
+        }
+      } else {
+        // 这是日期文件夹，继续递归
+        await scanSubjectFolderForExams(entryPath, userId, exams)
+      }
+    }
+  }
+}
+
+// 检查是否是考试文件夹（包含data.json）
+async function checkIfExamDir(folderPath: string): Promise<boolean> {
+  try {
+    const dataPath = path.join(folderPath, 'data.json')
+    await fs.access(dataPath)
+    return true
+  } catch {
+    return false
+  }
+}
+
+// 检查是否是考试文件夹（兼容旧版本）
+async function checkIfExamFolder(folderPath: string): Promise<boolean> {
+  return checkIfExamDir(folderPath)
+}
+
+// 获取指定学科的试卷
+export async function getUserExamsBySubject(userId: string, subject: string): Promise<ExamData[]> {
+  await initStorage()
+  const exams: ExamData[] = []
+
+  try {
+    const subjectPath = path.join(EXAMS_DIR, subject)
+    await fs.access(subjectPath)
+
+    // 递归扫描学科文件夹（支持日期文件夹）
+    await scanSubjectFolderForExams(subjectPath, userId, exams)
+  } catch {
+    // 学科文件夹不存在或读取错误，返回空数组
   }
 
   return exams.sort((a, b) =>
@@ -356,31 +530,10 @@ async function ensureReportsDir() {
   await ensureDir(REPORTS_DIR)
 }
 
-// 根据学科名称获取学科ID
+// 根据学科名称获取学科ID（文件夹名称）
 async function getSubjectIdByName(subjectName: string): Promise<string> {
-  // 学科名称到ID的映射
-  const nameToIdMap: Record<string, string> = {
-    "数学": "math",
-    "代数": "algebra",
-    "几何": "geometry",
-    "语文": "chinese",
-    "英语": "english",
-    "物理": "physics",
-    "化学": "chemistry",
-    "生物": "biology",
-    "历史": "history",
-    "地理": "geography",
-    "道法": "politics",
-    "政治": "politics2",
-  }
-
-  // 先尝试精确匹配
-  if (nameToIdMap[subjectName]) {
-    return nameToIdMap[subjectName]
-  }
-
-  // 如果找不到，返回小写并替换空格
-  return subjectName.toLowerCase().replace(/\s+/g, '-')
+  // 使用设置中心配置的文件夹名称
+  return getSubjectFolderNameFromSettings(subjectName)
 }
 
 // 生成时间戳格式的文件夹名 (YYYYMMDDHHmmss)

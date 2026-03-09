@@ -129,7 +129,7 @@ export default function SubjectDetailPage() {
               onClick={() => router.push("/subjects")}
               className="mb-4"
             >
-              ← 返回学科中心
+              ← 返回学科报告
             </Button>
             <h1 className="text-3xl font-bold text-gray-900">{subject}</h1>
             <p className="text-gray-600 mt-2">

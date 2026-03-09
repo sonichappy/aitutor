@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { callLLM, type ChatMessage } from "@/lib/ai/llm"
 import { saveExamData, saveExamImage } from "@/lib/storage"
 import { cleanParsedQuestions } from "@/lib/image-utils"
+import { getSubjectFolderName } from "@/types/subject"
 
 // 默认用户ID
 const DEFAULT_USER_ID = "user-1"
@@ -322,10 +323,14 @@ export async function POST(request: NextRequest) {
     }).replace(/\//g, '-')
 
     // 保存试卷数据到文件
+    // 使用文件夹名称作为subject（从中文名称转换）
+    const subjectName = parsed.detectedSubject || subject
+    const folderName = getSubjectFolderName(subjectName)
+
     const examData = {
       id: examId,
       userId: DEFAULT_USER_ID,
-      subject: parsed.detectedSubject || subject,  // 优先使用AI识别的科目
+      subject: folderName,  // 使用文件夹名称而不是中文名称
       examType: examType,  // 保存配置文件中的类型 ID
       totalScore,
       rawText: parsed.rawText || "",

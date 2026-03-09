@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server"
 import { callLLM, type ChatMessage } from "@/lib/ai/llm"
 import { cleanParsedQuestions } from "@/lib/image-utils"
+import { saveExamData } from "@/lib/storage"
+import { getSubjectFolderName } from "@/types/subject"
 
 // 默认用户ID
 const DEFAULT_USER_ID = "user-1"
@@ -190,14 +192,18 @@ ${content}
       hour12: false
     }).replace(/\//g, '-')
 
-    // 临时存储（用于演示）
+    // 保存试卷数据到文件
+    // 使用文件夹名称作为subject（从中文名称转换）
+    const subjectName = parsed.detectedSubject || subject
+    const folderName = getSubjectFolderName(subjectName)
+
     const examData = {
       id: examId,
       userId: DEFAULT_USER_ID,
-      subject: parsed.detectedSubject || subject,  // 优先使用AI识别的科目
+      subject: folderName,  // 使用文件夹名称而不是中文名称
       examType,  // 保存配置文件中的类型 ID
       totalScore,
-      content,
+      rawText: content,  // 使用 rawText 字段存储文本内容
       questions: cleanedQuestions,
       createdAt: chinaTime,  // 使用中国时区时间
       metadata: {
@@ -208,6 +214,9 @@ ${content}
         questionTypeStats,
       },
     }
+
+    // 保存到文件系统
+    await saveExamData(examId, examData)
 
     if (typeof global !== "undefined") {
       (global as any).examCache = (global as any).examCache || {}

@@ -44,7 +44,7 @@ export default function DashboardLayout({
                 href="/subjects"
                 className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium"
               >
-                学科中心
+                学科报告
               </Link>
               <Link
                 href="/learning"

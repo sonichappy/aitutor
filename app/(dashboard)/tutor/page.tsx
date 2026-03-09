@@ -113,7 +113,7 @@ export default function SubjectCenterPage() {
       <div className="flex justify-between items-start">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-            学科中心
+            学科报告
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-2">
             基于过往试卷的智能评估与学习建议
