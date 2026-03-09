@@ -100,9 +100,9 @@ export default function ExamPage() {
       console.error("Failed to load subjects:", error)
       // 使用默认的已启用学科
       setSubjects([
-        { id: "math", name: "数学", icon: "📐", color: "blue", enabled: true, category: "理科" },
-        { id: "chinese", name: "语文", icon: "📖", color: "red", enabled: true, category: "文科" },
-        { id: "english", name: "英语", icon: "🔤", color: "purple", enabled: true, category: "文科" },
+        { id: "math", name: "数学", icon: "📐", color: "blue", enabled: true, category: "理科", folderName: "math" },
+        { id: "chinese", name: "语文", icon: "📖", color: "red", enabled: true, category: "文科", folderName: "chinese" },
+        { id: "english", name: "英语", icon: "🔤", color: "purple", enabled: true, category: "文科", folderName: "english" },
       ])
     }
   }

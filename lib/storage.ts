@@ -66,6 +66,7 @@ export interface ExamData {
   id: string
   userId: string
   subject: string
+  subjectName?: string  // 学科中文名称（用于显示）
   examType: string
   totalScore: number
   imageUrl?: string  // base64 图片数据

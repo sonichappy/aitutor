@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { callLLM, type ChatMessage } from "@/lib/ai/llm"
 import { saveExamData, saveExamImage } from "@/lib/storage"
 import { cleanParsedQuestions } from "@/lib/image-utils"
-import { getSubjectFolderName } from "@/types/subject"
+import { getSubjectFolderName, matchSubjectToIntelligent } from "@/types/subject"
 
 // 默认用户ID
 const DEFAULT_USER_ID = "user-1"
@@ -108,6 +108,14 @@ export async function POST(request: NextRequest) {
 6. detectedSubject 必须是具体的科目名称
 7. options 数组中只填选项的纯文本内容，不要包含前缀
 
+**JSON格式严格要求：**
+1. 所有字符串中的换行符必须转义为 \\n
+2. 所有字符串中的引号必须转义为 \\" 或 \\'
+3. 不要在JSON中使用注释（// 或 /* */）
+4. 确保所有属性名都用双引号包围
+5. 确保没有尾随逗号
+6. 返回完整的、格式正确的JSON，不要截断
+
 只返回JSON，不要有其他内容。`
 
     const messages: ChatMessage[] = [
@@ -132,6 +140,12 @@ export async function POST(request: NextRequest) {
 1. 准确识别试卷图片中的所有文字内容
 2. 提取并结构化所有题目信息
 3. 按照指定的JSON格式返回结果
+
+**JSON格式严格要求**：
+- 所有字符串中的换行符必须转义为 \\n
+- 所有字符串中的特殊字符必须正确转义
+- 不要在JSON中使用任何注释
+- 确保返回完整有效的JSON，不要截断
 
 你必须只返回有效的JSON格式，不要包含任何其他说明文字。`,
       },
@@ -170,10 +184,80 @@ export async function POST(request: NextRequest) {
 
     // 尝试修复常见的 JSON 格式问题（在解析前应用）
     function fixJsonIssues(jsonStr: string): string {
-      // 简单的方法：只处理明显的截断问题
-      // 不尝试修复字符串内的换行符，因为这可能会导致更多问题
+      console.log(`[fixJsonIssues] Starting fix, input length: ${jsonStr.length}`)
 
-      // 检查是否被截断
+      // 步骤1: 移除JavaScript注释（单行和多行）
+      // 注意：必须在字符串检测之前做，避免误删字符串中的内容
+      jsonStr = jsonStr.replace(/\/\*[\s\S]*?\*\//g, '')  // 移除 /* */ 注释
+      jsonStr = jsonStr.replace(/\/\/.*$/gm, '')  // 移除 // 注释
+
+      // 步骤2: 清理控制字符（除了必要的换行、制表符等）
+      jsonStr = jsonStr.replace(/[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]/g, '')
+
+      // 步骤3: 处理字符串中的未转义换行符
+      // 这是一个复杂的问题，需要智能处理
+      // 策略：找到所有字符串字面量，确保其中的换行符被转义
+      let inString = false
+      let stringChar = ''
+      let escapeNext = false
+      let result = ''
+
+      for (let i = 0; i < jsonStr.length; i++) {
+        const char = jsonStr[i]
+        const nextChar = jsonStr[i + 1] || ''
+
+        if (escapeNext) {
+          result += char
+          escapeNext = false
+          continue
+        }
+
+        if (char === '\\') {
+          result += char
+          escapeNext = true
+          continue
+        }
+
+        if (!inString && (char === '"' || char === "'")) {
+          inString = true
+          stringChar = char
+          result += char
+          continue
+        }
+
+        if (inString && char === stringChar) {
+          inString = false
+          stringChar = ''
+          result += char
+          continue
+        }
+
+        if (inString) {
+          // 在字符串内部，转义换行符和其他特殊字符
+          if (char === '\n') {
+            result += '\\n'
+          } else if (char === '\r') {
+            result += '\\r'
+          } else if (char === '\t') {
+            result += '\\t'
+          } else {
+            result += char
+          }
+        } else {
+          result += char
+        }
+      }
+
+      jsonStr = result
+
+      // 步骤4: 移除尾随逗号
+      jsonStr = jsonStr.replace(/,\s*([}\]])/g, '$1')
+
+      // 步骤5: 修复缺失的引号（在属性名周围）
+      // 只修复简单的字母数字属性名
+      jsonStr = jsonStr.replace(/([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)(\s*:)/g, '$1"$2"$3')
+
+      // 步骤6: 处理可能的截断问题
       let openBraces = 0
       let openBrackets = 0
       let lastValidPos = jsonStr.length
@@ -191,9 +275,9 @@ export async function POST(request: NextRequest) {
         }
       }
 
-      // 如果 JSON 被截断，尝试找到最后一个完整的对象或数组
+      // 如果 JSON 被截断，尝试修复
       if (openBraces > 0 || openBrackets > 0) {
-        console.log(`[Parse Image] Detected truncated JSON: braces=${openBraces}, brackets=${openBrackets}`)
+        console.log(`[fixJsonIssues] Detected truncated JSON: braces=${openBraces}, brackets=${openBrackets}`)
 
         // 从后向前找最后一个闭合的括号
         for (let i = jsonStr.length - 1; i >= 0; i--) {
@@ -206,7 +290,7 @@ export async function POST(request: NextRequest) {
 
         // 如果找到了有效的结束位置，截断到那里
         if (lastValidPos < jsonStr.length) {
-          console.log(`[Parse Image] Truncating JSON to position ${lastValidPos}`)
+          console.log(`[fixJsonIssues] Truncating JSON to position ${lastValidPos}`)
           jsonStr = jsonStr.substring(0, lastValidPos)
         }
 
@@ -215,12 +299,7 @@ export async function POST(request: NextRequest) {
         while (openBraces > 0) { jsonStr += '}'; openBraces-- }
       }
 
-      // 移除尾随逗号
-      jsonStr = jsonStr.replace(/,\s*([}\]])/g, '$1')
-
-      // 修复缺失的引号（在属性名周围）
-      jsonStr = jsonStr.replace(/([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)(\s*:)/g, '$1"$2"$3')
-
+      console.log(`[fixJsonIssues] Fixed length: ${jsonStr.length}`)
       return jsonStr
     }
 
@@ -319,15 +398,22 @@ export async function POST(request: NextRequest) {
       hour12: false
     }).replace(/\//g, '-')
 
-    // 保存试卷数据到文件
-    // 使用文件夹名称作为subject（从中文名称转换）
-    const subjectName = parsed.detectedSubject || subject
-    const folderName = getSubjectFolderName(subjectName)
+    // 智能匹配学科
+    // AI检测到的学科需要匹配到用户配置的已启用学科
+    const detectedSubject = parsed.detectedSubject || subject
+    console.log(`[Parse Image] AI detected subject: "${detectedSubject}", user selected: "${subject}"`)
+
+    // 构建题目上下文用于智能判断（如果是数学，需要判断是代数还是几何）
+    const questionContext = parsed.rawText || JSON.stringify(parsed.questions?.slice(0, 3) || [])
+
+    const { folderName, matchedSubject } = await matchSubjectToIntelligent(detectedSubject, questionContext, subject)
+    console.log(`[Parse Image] Matched to folder: "${folderName}", subject: ${matchedSubject?.name || 'N/A'}`)
 
     const examData = {
       id: examId,
       userId: DEFAULT_USER_ID,
-      subject: folderName,  // 使用文件夹名称而不是中文名称
+      subject: folderName,  // 使用智能匹配后的文件夹名称
+      subjectName: matchedSubject?.name || parsed.detectedSubject,  // 保存学科中文名称用于显示
       examType: examType,  // 保存配置文件中的类型 ID
       totalScore,
       rawText: parsed.rawText || "",
