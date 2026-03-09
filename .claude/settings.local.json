@@ -29,7 +29,10 @@
       "Bash(rm:*)",
       "Bash(wc:*)",
       "Bash(git add:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(git push:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(git pull:*)"
     ]
   }
 }
