@@ -1,0 +1,188 @@
+{
+  "id": "exam-1773060889491",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "totalScore": 100,
+  "rawText": "二、综合应用\n10. 已知图①～④，∠1与∠2是同位角的有__①__（填序号）。\n图① 图② 图③ 图④\n11. 下列图形中，∠1和∠2不是同位角的是（×）\n12. 如图，给出下列说法，其中正确的是①②④（填序号）。\n①∠1与∠2是对顶角；\n②∠3与∠4是同旁内角；\n③∠5与∠6是同旁内角；\n④∠1与∠4是内错角。\n13. 如图，下列结论，其中正确的有①②③（只填序号）。\n①∠2与∠3是内错角；②∠2与∠B是同位角；③∠1与∠B是同旁内角。\n14. 如图。\n(1) ∠BED与∠CBE是直线DE、BC被直线BE所截形成的内错角；\n(2) ∠A与∠CED是直线AB、AC被直线DE所截形成的同位角；\n(3) ∠CBE与∠BEC是直线BC、AC被直线BE所截形成的同旁内角；\n(4) ∠AEB与∠CBE是直线AE、BC被直线BE所截形成的内错角。\n15. 如图，∠DAC的同旁内角是∠AEC，把图形拆解出来画在下面。\n三、能力拓展\n16. 如图①，对于两条直线l₁, l₂被第三条直线l₃所截得到的同旁内角∠α，∠β满足∠β=∠α+30°，则称∠β是∠α的“关联角”。\n(1) 已知∠β是∠α的“关联角”，当∠α=50°时，∠β的度数为80°。\n(2) 如图②，已知∠AGH是∠CHG的“关联角”，那么∠DHG是∠BGH的“关联角”吗？为什么？\n解：∵∠AGH是∠CHG的关联角，∴∠β=∠α+30°\n∴∠AGH=∠CHG+30°\n∵∠AGH+∠α+30°，∠CHG=α\n∴∠BGH=180-(α+30)=150-α\n∠DHG=180-α\n∴∠DHG-∠BGH=30\n∴是",
+  "questions": [
+    {
+      "number": 10,
+      "type": "fill",
+      "content": "已知图①～④，∠1与∠2是同位角的有__（填序号）。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "同位角识别"
+      ],
+      "bbox": {
+        "x": 19.566923857755313,
+        "y": 11.174649696050853,
+        "width": 56.10236085660773,
+        "height": 12.238902048055696
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:57:52.267Z"
+    },
+    {
+      "number": 11,
+      "type": "choice",
+      "content": "下列图形中，∠1和∠2不是同位角的是（ ）",
+      "options": [
+        "图①",
+        "图②",
+        "图③",
+        "图④"
+      ],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "同位角识别"
+      ],
+      "bbox": {
+        "x": 11.771648454521397,
+        "y": 25.71943184011704,
+        "width": 46.7716524194035,
+        "height": 10.287772736046819
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:57:52.876Z"
+    },
+    {
+      "number": 12,
+      "type": "choice",
+      "content": "如图，给出下列说法，其中正确的是（填序号）。\n①∠1与∠2是对顶角；\n②∠3与∠4是同旁内角；\n③∠5与∠6是同旁内角；\n④∠1与∠4是内错角。",
+      "options": [
+        "①",
+        "②",
+        "③",
+        "④"
+      ],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "对顶角、同旁内角、内错角识别"
+      ],
+      "bbox": {
+        "x": 61.614166941865534,
+        "y": 33.70132448015337,
+        "width": 14.999999639556165,
+        "height": 11.17464969605085
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 13,
+      "type": "choice",
+      "content": "如图，下列结论，其中正确的有（只填序号）。\n①∠2与∠3是内错角；②∠2与∠B是同位角；③∠1与∠B是同旁内角。",
+      "options": [
+        "①",
+        "②",
+        "③"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "内错角、同位角、同旁内角识别"
+      ],
+      "bbox": {
+        "x": 70.23621397877578,
+        "y": 43.27959564819695,
+        "width": 17.83464524073213,
+        "height": 9.134832688041577
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 14,
+      "type": "fill",
+      "content": "如图。\n(1) ∠BED与∠CBE是直线DE、BC被直线BE所截形成的____角；\n(2) ∠A与∠CED是直线____、____被直线____所截形成的____角；\n(3) ∠CBE与∠BEC是直线____、____被直线____所截形成的____角；\n(4) ∠AEB与∠CBE是直线____、____被直线____所截形成的____角。",
+      "options": [],
+      "score": 8,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "三线八角关系分析"
+      ],
+      "bbox": {
+        "x": 73.89763121362807,
+        "y": 52.32574064023813,
+        "width": 14.645668939409163,
+        "height": 9.844334256044796
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 15,
+      "type": "answer",
+      "content": "如图，∠DAC的同旁内角是∠AEC，把图形拆解出来画在下面。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "同旁内角识别与作图"
+      ],
+      "bbox": {
+        "x": 72.59841864642242,
+        "y": 62.554389147795895,
+        "width": 14.999999639556165,
+        "height": 8.15926803203714
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:57:55.913Z"
+    },
+    {
+      "number": 16,
+      "type": "calculation",
+      "content": "如图①，对于两条直线l₁, l₂被第三条直线l₃所截得到的同旁内角∠α，∠β满足∠β=∠α+30°，则称∠β是∠α的“关联角”。\n(1) 已知∠β是∠α的“关联角”，当∠α=50°时，∠β的度数为____。\n(2) 如图②，已知∠AGH是∠CHG的“关联角”，那么∠DHG是∠BGH的“关联角”吗？为什么？",
+      "options": [],
+      "score": 10,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "角度代数关系、平行线性质、逻辑推理"
+      ],
+      "bbox": {
+        "x": 64.33070230965917,
+        "y": 70.09284330783021,
+        "width": 22.559054576025417,
+        "height": 10.199085040046413
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    }
+  ],
+  "createdAt": "2026-03-09 20:54:49",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 4,
+    "estimatedTime": 35,
+    "knowledgePointsSummary": [
+      "同位角、内错角、同旁内角的识别",
+      "平行线的判定与性质",
+      "角度计算与代数推理",
+      "几何证明与逻辑推导"
+    ],
+    "questionTypeStats": {
+      "fill": 2,
+      "choice": 3,
+      "answer": 1,
+      "calculation": 1
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-09T12:57:57.101Z"
+}

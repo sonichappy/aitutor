@@ -1,0 +1,153 @@
+{
+  "id": "exam-1773059736397",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "totalScore": 100,
+  "rawText": "二、综合应用\n8. 如图，直线AB//CD，CD//EF，则AB与EF的位置关系是（A）\nA. 平行    B. 相交    C. 垂直    D. 不能确定\n9. 如图，OM//a，ON//a，则O，M，N三点共线的理由是（B）\nA. 三点确定一条直线\nB. 如果两条直线都与第三条直线平行，那么这两条直线也互相平行\nC. 经过直线外一点，有且只有一条直线与这条直线平行\nD. 过三点可作一条直线与已知直线平行\n10. 如图，直线AB，CD被直线EF所截，H为CD与EF的交点，GH⊥CD于点H，∠2=30°，∠1=60°，求证：AB//CD.\n证：∵∠2=30°，GH⊥CD\n∴∠DHG=90°，∠CHF=180°-∠2-∠DHG=60°\n∴∠CHE=180°-∠CHF=120°\n∵∠4=180°-∠CHF=60°\n∴∠1=60°，∠4=60°\n∴∠1=∠4\n∴AB//CD\n11. 已知：如图，已知直线AB、CD被直线EF所截，∠BMN=∠DNF，∠1=∠2，求证：MQ//NP.\n证：∵∠1=∠2，∠BMN=∠DNF\n∴∠QMN=∠PNF\n∴MQ//NP\n三、能力拓展\n12. 如图，直线EF上有A，C两点，分别引两条射线AB，CD，∠BAF=100°，CD与AB在直线EF的两侧。若∠DCF=60°，射线AB，CD分别同时绕点A、点C以1°/s和6°/s的速度顺时针转动，设转动时间为ts，在射线CD转动一圈的过程中，当t的值为多少时，CD与AB平行？\n解：①∠BAF=100°\n∴∠EAB=180°-∠BAF=80°\n②80+t=60+6t\nt=4\n③80+30t+t=60+6t\nt=10\n④t=40(秒)\n答：当在4秒和40秒时CD与AB平行。",
+  "questions": [
+    {
+      "number": 8,
+      "type": "choice",
+      "content": "如图，直线AB//CD，CD//EF，则AB与EF的位置关系是",
+      "options": [
+        "平行",
+        "相交",
+        "垂直",
+        "不能确定"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行公理推论"
+      ],
+      "bbox": {
+        "x": 65.74802511024716,
+        "y": 9.992146180534242,
+        "width": 20.19684990837878,
+        "height": 8.868769600040359
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 9,
+      "type": "choice",
+      "content": "如图，OM//a，ON//a，则O，M，N三点共线的理由是",
+      "options": [
+        "三点确定一条直线",
+        "如果两条直线都与第三条直线平行，那么这两条直线也互相平行",
+        "经过直线外一点，有且只有一条直线与这条直线平行",
+        "过三点可作一条直线与已知直线平行"
+      ],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线基本性质"
+      ],
+      "bbox": {
+        "x": 63.97637160951217,
+        "y": 27.286246900612944,
+        "width": 22.79527504279008,
+        "height": 6.208138720028245
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:37:37.297Z"
+    },
+    {
+      "number": 10,
+      "type": "proof",
+      "content": "如图，直线AB，CD被直线EF所截，H为CD与EF的交点，GH⊥CD于点H，∠2=30°，∠1=60°，求证：AB//CD.",
+      "options": [],
+      "score": 6,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线判定",
+        "垂直定义",
+        "角度计算"
+      ],
+      "bbox": {
+        "x": 65.03936370995316,
+        "y": 37.30795756360868,
+        "width": 21.614172708966763,
+        "height": 14.456094448065784
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:37:38.619Z"
+    },
+    {
+      "number": 11,
+      "type": "proof",
+      "content": "已知：如图，已知直线AB、CD被直线EF所截，∠BMN=∠DNF，∠1=∠2，求证：MQ//NP.",
+      "options": [],
+      "score": 6,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线判定",
+        "角的等量代换"
+      ],
+      "bbox": {
+        "x": 66.33857627715881,
+        "y": 54.86812171000531,
+        "width": 21.02362154205511,
+        "height": 13.657905184062145
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:37:39.907Z"
+    },
+    {
+      "number": 12,
+      "type": "calculation",
+      "content": "如图，直线EF上有A，C两点，分别引两条射线AB，CD，∠BAF=100°，CD与AB在直线EF的两侧。若∠DCF=60°，射线AB，CD分别同时绕点A、点C以1°/s和6°/s的速度顺时针转动，设转动时间为ts，在射线CD转动一圈的过程中，当t的值为多少时，CD与AB平行？",
+      "options": [],
+      "score": 8,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "动态几何",
+        "角度变化",
+        "方程建模"
+      ],
+      "bbox": {
+        "x": 63.97637160951217,
+        "y": 78.99117637538194,
+        "width": 24.566928543525066,
+        "height": 17.914914592081516
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:37:40.538Z"
+    }
+  ],
+  "createdAt": "2026-03-09 20:35:36",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 4,
+    "estimatedTime": 35,
+    "knowledgePointsSummary": [
+      "平行线的判定与性质",
+      "垂直与角度计算",
+      "几何证明",
+      "动态几何问题"
+    ],
+    "questionTypeStats": {
+      "choice": 2,
+      "proof": 2,
+      "calculation": 1
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-09T12:38:23.911Z"
+}

@@ -1,0 +1,315 @@
+{
+  "id": "exam-1773061708426",
+  "userId": "user-1",
+  "subject": "english",
+  "subjectName": "英语",
+  "examType": "daily_homework",
+  "totalScore": 100,
+  "rawText": "ii. 可数名词\n选择填空。\n( B ) 1) In his letter, Uncle Lee told us many ______ about his visit to the United States.\nA. news  B. stories  C. information  D. truth\n( C ) 2) I spent large numbers of ______ preparing for the final exams.\nA. energy  B. time  C. hours  D. strength\n( C ) 3) Many tourists from different ______ come to visit Shanghai every year.\nA. country  B. countries  C. countries  D. country’s\n( B ) 4) Miss Smith doesn’t have ______ housework to do today.\nA. much  B. many  C. a lot  D. a piece\n( A ) 5) We finally got several ______ of his innocence.\nA. proof  B. proofs  C. proves  D. prooves\n( D ) 6) A group of boy students ______ basketball on the playground at the moment.\nA. play  B. plays  C. is playing  D. are playing\n( C ) 7) My aunt bought ______ cotton stockings for me at the department store.\nA. a pair of  B. a loaf of  C. a piece of  D. a group of\n( B ) 8) Wang Daming has caught some ______, and his family will have ______ for supper today.\nA. fish … fishes  B. fishes … fish  C. fishes … fishes  D. fishing … fish\n( D ) 9) There are many ______ in this hospital.\nA. woman doctor  B. woman doctors  C. women doctor  D. women doctors\n( D ) 10) Last week I ate ______.\nA. too much hamburger  B. too many hamburger  C. too many hamburgers  D. too much hamburgers\niii. 不可数名词\n选择填空。\n( D ) 1) There was ______ mud on the ground after the heavy rain.",
+  "questions": [
+    {
+      "number": 1,
+      "type": "choice",
+      "content": "In his letter, Uncle Lee told us many ______ about his visit to the United States.",
+      "options": [
+        "news",
+        "stories",
+        "information",
+        "truth"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "可数名词复数用法",
+        "不可数名词辨析"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 95,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 2,
+      "type": "choice",
+      "content": "I spent large numbers of ______ preparing for the final exams.",
+      "options": [
+        "energy",
+        "time",
+        "hours",
+        "strength"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "可数名词复数搭配",
+        "固定短语 'large numbers of'"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 130,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 3,
+      "type": "choice",
+      "content": "Many tourists from different ______ come to visit Shanghai every year.",
+      "options": [
+        "country",
+        "countries",
+        "countries",
+        "country’s"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "可数名词复数形式",
+        "形容词性物主代词误用辨析"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 165,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 4,
+      "type": "choice",
+      "content": "Miss Smith doesn’t have ______ housework to do today.",
+      "options": [
+        "much",
+        "many",
+        "a lot",
+        "a piece"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "不可数名词修饰词",
+        "much vs many"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 200,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T13:15:25.375Z"
+    },
+    {
+      "number": 5,
+      "type": "choice",
+      "content": "We finally got several ______ of his innocence.",
+      "options": [
+        "proof",
+        "proofs",
+        "proves",
+        "prooves"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "不可数名词作可数用法",
+        "拼写辨析"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 235,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T13:15:26.830Z"
+    },
+    {
+      "number": 6,
+      "type": "choice",
+      "content": "A group of boy students ______ basketball on the playground at the moment.",
+      "options": [
+        "play",
+        "plays",
+        "is playing",
+        "are playing"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "主谓一致",
+        "现在进行时"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 270,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 7,
+      "type": "choice",
+      "content": "My aunt bought ______ cotton stockings for me at the department store.",
+      "options": [
+        "a pair of",
+        "a loaf of",
+        "a piece of",
+        "a group of"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "量词搭配",
+        "不可数名词计量"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 305,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T13:15:30.378Z"
+    },
+    {
+      "number": 8,
+      "type": "choice",
+      "content": "Wang Daming has caught some ______, and his family will have ______ for supper today.",
+      "options": [
+        "fish … fishes",
+        "fishes … fish",
+        "fishes … fishes",
+        "fishing … fish"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "fish 的可数/不可数用法",
+        "名词单复数特殊变化"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 340,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 9,
+      "type": "choice",
+      "content": "There are many ______ in this hospital.",
+      "options": [
+        "woman doctor",
+        "woman doctors",
+        "women doctor",
+        "women doctors"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "复合名词复数规则",
+        "woman/women 修饰名词"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 375,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 10,
+      "type": "choice",
+      "content": "Last week I ate ______.",
+      "options": [
+        "too much hamburger",
+        "too many hamburger",
+        "too many hamburgers",
+        "too much hamburgers"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "可数名词复数与修饰词搭配",
+        "much/many 与名词一致性"
+      ],
+      "bbox": {
+        "x": 245,
+        "y": 410,
+        "width": 45,
+        "height": 15
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T13:15:35.869Z"
+    },
+    {
+      "number": 1,
+      "type": "choice",
+      "content": "There was ______ mud on the ground after the heavy rain.",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "不可数名词用法",
+        "there be 结构"
+      ],
+      "bbox": {
+        "x": 850,
+        "y": 280,
+        "width": 40,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T13:15:39.194Z"
+    }
+  ],
+  "createdAt": "2026-03-09 21:08:28",
+  "metadata": {
+    "detectedSubject": "英语",
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "可数名词与不可数名词辨析",
+      "名词单复数用法",
+      "量词搭配",
+      "主谓一致",
+      "冠词与名词搭配"
+    ],
+    "questionTypeStats": {
+      "choice": 11
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-09T13:15:45.396Z"
+}

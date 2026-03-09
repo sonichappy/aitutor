@@ -1,0 +1,187 @@
+{
+  "id": "exam-1773059667203",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "totalScore": 100,
+  "rawText": "7.2.2(1) 平行线的判定\n一、基础落实\n1. 如图，∠1=120°，要使a//b，则∠2的大小是（ D ）\nA. 60°    B. 80°    C. 100°    D. 120°\n第1题图\n2. 如图，把三角板的直角顶点放在直线b上，若∠1=40°，则当∠2= 50 度时，直线a//b.\n第2题图\n3. 如图，直线c与a、b相交，若∠2=115°，则∠1= 65° 时，直线a//b.\n第3题图\n4. 如图，用直尺和三角尺作直线AB、CD，从图中可知，直线AB与CD的位置关系为 平行 .\n第4题图\n5. 如图，利用三角尺和直尺可以准确的画出直线AB//CD，请将下面弄乱的操作步骤按正确的顺序排列好应是（ B ）\n①沿直尺下移三角尺；\n②用直尺紧靠三角尺的另一条边；\n③沿三角尺的边作出直线CD；\n④作直线AB，并用三角尺的一条边贴住直线AB.\nA. ④①②③    B. ④②①③    C. ④②③①    D. ④③①②\n第5题图\n6. 如图，已知AC⊥AE，BD⊥BF，∠1=35°，∠2=35°. AC与BD平行吗？AE与BF平行吗？补全下面的解答过程（括号中填写理论依据）.\n解：∵∠1=35°，∠2=35°，（已知）\n∴∠1=∠2，（等量代换）\n∴AC//BD，（同位角相等，两直线平行）\n又∵AC⊥AE，BD⊥BF，（已知）\n∴∠EAC=∠FBD=90°，（垂直的定义）\n∴∠EAC+∠1=∠FBD+∠2（等式的性质）\n即∠EAB = ∠FBG；\n∴AE//BF.（同位角相等，两直线平行）\n7. 如图，∠B=70°，∠ACB=40°，CD平分∠ACE，求证：AB//CD.\n证：∵∠ACB=40°，\n∴∠ACE=180°-40°=140°.\n又：CD平分∠ACE\n∴∠DCE=½∠ACE=70°.\n∵∠B=70°，∠DCE=70°.\n∴∠B=∠DCE\n∴AB//CD",
+  "questions": [
+    {
+      "number": 1,
+      "type": "choice",
+      "content": "如图，∠1=120°，要使a//b，则∠2的大小是（ ）",
+      "options": [
+        "60°",
+        "80°",
+        "100°",
+        "120°"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "同旁内角互补判定平行"
+      ],
+      "bbox": {
+        "x": 14.724404289079699,
+        "y": 18.742664617062832,
+        "width": 13.818897305732849,
+        "height": 8.868769600040359
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 2,
+      "type": "fill",
+      "content": "如图，把三角板的直角顶点放在直线b上，若∠1=40°，则当∠2=____度时，直线a//b.",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "余角与平行线判定"
+      ],
+      "bbox": {
+        "x": 28.661411828194883,
+        "y": 19.452166185066062,
+        "width": 15.94488150661483,
+        "height": 7.981892640036325
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 3,
+      "type": "fill",
+      "content": "如图，直线c与a、b相交，若∠2=115°，则∠1=____时，直线a//b.",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "同旁内角互补"
+      ],
+      "bbox": {
+        "x": 43.897631934515715,
+        "y": 19.629542930333717,
+        "width": 13.346456372203527,
+        "height": 7.981892640036325
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 4,
+      "type": "fill",
+      "content": "如图，用直尺和三角尺作直线AB、CD，从图中可知，直线AB与CD的位置关系为____.",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线作图原理"
+      ],
+      "bbox": {
+        "x": 56.41731667304292,
+        "y": 18.92004000906364,
+        "width": 15.118109872938504,
+        "height": 8.514018816038746
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 5,
+      "type": "choice",
+      "content": "如图，利用三角尺和直尺可以准确的画出直线AB//CD，请将下面弄乱的操作步骤按正确的顺序排列好应是（ ）\n①沿直尺下移三角尺；\n②用直尺紧靠三角尺的另一条边；\n③沿三角尺的边作出直线CD；\n④作直线AB，并用三角尺的一条边贴住直线AB.",
+      "options": [
+        "④①②③",
+        "④②①③",
+        "④②③①",
+        "④③①②"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "尺规作图步骤逻辑"
+      ],
+      "bbox": {
+        "x": 71.18109584583443,
+        "y": 18.180977680082737,
+        "width": 18.897637341173123,
+        "height": 8.957457296040761
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 6,
+      "type": "answer",
+      "content": "如图，已知AC⊥AE，BD⊥BF，∠1=35°，∠2=35°. AC与BD平行吗？AE与BF平行吗？补全下面的解答过程（括号中填写理论依据）.\n解：∵∠1=35°，∠2=35°，（已知）\n∴∠1=∠2，（____）\n∴AC//BD，（____）\n又∵AC⊥AE，BD⊥BF，（已知）\n∴∠EAC=∠FBD=90°，（____）\n∴∠EAC+∠1=∠FBD+∠2（____）\n即∠EAB = ∠FBG；\n∴AE//BF.（____）",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线判定",
+        "垂直定义",
+        "等式性质",
+        "几何证明"
+      ],
+      "bbox": {
+        "x": 59.488182740983554,
+        "y": 56.22799926425588,
+        "width": 26.22047181087772,
+        "height": 10.287772736046826
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:35:53.487Z"
+    },
+    {
+      "number": 7,
+      "type": "calculation",
+      "content": "如图，∠B=70°，∠ACB=40°，CD平分∠ACE，求证：AB//CD.",
+      "options": [],
+      "score": 6,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "邻补角",
+        "角平分线定义",
+        "同位角相等判定平行"
+      ],
+      "bbox": {
+        "x": 68.22834001127612,
+        "y": 82.68649613988752,
+        "width": 22.440944342643107,
+        "height": 8.425331120038337
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:35:54.672Z"
+    }
+  ],
+  "createdAt": "2026-03-09 20:34:27",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "平行线的判定定理",
+      "同位角、内错角、同旁内角关系",
+      "三角尺作图法",
+      "垂直与平行的性质",
+      "几何证明逻辑"
+    ],
+    "questionTypeStats": {
+      "choice": 2,
+      "fill": 3,
+      "answer": 1,
+      "calculation": 1
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-09T12:37:18.532Z"
+}

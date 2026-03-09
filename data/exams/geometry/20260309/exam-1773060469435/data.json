@@ -1,0 +1,238 @@
+{
+  "id": "exam-1773060469435",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "totalScore": 100,
+  "rawText": "7.1.2 两条直线垂直\n一、基础落实\n1. 过直线m外的一点Q作m的垂线，下列图中借助直角三角尺操作正确的是（D）\n2. 在数学课上，同学们在练习过点B作线段AC所在直线的垂线段时，有一部分同学画出下列四种图形，其中正确的是（A）\n3. 如图，点A，B，C在直线l上，PB⊥l，PA=5cm，PB=4cm，PC=6cm，则点P到直线l的距离是（B）cm.\nA.3  B.4  C.5  D.6\n4. 如图，已知AB⊥BC，垂足为B，AB=3，点P是射线BC上的动点，则线段AP的长不可能是（A）\nA.2.5  B.3  C.4  D.5\n5. 如图，直线AB，CD互相垂直，垂足为O点，记作AB⊥CD；点M到直线AB的距离是OM。\n6. 如图，在一张透明的纸上画一条直线l，在l外任取一点Q，并折出过点Q且与l垂直的直线，这样的直线能折出1条，其依据是在同一平面内，过一点有且只有一条直线与已知直线垂直。\n7. 如图，若AB⊥BC，BD⊥AC于D，则BD＜AC（填“＜”或“＞”），其依据的几何原理：垂线段最短。\n8. 分别在下面3个图中画图：过A点作CD⊥MN，过A点作PQ⊥EF。（标注垂足）\n9. 如图，过A点作BC边所在直线的垂线EF，垂足为D，测量A点到BC边的距离。",
+  "questions": [
+    {
+      "number": 1,
+      "type": "choice",
+      "content": "过直线m外的一点Q作m的垂线，下列图中借助直角三角尺操作正确的是",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "垂线作图规范"
+      ],
+      "bbox": {
+        "x": 26.299207160548242,
+        "y": 22.171924000100898,
+        "width": 40.98425098366922,
+        "height": 9.755646560044397
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 2,
+      "type": "choice",
+      "content": "在数学课上，同学们在练习过点B作线段AC所在直线的垂线段时，有一部分同学画出下列四种图形，其中正确的是",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "垂线段定义"
+      ],
+      "bbox": {
+        "x": 28.543301594812547,
+        "y": 37.51489540817072,
+        "width": 36.968503048669945,
+        "height": 6.828952592031072
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 3,
+      "type": "choice",
+      "content": "如图，点A，B，C在直线l上，PB⊥l，PA=5cm，PB=4cm，PC=6cm，则点P到直线l的距离是",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "点到直线的距离定义"
+      ],
+      "bbox": {
+        "x": 67.51967861098214,
+        "y": 42.74746947219453,
+        "width": 16.77165314029115,
+        "height": 8.51401881603875
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 4,
+      "type": "choice",
+      "content": "如图，已知AB⊥BC，垂足为B，AB=3，点P是射线BC上的动点，则线段AP的长不可能是",
+      "options": [
+        "2.5",
+        "3",
+        "4",
+        "5"
+      ],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "垂线段最短",
+        "勾股定理应用"
+      ],
+      "bbox": {
+        "x": 71.53542654598142,
+        "y": 51.61623907223489,
+        "width": 13.582676838968183,
+        "height": 7.09501568003229
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 5,
+      "type": "fill",
+      "content": "如图，直线AB，CD互相垂直，垂足为O点，记作____；点M到直线AB的距离是____。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "垂直符号表示",
+        "点到直线距离定义"
+      ],
+      "bbox": {
+        "x": 66.33857627715881,
+        "y": 59.24338092826961,
+        "width": 16.06299173999716,
+        "height": 8.336643424037938
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:48:14.535Z"
+    },
+    {
+      "number": 6,
+      "type": "fill",
+      "content": "如图，在一张透明的纸上画一条直线l，在l外任取一点Q，并折出过点Q且与l垂直的直线，这样的直线能折出____条，其依据是____。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "垂线存在性与唯一性"
+      ],
+      "bbox": {
+        "x": 65.39369441010015,
+        "y": 67.58002435230755,
+        "width": 17.362204307202816,
+        "height": 6.65157720003026
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:48:15.159Z"
+    },
+    {
+      "number": 7,
+      "type": "fill",
+      "content": "如图，若AB⊥BC，BD⊥AC于D，则BD____AC（填“＜”或“＞”），其依据的几何原理：____。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "垂线段最短"
+      ],
+      "bbox": {
+        "x": 72.71652887980474,
+        "y": 73.9655384643366,
+        "width": 13.464566605585858,
+        "height": 6.740264896030681
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 8,
+      "type": "calculation",
+      "content": "分别在下面3个图中画图：过A点作CD⊥MN，过A点作PQ⊥EF。（标注垂足）",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "尺规作图",
+        "垂线作法"
+      ],
+      "bbox": {
+        "x": 12.59842008819772,
+        "y": 83.721185024381,
+        "width": 55.866140389843075,
+        "height": 10.997274304050052
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:48:16.644Z"
+    },
+    {
+      "number": 9,
+      "type": "calculation",
+      "content": "如图，过A点作BC边所在直线的垂线EF，垂足为D，测量A点到BC边的距离。",
+      "options": [],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "实际测量",
+        "距离概念应用"
+      ],
+      "bbox": {
+        "x": 72.48030841304008,
+        "y": 88.15556982440118,
+        "width": 12.519684738527204,
+        "height": 11.085962000050444
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:48:17.438Z"
+    }
+  ],
+  "createdAt": "2026-03-09 20:47:49",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "垂线的定义与作图",
+      "点到直线的距离",
+      "垂直的性质与判定",
+      "几何作图规范"
+    ],
+    "questionTypeStats": {
+      "choice": 4,
+      "fill": 3,
+      "calculation": 2
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-09T12:50:13.964Z"
+}

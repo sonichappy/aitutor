@@ -1,0 +1,752 @@
+{
+  "id": "exam-1773058422797",
+  "userId": "user-1",
+  "subject": "english",
+  "examType": "daily_homework",
+  "totalScore": 100,
+  "rawText": "2025级北大附中初一下 Unit 1 — Target Language\n词汇：请写出英文和词性\n1. 狐狸 fox n.\n2. 长颈鹿 giraffe n.\n3. 雕；鹰 eagle n.\n4. 狼 wolf n.\n5. 企鹅 penguin n.\n6. 鲨鱼 shark n.\n7. 鲸 whale n.\n8. 蛇 snake n.\n9. 三明治 sandwich n.\n10. 脖子 neck n.\n11. 吓人的 scary adj.\n12. 猜测，估计 guess\n13. 巨大的 huge adj.\n14. 危险的 dangerous adj.\n15. 救；储蓄；保存 save v.\n16. 拿，提 carry v.\n17. 爱嬉戏的 playful adj.\n18. 文化 culture n.\n19. 然而；不过 however adv.\n20. 森林 forest n.\n21. 杀死 kill v.\n22. 友好的 friendly adj.\n23. 瞎的，失明的 blind adj.\n24. 听力 hearing n.\n25. 照顾，处理 (phr.) take care of\n26. 拿起，举起 (phr.) pick up\n27. 互相 (phr.) one another / another one / each other\n28. 处于危险中 (phr.) in danger\n29. 砍伐 (phr.) cut down\n30. 由…制成 (phr.) made of\n31. 照顾 (phr.) look after\n32. 一点也不 (phr.) not at all\n句型：请写出对应的英语句子。\n1. 你最喜欢的动物是什么？ What's your favourite animals?\n2. 企鹅来自哪里？它们来自南极洲。 Where are penguins from? They are from Antarctica.\n3. 你为什么不喜欢蛇？因为它们真的吓人。 Why are you don't like snakes? Because they are really scary.\n4. 大象看起来和其它动物非常不同。 Elephants look very different from other animals.\n5. 大象是泰国生活和文化中非常重要的一部分。 Elephants are an important part of Thai life and culture.\n6. 让我们保护森林，不买象牙制品。 Let's save the forests and not buy made of ivory\nA\nThings\n4",
+  "questions": [
+    {
+      "number": 1,
+      "type": "fill",
+      "content": "狐狸",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "bbox": {
+        "x": 85,
+        "y": 205,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 2,
+      "type": "fill",
+      "content": "长颈鹿",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "bbox": {
+        "x": 105,
+        "y": 205,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 3,
+      "type": "fill",
+      "content": "雕；鹰",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "鸟类词汇"
+      ],
+      "bbox": {
+        "x": 125,
+        "y": 205,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 4,
+      "type": "fill",
+      "content": "狼",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "bbox": {
+        "x": 145,
+        "y": 205,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 5,
+      "type": "fill",
+      "content": "企鹅",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动物词汇"
+      ],
+      "bbox": {
+        "x": 85,
+        "y": 230,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 6,
+      "type": "fill",
+      "content": "鲨鱼",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "海洋动物"
+      ],
+      "bbox": {
+        "x": 105,
+        "y": 230,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 7,
+      "type": "fill",
+      "content": "鲸",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "海洋哺乳动物"
+      ],
+      "bbox": {
+        "x": 125,
+        "y": 230,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 8,
+      "type": "fill",
+      "content": "蛇",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "爬行动物"
+      ],
+      "bbox": {
+        "x": 145,
+        "y": 230,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 9,
+      "type": "fill",
+      "content": "三明治",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "食物名词"
+      ],
+      "bbox": {
+        "x": 85,
+        "y": 255,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 10,
+      "type": "fill",
+      "content": "脖子",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "身体部位"
+      ],
+      "bbox": {
+        "x": 105,
+        "y": 255,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 11,
+      "type": "fill",
+      "content": "吓人的",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "bbox": {
+        "x": 125,
+        "y": 255,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 12,
+      "type": "fill",
+      "content": "猜测，估计",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "动词"
+      ],
+      "bbox": {
+        "x": 145,
+        "y": 255,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 13,
+      "type": "fill",
+      "content": "巨大的",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "bbox": {
+        "x": 85,
+        "y": 280,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 14,
+      "type": "fill",
+      "content": "危险的",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "bbox": {
+        "x": 105,
+        "y": 280,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 15,
+      "type": "fill",
+      "content": "救；储蓄；保存",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "多义动词"
+      ],
+      "bbox": {
+        "x": 125,
+        "y": 280,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 16,
+      "type": "fill",
+      "content": "拿，提",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "动词"
+      ],
+      "bbox": {
+        "x": 145,
+        "y": 280,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 17,
+      "type": "fill",
+      "content": "爱嬉戏的",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "bbox": {
+        "x": 85,
+        "y": 305,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 18,
+      "type": "fill",
+      "content": "文化",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "抽象名词"
+      ],
+      "bbox": {
+        "x": 105,
+        "y": 305,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 19,
+      "type": "fill",
+      "content": "然而；不过",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "连词/副词"
+      ],
+      "bbox": {
+        "x": 125,
+        "y": 305,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 20,
+      "type": "fill",
+      "content": "森林",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "自然名词"
+      ],
+      "bbox": {
+        "x": 145,
+        "y": 305,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 21,
+      "type": "fill",
+      "content": "杀死",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "动词"
+      ],
+      "bbox": {
+        "x": 85,
+        "y": 330,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 22,
+      "type": "fill",
+      "content": "友好的",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "bbox": {
+        "x": 105,
+        "y": 330,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 23,
+      "type": "fill",
+      "content": "瞎的，失明的",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "形容词"
+      ],
+      "bbox": {
+        "x": 125,
+        "y": 330,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 24,
+      "type": "fill",
+      "content": "听力",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "感官名词"
+      ],
+      "bbox": {
+        "x": 145,
+        "y": 330,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 25,
+      "type": "fill",
+      "content": "照顾，处理 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "短语动词"
+      ],
+      "bbox": {
+        "x": 85,
+        "y": 355,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 26,
+      "type": "fill",
+      "content": "拿起，举起 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "短语动词"
+      ],
+      "bbox": {
+        "x": 105,
+        "y": 355,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 27,
+      "type": "fill",
+      "content": "互相 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "短语动词"
+      ],
+      "bbox": {
+        "x": 125,
+        "y": 355,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 28,
+      "type": "fill",
+      "content": "处于危险中 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "短语动词"
+      ],
+      "bbox": {
+        "x": 145,
+        "y": 355,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 29,
+      "type": "fill",
+      "content": "砍伐 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "短语动词"
+      ],
+      "bbox": {
+        "x": 85,
+        "y": 380,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 30,
+      "type": "fill",
+      "content": "由…制成 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "短语动词"
+      ],
+      "bbox": {
+        "x": 105,
+        "y": 380,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 31,
+      "type": "fill",
+      "content": "照顾 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "短语动词"
+      ],
+      "bbox": {
+        "x": 125,
+        "y": 380,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 32,
+      "type": "fill",
+      "content": "一点也不 (phr.)",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "副词短语"
+      ],
+      "bbox": {
+        "x": 145,
+        "y": 380,
+        "width": 15,
+        "height": 10
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 1,
+      "type": "answer",
+      "content": "你最喜欢的动物是什么？",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "特殊疑问句"
+      ],
+      "bbox": {
+        "x": 55,
+        "y": 410,
+        "width": 40,
+        "height": 8
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 2,
+      "type": "answer",
+      "content": "企鹅来自哪里？它们来自南极洲。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "地点状语从句"
+      ],
+      "bbox": {
+        "x": 55,
+        "y": 430,
+        "width": 40,
+        "height": 8
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 3,
+      "type": "answer",
+      "content": "你为什么不喜欢蛇？因为它们真的吓人。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "原因状语从句"
+      ],
+      "bbox": {
+        "x": 55,
+        "y": 450,
+        "width": 40,
+        "height": 8
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 4,
+      "type": "answer",
+      "content": "大象看起来和其它动物非常不同。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "比较结构"
+      ],
+      "bbox": {
+        "x": 55,
+        "y": 470,
+        "width": 40,
+        "height": 8
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 5,
+      "type": "answer",
+      "content": "大象是泰国生活和文化中非常重要的一部分。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "系表结构"
+      ],
+      "bbox": {
+        "x": 55,
+        "y": 490,
+        "width": 40,
+        "height": 8
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 6,
+      "type": "answer",
+      "content": "让我们保护森林，不买象牙制品。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "祈使句"
+      ],
+      "bbox": {
+        "x": 55,
+        "y": 510,
+        "width": 40,
+        "height": 8
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    }
+  ],
+  "createdAt": "2026-03-09 20:13:42",
+  "metadata": {
+    "detectedSubject": "英语",
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "词汇英汉互译",
+      "词性标注",
+      "短语动词",
+      "句型翻译",
+      "动物相关表达"
+    ],
+    "questionTypeStats": {
+      "fill": 32,
+      "answer": 6
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-09T12:13:42.799Z"
+}

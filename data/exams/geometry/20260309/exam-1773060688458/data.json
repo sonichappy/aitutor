@@ -1,0 +1,225 @@
+{
+  "id": "exam-1773060688458",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "totalScore": 100,
+  "rawText": "第七章 相交线与平行线\n7.1.1 两条直线相交\n一、基础落实\n1. 如图所示，∠1 和 ∠2 是对顶角的图形是 C。\n2. 如图所示，AB 与 CD 相交于点 O，OE 是一条射线。\n则 ∠AOD 的对顶角为 ∠BOC，\n∠AOD 的邻补角是 ∠BOD、∠AOC，\n∠COE 的邻补角是 ∠AOC 和 ∠BOE、∠DOE。\n3. 下列说法正确的有 ②③。\n① 对顶角相等；√\n② 相等的角是对顶角；×\n③ 若两个角不相等，则这两个角一定不是对顶角；√\n④ 若两个角不是对顶角，则这两个角不相等。×\n4. 如图，利用工具测量角，则 ∠1 的大小为 30°。\n5. 已知：∠1 和 ∠2 是对顶角，∠2 和 ∠3 互补，若 ∠2 = 50°，则 ∠3 = 130°。\n6. 如图，三条直线交于点 O，则 ∠1 + ∠2 + ∠3 = 180°。\n7. 若一对邻补角的差为 40°，则这组邻补角的度数分别为 110° 和 70°。\n8. 如图，点 O 在直线 AB 上，射线 OC 平分 ∠BOD。若 ∠BOC = 35°，则 ∠AOD = 110°。\n9. 如图，直线 AB、CD 相交于点 O，OB 平分 ∠DOE，若 ∠AOE = 140°，\n(1) 图中 ∠AOC 的补角有 ∠BOC、∠AOD、∠DOE；\n(2) 求 ∠AOC 的度数。\n解：∵ ∠AOE + ∠BOE = 180°，（邻补角定义）\n∠AOE = 140°，（已知）\n∴ ∠BOE = 40°，\n∵ OB 平分 ∠DOE，（已知）\n∴ ∠DOB = ∠BOE = 40°，（角平分线定义）\n∵ 直线 AB、CD 相交于点 O，（已知）\n∴ ∠AOC = ∠BOD = 40°。（对顶角定义）\n1. 对顶角相等",
+  "questions": [
+    {
+      "number": 1,
+      "type": "choice",
+      "content": "如图所示，∠1 和 ∠2 是对顶角的图形是",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "对顶角定义"
+      ],
+      "bbox": {
+        "x": 11.653538221139065,
+        "y": 21.551110128098074,
+        "width": 66.49606139425296,
+        "height": 9.312208080042375
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 2,
+      "type": "fill",
+      "content": "如图所示，AB 与 CD 相交于点 O，OE 是一条射线。则 ∠AOD 的对顶角为______，∠AOD 的邻补角是______，∠COE 的邻补角是______。",
+      "options": [],
+      "score": 6,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "对顶角",
+        "邻补角"
+      ],
+      "bbox": {
+        "x": 59.25196227421888,
+        "y": 32.371009040147314,
+        "width": 20.787401075290447,
+        "height": 8.425331120038344
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:53:23.089Z"
+    },
+    {
+      "number": 3,
+      "type": "choice",
+      "content": "下列说法正确的有______。\n① 对顶角相等；\n② 相等的角是对顶角；\n③ 若两个角不相等，则这两个角一定不是对顶角；\n④ 若两个角不是对顶角，则这两个角不相等。",
+      "options": [
+        "①②",
+        "①③",
+        "②④",
+        "③④"
+      ],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "对顶角性质辨析"
+      ],
+      "bbox": {
+        "x": 59.015741807454226,
+        "y": 40.97371555218646,
+        "width": 20.196849908378773,
+        "height": 9.400895776042788
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 4,
+      "type": "fill",
+      "content": "如图，利用工具测量角，则 ∠1 的大小为______。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "量角器使用"
+      ],
+      "bbox": {
+        "x": 59.37007250760122,
+        "y": 40.70765246418525,
+        "width": 19.015747574555462,
+        "height": 9.666958864043998
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 5,
+      "type": "fill",
+      "content": "已知：∠1 和 ∠2 是对顶角，∠2 和 ∠3 互补，若 ∠2 = 50°，则 ∠3 = ______。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "对顶角",
+        "互补角"
+      ],
+      "bbox": {
+        "x": 510,
+        "y": 620,
+        "width": 250,
+        "height": 100
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 6,
+      "type": "fill",
+      "content": "如图，三条直线交于点 O，则 ∠1 + ∠2 + ∠3 = ______。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "周角与平角关系"
+      ],
+      "bbox": {
+        "x": 67.99211954451147,
+        "y": 52.14836524823732,
+        "width": 14.645668939409177,
+        "height": 7.4497664640339
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 7,
+      "type": "fill",
+      "content": "若一对邻补角的差为 40°，则这组邻补角的度数分别为______。",
+      "options": [],
+      "score": 2,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "邻补角计算"
+      ],
+      "bbox": {
+        "x": 510,
+        "y": 820,
+        "width": 250,
+        "height": 100
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 8,
+      "type": "fill",
+      "content": "如图，点 O 在直线 AB 上，射线 OC 平分 ∠BOD。若 ∠BOC = 35°，则 ∠AOD = ______。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "角平分线",
+        "邻补角"
+      ],
+      "bbox": {
+        "x": 67.4015683775998,
+        "y": 59.42075632027041,
+        "width": 15.236220106320843,
+        "height": 7.095015680032297
+      },
+      "essayGenre": "",
+      "wordCount": 0
+    },
+    {
+      "number": 9,
+      "type": "calculation",
+      "content": "如图，直线 AB、CD 相交于点 O，OB 平分 ∠DOE，若 ∠AOE = 140°，\n(1) 图中 ∠AOC 的补角有______；\n(2) 求 ∠AOC 的度数。",
+      "options": [],
+      "score": 8,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "补角",
+        "角平分线",
+        "对顶角",
+        "邻补角综合应用"
+      ],
+      "bbox": {
+        "x": 61.85038740863019,
+        "y": 68.28952592031077,
+        "width": 21.25984200881978,
+        "height": 9.666958864043991
+      },
+      "essayGenre": "",
+      "wordCount": 0,
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-09T12:53:25.782Z"
+    }
+  ],
+  "createdAt": "2026-03-09 20:51:28",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "对顶角定义与性质",
+      "邻补角定义与性质",
+      "角的计算",
+      "角平分线",
+      "相交线中的角度关系"
+    ],
+    "questionTypeStats": {
+      "choice": 2,
+      "fill": 6,
+      "calculation": 1
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-09T12:53:29.385Z"
+}
