@@ -2,16 +2,54 @@ import { NextRequest, NextResponse } from "next/server"
 import { callLLM, type ChatMessage } from "@/lib/ai/llm"
 import { cleanParsedQuestions } from "@/lib/image-utils"
 import { saveExamData } from "@/lib/storage"
-import { getSubjectFolderName, matchSubjectToIntelligent } from "@/types/subject"
+import { matchSubjectToIntelligent } from "@/lib/subject-utils"
 
 // 默认用户ID
 const DEFAULT_USER_ID = "user-1"
 
+// 从试卷内容推断学科（文本版本）
+function inferSubjectFromContentForText(parsed: any, content: string): string {
+  const rawText = (content || parsed.rawText || "").toLowerCase()
+  const questions = parsed.questions || []
+
+  // 英语关键词检测
+  const englishMatches = rawText.match(/[a-zA-Z]{3,}/g)
+  let englishScore = 0
+
+  if (englishMatches && englishMatches.length > 5) {
+    englishScore += englishMatches.length * 2
+  }
+
+  // 检查英语听写格式（中文+英文答案）
+  let dictationStyleCount = 0
+  questions.forEach((q: any) => {
+    if ((q.prompt && q.student_answer) || (q.content && q.userAnswer)) {
+      const prompt = q.prompt || q.content || ""
+      const answer = q.student_answer || q.userAnswer || ""
+      if (/[\u4e00-\u9fa5]/.test(prompt) && /[a-zA-Z]/.test(answer)) {
+        dictationStyleCount++
+      }
+    }
+  })
+
+  if (dictationStyleCount > 3) {
+    englishScore += dictationStyleCount * 5
+  }
+
+  // 如果英语分数高，返回英语
+  if (englishScore > 5) {
+    return "英语"
+  }
+
+  // 默认返回数学
+  return "数学"
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const { content, subject, examType, totalScore } = await request.json()
+    const { content, customPrompt } = await request.json()
 
-    if (!content || !subject) {
+    if (!content) {
       return NextResponse.json(
         { error: "缺少必要参数" },
         { status: 400 }
@@ -19,10 +57,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 调用 AI 解析试卷
-    const prompt = `请解析以下试卷内容，提取所有题目信息并识别试卷元数据。
-
-试卷类型：${examType}
-总分：${totalScore}
+    const defaultPrompt = `请解析以下试卷内容，提取所有题目信息并识别试卷元数据。
 
 试卷内容：
 ${content}
@@ -61,6 +96,10 @@ ${content}
 
 只返回JSON，不要有其他内容。`
 
+    // 使用自定义提示词或默认提示词
+    const finalPrompt = customPrompt?.trim() || defaultPrompt
+    console.log(`[Parse] Using ${customPrompt?.trim() ? 'custom' : 'default'} prompt`)
+
     const messages: ChatMessage[] = [
       {
         role: "system",
@@ -76,7 +115,7 @@ ${content}
       },
       {
         role: "user",
-        content: prompt,
+        content: finalPrompt,
       },
     ]
 
@@ -234,7 +273,40 @@ ${content}
     }
 
     // 清理解析结果中的重复标识符
-    const cleanedQuestions = cleanParsedQuestions(parsed.questions || [])
+    let questions = parsed.questions || []
+
+    // 字段映射：处理AI可能返回的不同字段名
+    questions = questions.map((q: any) => {
+      // 处理词汇听写类型的题目
+      if (q.prompt || q.student_answer) {
+        return {
+          number: String(q.number || q.index || ''),
+          type: q.type || 'dictation',
+          content: q.content || q.prompt || q.question || '',
+          options: q.options || [],
+          score: q.score || 1,
+          difficulty: q.difficulty || 1,
+          knowledgePoints: q.knowledgePoints || [],
+          userAnswer: q.userAnswer || q.student_answer || '',
+          correctAnswer: q.correctAnswer || q.answer || '',
+        }
+      }
+
+      // 处理标准格式的题目
+      return {
+        number: String(q.number || ''),
+        type: q.type || 'answer',
+        content: q.content || q.question || q.prompt || '',
+        options: q.options || [],
+        score: q.score || 1,
+        difficulty: q.difficulty || 1,
+        knowledgePoints: q.knowledgePoints || [],
+        userAnswer: q.userAnswer || '',
+        correctAnswer: q.correctAnswer || q.answer || '',
+      }
+    })
+
+    const cleanedQuestions = cleanParsedQuestions(questions)
 
     // 计算整体平均难度
     const avgDifficulty = cleanedQuestions.length > 0
@@ -264,14 +336,22 @@ ${content}
     }).replace(/\//g, '-')
 
     // 智能匹配学科
-    // AI检测到的学科需要匹配到用户配置的已启用学科
-    const detectedSubject = parsed.detectedSubject || subject
-    console.log(`[Parse] AI detected subject: "${detectedSubject}", user selected: "${subject}"`)
+    // 首先尝试从AI响应中获取学科，如果没有则从内容推断
+    let detectedSubject = parsed.detectedSubject
+
+    if (!detectedSubject) {
+      // AI没有返回学科，从内容推断
+      console.log('[Parse] No subject detected by AI, inferring from content...')
+      detectedSubject = inferSubjectFromContentForText(parsed, content)
+      console.log(`[Parse] Inferred subject: "${detectedSubject}"`)
+    }
+
+    console.log(`[Parse] Final detected subject: "${detectedSubject}"`)
 
     // 构建题目上下文用于智能判断（如果是数学，需要判断是代数还是几何）
     const questionContext = content || JSON.stringify(parsed.questions?.slice(0, 3) || [])
 
-    const { folderName, matchedSubject } = await matchSubjectToIntelligent(detectedSubject, questionContext, subject)
+    const { folderName, matchedSubject } = await matchSubjectToIntelligent(detectedSubject, questionContext)
     console.log(`[Parse] Matched to folder: "${folderName}", subject: ${matchedSubject?.name || 'N/A'}`)
 
     const examData = {
@@ -279,8 +359,6 @@ ${content}
       userId: DEFAULT_USER_ID,
       subject: folderName,  // 使用智能匹配后的文件夹名称
       subjectName: matchedSubject?.name || parsed.detectedSubject,  // 保存学科中文名称用于显示
-      examType,  // 保存配置文件中的类型 ID
-      totalScore,
       rawText: content,  // 使用 rawText 字段存储文本内容
       questions: cleanedQuestions,
       createdAt: chinaTime,  // 使用中国时区时间
@@ -290,6 +368,8 @@ ${content}
         estimatedTime: parsed.estimatedTime || cleanedQuestions.length * 5,
         knowledgePointsSummary: parsed.knowledgePointsSummary || [],
         questionTypeStats,
+        // 保存用户提供的自定义提示词
+        customPrompt: customPrompt?.trim() || undefined,
       },
     }
 
@@ -303,7 +383,7 @@ ${content}
 
     return NextResponse.json({
       examId,
-      title: parsed.title || `${examType}${parsed.detectedSubject || subject}试卷`,
+      title: parsed.title || `${matchedSubject?.name || detectedSubject}试卷`,
       questionCount: parsed.questions?.length || 0,
       questions: cleanedQuestions,
       // 包含完整数据供前端存储

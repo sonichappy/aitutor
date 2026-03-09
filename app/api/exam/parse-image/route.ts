@@ -2,10 +2,113 @@ import { NextRequest, NextResponse } from "next/server"
 import { callLLM, type ChatMessage } from "@/lib/ai/llm"
 import { saveExamData, saveExamImage } from "@/lib/storage"
 import { cleanParsedQuestions } from "@/lib/image-utils"
-import { getSubjectFolderName, matchSubjectToIntelligent } from "@/types/subject"
+import { matchSubjectToIntelligent } from "@/lib/subject-utils"
 
 // 默认用户ID
 const DEFAULT_USER_ID = "user-1"
+
+// 从试卷内容推断学科
+function inferSubjectFromContent(parsed: any): string {
+  const rawText = (parsed.rawText || "").toLowerCase()
+  const questions = parsed.questions || []
+
+  // 统计各学科特征关键词出现次数
+  const scores: Record<string, number> = {
+    "英语": 0,
+    "语文": 0,
+    "数学": 0,
+    "物理": 0,
+    "化学": 0,
+    "生物": 0,
+    "历史": 0,
+    "地理": 0,
+    "政治": 0,
+  }
+
+  // 英语关键词
+  const englishKeywords = [
+    // 英文字母和单词模式
+    /\b[a-zA-Z]{3,}\b/g,  // 3个或以上连续英文字母
+    // 常见英语词汇
+    "fox", "giraffe", "eagle", "wolf", "penguin", "shark", "whale", "snake",
+    "the", "and", "is", "are", "was", "were", "have", "has", "had",
+    // 英语题型提示
+    "vocabulary", "word", "dictation", "translate", "fill in", "blank",
+    // 英文标点
+    ".", ",", "?", "!"
+  ]
+
+  // 检查英文字母模式
+  const englishMatches = rawText.match(/[a-zA-Z]{3,}/g)
+  if (englishMatches && englishMatches.length > 5) {
+    scores["英语"] += englishMatches.length * 2  // 权重较高
+  }
+
+  // 检查英语关键词
+  englishKeywords.slice(2).forEach((kw: string | RegExp) => {
+    if (typeof kw === 'string' && rawText.includes(kw.toLowerCase())) {
+      scores["英语"] += 3
+    }
+  })
+
+  // 检查题目格式是否像英语听写（中文词+英文答案）
+  let dictationStyleCount = 0
+  questions.forEach((q: any) => {
+    if (q.prompt && q.student_answer) {
+      // 有中文提示和英文答案，很可能是英语听写
+      if (/[\u4e00-\u9fa5]/.test(q.prompt) && /[a-zA-Z]/.test(q.student_answer)) {
+        dictationStyleCount++
+      }
+    }
+  })
+  if (dictationStyleCount > 3) {
+    scores["英语"] += dictationStyleCount * 5  // 高权重
+  }
+
+  // 数学关键词
+  const mathKeywords = ["方程", "函数", "几何", "代数", "三角形", "圆", "计算", "求解", "证明", "角度"]
+  mathKeywords.forEach(kw => {
+    if (rawText.includes(kw)) scores["数学"] += 2
+  })
+
+  // 语文关键词
+  const chineseKeywords = ["作文", "阅读", "拼音", "汉字", "造句", "古诗", "诗词", "文言文"]
+  chineseKeywords.forEach(kw => {
+    if (rawText.includes(kw)) scores["语文"] += 2
+  })
+
+  // 物理关键词
+  const physicsKeywords = ["力", "速度", "加速度", "电路", "电流", "电压", "功率", "能量"]
+  physicsKeywords.forEach(kw => {
+    if (rawText.includes(kw)) scores["物理"] += 2
+  })
+
+  // 化学关键词
+  const chemistryKeywords = ["化学方程式", "元素", "原子", "分子", "离子", "酸", "碱", "盐"]
+  chemistryKeywords.forEach(kw => {
+    if (rawText.includes(kw)) scores["化学"] += 2
+  })
+
+  // 找出得分最高的学科
+  let maxScore = 0
+  let inferredSubject = "数学"  // 默认值
+
+  for (const [subject, score] of Object.entries(scores)) {
+    if (score > maxScore) {
+      maxScore = score
+      inferredSubject = subject
+    }
+  }
+
+  console.log(`[inferSubjectFromContent] Scores:`, scores)
+
+  // 如果英语分数明显高于其他学科，返回英语
+  if (scores["英语"] > 0 && scores["英语"] > (scores["数学"] || 0)) {
+    return "英语"
+  }
+
+  return inferredSubject
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,11 +127,9 @@ export async function POST(request: NextRequest) {
 
     const formData = await request.formData()
     const file = formData.get("file") as File
-    const subject = formData.get("subject") as string
-    const examType = formData.get("examType") as string
-    const totalScore = parseFloat(formData.get("totalScore") as string)
+    const customPrompt = formData.get("customPrompt") as string | null
 
-    if (!file || !subject) {
+    if (!file) {
       return NextResponse.json(
         { error: "缺少必要参数" },
         { status: 400 }
@@ -40,23 +141,29 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(bytes)
     const base64Image = `data:${file.type};base64,${buffer.toString("base64")}`
 
-    // 2. 调用 AI 进行 OCR 和解析
-    const prompt = `请仔细分析这张试卷图片，完成以下任务：
+    // 2. 准备提示词
+    const defaultPrompt = `请仔细分析这张试卷图片，完成以下任务：
 
-1. **试卷类型判断**：首先判断这是否是作文试卷
-   - 如果是语文作文或英语作文，将 questionType 设为 "essay"
-   - 如果包含作文题目/要求，提取出来
-   - 如果有学生手写的作文内容，进行完整的文字识别(OCR)
+1. **试卷类型判断**：首先判断试卷类型
+   - 如果是语文作文或英语作文，isEssay 设为 true
+   - 如果是词汇听写/默写类试卷，题型标记为 "dictation"
+   - 如果是普通练习试卷，按常规处理
 
 2. **科目识别**：根据试卷内容识别科目（数学、语文、英语、物理、化学、生物、历史、地理、道法、政治等）
+   - **注意**：如果看到英语单词、中文词汇对照，这通常是英语词汇试卷，detectedSubject 应设为 "英语"
 
-3. **作文试卷特殊处理**（如果是作文）：
-   - 提取作文题目/提示语（如果有）
+3. **词汇听写试卷特殊处理**（如果是词汇/听写类）：
+   - 题型 type 设为 "dictation"
+   - content 字段填写题目要求（如"狐狸"）或词汇中文
+   - userAnswer 字段填写学生答案（如"fox n."）
+   - 正确答案 correctAnswer 字段可以省略或填写标准答案
+
+4. **作文试卷特殊处理**（如果是作文）：
+   - 提取作文题目/提示语
    - 完整识别学生手写的作文内容，保留段落结构
-   - 识别作文的体裁（记叙文、议论文、说明文、应用文等）
-   - 评估字数（大约）
+   - 识别作文的体裁和预估字数
 
-4. **普通试卷处理**（如果不是作文）：
+5. **普通试卷处理**（如果不是作文或词汇）：
    - 版面分析：识别试卷的整体布局，找出所有题目
    - 逐题定位：为每道题目确定精确的边界框位置
    - 题目提取：提取每道题的文字内容
@@ -65,48 +172,40 @@ export async function POST(request: NextRequest) {
 请按以下 JSON 格式返回解析结果：
 {
   "title": "试卷标题",
-  "detectedSubject": "识别的科目名称",
+  "detectedSubject": "识别的科目名称（数学/语文/英语/物理等）",
   "overallDifficulty": 整体难度(1-5),
   "estimatedTime": 预估完成时间(分钟),
   "knowledgePointsSummary": ["主要知识点1", "主要知识点2"],
-  "rawText": "OCR识别的完整文本内容（作文要保留完整文字）",
-  "isEssay": true/false,  // 是否是作文试卷
-  "essayType": "语文作文/英语作文",  // 如果是作文
+  "rawText": "OCR识别的完整文本内容",
+  "isEssay": false,
   "questions": [
     {
-      "number": 题号,
-      "type": "题型(choice/fill/answer/calculation/essay)",
-      "content": "题目内容（作文包含题目要求和学生作文全文）",
+      "number": "题号（字符串格式）",
+      "type": "题型(dictation/choice/fill/answer/calculation/essay)",
+      "content": "题目内容或问题",
       "options": ["选项A内容", "选项B内容", "选项C内容", "选项D内容"],
-      "score": 分值,
-      "difficulty": 难度(1-5),
-      "knowledgePoints": ["知识点1", "知识点2"],
-      "bbox": {
-        "x": 左上角X百分比(0-100),
-        "y": 左上角Y百分比(0-100),
-        "width": 宽度百分比(0-100),
-        "height": 高度百分比(0-100)
-      },
-      "essayGenre": "记叙文/议论文/说明文/应用文",  // 仅作文
-      "wordCount": 预估字数  // 仅作文
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": ["知识点1"],
+      "userAnswer": "学生答案（如果有）"
     }
   ]
 }
 
-**作文识别重要要求：**
-1. 完整识别学生手写的作文内容，包括所有段落
-2. 保留作文的原始结构，不要省略任何内容
-3. 识别作文中的标点符号和格式
-4. 字数要尽量准确估算
+**词汇听写试卷要求：**
+1. type 字段必须设为 "dictation"
+2. content 字段填写题目内容（如中文词汇或题目要求）
+3. userAnswer 字段填写学生写的答案
+4. 题号使用字符串格式
 
 **普通试卷重要要求：**
 1. **CRITICAL: 必须识别图片中的每一道题目，不要遗漏任何题目**
-2. **CRITICAL: 如果不同章节有相同的题号（如"语法一致"第1题和"就近一致"第1题），必须都添加到 questions 数组，它们是不同的题目**
-3. **CRITICAL: 绝对不要因为题号相同就覆盖前面的题目，每个题目都要独立添加到数组**
-4. 必须为每道题提供 bbox 字段
-5. bbox 使用百分比坐标，范围 0-100
-6. detectedSubject 必须是具体的科目名称
-7. options 数组中只填选项的纯文本内容，不要包含前缀
+2. **CRITICAL: 如果不同章节有相同的题号，必须都添加到 questions 数组，它们是不同的题目**
+3. **CRITICAL: 绝对不要因为题号相同就覆盖前面的题目**
+4. 题号必须使用字符串格式（"1" 而不是 1）
+5. type 字段不能为空，必须是有效的题型值
+6. content 字段不能为空，必须包含题目内容
+7. detectedSubject 必须是具体的科目中文名称
 
 **JSON格式严格要求：**
 1. 所有字符串中的换行符必须转义为 \\n
@@ -117,6 +216,10 @@ export async function POST(request: NextRequest) {
 6. 返回完整的、格式正确的JSON，不要截断
 
 只返回JSON，不要有其他内容。`
+
+    // 使用自定义提示词或默认提示词
+    const finalPrompt = customPrompt?.trim() || defaultPrompt
+    console.log(`[Parse Image] Using ${customPrompt?.trim() ? 'custom' : 'default'} prompt`)
 
     const messages: ChatMessage[] = [
       {
@@ -151,7 +254,7 @@ export async function POST(request: NextRequest) {
       },
       {
         role: "user",
-        content: prompt,
+        content: finalPrompt,
         images: [base64Image],
       },
     ]
@@ -352,8 +455,43 @@ export async function POST(request: NextRequest) {
     }
 
     // 清理解析结果中的重复标识符
-    const cleanedQuestions = cleanParsedQuestions(parsed.questions || [])
-    console.log('[Parse Image] Cleaned questions count:', cleanedQuestions.length, '(original:', parsed.questions?.length || 0, ')')
+    let questions = parsed.questions || []
+
+    // 字段映射：处理AI可能返回的不同字段名
+    questions = questions.map((q: any) => {
+      // 处理词汇听写类型的题目
+      if (q.prompt || q.student_answer) {
+        return {
+          number: String(q.number || q.index || ''),
+          type: q.type || 'dictation',
+          content: q.content || q.prompt || q.question || '',
+          options: q.options || [],
+          score: q.score || 1,
+          difficulty: q.difficulty || 1,
+          knowledgePoints: q.knowledgePoints || [],
+          userAnswer: q.userAnswer || q.student_answer || '',
+          correctAnswer: q.correctAnswer || q.answer || '',
+          bbox: q.bbox || undefined,
+        }
+      }
+
+      // 处理标准格式的题目
+      return {
+        number: String(q.number || ''),
+        type: q.type || 'answer',
+        content: q.content || q.question || q.prompt || '',
+        options: q.options || [],
+        score: q.score || 1,
+        difficulty: q.difficulty || 1,
+        knowledgePoints: q.knowledgePoints || [],
+        userAnswer: q.userAnswer || '',
+        correctAnswer: q.correctAnswer || q.answer || '',
+        bbox: q.bbox || undefined,
+      }
+    })
+
+    const cleanedQuestions = cleanParsedQuestions(questions)
+    console.log('[Parse Image] Cleaned questions count:', cleanedQuestions.length, '(original:', questions.length, ')')
 
     // 验证清理后的题目数量是否一致
     if (cleanedQuestions.length !== (parsed.questions?.length || 0)) {
@@ -399,14 +537,22 @@ export async function POST(request: NextRequest) {
     }).replace(/\//g, '-')
 
     // 智能匹配学科
-    // AI检测到的学科需要匹配到用户配置的已启用学科
-    const detectedSubject = parsed.detectedSubject || subject
-    console.log(`[Parse Image] AI detected subject: "${detectedSubject}", user selected: "${subject}"`)
+    // 首先尝试从AI响应中获取学科，如果没有则从内容推断
+    let detectedSubject = parsed.detectedSubject
+
+    if (!detectedSubject) {
+      // AI没有返回学科，从内容推断
+      console.log('[Parse Image] No subject detected by AI, inferring from content...')
+      detectedSubject = inferSubjectFromContent(parsed)
+      console.log(`[Parse Image] Inferred subject: "${detectedSubject}"`)
+    }
+
+    console.log(`[Parse Image] Final detected subject: "${detectedSubject}"`)
 
     // 构建题目上下文用于智能判断（如果是数学，需要判断是代数还是几何）
     const questionContext = parsed.rawText || JSON.stringify(parsed.questions?.slice(0, 3) || [])
 
-    const { folderName, matchedSubject } = await matchSubjectToIntelligent(detectedSubject, questionContext, subject)
+    const { folderName, matchedSubject } = await matchSubjectToIntelligent(detectedSubject, questionContext)
     console.log(`[Parse Image] Matched to folder: "${folderName}", subject: ${matchedSubject?.name || 'N/A'}`)
 
     const examData = {
@@ -414,8 +560,6 @@ export async function POST(request: NextRequest) {
       userId: DEFAULT_USER_ID,
       subject: folderName,  // 使用智能匹配后的文件夹名称
       subjectName: matchedSubject?.name || parsed.detectedSubject,  // 保存学科中文名称用于显示
-      examType: examType,  // 保存配置文件中的类型 ID
-      totalScore,
       rawText: parsed.rawText || "",
       questions: cleanedQuestions,
       createdAt: chinaTime,  // 使用中国时区时间
@@ -428,6 +572,8 @@ export async function POST(request: NextRequest) {
         // 作文相关元数据
         isEssay: parsed.isEssay || false,
         essayType: parsed.essayType || null,  // "语文作文" 或 "英语作文"
+        // 保存用户提供的自定义提示词
+        customPrompt: customPrompt?.trim() || undefined,
       },
     }
     await saveExamData(examId, examData)
@@ -439,9 +585,8 @@ export async function POST(request: NextRequest) {
     const examDataForClient = {
       id: examId,
       userId: DEFAULT_USER_ID,
-      subject,
-      examType,
-      totalScore,
+      subject: folderName,
+      subjectName: matchedSubject?.name || parsed.detectedSubject,
       imageUrl: `/api/exam/${examId}/image`,  // 使用 API 获取图片
       rawText: parsed.rawText || "",
       questions: parsed.questions || [],
@@ -450,7 +595,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       examId,
-      title: parsed.title || `${examType}${subject}试卷`,
+      title: parsed.title || `${matchedSubject?.name || detectedSubject}试卷`,
       questionCount: parsed.questions?.length || 0,
       questions: parsed.questions || [],
       rawText: parsed.rawText || "",

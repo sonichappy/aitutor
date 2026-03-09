@@ -67,8 +67,8 @@ export interface ExamData {
   userId: string
   subject: string
   subjectName?: string  // 学科中文名称（用于显示）
-  examType: string
-  totalScore: number
+  examType?: string  // 试卷类型ID（可选）
+  totalScore?: number  // 总分（可选）
   imageUrl?: string  // base64 图片数据
   rawText?: string
   questions: ExamQuestion[]
@@ -87,6 +87,8 @@ export interface ExamData {
     // 作文相关
     isEssay?: boolean  // 是否是作文试卷
     essayType?: string  // "语文作文" 或 "英语作文"
+    // 用户提供的自定义提示词
+    customPrompt?: string
   }
   // 答题统计（在答题后更新）
   answerStats?: {

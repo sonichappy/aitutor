@@ -1,0 +1,84 @@
+{
+  "userId": "user-1",
+  "subject": "英语",
+  "subjectId": "english",
+  "title": "英语学习报告",
+  "startDate": "2026-02-07",
+  "endDate": "2026-03-09",
+  "generatedAt": "2026-03-09T13:42:36.369Z",
+  "stats": {
+    "totalExams": 6,
+    "totalQuestions": 98,
+    "markedQuestions": 34,
+    "correctQuestions": 0,
+    "wrongQuestions": 34,
+    "skippedQuestions": 0,
+    "avgAccuracy": 0.6530612244897959
+  },
+  "analysis": {
+    "knowledgeMatrix": {
+      "description": "语言知识覆盖矩阵",
+      "dimensionAnalysis": {
+        "vocabulary": "不可数名词辨析|量词搭配（a pair of, a piece of）|所有格构成（时间/人名所有格）|固定搭配（a happy couple, a friend of my brother's）",
+        "grammar": "主谓一致（复合主语、not...but、as well as、many a、nobody but、along with、every...and every...等特殊结构）|不可数名词修饰规则（much/many/too much/too many/so much）|时态与语态（过去进行时、被动语态、一般过去时）",
+        "discourse": "语境驱动的名词可数性判断（如news, information, furniture, pollution）|感叹句与名词搭配逻辑|语篇中代词与所有格指代一致性"
+      },
+      "topWeakPoints": [
+        {
+          "point": "主谓一致特殊结构（as well as / along with / not...but / many a / nobody but / every...and every...）",
+          "errorRate": 92,
+          "count": 10,
+          "severity": "High"
+        },
+        {
+          "point": "不可数名词的修饰与量化表达（much/many/too much/too many + 名词一致性）",
+          "errorRate": 88,
+          "count": 9,
+          "severity": "High"
+        },
+        {
+          "point": "名词所有格在复合结构中的正确形式（time nouns, double possessive, noun as modifier）",
+          "errorRate": 75,
+          "count": 6,
+          "severity": "Medium"
+        },
+        {
+          "point": "不可数名词误作可数使用（furniture, proof, pollution, weather）",
+          "errorRate": 83,
+          "count": 5,
+          "severity": "High"
+        }
+      ]
+    },
+    "abilityAssessment": {
+      "description": "英语学科能力维度评估",
+      "mainIssue": "形义脱节与语境信息整合无力",
+      "analysis": "学生在语言能力层面表现出对名词可数性与修饰规则的形式记忆较强，但缺乏基于语义场与真实语境的动态判断能力；在思维品质上，倾向于机械套用‘复数用many’等表层规则，忽视名词本质属性（如chicken作食物为不可数），导致高频错误；文化意识薄弱体现在对英语中抽象概念（information, news, pollution）默认不可数的认知缺失，未建立英语与汉语在名词分类上的系统差异意识；学习能力方面，错题重复出现同类结构（如as well as主谓一致），说明反思与迁移能力不足，未能将单题错误升华为规则网络。尤其在高阶主谓一致结构中，学生混淆语法主语与逻辑主语，暴露其对英语‘形式主语优先’原则理解浅表化。"
+    },
+    "errorPatterns": {
+      "description": "典型错误模式挖掘",
+      "patterns": [
+        "L1 Interference (中式思维干扰)",
+        "Overgeneralization (语法规则过度泛化)",
+        "Contextual Neglect (忽视语境线索)",
+        "Form-Meaning Disconnection (形义脱节)"
+      ]
+    },
+    "prediction": {
+      "description": "学业进展预判与干预方案",
+      "nextChapterRisks": [
+        "进入宾语从句与定语从句学习时，易因主谓一致混淆导致从句谓语误判",
+        "在写作中频繁出现不可数名词复数化（如*informations*, *furnitures*）及量词搭配错误（如*too many advice*）",
+        "面对复合主语+情态动词/完成时结构时，主谓一致性错误率将显著上升",
+        "阅读理解中因误判名词可数性而曲解句子核心信息（如将'a lot of work'误解为多个具体任务）"
+      ],
+      "recommendations": [
+        "实施‘名词语义场归类’微专题：按物质性（mud, cotton）、抽象性（information, pollution）、集合性（furniture, equipment）三类组织词汇库，强化语义驱动的可数性判断",
+        "设计‘主谓一致决策树’可视化工具：以‘谁是语法主语？→ 是否含插入语？→ 是否为并列结构？→ 特殊连词（but/as well as）如何影响？’为路径，训练形式分析能力",
+        "开展语篇级语法诊断练习：提供含多处名词与主谓陷阱的短文，要求标注所有潜在错误点并改写，提升语境整合力",
+        "引入对比修辞训练：对比中英文名词分类差异（如‘消息’vs news, ‘家具’vs furniture），通过母语负迁移显性化促进元认知发展"
+      ]
+    }
+  },
+  "id": "20260309214236"
+}

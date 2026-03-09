@@ -10,17 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { ImageUpload } from "@/components/ImageUpload"
-import { getEnabledSubjects, clearSubjectsCache, type Subject } from "@/types/subject"
-
-interface ExamType {
-  id: string
-  name: string
-  description: string
-  icon: string
-  color: string
-}
 
 interface AddExamDialogProps {
   open: boolean
@@ -31,46 +21,14 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
   const router = useRouter()
   const [activeTab, setActiveTab] = useState<"text" | "image">("image")
   const [content, setContent] = useState("")
-  const [subjects, setSubjects] = useState<Subject[]>([])
-  const [selectedSubject, setSelectedSubject] = useState("")
-  const [examTypes, setExamTypes] = useState<ExamType[]>([])
-  const [selectedExamType, setSelectedExamType] = useState("")
-  const [totalScore, setTotalScore] = useState("100")
+  const [customPrompt, setCustomPrompt] = useState("")
   const [isParsing, setIsParsing] = useState(false)
   const [imageFile, setImageFile] = useState<File | null>(null)
   const [imagePreview, setImagePreview] = useState<string | null>(null)
 
   useEffect(() => {
-    loadExamMetadata()
-    loadSubjects()
+    // 不再需要加载学科和试卷类型
   }, [])
-
-  const loadSubjects = async () => {
-    try {
-      const enabledSubjects = await getEnabledSubjects()
-      setSubjects(enabledSubjects)
-      if (enabledSubjects.length > 0) {
-        setSelectedSubject(enabledSubjects[0].folderName)
-      }
-    } catch (error) {
-      console.error("Failed to load subjects:", error)
-    }
-  }
-
-  const loadExamMetadata = async () => {
-    try {
-      const response = await fetch("/api/exam/metadata")
-      if (response.ok) {
-        const data = await response.json()
-        setExamTypes(data.examTypes || [])
-        if (data.examTypes && data.examTypes.length > 0) {
-          setSelectedExamType(data.examTypes[0].id)
-        }
-      }
-    } catch (error) {
-      console.error("Failed to load exam metadata:", error)
-    }
-  }
 
   const handleParse = async () => {
     if (activeTab === "text" && !content.trim()) {
@@ -91,9 +49,9 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
       if (activeTab === "image") {
         const formData = new FormData()
         formData.append("file", imageFile!)
-        formData.append("subject", selectedSubject)
-        formData.append("examType", selectedExamType)
-        formData.append("totalScore", totalScore)
+        if (customPrompt.trim()) {
+          formData.append("customPrompt", customPrompt.trim())
+        }
 
         response = await fetch("/api/exam/parse-image", {
           method: "POST",
@@ -106,9 +64,7 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             content,
-            subject: selectedSubject,
-            examType: selectedExamType,
-            totalScore: parseFloat(totalScore),
+            customPrompt: customPrompt.trim() || undefined,
           }),
         })
         errorMsg = "试卷解析失败"
@@ -171,30 +127,11 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
       onOpenChange(false)
       // 重置表单
       setContent("")
+      setCustomPrompt("")
       setImageFile(null)
       setImagePreview(null)
       setActiveTab("image")
     }
-  }
-
-  if (subjects.length === 0) {
-    return (
-      <Dialog open={open} onOpenChange={handleClose}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>无法添加试卷</DialogTitle>
-            <DialogDescription>
-              尚未启用任何学科，请先在设置中启用学科
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex justify-center py-4">
-            <Button onClick={() => router.push("/settings")}>
-              前往设置
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
-    )
   }
 
   return (
@@ -208,51 +145,19 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
         </DialogHeader>
 
         <div className="space-y-6 py-4">
-          {/* 配置区域 */}
+          {/* 个性化提示词 */}
           <div className="space-y-4">
-            <h3 className="text-sm font-medium">试卷信息</h3>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="space-y-2">
-                <label className="text-xs font-medium">科目</label>
-                <select
-                  value={selectedSubject}
-                  onChange={(e) => setSelectedSubject(e.target.value)}
-                  className="w-full h-9 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  {subjects.map((subject) => (
-                    <option key={subject.id} value={subject.folderName}>
-                      {subject.icon} {subject.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-medium">试卷类型</label>
-                <select
-                  value={selectedExamType}
-                  onChange={(e) => setSelectedExamType(e.target.value)}
-                  className="w-full h-9 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  {examTypes.map((type) => (
-                    <option key={type.id} value={type.id}>
-                      {type.icon} {type.name}
-                    </option>
-                  ))}
-                </select>
-                <p className="text-xs text-gray-500">
-                  {examTypes.find(t => t.id === selectedExamType)?.description}
-                </p>
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-medium">总分</label>
-                <Input
-                  type="number"
-                  value={totalScore}
-                  onChange={(e) => setTotalScore(e.target.value)}
-                  placeholder="100"
-                  className="h-9"
-                />
-              </div>
+            <h3 className="text-sm font-medium">AI 识别提示词（可选）</h3>
+            <div className="space-y-2">
+              <textarea
+                value={customPrompt}
+                onChange={(e) => setCustomPrompt(e.target.value)}
+                placeholder="可选：输入针对当前试卷的个性化识别要求，例如：&#10;- 这是八年级数学几何单元测试&#10;- 重点识别图形中的角度关系&#10;- 选项是 A. B. C. D. 格式"
+                className="w-full h-24 p-3 border border-gray-300 rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <p className="text-xs text-gray-500">
+                💡 提示：如果试卷格式特殊或需要重点识别某些内容，可以在这里说明。留空则使用通用识别规则。
+              </p>
             </div>
           </div>
 
