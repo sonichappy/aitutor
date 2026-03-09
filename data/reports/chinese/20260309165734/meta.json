@@ -1,0 +1,62 @@
+{
+  "userId": "user-1",
+  "subject": "语文",
+  "subjectId": "chinese",
+  "title": "语文学习报告",
+  "startDate": "2026-02-07",
+  "endDate": "2026-03-09",
+  "generatedAt": "2026-03-09T08:57:34.835Z",
+  "stats": {
+    "totalExams": 1,
+    "totalQuestions": 1,
+    "markedQuestions": 0,
+    "correctQuestions": 0,
+    "wrongQuestions": 0,
+    "skippedQuestions": 0,
+    "avgAccuracy": 1
+  },
+  "analysis": {
+    "knowledgeMatrix": {
+      "description": "知识点覆盖矩阵",
+      "topWeakPoints": [
+        {
+          "point": "细节逻辑一致性",
+          "errorRate": 45,
+          "count": 1
+        },
+        {
+          "point": "情境真实性构建",
+          "errorRate": 35,
+          "count": 1
+        }
+      ]
+    },
+    "abilityAssessment": {
+      "description": "能力维度评估",
+      "mainIssue": "逻辑分析能力弱",
+      "analysis": "学生具备基础的动作描写能力，能运用动词刻画人物状态，但在叙事逻辑上存在明显漏洞。例如'进球后跑回中场系鞋带'随即'裁判吹响结束哨声'，不符合足球比赛常规流程，显示对生活情境的逻辑推演能力不足，导致细节失真。"
+    },
+    "errorPatterns": {
+      "description": "错误模式挖掘",
+      "patterns": [
+        "情境逻辑偏差",
+        "细节真实性不足",
+        "叙事节奏把控失当"
+      ]
+    },
+    "prediction": {
+      "description": "潜能与风险预判",
+      "nextChapterRisks": [
+        "复杂叙事结构中易出现逻辑断裂",
+        "细节描写可能流于表面而缺乏生活依据",
+        "高分段作文竞争中因逻辑硬伤失分"
+      ],
+      "recommendations": [
+        "加强生活观察，确保写作素材符合常识逻辑",
+        "进行叙事逻辑专项训练，梳理事件因果关系",
+        "修改作文时增加'逻辑自查'环节，排除违背常理的细节"
+      ]
+    }
+  },
+  "id": "20260309165734"
+}

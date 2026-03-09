@@ -1,0 +1,67 @@
+{
+  "userId": "user-1",
+  "subject": "英语",
+  "subjectId": "english",
+  "title": "英语学习报告4",
+  "startDate": "2026-02-07",
+  "endDate": "2026-03-09",
+  "generatedAt": "2026-03-09T03:54:10.909Z",
+  "stats": {
+    "totalExams": 3,
+    "totalQuestions": 40,
+    "markedQuestions": 17,
+    "correctQuestions": 0,
+    "wrongQuestions": 17,
+    "skippedQuestions": 0,
+    "avgAccuracy": 0.575
+  },
+  "analysis": {
+    "knowledgeMatrix": {
+      "description": "知识点覆盖矩阵",
+      "topWeakPoints": [
+        {
+          "point": "主谓一致",
+          "errorRate": 92,
+          "count": 6
+        },
+        {
+          "point": "名词所有格",
+          "errorRate": 78,
+          "count": 5
+        },
+        {
+          "point": "可数/不可数名词",
+          "errorRate": 75,
+          "count": 5
+        }
+      ]
+    },
+    "abilityAssessment": {
+      "description": "能力维度评估",
+      "mainIssue": "逻辑分析能力弱",
+      "analysis": "学生在语法结构的逻辑分析上存在显著短板，特别是在处理复杂主语结构（如 along with, not...but, many a 等）时，难以准确识别真正的主语中心词，导致主谓一致错误频发。同时，基础名词属性的识记不够牢固，对不可数名词的特殊用法及所有格构成规则存在模糊认知，反映出语法体系尚未形成结构化网络，多依赖语感而非规则判断。"
+    },
+    "errorPatterns": {
+      "description": "错误模式挖掘",
+      "patterns": [
+        "复杂句式主语识别错误",
+        "名词单复数及所有格规则记忆混淆",
+        "不可数名词量化搭配误用"
+      ]
+    },
+    "prediction": {
+      "description": "潜能与风险预判",
+      "nextChapterRisks": [
+        "定语从句中的主谓一致",
+        "抽象名词的具体化用法",
+        "非谓语动词逻辑主语判断"
+      ],
+      "recommendations": [
+        "专项训练主谓一致三大原则（语法一致、意义一致、就近原则）",
+        "建立不可数名词清单并进行分类记忆",
+        "通过造句练习强化名词所有格在时间、度量衡中的实际应用"
+      ]
+    }
+  },
+  "id": "20260309115410"
+}

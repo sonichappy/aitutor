@@ -1,0 +1,67 @@
+{
+  "userId": "user-1",
+  "subject": "英语",
+  "subjectId": "english",
+  "title": "英语学习报告5",
+  "startDate": "2026-02-07",
+  "endDate": "2026-03-09",
+  "generatedAt": "2026-03-09T09:25:42.538Z",
+  "stats": {
+    "totalExams": 3,
+    "totalQuestions": 40,
+    "markedQuestions": 17,
+    "correctQuestions": 0,
+    "wrongQuestions": 17,
+    "skippedQuestions": 0,
+    "avgAccuracy": 0.575
+  },
+  "analysis": {
+    "knowledgeMatrix": {
+      "description": "知识点覆盖矩阵",
+      "topWeakPoints": [
+        {
+          "point": "主谓一致",
+          "errorRate": 90,
+          "count": 6
+        },
+        {
+          "point": "不可数名词与量词搭配",
+          "errorRate": 85,
+          "count": 5
+        },
+        {
+          "point": "名词所有格",
+          "errorRate": 75,
+          "count": 4
+        }
+      ]
+    },
+    "abilityAssessment": {
+      "description": "能力维度评估",
+      "mainIssue": "逻辑分析能力弱",
+      "analysis": "学生在处理复杂句法结构时表现薄弱，特别是在涉及就近原则、就远原则及特殊主语结构（如 many a, nobody but, along with）的主谓一致判断上，逻辑推理能力不足。同时，基础词汇的词性属性（可数/不可数）记忆模糊，导致在量词搭配和名词单复数使用上频繁出错。所有格规则掌握不牢固，尤其是时间名词和双重所有格的特殊用法。"
+    },
+    "errorPatterns": {
+      "description": "错误模式挖掘",
+      "patterns": [
+        "语法规则混淆",
+        "词汇属性记忆不清",
+        "句法结构识别障碍"
+      ]
+    },
+    "prediction": {
+      "description": "潜能与风险预判",
+      "nextChapterRisks": [
+        "复合句写作中主谓一致错误高发",
+        "阅读理解中长难句主语识别困难",
+        "名词修饰语序及搭配易错"
+      ],
+      "recommendations": [
+        "专项训练主谓一致特殊结构（就近/就远原则）",
+        "建立不可数名词清单并强化量词搭配记忆",
+        "归纳名词所有格构成规则并进行对比练习"
+      ]
+    }
+  },
+  "id": "20260309172542"
+}

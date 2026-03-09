@@ -1,0 +1,20 @@
+{
+  "userId": "user-1",
+  "subject": "英语",
+  "subjectId": "english",
+  "title": "英语学习报告",
+  "startDate": "2026-02-07",
+  "endDate": "2026-03-09",
+  "generatedAt": "2026-03-09T09:56:09.580Z",
+  "stats": {
+    "totalExams": 3,
+    "totalQuestions": 40,
+    "markedQuestions": 17,
+    "correctQuestions": 0,
+    "wrongQuestions": 17,
+    "skippedQuestions": 0,
+    "avgAccuracy": 0.575
+  },
+  "analysis": null,
+  "id": "20260309175609"
+}

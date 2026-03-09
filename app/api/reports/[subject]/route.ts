@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getSubjectReports, saveSubjectReport, getUserExams } from "@/lib/storage"
-import { callLLM } from "@/lib/ai/llm"
-import { getSubjectByName } from "@/types/subject"
+import { callLLM, getModelInfo } from "@/lib/ai/llm"
+import { getSubjectByName, getDefaultReportPrompt, getSubjectFolderName, type Subject } from "@/types/subject"
 
 // 默认用户ID
 const DEFAULT_USER_ID = "user-1"
@@ -63,6 +63,11 @@ export async function POST(
       )
     }
 
+    // 获取学科对象和文件夹名称
+    // 注意：exam.subject 存储的是文件夹名称（如 geometry），而 decodedSubject 是中文名称（如 几何）
+    const subjectObj = await getSubjectByName(decodedSubject)
+    const subjectFolderName = subjectObj?.folderName || decodedSubject
+
     // 获取用户的所有试卷
     const allExams = await getUserExams(DEFAULT_USER_ID)
 
@@ -72,7 +77,8 @@ export async function POST(
     end.setHours(23, 59, 59, 999) // 包含结束日期当天
 
     const filteredExams = allExams.filter(exam => {
-      if (exam.subject !== decodedSubject) return false
+      // 使用文件夹名称进行匹配
+      if (exam.subject !== subjectFolderName && exam.subject !== decodedSubject) return false
       const examDate = new Date(exam.createdAt)
       return examDate >= start && examDate <= end
     })
@@ -87,10 +93,29 @@ export async function POST(
     // 收集数据
     const wrongQuestions: any[] = []
     const markedQuestions: any[] = []
+    const allQuestions: any[] = []  // 收集所有题目数据（用于作文等特殊题型）
 
     for (const exam of filteredExams) {
       if (exam.questions && Array.isArray(exam.questions)) {
         for (const question of exam.questions) {
+          // 收集所有题目（用于 AI 分析作文等）
+          allQuestions.push({
+            number: question.number,
+            content: question.content,
+            type: question.type,
+            options: question.options,
+            userAnswer: question.userAnswer,
+            correctAnswer: question.correctAnswer,
+            knowledgePoints: question.knowledgePoints || [],
+            difficulty: question.difficulty,
+            score: question.score,
+            essayGenre: question.essayGenre,  // 作文体裁
+            wordCount: question.wordCount,  // 作文字数
+            examId: exam.id,
+            examDate: exam.createdAt,
+            metadata: exam.metadata,  // 试卷元数据（是否作文等）
+          })
+
           // 收集所有已标记的题目
           if (question.isCorrect !== undefined || question.isSkipped) {
             markedQuestions.push({
@@ -161,55 +186,93 @@ export async function POST(
       avgAccuracy
     }
 
-    // AI 分析（如果有错题）
+    // AI 分析（如果有试卷数据）
     let analysis = null
-    if (wrongQuestions.length > 0) {
-      const prompt = `请作为资深教研员，对我提供的这些${decodedSubject}错题进行聚类分析。请不要逐题解析，而是产出以下维度的报告：
+    let aiAnalysisTime = 0
+    let aiModelInfo = getModelInfo()
 
-**错题数据：**
-${JSON.stringify(wrongQuestions, null, 2)}
+    // 只要有试卷数据就进行 AI 分析（支持作文等非错题类型）
+    if (filteredExams.length > 0 && allQuestions.length > 0) {
+      // 获取学科对象以获取自定义提示词
+      const subjectObj: Subject | undefined = await getSubjectByName(decodedSubject)
 
-**请按以下格式输出JSON：**
-{
-  "knowledgeMatrix": {
-    "description": "知识点覆盖矩阵",
-    "topWeakPoints": [
-      {"point": "二级知识点名称", "errorRate": 85, "count": 6}
-    ]
-  },
-  "abilityAssessment": {
-    "description": "能力维度评估",
-    "mainIssue": "基础识记模糊|逻辑转化受阻|抗干扰能力弱",
-    "analysis": "详细分析..."
-  },
-  "errorPatterns": {
-    "description": "错误模式挖掘",
-    "patterns": ["习惯性错误1", "习惯性错误2"]
-  },
-  "prediction": {
-    "description": "潜能与风险预判",
-    "nextChapterRisks": ["可能遇到的学习障碍"],
-    "recommendations": ["针对性建议"]
-  }
-}
+      // 获取提示词模板（优先使用自定义，否则使用默认）
+      const promptTemplate = subjectObj?.reportPrompt || getDefaultReportPrompt(subjectObj)
 
-请严格按照JSON格式输出，不要包含其他文字。`
+      // 准备作文数据
+      const writingQuestions = allQuestions.filter(q =>
+        q.type === 'essay' || q.essayGenre || q.metadata?.isEssay
+      )
+
+      // 替换占位符生成最终提示词
+      const prompt = promptTemplate
+        .replace(/{subject}/g, decodedSubject)
+        .replace(/{wrongQuestionsData}/g, JSON.stringify(wrongQuestions.length > 0 ? wrongQuestions : allQuestions.slice(0, 5), null, 2))
+        .replace(/{writingData}/g, JSON.stringify(writingQuestions.length > 0 ? writingQuestions : allQuestions.slice(0, 3), null, 2))
+        .replace(/{allQuestionsData}/g, JSON.stringify(allQuestions, null, 2))
+
+      console.log(`[Report] Generating AI analysis for ${decodedSubject}: ${allQuestions.length} questions, ${writingQuestions.length} writing questions`)
 
       try {
+        const aiStart = Date.now()
         const aiResponse = await callLLM([{ role: "user", content: prompt }], {
-          temperature: 0.7,
-          maxTokens: 2000,
+          temperature: 0.3,  // 降低温度以获得更稳定的 JSON 输出
+          maxTokens: 4000,   // 增加 token 限制以支持更复杂的输出
         })
+        aiAnalysisTime = Date.now() - aiStart
 
         const content = typeof aiResponse === 'string' ? aiResponse : aiResponse.content
-        const jsonMatch = content.match(/\{[\s\S]*\}/)
-        if (jsonMatch) {
-          analysis = JSON.parse(jsonMatch[0])
+
+        // 记录原始响应用于调试
+        console.log(`[Report] AI response length: ${content?.length || 0}`)
+        console.log(`[Report] AI response (first 500 chars):`, content?.substring(0, 500))
+
+        // 尝试提取并清理 JSON
+        let jsonStr = content?.trim() || ""
+
+        // 清理 markdown 代码块标记
+        if (jsonStr.startsWith("```")) {
+          jsonStr = jsonStr
+            .replace(/^```json\n/, "")
+            .replace(/^```\n/, "")
+            .replace(/\n```$/, "")
+            .replace(/```$/, "")
         }
-      } catch (error) {
-        console.error("AI analysis failed:", error)
+
+        // 提取 JSON 对象（处理可能的额外文字）
+        const jsonMatch = jsonStr.match(/\{[\s\S]*\}/)
+        if (jsonMatch) {
+          jsonStr = jsonMatch[0]
+        }
+
+        // 清理 JSON 中的常见问题
+        // 1. 移除未闭合的注释
+        jsonStr = jsonStr.replace(/\/\*[\s\S]*?\*\//g, "")
+        jsonStr = jsonStr.replace(/\/\/.*/g, "")
+
+        // 2. 修复尾随逗号
+        jsonStr = jsonStr.replace(/,\s*([}\]])/g, "$1")
+
+        // 3. 修复控制字符（除了换行、制表符等）
+        jsonStr = jsonStr.replace(/[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]/g, "")
+
+        console.log(`[Report] Attempting to parse JSON...`)
+        analysis = JSON.parse(jsonStr)
+        console.log(`[Report] JSON parsed successfully`)
+      } catch (error: any) {
+        console.error("[Report] AI analysis failed:", error.message)
+
+        // 输出更多调试信息
+        if (error.message.includes("JSON")) {
+          console.error("[Report] JSON parse error details:", {
+            errorMessage: error.message,
+            position: error.message.match(/position (\d+)/)?.[1],
+          })
+        }
       }
     }
+
+    const reportStartTime = Date.now()
 
     // 生成 Markdown 报告
     const reportContent = generateMarkdownReport({
@@ -220,12 +283,15 @@ ${JSON.stringify(wrongQuestions, null, 2)}
       stats,
       analysis,
       exams: filteredExams,
-      wrongQuestions: wrongQuestions.slice(0, 20) // 最多显示20道错题
+      wrongQuestions: wrongQuestions.slice(0, 20), // 最多显示20道错题
+      aiModelInfo,
+      aiAnalysisTime
     })
+
+    const totalGenerationTime = Date.now() - reportStartTime
 
     // 保存报告
     // 获取学科ID
-    const subjectObj = await getSubjectByName(decodedSubject)
     const subjectId = subjectObj?.id || decodedSubject.toLowerCase()
 
     const report = await saveSubjectReport({
@@ -301,11 +367,24 @@ function generateMarkdownReport(data: {
   analysis: any
   exams: any[]
   wrongQuestions: any[]
+  aiModelInfo?: { provider: string; model: string }
+  aiAnalysisTime?: number
 }): string {
-  const { subject, title, startDate, endDate, stats, analysis, exams, wrongQuestions } = data
+  const { subject, title, startDate, endDate, stats, analysis, exams, wrongQuestions, aiModelInfo, aiAnalysisTime } = data
 
   let md = `# ${title}\n\n`
-  md += `> 📚 **学科**: ${subject} | 📅 **时间范围**: ${startDate} ~ ${endDate} | 🕐 **生成时间**: ${new Date().toLocaleString('zh-CN')}\n\n`
+  md += `> 📚 **学科**: ${subject} | 📅 **时间范围**: ${startDate} ~ ${endDate} | 🕐 **生成时间**: ${new Date().toLocaleString('zh-CN')}\n`
+
+  // AI 模型信息
+  if (aiModelInfo) {
+    md += `\n> 🤖 **AI 模型**: ${aiModelInfo.provider} (${aiModelInfo.model})`
+    if (aiAnalysisTime !== undefined && aiAnalysisTime > 0) {
+      md += ` | ⏱️ **分析耗时**: ${(aiAnalysisTime / 1000).toFixed(1)}秒`
+    }
+    md += `\n`
+  }
+
+  md += `\n---\n\n`
 
   md += `---\n\n`
 

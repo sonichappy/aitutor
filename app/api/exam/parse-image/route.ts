@@ -307,9 +307,6 @@ export async function POST(request: NextRequest) {
     // 生成试卷 ID
     const examId = `exam-${Date.now()}`
 
-    // 保存图片到文件系统
-    await saveExamImage(examId, base64Image)
-
     // 获取中国时区时间
     const chinaTime = new Date().toLocaleString('zh-CN', {
       timeZone: 'Asia/Shanghai',
@@ -348,6 +345,9 @@ export async function POST(request: NextRequest) {
       },
     }
     await saveExamData(examId, examData)
+
+    // 保存图片到文件系统（必须在 saveExamData 之后，因为需要通过 examData 确定目录结构）
+    await saveExamImage(examId, base64Image)
 
     // 返回给前端的数据（不包含大图片）
     const examDataForClient = {

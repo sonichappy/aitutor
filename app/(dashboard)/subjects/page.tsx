@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { getEnabledSubjects, clearSubjectsCache, type Subject } from "@/types/subject"
+import { getEnabledSubjects, clearSubjectsCache, getDefaultReportPrompt, saveSubjects, type Subject } from "@/types/subject"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 
@@ -37,10 +37,12 @@ export default function SubjectsPage() {
   const [loading, setLoading] = useState(true)
   const [generatingReport, setGeneratingReport] = useState<string | null>(null)
   const [showGenerateDialog, setShowGenerateDialog] = useState(false)
+  const [showPromptDialog, setShowPromptDialog] = useState(false)
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null)
   const [reportTitle, setReportTitle] = useState("")
   const [startDate, setStartDate] = useState("")
   const [endDate, setEndDate] = useState("")
+  const [promptValue, setPromptValue] = useState("")
 
   useEffect(() => {
     loadSubjects()
@@ -138,6 +140,41 @@ export default function SubjectsPage() {
     setShowGenerateDialog(true)
   }
 
+  const openPromptDialog = (subject: Subject) => {
+    setSelectedSubject(subject)
+    const defaultPrompt = getDefaultReportPrompt(subject)
+    setPromptValue(subject.reportPrompt || defaultPrompt)
+    setShowPromptDialog(true)
+  }
+
+  const handleSavePrompt = async () => {
+    if (!selectedSubject) return
+
+    // 更新本地状态
+    const updated = subjects.map(s =>
+      s.id === selectedSubject.id ? { ...s, reportPrompt: promptValue.trim() || undefined } : s
+    )
+    setSubjects(updated)
+
+    // 保存到服务器
+    try {
+      await saveSubjects(updated)
+      alert("提示词已保存")
+    } catch (error) {
+      console.error("Failed to save prompt:", error)
+      alert("保存失败，请重试")
+    }
+
+    setShowPromptDialog(false)
+  }
+
+  const handleResetPrompt = () => {
+    if (selectedSubject) {
+      const defaultPrompt = getDefaultReportPrompt(selectedSubject)
+      setPromptValue(defaultPrompt)
+    }
+  }
+
   const getAccuracyColor = (accuracy: number) => {
     if (accuracy >= 0.9) return "bg-green-100 text-green-800"
     if (accuracy >= 0.8) return "bg-blue-100 text-blue-800"
@@ -200,12 +237,22 @@ export default function SubjectsPage() {
                         </CardDescription>
                       </div>
                     </div>
-                    <Button
-                      onClick={() => openGenerateDialog(subject)}
-                      disabled={generatingReport === subject.name}
-                    >
-                      {generatingReport === subject.name ? "生成中..." : "+ 生成报告"}
-                    </Button>
+                    <div className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => openPromptDialog(subject)}
+                        className={subject.reportPrompt ? "border-blue-500 text-blue-600" : ""}
+                      >
+                        {subject.reportPrompt ? "✏️ 已自定义" : "⚙️ 提示词"}
+                      </Button>
+                      <Button
+                        onClick={() => openGenerateDialog(subject)}
+                        disabled={generatingReport === subject.name}
+                      >
+                        {generatingReport === subject.name ? "生成中..." : "+ 生成报告"}
+                      </Button>
+                    </div>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -314,6 +361,47 @@ export default function SubjectsPage() {
             >
               {generatingReport ? "生成中..." : "生成报告"}
             </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* 提示词编辑对话框 */}
+      <Dialog open={showPromptDialog} onOpenChange={setShowPromptDialog}>
+        <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>编辑{selectedSubject?.name}报告提示词</DialogTitle>
+            <DialogDescription>
+              自定义AI分析错题时使用的提示词模板。支持占位符：<code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">{"{subject}"}</code>、<code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">{"{wrongQuestionsData}"}</code>
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4">
+            <div>
+              <Label htmlFor="prompt-template">提示词模板</Label>
+              <textarea
+                id="prompt-template"
+                value={promptValue}
+                onChange={(e) => setPromptValue(e.target.value)}
+                className="w-full h-64 mt-2 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md font-mono text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                placeholder="输入提示词模板..."
+              />
+            </div>
+
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                onClick={handleResetPrompt}
+              >
+                重置为默认
+              </Button>
+              <div className="flex-1"></div>
+              <Button variant="outline" onClick={() => setShowPromptDialog(false)}>
+                取消
+              </Button>
+              <Button onClick={handleSavePrompt}>
+                保存
+              </Button>
+            </div>
           </div>
         </DialogContent>
       </Dialog>

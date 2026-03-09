@@ -549,3 +549,44 @@ export function createAnalysisSystemPrompt(): string {
 - 优先级清晰
 - 语言鼓励积极`
 }
+
+/**
+ * 获取当前配置的 AI 模型信息
+ */
+export function getModelInfo(): { provider: string; model: string } {
+  const provider = getProvider()
+  let model = ""
+
+  switch (provider) {
+    case "deepseek":
+      model = process.env.DEEPSEEK_MODEL || "deepseek-chat"
+      break
+    case "dashscope":
+      model = process.env.DASHSCOPE_MODEL || "qwen-plus"
+      break
+    case "openai":
+      model = process.env.OPENAI_MODEL || "gpt-4o"
+      break
+    case "anthropic":
+      model = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-20250514"
+      break
+    case "gemini":
+      model = process.env.GEMINI_MODEL || "gemini-2.0-flash-exp"
+      break
+    default:
+      model = "unknown"
+  }
+
+  const providerNames: Record<AIProvider, string> = {
+    deepseek: "DeepSeek",
+    dashscope: "通义千问",
+    openai: "OpenAI",
+    anthropic: "Anthropic",
+    gemini: "Google Gemini"
+  }
+
+  return {
+    provider: providerNames[provider] || provider,
+    model
+  }
+}

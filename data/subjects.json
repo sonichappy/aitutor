@@ -1,15 +1,6 @@
 {
   "subjects": [
     {
-      "id": "math",
-      "name": "数学",
-      "icon": "📐",
-      "color": "blue",
-      "enabled": false,
-      "category": "理科",
-      "folderName": "math"
-    },
-    {
       "id": "algebra",
       "name": "代数",
       "icon": "🔢",
@@ -34,7 +25,8 @@
       "color": "red",
       "enabled": true,
       "category": "文科",
-      "folderName": "chinese"
+      "folderName": "chinese",
+      "reportPrompt": "Role: 你是国家级初中语文资深教研员，擅长从学生日常的作业、随堂测验及大考数据中，精准洞察其文学素养、思维品质及语言表达能力的细微变化。\n\nTask: 对提供的 {subject} 学习数据进行多维聚类分析，产出一份科学、严谨且具有导向性的学情诊断报告。\n\nInput Data:\n\n基础与阅读数据： {wrongQuestionsData}\n\n作文专项数据（含大/小作文）： {writingData}\n\nEvaluation Requirements:\n\n基础层面： 涵盖字频、音准、书写规范及古诗文默写。\n\n阅读层面： 区分现代文（散文/说明文/议论文）与文言文，评估提取信息、推断解释、评价鉴赏的能力。\n\n写作层面： - 小作文（约300字）： 评估语言的简练性、场景描写或观点表达的集中度。\n\n大作文（500-800字）： 评估审题立意、结构布局、选材新颖度、情感真挚度及语言文采。\n\n素养层面： 对标“文化自信、语言运用、思维能力、审美创造”四大核心素养。\n\nOutput Format (Strict JSON):\n{\n  \"knowledgeMatrix\": {\n    \"description\": \"语文知识覆盖与掌握矩阵\",\n    \"foundational\": {\n      \"phonetics_scripts\": \"字音字形辨析度\",\n      \"ancient_poetry\": \"古诗文储备与理解程度\",\n      \"grammar_logic\": \"病句修改与逻辑关联词运用\"\n    },\n    \"readingComprehension\": {\n      \"modern_prose\": \"现代文阅读（理解/赏析/推断）\",\n      \"classical_chinese\": \"文言文实词/虚词/断句/翻译\"\n    },\n    \"topWeakPoints\": [\n      {\n        \"point\": \"二级知识点名称（如：托物言志手法赏析）\",\n        \"errorRate\": 75,\n        \"count\": 4,\n        \"severity\": \"High/Medium/Low\"\n      }\n    ]\n  },\n  \"writingPerformance\": {\n    \"description\": \"表达与创作能力分析\",\n    \"smallComposition\": {\n      \"strengths\": \"小作文优点\",\n      \"weakness\": \"小作文不足（如：功能性表达不准）\"\n    },\n    \"largeComposition\": {\n      \"thematic_depth\": \"审题立意深度评分(0-10)\",\n      \"structure\": \"结构布局合理性分析\",\n      \"language_style\": \"语言文采与表现力评估\",\n      \"main_issue\": \"大作文核心症结\"\n    }\n  },\n  \"literaryCoreCompetencies\": {\n    \"description\": \"语文核心素养评估\",\n    \"dimensions\": {\n      \"cultural_confidence\": \"对传统文化/文学常识的认同与掌握\",\n      \"language_application\": \"日常规范语言的组织与转化能力\",\n      \"thinking_quality\": \"逻辑思维的严密性与批判性思维\",\n      \"aesthetic_appreciation\": \"对文学作品意境与情感的感知力\"\n    }\n  },\n  \"improvementPlan\": {\n    \"description\": \"语文学科提分与素养提升计划\",\n    \"remedial_tasks\": [\"短期内需完成的基础补漏任务\"],\n    \"reading_list\": [\"推荐针对性的课外阅读书目或篇目\"],\n    \"writing_drills\": [\"针对作文症结的专项训练建议（如：细节描写训练）\"],\n    \"milestone_goal\": \"阶段性提升目标\"\n  },\n  \"teacher_advice\": \"给家长和学生的寄语（温情且专业）\"\n}\n\n请严格按以下 JSON 格式输出，不要包含任何多余的 Markdown 标记或文字说明："
     },
     {
       "id": "english",
@@ -43,25 +35,8 @@
       "color": "purple",
       "enabled": true,
       "category": "文科",
-      "folderName": "english"
-    },
-    {
-      "id": "physics",
-      "name": "物理",
-      "icon": "⚛️",
-      "color": "orange",
-      "enabled": false,
-      "category": "理科",
-      "folderName": "physics"
-    },
-    {
-      "id": "chemistry",
-      "name": "化学",
-      "icon": "🧪",
-      "color": "green",
-      "enabled": false,
-      "category": "理科",
-      "folderName": "chemistry"
+      "folderName": "english",
+      "reportPrompt": "Role: 你是国家级初中英语资深教研员，具备极强的语言学逻辑分析能力和丰富的初一教学经验。\n\nTask: 请对我提供的 {subject} 学习数据进行“像素级”诊断。不要仅给出抽象的逻辑分析，必须深入到具体的词汇、短语、句型，并产出可直接执行的教学处方。\n\nInput Data:\n\n错题与作业数据： {wrongQuestionsData} （包含题目、学生答案、正确答案、知识点标签）。\n\n写作与口语数据： {writingData} （含大小作文、老师评语）。\n\n词汇量监测数据： {vocabularyData}。\n\nOutput Requirements (Strict Constraints):\n\n零undefined原则： 严禁出现 \"undefined\"，若数据缺失，请基于语境推断或标记为“待补测”。\n\n逻辑一致性： 统计数据（正确率、错误率）必须经过内部步进验证，严禁虚构百分比。\n\n颗粒度要求： 必须列出具体的单词清单和语法微规则。\n\n四维对齐： 评估必须对标“语言能力、文化意识、思维品质、学习能力”。\n\nOutput Format (Strict JSON):\n\n{\n  \"summary\": {\n    \"total_questions\": 40,\n    \"correct_count\": \"基于(总数-错误)计算\",\n    \"accuracy_rate\": \"必须符合数学逻辑\",\n    \"study_status\": \"稳健/波动/预警\"\n  },\n  \"microDiagnosis\": {\n    \"description\": \"微观知识点精准打击清单\",\n    \"vocabulary_gap\": [\n      {\"word\": \"具体单词\", \"issue\": \"词性混淆/拼写/单复数\", \"remedy\": \"具体的记忆技巧\"}\n    ],\n    \"phrase_errors\": [\n      {\"phrase\": \"具体短语\", \"error_context\": \"错例分析\", \"correct_usage\": \"正确用法\"}\n    ],\n    \"grammar_rules\": [\n      {\"rule\": \"具体的微语法点（如：along with 引导的就远原则）\", \"logic\": \"为什么孩子会选错\", \"shortcut\": \"避坑口诀\"}\n    ]\n  },\n  \"abilityAssessment\": {\n    \"description\": \"核心素养四维评估\",\n    \"language_competence\": \"基础语法与词汇的内化程度\",\n    \"thinking_quality\": \"逻辑推断与信息加工能力\",\n    \"cultural_awareness\": \"语境理解与跨文化交际敏感度\",\n    \"learning_ability\": \"自主纠偏与工具使用能力\"\n  },\n  \"phasedImprovementPlan\": {\n    \"description\": \"21天精准提分教学大纲\",\n    \"week1_Foundation\": {\n      \"goal\": \"漏洞精准修复\",\n      \"daily_tasks\": [\"Day 1: 听写并造句使用[单词A, B]\", \"Day 2: 专项练习[语法点X]\"],\n      \"learning_material\": \"推荐的具体教材章节（如《英语在用》第X单元）\"\n    },\n    \"week2_Integration\": {\n      \"goal\": \"语境迁移与应用\",\n      \"tasks\": [\"任务1: 仿写练习\", \"任务2: 完形填空专项\"],\n      \"method\": \"具体的学习策略（如：影子练习法）\"\n    },\n    \"week3_Advancement\": {\n      \"goal\": \"思维与应试技巧提升\",\n      \"tasks\": [\"任务1: 错题变式测试\", \"任务2: 批判性阅读训练\"]\n    }\n  },\n  \"prediction\": {\n    \"next_unit_risks\": [\"当前漏洞对下个单元（如：定语从句）的影响预判\"],\n    \"score_potential\": \"预计通过此计划可提升的分值区间\"\n  }\n}"
     },
     {
       "id": "biology",
@@ -98,15 +73,6 @@
       "enabled": true,
       "category": "文科",
       "folderName": "politics"
-    },
-    {
-      "id": "politics2",
-      "name": "政治",
-      "icon": "🏛️",
-      "color": "indigo",
-      "enabled": false,
-      "category": "文科",
-      "folderName": "politics2"
     }
   ]
 }

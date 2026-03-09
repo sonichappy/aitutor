@@ -7,6 +7,87 @@ export interface Subject {
   enabled: boolean
   category: "理科" | "文科" | "其他"
   folderName: string  // 英文文件夹名称，用于存储数据
+  reportPrompt?: string  // 自定义报告提示词（可选）
+}
+
+// 默认报告提示词模板
+// 支持占位符：{subject} - 学科名称，{wrongQuestionsData} - 错题JSON数据
+
+// 理科默认报告提示词
+export const DEFAULT_SCIENCE_REPORT_PROMPT = `请作为资深教研员，对我提供的这些{subject}错题进行聚类分析。请不要逐题解析，而是产出以下维度的报告：
+
+**错题数据：**
+{wrongQuestionsData}
+
+**请按以下格式输出JSON：**
+{
+  "knowledgeMatrix": {
+    "description": "知识点覆盖矩阵",
+    "topWeakPoints": [
+      {"point": "二级知识点名称", "errorRate": 85, "count": 6}
+    ]
+  },
+  "abilityAssessment": {
+    "description": "能力维度评估",
+    "mainIssue": "计算准确性|概念理解偏差|逻辑推理漏洞|实验分析能力弱",
+    "analysis": "详细分析..."
+  },
+  "errorPatterns": {
+    "description": "错误模式挖掘",
+    "patterns": ["计算步骤错误", "公式应用错误", "单位换算错误"]
+  },
+  "prediction": {
+    "description": "潜能与风险预判",
+    "nextChapterRisks": ["可能遇到的学习障碍"],
+    "recommendations": ["针对性建议"]
+  }
+}
+
+请严格按照JSON格式输出，不要包含其他文字。`
+
+// 文科默认报告提示词
+export const DEFAULT_LIBERAL_ARTS_REPORT_PROMPT = `请作为资深教研员，对我提供的这些{subject}错题进行聚类分析。请不要逐题解析，而是产出以下维度的报告：
+
+**错题数据：**
+{wrongQuestionsData}
+
+**请按以下格式输出JSON：**
+{
+  "knowledgeMatrix": {
+    "description": "知识点覆盖矩阵",
+    "topWeakPoints": [
+      {"point": "二级知识点名称", "errorRate": 85, "count": 6}
+    ]
+  },
+  "abilityAssessment": {
+    "description": "能力维度评估",
+    "mainIssue": "基础识记模糊|材料理解偏差|逻辑分析能力弱|语言表达不准确",
+    "analysis": "详细分析..."
+  },
+  "errorPatterns": {
+    "description": "错误模式挖掘",
+    "patterns": ["知识点记忆错误", "材料理解偏差", "答题要点遗漏"]
+  },
+  "prediction": {
+    "description": "潜能与风险预判",
+    "nextChapterRisks": ["可能遇到的学习障碍"],
+    "recommendations": ["针对性建议"]
+  }
+}
+
+请严格按照JSON格式输出，不要包含其他文字。`
+
+// 获取学科默认报告提示词
+export function getDefaultReportPrompt(subject?: Subject): string {
+  if (!subject) {
+    return DEFAULT_SCIENCE_REPORT_PROMPT
+  }
+  if (subject.category === "理科") {
+    return DEFAULT_SCIENCE_REPORT_PROMPT
+  } else if (subject.category === "文科") {
+    return DEFAULT_LIBERAL_ARTS_REPORT_PROMPT
+  }
+  return DEFAULT_SCIENCE_REPORT_PROMPT  // 默认使用理科模板
 }
 
 // 默认学科列表
@@ -93,6 +174,51 @@ export async function getSubjectById(id: string): Promise<Subject | undefined> {
 
 // 根据名称查找学科（支持模糊匹配和别名）
 export async function getSubjectByName(name: string): Promise<Subject | undefined> {
+  // 服务器端：直接从文件读取
+  if (typeof window === "undefined") {
+    try {
+      const fs = await import('fs/promises')
+      const path = await import('path')
+      const subjectsFile = path.join(process.cwd(), 'data', 'subjects.json')
+      const content = await fs.readFile(subjectsFile, 'utf-8')
+      const data = JSON.parse(content)
+      const subjects: Subject[] = data.subjects || []
+
+      // 精确匹配
+      let subject = subjects.find(s => s.name === name)
+      if (subject) return subject
+
+      // 别名映射
+      const aliases: Record<string, string> = {
+        "数学": "math",
+        "代数": "algebra",
+        "几何": "geometry",
+        "语文": "chinese",
+        "英语": "english",
+        "物理": "physics",
+        "化学": "chemistry",
+        "生物": "biology",
+        "历史": "history",
+        "地理": "geography",
+        "道法": "politics",
+        "政治": "politics2",
+        "思想品德": "politics",
+      }
+
+      const mappedId = aliases[name]
+      if (mappedId) {
+        return subjects.find(s => s.id === mappedId)
+      }
+
+      // 模糊匹配
+      return subjects.find(s => name.includes(s.name) || s.name.includes(name))
+    } catch (error) {
+      console.error("[getSubjectByName] Server-side read failed:", error)
+    }
+    return DEFAULT_SUBJECTS.find(s => s.name === name)
+  }
+
+  // 客户端：使用缓存和 fetch
   const subjects = await getSubjects()
 
   // 精确匹配

@@ -1,0 +1,63 @@
+{
+  "userId": "user-1",
+  "subject": "英语",
+  "subjectId": "english",
+  "title": "英语学习报告3",
+  "startDate": "2026-02-07",
+  "endDate": "2026-03-09",
+  "generatedAt": "2026-03-09T03:45:27.222Z",
+  "stats": {
+    "totalExams": 3,
+    "totalQuestions": 40,
+    "markedQuestions": 17,
+    "correctQuestions": 0,
+    "wrongQuestions": 17,
+    "skippedQuestions": 0,
+    "avgAccuracy": 0.575
+  },
+  "analysis": {
+    "knowledgeMatrix": {
+      "description": "知识点覆盖矩阵",
+      "topWeakPoints": [
+        {
+          "point": "名词的可数与不可数辨析及搭配",
+          "errorRate": 88,
+          "count": 7
+        },
+        {
+          "point": "主谓一致（含特殊结构）",
+          "errorRate": 83,
+          "count": 5
+        },
+        {
+          "point": "名词所有格（含时间、距离、双重所有格）",
+          "errorRate": 80,
+          "count": 4
+        }
+      ]
+    },
+    "abilityAssessment": {
+      "description": "能力维度评估",
+      "mainIssue": "基础识记模糊",
+      "analysis": "学生的错误高度集中在基础语法规则的识记与应用上。具体表现为：1）对名词的核心分类（可数/不可数）概念不清，导致无法正确选择量词（much/many, a lot of）或误用复数形式（如furnitures, pollutions）；2）对主谓一致的特殊规则（如not...but, many a, along with等）记忆不牢，无法根据主语核心判断谓语单复数；3）对名词所有格的构成规则（如时间名词所有格、复数名词所有格、双重所有格）掌握不扎实。这反映出学生在语言学习的‘规则内化’阶段存在明显短板，对基础语法点的记忆不够精确和稳固，尚未形成自动化的正确语感。"
+    },
+    "errorPatterns": {
+      "description": "错误模式挖掘",
+      "patterns": [
+        "知识点记忆错误",
+        "规则应用僵化",
+        "语境忽略"
+      ]
+    },
+    "prediction": {
+      "description": "潜能与风险预判",
+      "nextChapterRisks": [
+        "学习动词时态、语态时，可能因主谓一致基础不牢而出现复合性错误；学习冠词用法时，可能因名词可数性判断失误而加剧混淆；学习复合句时，可能因基础语法概念模糊影响句子结构分析。"
+      ],
+      "recommendations": [
+        "建议进行‘名词与主谓一致’专项巩固训练，重点强化：1）建立常见不可数名词清单，并通过搭配练习固化；2）系统梳理并对比主谓一致的各类特殊规则，制作规则对比表；3）针对所有格进行集中辨析练习，特别是易混点（如twenty minutes' walk与a twenty-minute walk）。在后续学习中，教师需有意识地将新知识点与这些薄弱环节进行关联提问和对比，促进知识网络的形成。"
+      ]
+    }
+  },
+  "id": "20260309114527"
+}
