@@ -1,0 +1,30 @@
+{
+  "name": "parse-exam",
+  "version": "1.0.0",
+  "description": "AI 试卷图片解析技能",
+  "author": "AI 导师项目组",
+  "license": "MIT",
+  "main": "index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./core": "./core.ts",
+    "./api-adapter": "./api-adapter.ts",
+    "./skill-adapter": "./skill-adapter.ts"
+  },
+  "capabilities": {
+    "supports": ["file", "image"],
+    "aiProviders": ["dashscope", "openai", "anthropic", "gemini"],
+    "outputFormats": ["json"],
+    "features": [
+      "OCR识别",
+      "题目提取",
+      "学科识别",
+      "智能分类"
+    ]
+  },
+  "deployment": {
+    "mode": "embedded",
+    "requires": ["ai-service", "file-storage"],
+    "environment": ["node"]
+  }
+}

@@ -4,7 +4,25 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { getSubjects, saveSubjects, resetSubjects, DEFAULT_SUBJECTS, clearSubjectsCache, type Subject } from "@/types/subject"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import {
+  getSubjects,
+  saveSubjects,
+  resetSubjects,
+  DEFAULT_SUBJECTS,
+  clearSubjectsCache,
+  getDefaultReportPrompt,
+  type Subject
+} from "@/types/subject"
 
 export default function SettingsPage() {
   const [subjects, setSubjects] = useState<Subject[]>([])
@@ -12,6 +30,12 @@ export default function SettingsPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [editingFolder, setEditingFolder] = useState<string | null>(null)
   const [folderValue, setFolderValue] = useState("")
+
+  // 提示词编辑相关状态
+  const [promptModalOpen, setPromptModalOpen] = useState(false)
+  const [editingPromptSubject, setEditingPromptSubject] = useState<Subject | null>(null)
+  const [promptValue, setPromptValue] = useState("")
+  const [promptHasChanges, setPromptHasChanges] = useState(false)
 
   useEffect(() => {
     loadSubjects()
@@ -58,6 +82,55 @@ export default function SettingsPage() {
   const handleCancelEditFolder = () => {
     setEditingFolder(null)
     setFolderValue("")
+  }
+
+  // 提示词编辑处理函数
+  const handleOpenPromptEdit = (subject: Subject) => {
+    setEditingPromptSubject(subject)
+    setPromptValue(subject.reportPrompt || getDefaultReportPrompt(subject))
+    setPromptHasChanges(false)
+    setPromptModalOpen(true)
+  }
+
+  const handleClosePromptModal = () => {
+    if (promptHasChanges) {
+      if (confirm("提示词已修改但未保存，确定要关闭吗？")) {
+        setPromptModalOpen(false)
+        setEditingPromptSubject(null)
+        setPromptValue("")
+        setPromptHasChanges(false)
+      }
+    } else {
+      setPromptModalOpen(false)
+      setEditingPromptSubject(null)
+      setPromptValue("")
+      setPromptHasChanges(false)
+    }
+  }
+
+  const handleSavePrompt = () => {
+    if (!editingPromptSubject) return
+
+    const updated = subjects.map(s =>
+      s.id === editingPromptSubject.id
+        ? { ...s, reportPrompt: promptValue.trim() || undefined }
+        : s
+    )
+    setSubjects(updated)
+    setHasChanges(true)
+    setPromptHasChanges(false)
+    setPromptModalOpen(false)
+    setEditingPromptSubject(null)
+    setPromptValue("")
+  }
+
+  const handleResetPrompt = () => {
+    if (!editingPromptSubject) return
+    if (confirm("确定要重置为默认提示词吗？")) {
+      const defaultPrompt = getDefaultReportPrompt(editingPromptSubject)
+      setPromptValue(defaultPrompt)
+      setPromptHasChanges(true)
+    }
   }
 
   const handleSave = async () => {
@@ -178,6 +251,22 @@ export default function SettingsPage() {
           </div>
         )}
       </div>
+
+      {/* 提示词编辑按钮 */}
+      <div className="flex items-center gap-2 mt-2">
+        <span className="text-xs text-gray-500 dark:text-gray-400 min-w-[60px]">报告提示:</span>
+        <span className={`text-xs ${subject.reportPrompt ? "text-green-600 dark:text-green-400" : "text-gray-400 dark:text-gray-500"}`}>
+          {subject.reportPrompt ? "自定义" : "默认"}
+        </span>
+        <Button
+          size="sm"
+          variant="ghost"
+          className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700"
+          onClick={() => handleOpenPromptEdit(subject)}
+        >
+          编辑提示词
+        </Button>
+      </div>
     </div>
   )
 
@@ -279,8 +368,76 @@ export default function SettingsPage() {
           <p className="text-sm text-gray-500 mt-2">
             文件夹名称用于试卷和报告的存储分类，建议使用英文命名，修改后现有数据不会自动迁移。
           </p>
+          <p className="text-sm text-gray-500 mt-2">
+            报告提示词用于生成 AI 学科分析报告，可根据学科特点自定义分析维度。支持占位符：{"{subject}"}（学科名称）、{"{wrongQuestionsData}"}（错题数据）。
+          </p>
         </CardContent>
       </Card>
+
+      {/* 提示词编辑对话框 */}
+      <Dialog open={promptModalOpen} onOpenChange={(open) => !open && handleClosePromptModal()}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>
+              编辑报告提示词 - {editingPromptSubject?.name}
+            </DialogTitle>
+            <DialogDescription>
+              自定义该学科的 AI 分析提示词。支持占位符：{"{subject}"}、{"{wrongQuestionsData}"}
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="prompt-input">提示词内容</Label>
+              <Textarea
+                id="prompt-input"
+                value={promptValue}
+                onChange={(e) => {
+                  setPromptValue(e.target.value)
+                  setPromptHasChanges(true)
+                }}
+                placeholder="输入自定义提示词..."
+                className="min-h-[300px] font-mono text-sm"
+                spellCheck={false}
+              />
+              <p className="text-xs text-gray-500">
+                当前使用：{editingPromptSubject?.reportPrompt ? "自定义提示词" : "默认提示词"}
+              </p>
+            </div>
+
+            <div className="bg-gray-50 dark:bg-gray-900 p-3 rounded-md">
+              <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">支持的占位符：</p>
+              <ul className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
+                <li><code className="bg-gray-200 dark:bg-gray-800 px-1 rounded">{"{subject}"}</code> - 学科中文名称</li>
+                <li><code className="bg-gray-200 dark:bg-gray-800 px-1 rounded">{"{wrongQuestionsData}"}</code> - 错题 JSON 数据</li>
+                <li><code className="bg-gray-200 dark:bg-gray-800 px-1 rounded">{"{writingData}"}</code> - 作文类题目数据</li>
+                <li><code className="bg-gray-200 dark:bg-gray-800 px-1 rounded">{"{allQuestionsData}"}</code> - 所有题目数据</li>
+              </ul>
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={handleResetPrompt}
+            >
+              重置为默认
+            </Button>
+            <Button
+              variant="outline"
+              onClick={handleClosePromptModal}
+            >
+              取消
+            </Button>
+            <Button
+              onClick={handleSavePrompt}
+              disabled={!promptHasChanges}
+            >
+              保存
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

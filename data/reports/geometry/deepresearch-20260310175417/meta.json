@@ -1,0 +1,16 @@
+{
+  "userId": "user-1",
+  "subject": "数学",
+  "subjectId": "math",
+  "analysisType": "geometry",
+  "generatedAt": "2026-03-10T09:54:17.869Z",
+  "analysisTime": 73462,
+  "reportMetadata": {
+    "reportType": "学科状态深入分析报告",
+    "questionTypes": [],
+    "knowledgePoints": [],
+    "modelName": "通义千问 qwen3.5-plus",
+    "analysisDurationFormatted": "73.5秒"
+  },
+  "id": "deepresearch-20260310175417"
+}

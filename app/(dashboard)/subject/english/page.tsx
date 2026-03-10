@@ -5,11 +5,15 @@ import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { getEnabledSubjects } from "@/types/subject"
+import { EnglishDeepAnalysisButton } from "./EnglishDeepAnalysisButton"
+import { KnowledgeGraphView } from "./KnowledgeGraphView"
 
 export default function EnglishSubjectPage() {
   const [wordCount, setWordCount] = useState(0)
   const [reviewingWords, setReviewingWords] = useState(0)
   const [grammarCount, setGrammarCount] = useState(0)
+  const [graphCategory, setGraphCategory] = useState<"all" | "grammar" | "vocabulary" | "reading" | "writing">("all")
+  const [graphLevel, setGraphLevel] = useState<"all" | "basic" | "intermediate" | "advanced">("all")
 
   useEffect(() => {
     loadStats()
@@ -49,6 +53,16 @@ export default function EnglishSubjectPage() {
       stats: `${grammarCount} 个语法点`,
       action: "开始学习",
       href: "/subject/english/grammar",
+    },
+    {
+      id: "deep-analysis",
+      title: "AI 深度分析",
+      description: "智能诊断，个性化学习方案",
+      icon: "🤖",
+      color: "from-indigo-500 to-purple-600",
+      stats: "AI 驱动",
+      action: "开始分析",
+      component: <EnglishDeepAnalysisButton />,
     },
     {
       id: "reading",
@@ -148,6 +162,8 @@ export default function EnglishSubjectPage() {
                     <Button variant="outline" size="sm" disabled>
                       {module.action}
                     </Button>
+                  ) : 'component' in module ? (
+                    <div>{module.component}</div>
                   ) : (
                     <Link
                       href={module.href}
@@ -163,12 +179,54 @@ export default function EnglishSubjectPage() {
         </div>
       </div>
 
+      {/* 知识图谱 */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle>英语知识图谱</CardTitle>
+              <CardDescription>
+                可视化展示知识点及其关联关系，点击节点查看详情
+              </CardDescription>
+            </div>
+            <div className="flex items-center gap-2">
+              {/* 类别筛选 */}
+              <select
+                value={graphCategory}
+                onChange={(e) => setGraphCategory(e.target.value as typeof graphCategory)}
+                className="px-3 py-1.5 text-sm border rounded-md bg-white"
+              >
+                <option value="all">全部类别</option>
+                <option value="grammar">语法</option>
+                <option value="vocabulary">词汇</option>
+                <option value="reading">阅读</option>
+                <option value="writing">写作</option>
+              </select>
+              {/* 难度筛选 */}
+              <select
+                value={graphLevel}
+                onChange={(e) => setGraphLevel(e.target.value as typeof graphLevel)}
+                className="px-3 py-1.5 text-sm border rounded-md bg-white"
+              >
+                <option value="all">全部难度</option>
+                <option value="basic">基础</option>
+                <option value="intermediate">中级</option>
+                <option value="advanced">高级</option>
+              </select>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <KnowledgeGraphView category={graphCategory} level={graphLevel} />
+        </CardContent>
+      </Card>
+
       {/* 快速操作 */}
       <Card>
         <CardHeader>
           <CardTitle>快速操作</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <CardContent className="grid grid-cols-2 md:grid-cols-5 gap-3">
           <Link
             href="/subject/english/vocabulary?mode=add"
             className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input bg-background hover:bg-accent hover:text-accent-foreground h-20 flex flex-col items-center justify-center gap-2"
@@ -197,6 +255,16 @@ export default function EnglishSubjectPage() {
             <span className="text-2xl">📖</span>
             <span className="text-sm">语法学习</span>
           </Link>
+          <div
+            className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input bg-gradient-to-r from-indigo-500 to-purple-600 hover:opacity-90 h-20 flex flex-col items-center justify-center gap-2 text-white cursor-pointer"
+            onClick={() => {
+              const trigger = document.querySelector('[data-deep-analysis-trigger]') as HTMLButtonElement
+              trigger?.click()
+            }}
+          >
+            <span className="text-2xl">🤖</span>
+            <span className="text-sm">AI 分析</span>
+          </div>
         </CardContent>
       </Card>
 

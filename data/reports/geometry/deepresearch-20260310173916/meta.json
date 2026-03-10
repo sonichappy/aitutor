@@ -1,0 +1,16 @@
+{
+  "userId": "user-1",
+  "subject": "数学",
+  "subjectId": "math",
+  "analysisType": "comprehensive",
+  "generatedAt": "2026-03-10T09:39:16.294Z",
+  "analysisTime": 77329,
+  "reportMetadata": {
+    "reportType": "学科状态深入分析报告",
+    "questionTypes": [],
+    "knowledgePoints": [],
+    "modelName": "通义千问 qwen3.5-plus",
+    "analysisDurationFormatted": "77.3秒"
+  },
+  "id": "deepresearch-20260310173916"
+}

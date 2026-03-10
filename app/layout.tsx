@@ -7,6 +7,12 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "AITutor - 智能学习分析与推进系统",
   description: "面向中学生的基于AI的学习情况分析和推进系统",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/icon.svg",
+  },
 }
 
 export default function RootLayout({

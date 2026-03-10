@@ -1,0 +1,16 @@
+{
+  "userId": "user-1",
+  "subject": "英语",
+  "subjectId": "english",
+  "analysisType": "comprehensive",
+  "generatedAt": "2026-03-10T03:06:57.485Z",
+  "analysisTime": 117727,
+  "reportMetadata": {
+    "reportType": "学科状态深入分析报告",
+    "questionTypes": [],
+    "knowledgePoints": [],
+    "modelName": "Claude 3.5 Sonnet",
+    "analysisDurationFormatted": "117.7秒"
+  },
+  "id": "deepresearch-20260310110657"
+}

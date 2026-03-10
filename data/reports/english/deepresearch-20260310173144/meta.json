@@ -1,0 +1,16 @@
+{
+  "userId": "user-1",
+  "subject": "英语",
+  "subjectId": "english",
+  "analysisType": "comprehensive",
+  "generatedAt": "2026-03-10T09:31:44.768Z",
+  "analysisTime": 115178,
+  "reportMetadata": {
+    "reportType": "学科状态深入分析报告",
+    "questionTypes": [],
+    "knowledgePoints": [],
+    "modelName": "通义千问 qwen3.5-plus",
+    "analysisDurationFormatted": "115.2秒"
+  },
+  "id": "deepresearch-20260310173144"
+}

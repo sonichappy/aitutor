@@ -18,17 +18,20 @@ export async function GET(
     const reports = await getSubjectReports(decodedSubject)
 
     // 只返回报告列表，不返回完整内容
-    const reportList = reports.map(r => ({
-      id: r.id,
-      userId: r.userId,
-      subject: r.subject,
-      title: r.title,
-      startDate: r.startDate,
-      endDate: r.endDate,
-      generatedAt: r.generatedAt,
-      stats: r.stats,
-      hasAnalysis: !!r.analysis
-    }))
+    // 过滤掉深度分析报告（deepresearch-开头的报告ID）
+    const reportList = reports
+      .filter(r => !r.id?.startsWith('deepresearch-'))
+      .map(r => ({
+        id: r.id,
+        userId: r.userId,
+        subject: r.subject,
+        title: r.title,
+        startDate: r.startDate,
+        endDate: r.endDate,
+        generatedAt: r.generatedAt,
+        stats: r.stats,
+        hasAnalysis: !!r.analysis
+      }))
 
     return NextResponse.json({
       subject: decodedSubject,
