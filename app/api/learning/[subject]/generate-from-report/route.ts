@@ -34,14 +34,23 @@ export async function POST(
 
     console.log(`[Generate from Report] Loading report ${reportId} for ${subject}...`)
 
-    // 读取深入分析报告
-    const reportPath = path.join(process.cwd(), 'data', subject, 'deep-research', `${reportId}.json`)
+    // 读取深入分析报告 - 路径格式: data/reports/{subject}/{reportId}/
+    const reportDir = path.join(process.cwd(), 'data', 'reports', subject, reportId)
 
-    let reportContent: any = null
+    let metaContent: any = null
+    let reportMarkdown: string = ''
+
     try {
-      const content = await fs.readFile(reportPath, 'utf-8')
-      reportContent = JSON.parse(content)
+      // 读取 meta.json
+      const metaPath = path.join(reportDir, 'meta.json')
+      const metaRaw = await fs.readFile(metaPath, 'utf-8')
+      metaContent = JSON.parse(metaRaw)
+
+      // 读取 report.md
+      const reportPath = path.join(reportDir, 'report.md')
+      reportMarkdown = await fs.readFile(reportPath, 'utf-8')
     } catch (error) {
+      console.error('[Generate from Report] Failed to read report:', error)
       return NextResponse.json(
         { success: false, error: "未找到指定的深入分析报告" },
         { status: 404 }
@@ -50,9 +59,23 @@ export async function POST(
 
     // 使用 AI 提取薄弱知识点
     const analysisData = {
-      summary: reportContent.summary || '',
-      recommendations: reportContent.recommendations || [],
-      detailedAnalysis: reportContent.detailedAnalysis || {}
+      summary: reportMarkdown || '',
+      recommendations: metaContent.recommendations || [],
+      detailedAnalysis: metaContent.detailedAnalysis || {}
+    }
+
+    // 从 markdown 中提取建议部分（如果有的话）
+    const recommendationsMatch = reportMarkdown.match(/(?:##\s*💡\s*建议|##\s*改进建议|##\s*学习建议)[\s\S]*?(?=##|$)/)
+    if (recommendationsMatch) {
+      // 解析建议列表
+      const recommendationsText = recommendationsMatch[0]
+      const recommendations = recommendationsText
+        .split(/\n[-*•]\s*/)
+        .filter((line: string) => line.trim().length > 5)
+        .map((line: string) => line.replace(/^\d+\.\s*/, '').trim())
+      if (recommendations.length > 0) {
+        analysisData.recommendations = recommendations
+      }
     }
 
     const combinedContent = `
