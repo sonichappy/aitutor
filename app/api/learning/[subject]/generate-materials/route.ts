@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
-import { saveExerciseMaterial, saveLearningPlan, type LearningPlan } from "@/lib/storage"
+import fs from "fs/promises"
+import path from "path"
 import { generateText } from "ai"
 import { createOpenAI } from "@ai-sdk/openai"
 
@@ -7,6 +8,63 @@ const openai = createOpenAI({
   baseURL: process.env.DASHSCOPE_BASE_URL,
   apiKey: process.env.DASHSCOPE_API_KEY,
 })
+
+interface LearningPlan {
+  subject: string
+  subjectFolder: string
+  weakPoints: Array<{ point: string; severity: number; errorCount: number }>
+  materials: Array<{
+    id: string
+    knowledgePoint: string
+    severity: number
+    learningContent: string
+    questions: any[]
+    sources: string[]
+    createdAt: string
+  }>
+  createdAt: string
+  planId: string
+}
+
+// Direct file system operations to avoid import issues
+async function saveExerciseMaterial(
+  subject: string,
+  knowledgePoint: string,
+  severity: number,
+  content: string,
+  questions: any[],
+  sources: string[]
+) {
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-')
+  const folderName = `${timestamp}-${knowledgePoint.replace(/[<>:"/\\|?*]/g, '_')}`
+
+  const exercisesDir = path.join(process.cwd(), 'data', 'exercises', subject, folderName)
+
+  await fs.mkdir(exercisesDir, { recursive: true })
+
+  const material = {
+    knowledgePoint,
+    severity,
+    learningContent: content,
+    questions,
+    sources,
+    createdAt: new Date().toISOString()
+  }
+
+  await fs.writeFile(
+    path.join(exercisesDir, 'material.json'),
+    JSON.stringify(material, null, 2),
+    'utf-8'
+  )
+}
+
+async function saveLearningPlan(plan: LearningPlan) {
+  const plansDir = path.join(process.cwd(), 'data', plan.subjectFolder, 'learning-plans')
+  await fs.mkdir(plansDir, { recursive: true })
+
+  const filePath = path.join(plansDir, `${plan.planId}.json`)
+  await fs.writeFile(filePath, JSON.stringify(plan, null, 2), 'utf-8')
+}
 
 /**
  * 生成选定的学习内容

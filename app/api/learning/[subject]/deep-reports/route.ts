@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
-import { getDeepResearchReports } from "@/lib/storage"
+import fs from "fs/promises"
+import path from "path"
 
 /**
  * 获取学科的深入分析报告
@@ -14,7 +15,23 @@ export async function GET(
   const timeRange = searchParams.get('timeRange') || 'all'
 
   try {
-    const allReports = await getDeepResearchReports(subject)
+    // Directly access deep research reports without importing from storage
+    const deepResearchDir = path.join(process.cwd(), 'data', subject, 'deep-research')
+
+    let allReports: any[] = []
+    try {
+      const files = await fs.readdir(deepResearchDir)
+      for (const file of files) {
+        if (file.endsWith('.json')) {
+          const filePath = path.join(deepResearchDir, file)
+          const content = await fs.readFile(filePath, 'utf-8')
+          const report = JSON.parse(content)
+          allReports.push(report)
+        }
+      }
+    } catch {
+      // Directory doesn't exist, return empty array
+    }
 
     // 根据时间范围筛选
     const now = new Date()
@@ -44,7 +61,7 @@ export async function GET(
       reports: sortedReports.map(r => ({
         id: r.id || '',
         generatedAt: r.generatedAt,
-        summary: r.summary?.substring(0, 200) + '...'
+        summary: (r.summary || '').substring(0, 200) + '...'
       }))
     })
   } catch (error: any) {

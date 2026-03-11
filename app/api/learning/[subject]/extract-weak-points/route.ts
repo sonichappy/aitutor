@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
-import { getDeepResearchReports } from "@/lib/storage"
+import fs from "fs/promises"
+import path from "path"
 import { generateText } from "ai"
 import { createOpenAI } from "@ai-sdk/openai"
 
@@ -39,8 +40,24 @@ export async function POST(
       )
     }
 
-    // 获取深入分析报告
-    const allReports = await getDeepResearchReports(subject)
+    // Directly access deep research reports without importing from storage
+    const deepResearchDir = path.join(process.cwd(), 'data', subject, 'deep-research')
+
+    let allReports: any[] = []
+    try {
+      const files = await fs.readdir(deepResearchDir)
+      for (const file of files) {
+        if (file.endsWith('.json')) {
+          const filePath = path.join(deepResearchDir, file)
+          const content = await fs.readFile(filePath, 'utf-8')
+          const report = JSON.parse(content)
+          allReports.push(report)
+        }
+      }
+    } catch {
+      // Directory doesn't exist
+    }
+
     const selectedReports = allReports.filter(r => reportIds.includes(r.id || ''))
 
     if (selectedReports.length === 0) {
