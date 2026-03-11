@@ -220,32 +220,6 @@ export default function DashboardPage() {
           </Card>
         </Link>
       </div>
-
-      {/* 错题本入口 */}
-      <Card className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-red-200 dark:border-red-800">
-        <CardHeader>
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <div>
-                <CardTitle className="text-red-900 dark:text-red-300">错题本</CardTitle>
-                <CardDescription className="text-red-700 dark:text-red-400">
-                  定期复习错题，彻底掌握薄弱知识点
-                </CardDescription>
-              </div>
-            </div>
-            <Link href="/wrong-questions">
-              <Button className="bg-red-600 hover:bg-red-700">
-                查看错题
-              </Button>
-            </Link>
-          </div>
-        </CardHeader>
-      </Card>
     </div>
   )
 }
