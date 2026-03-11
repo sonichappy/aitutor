@@ -118,10 +118,10 @@ export interface ExamData {
 }
 
 // 获取试卷目录路径（按学科和日期分类）
-function getExamDirPath(examId: string, subject?: string, createdAt?: string): string {
+async function getExamDirPath(examId: string, subject?: string, createdAt?: string): Promise<string> {
   if (subject) {
-    // 使用设置中心配置的文件夹名称
-    const folderName = getSubjectFolderNameFromSettings(subject)
+    // 使用设置中心配置的文件夹名称（需要 await）
+    const folderName = await getSubjectFolderNameFromSettings(subject)
     const dateFolder = getDateFolder(createdAt)
     return path.join(EXAMS_DIR, folderName, dateFolder, examId)
   }
@@ -132,7 +132,7 @@ function getExamDirPath(examId: string, subject?: string, createdAt?: string): s
 // 保存试卷数据
 export async function saveExamData(examId: string, data: ExamData) {
   await initStorage()
-  const examDir = getExamDirPath(examId, data.subject, data.createdAt)
+  const examDir = await getExamDirPath(examId, data.subject, data.createdAt)
   await ensureDir(examDir)
 
   // 更新时间戳
@@ -246,7 +246,7 @@ export async function saveExamImage(examId: string, base64Image: string) {
   const subject = examData?.subject
   const createdAt = examData?.createdAt
 
-  const examDir = getExamDirPath(examId, subject, createdAt)
+  const examDir = await getExamDirPath(examId, subject, createdAt)
   await ensureDir(examDir)
 
   // 解析 mime 类型
