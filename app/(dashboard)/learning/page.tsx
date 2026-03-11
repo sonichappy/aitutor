@@ -3,10 +3,19 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { getEnabledSubjects, type Subject } from "@/types/subject"
 import { ChevronDown, ChevronUp, BookOpen, CheckCircle2, AlertCircle, Clock, FileText, Loader2 } from "lucide-react"
 import ReactMarkdown from 'react-markdown'
 import { Checkbox } from "@/components/ui/checkbox"
+
+interface Subject {
+  id: string
+  name: string
+  icon: string
+  color: string
+  enabled: boolean
+  category: string
+  folderName: string
+}
 
 interface ExerciseQuestion {
   id: string
@@ -75,10 +84,18 @@ export default function LearningPage() {
 
   useEffect(() => {
     const loadSubjects = async () => {
-      const enabledSubjects = await getEnabledSubjects()
-      setSubjects(enabledSubjects)
-      if (enabledSubjects.length > 0) {
-        setSelectedSubject(enabledSubjects[0].name)
+      try {
+        const response = await fetch('/api/subjects')
+        if (response.ok) {
+          const data = await response.json()
+          const enabledSubjects = data.subjects?.filter((s: Subject) => s.enabled) || []
+          setSubjects(enabledSubjects)
+          if (enabledSubjects.length > 0) {
+            setSelectedSubject(enabledSubjects[0].name)
+          }
+        }
+      } catch (error) {
+        console.error("Failed to load subjects:", error)
       }
     }
     loadSubjects()

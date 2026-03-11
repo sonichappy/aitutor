@@ -4,15 +4,31 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { getEnabledSubjects, type Subject } from "@/types/subject"
+
+interface Subject {
+  id: string
+  name: string
+  icon: string
+  color: string
+  enabled: boolean
+  category: string
+  folderName: string
+}
 
 export default function DashboardPage() {
   const [subjects, setSubjects] = useState<Subject[]>([])
 
   useEffect(() => {
     const loadSubjects = async () => {
-      const enabledSubjects = await getEnabledSubjects()
-      setSubjects(enabledSubjects)
+      try {
+        const response = await fetch('/api/subjects')
+        if (response.ok) {
+          const data = await response.json()
+          setSubjects(data.subjects?.filter((s: Subject) => s.enabled) || [])
+        }
+      } catch (error) {
+        console.error("Failed to load subjects:", error)
+      }
     }
     loadSubjects()
   }, [])
