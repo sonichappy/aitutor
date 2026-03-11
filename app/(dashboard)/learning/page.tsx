@@ -5,6 +5,42 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { getEnabledSubjects, type Subject } from "@/types/subject"
+import { ChevronDown, ChevronUp, BookOpen, CheckCircle2, AlertCircle } from "lucide-react"
+import ReactMarkdown from 'react-markdown'
+
+interface ExerciseQuestion {
+  id: string
+  type: string
+  content: string
+  options?: string[]
+  correctAnswer: string
+  explanation?: string
+  difficulty: number
+  knowledgePoint: string
+}
+
+interface ExerciseMaterial {
+  id: string
+  knowledgePoint: string
+  severity: number
+  learningContent: string
+  questions: ExerciseQuestion[]
+  sources: string[]
+  createdAt: string
+}
+
+interface LearningPlan {
+  subject: string
+  subjectFolder: string
+  weakPoints: Array<{
+    point: string
+    severity: number
+    errorCount?: number
+  }>
+  materials: ExerciseMaterial[]
+  createdAt: string
+  planId: string
+}
 
 export default function LearningPage() {
   const [subjects, setSubjects] = useState<Subject[]>([])
@@ -13,89 +49,12 @@ export default function LearningPage() {
   const [showAnswer, setShowAnswer] = useState(false)
   const [userAnswer, setUserAnswer] = useState("")
 
-  // 模拟题目数据 - 实际应从题库获取
-  const questions = [
-    {
-      id: 1,
-      subject: "数学",
-      knowledgePoint: "二次函数",
-      difficulty: 3,
-      content: "已知二次函数 f(x) = x² - 4x + 3，求该函数的顶点坐标和与x轴的交点。",
-      options: ["顶点(2,-1), 交点(1,0)和(3,0)", "顶点(2,1), 交点(1,0)和(3,0)", "顶点(-2,-1), 交点(-1,0)和(-3,0)", "顶点(2,-1), 交点(-1,0)和(-3,0)"],
-      correctAnswer: 0,
-      explanation: "二次函数 f(x) = x² - 4x + 3 可以写成顶点式 f(x) = (x-2)² - 1，所以顶点坐标是 (2, -1)。\n\n令 f(x) = 0，得 x² - 4x + 3 = 0，(x-1)(x-3) = 0，所以与x轴的交点是 (1,0) 和 (3,0)。",
-    },
-    {
-      id: 2,
-      subject: "数学",
-      knowledgePoint: "三角函数",
-      difficulty: 2,
-      content: "已知 sin(α) = 3/5，且 α 为第一象限角，求 cos(α) 的值。",
-      options: ["4/5", "3/5", "1/5", "2/5"],
-      correctAnswer: 0,
-      explanation: "根据三角恒等式 sin²(α) + cos²(α) = 1，\ncos²(α) = 1 - sin²(α) = 1 - (3/5)² = 1 - 9/25 = 16/25\n\n因为 α 在第一象限，cos(α) > 0，所以 cos(α) = 4/5",
-    },
-    {
-      id: 3,
-      subject: "语文",
-      knowledgePoint: "古诗词",
-      difficulty: 2,
-      content: "\"大漠孤烟直，长河落日圆\"出自哪首诗？",
-      options: ["《使至塞上》", "《凉州词》", "《出塞》", "《塞下曲》"],
-      correctAnswer: 0,
-      explanation: "这句诗出自唐代诗人王维的《使至塞上》，描绘了塞外奇特壮丽的风光。",
-    },
-    {
-      id: 4,
-      subject: "英语",
-      knowledgePoint: "时态",
-      difficulty: 2,
-      content: "She _____ to school every day.",
-      options: ["go", "goes", "going", "went"],
-      correctAnswer: 1,
-      explanation: "主语是第三人称单数，且every day表示一般现在时，所以用goes。",
-    },
-    {
-      id: 5,
-      subject: "生物",
-      knowledgePoint: "细胞结构",
-      difficulty: 1,
-      content: "细胞的基本结构包括：细胞膜、细胞质和什么？",
-      options: ["细胞核", "线粒体", "叶绿体", "液泡"],
-      correctAnswer: 0,
-      explanation: "细胞的基本结构包括细胞膜、细胞质和细胞核，其中细胞核是细胞的控制中心。",
-    },
-    {
-      id: 6,
-      subject: "历史",
-      knowledgePoint: "古代史",
-      difficulty: 2,
-      content: "中国古代四大发明不包括以下哪项？",
-      options: ["地动仪", "造纸术", "印刷术", "火药"],
-      correctAnswer: 0,
-      explanation: "四大发明是指造纸术、印刷术、火药和指南针。地动仪是张衡发明的，但不属于四大发明。",
-    },
-    {
-      id: 7,
-      subject: "地理",
-      knowledgePoint: "中国地理",
-      difficulty: 1,
-      content: "中国最长的河流是？",
-      options: ["黄河", "长江", "珠江", "淮河"],
-      correctAnswer: 1,
-      explanation: "长江是中国最长的河流，全长约6300公里，发源于青藏高原，注入东海。",
-    },
-    {
-      id: 8,
-      subject: "道法",
-      knowledgePoint: "公民权利",
-      difficulty: 1,
-      content: "以下哪项不是公民的基本权利？",
-      options: ["受教育权", "劳动权", "选举权", "遵守宪法"],
-      correctAnswer: 3,
-      explanation: "遵守宪法是公民的基本义务，而非权利。公民的基本权利包括受教育权、劳动权、选举权等。",
-    },
-  ]
+  // 学习计划相关状态
+  const [learningPlan, setLearningPlan] = useState<LearningPlan | null>(null)
+  const [loadingPlan, setLoadingPlan] = useState(false)
+  const [generating, setGenerating] = useState(false)
+  const [expandedMaterial, setExpandedMaterial] = useState<string | null>(null)
+  const [selectedMaterial, setSelectedMaterial] = useState<ExerciseMaterial | null>(null)
 
   useEffect(() => {
     const loadSubjects = async () => {
@@ -108,15 +67,64 @@ export default function LearningPage() {
     loadSubjects()
   }, [])
 
-  const currentQ = questions[currentQuestion]
-  const subjectQuestions = questions.filter((q) => q.subject === selectedSubject)
+  // 切换学科时加载学习计划
+  useEffect(() => {
+    if (selectedSubject) {
+      loadLearningPlan()
+    }
+  }, [selectedSubject])
 
-  const handleSubjectChange = (subject: string) => {
-    setSelectedSubject(subject)
+  const loadLearningPlan = async () => {
+    setLoadingPlan(true)
+    try {
+      const response = await fetch(`/api/learning/${encodeURIComponent(selectedSubject)}/materials`)
+      if (response.ok) {
+        const data = await response.json()
+        setLearningPlan(data.plan)
+      }
+    } catch (error) {
+      console.error("Failed to load learning plan:", error)
+    } finally {
+      setLoadingPlan(false)
+    }
+  }
+
+  const handleGeneratePlan = async () => {
+    setGenerating(true)
+    try {
+      const response = await fetch(`/api/learning/${encodeURIComponent(selectedSubject)}/generate-plan`, {
+        method: "POST"
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        if (data.success) {
+          await loadLearningPlan()
+          alert(data.message)
+        } else {
+          alert(data.error || "生成学习计划失败")
+        }
+      } else {
+        const error = await response.json()
+        alert(error.error || "生成学习计划失败")
+      }
+    } catch (error: any) {
+      console.error("Failed to generate plan:", error)
+      alert("生成学习计划失败：" + error.message)
+    } finally {
+      setGenerating(false)
+    }
+  }
+
+  const handleSelectMaterial = (material: ExerciseMaterial) => {
+    setSelectedMaterial(material)
     setCurrentQuestion(0)
     setShowAnswer(false)
     setUserAnswer("")
+    setExpandedMaterial(material.id)
   }
+
+  const currentQ = selectedMaterial?.questions?.[currentQuestion]
 
   const handleAnswerSelect = (index: number) => {
     setUserAnswer(index.toString())
@@ -127,7 +135,7 @@ export default function LearningPage() {
   }
 
   const handleNext = () => {
-    if (currentQuestion < subjectQuestions.length - 1) {
+    if (currentQuestion < (selectedMaterial?.questions?.length || 0) - 1) {
       setCurrentQuestion(currentQuestion + 1)
       setShowAnswer(false)
       setUserAnswer("")
@@ -142,7 +150,18 @@ export default function LearningPage() {
     }
   }
 
-  // 没有启用学科时显示提示
+  const getSeverityColor = (severity: number) => {
+    if (severity >= 4) return "text-red-600 bg-red-50"
+    if (severity >= 3) return "text-orange-600 bg-orange-50"
+    return "text-yellow-600 bg-yellow-50"
+  }
+
+  const getSeverityLabel = (severity: number) => {
+    if (severity >= 4) return "严重薄弱"
+    if (severity >= 3) return "较薄弱"
+    return "需加强"
+  }
+
   if (subjects.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
@@ -151,7 +170,7 @@ export default function LearningPage() {
             <p className="text-gray-500 mb-4">
               尚未启用任何学科，请先在设置中启用学科
             </p>
-            <Button onClick={() => window.location.href = "/settings"}>
+            <Button onClick={() => (window.location.href = "/settings")}>
               前往设置
             </Button>
           </CardContent>
@@ -163,13 +182,22 @@ export default function LearningPage() {
   return (
     <div className="space-y-8">
       {/* 标题 */}
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          个性化学习
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
-          根据你的水平推荐的练习内容
-        </p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+            个性化学习
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-2">
+            根据您的薄弱点生成专属学习计划和练习题
+          </p>
+        </div>
+        <Button
+          onClick={handleGeneratePlan}
+          disabled={generating}
+          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+        >
+          {generating ? "生成中..." : "🎯 生成学习计划"}
+        </Button>
       </div>
 
       {/* 科目选择 */}
@@ -178,7 +206,7 @@ export default function LearningPage() {
           <Button
             key={subject.id}
             variant={selectedSubject === subject.name ? "default" : "outline"}
-            onClick={() => handleSubjectChange(subject.name)}
+            onClick={() => setSelectedSubject(subject.name)}
           >
             {subject.icon} {subject.name}
           </Button>
@@ -187,7 +215,104 @@ export default function LearningPage() {
 
       {/* 学习内容 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* 题目卡片 */}
+        {/* 左侧：学习资料列表 */}
+        <div className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">学习资料</CardTitle>
+              <CardDescription>
+                {loadingPlan ? "加载中..." : learningPlan ? `${learningPlan.materials?.length || 0} 个薄弱知识点` : "暂无学习计划"}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              {learningPlan?.materials && learningPlan.materials.length > 0 ? (
+                learningPlan.materials.map((material, index) => (
+                  <div
+                    key={material.id || index}
+                    className={`p-3 rounded-lg border cursor-pointer transition-all ${
+                      expandedMaterial === (material.id || index)
+                        ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                        : "border-gray-200 dark:border-gray-700 hover:border-gray-300"
+                    }`}
+                    onClick={() => handleSelectMaterial(material)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium">{material.knowledgePoint}</span>
+                          <span className={`px-2 py-0.5 text-xs rounded ${getSeverityColor(material.severity)}`}>
+                            {getSeverityLabel(material.severity)}
+                          </span>
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {material.questions?.length || 0} 道练习题
+                        </p>
+                      </div>
+                      {expandedMaterial === (material.id || index) ? (
+                        <ChevronUp className="w-4 h-4 text-gray-400" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4 text-gray-400" />
+                      )}
+                    </div>
+
+                    {/* 展开的学习内容 */}
+                    {expandedMaterial === (material.id || index) && (
+                      <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+                        <div className="prose prose-sm dark:prose-invert max-w-none">
+                          <ReactMarkdown>{material.learningContent}</ReactMarkdown>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <div className="py-8 text-center text-gray-500">
+                  {loadingPlan ? (
+                    <div className="flex items-center justify-center">
+                      <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin mr-2" />
+                      加载中...
+                    </div>
+                  ) : (
+                    <div>
+                      <BookOpen className="w-12 h-12 mx-auto mb-2 text-gray-300" />
+                      <p>请先点击"生成学习计划"按钮</p>
+                      <p className="text-xs mt-1">系统会根据您的错题情况生成专属学习内容</p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* 薄弱知识点概览 */}
+          {learningPlan?.weakPoints && learningPlan.weakPoints.length > 0 && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base">薄弱知识点</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {learningPlan.weakPoints.map((wp, index) => (
+                  <div key={index} className="flex items-center justify-between p-2 rounded bg-gray-50 dark:bg-gray-800">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-medium text-gray-500">#{index + 1}</span>
+                      <span className="text-sm">{wp.point}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className={`px-2 py-0.5 text-xs rounded ${getSeverityColor(wp.severity)}`}>
+                        {getSeverityLabel(wp.severity)}
+                      </span>
+                      {wp.errorCount && (
+                        <span className="text-xs text-gray-500">{wp.errorCount}题</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          )}
+        </div>
+
+        {/* 右侧：练习题区域 */}
         <div className="lg:col-span-2">
           <Card>
             <CardHeader>
@@ -195,12 +320,20 @@ export default function LearningPage() {
                 <div>
                   <CardTitle>练习题目</CardTitle>
                   <CardDescription>
-                    {selectedSubject} · {currentQ?.knowledgePoint} · 难度:{"⭐".repeat(currentQ?.difficulty || 1)}
+                    {selectedMaterial ? (
+                      <>
+                        {selectedMaterial.knowledgePoint} · 第 {currentQuestion + 1} / {selectedMaterial.questions?.length || 0} 题
+                      </>
+                    ) : (
+                      "请从左侧选择学习资料"
+                    )}
                   </CardDescription>
                 </div>
-                <span className="text-sm text-gray-500">
-                  {subjectQuestions.length > 0 ? currentQuestion + 1 : 0} / {subjectQuestions.length}
-                </span>
+                {currentQ && (
+                  <span className="text-sm text-gray-500">
+                    难度: {"⭐".repeat(Math.min(currentQ.difficulty || 1, 5))}
+                  </span>
+                )}
               </div>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -221,7 +354,7 @@ export default function LearningPage() {
                           disabled={showAnswer}
                           className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
                             showAnswer
-                              ? index === currentQ.correctAnswer
+                              ? currentQ.correctAnswer === String.fromCharCode(65 + index)
                                 ? "border-green-500 bg-green-50 dark:bg-green-900/20"
                                 : userAnswer === index.toString()
                                   ? "border-red-500 bg-red-50 dark:bg-red-900/20"
@@ -235,6 +368,12 @@ export default function LearningPage() {
                             {String.fromCharCode(65 + index)}.
                           </span>
                           {option}
+                          {showAnswer && currentQ.correctAnswer === String.fromCharCode(65 + index) && (
+                            <CheckCircle2 className="w-5 h-5 text-green-600 inline ml-2" />
+                          )}
+                          {showAnswer && userAnswer === index.toString() && currentQ.correctAnswer !== String.fromCharCode(65 + index) && (
+                            <AlertCircle className="w-5 h-5 text-red-600 inline ml-2" />
+                          )}
                         </button>
                       ))}
                     </div>
@@ -244,7 +383,7 @@ export default function LearningPage() {
                   {showAnswer && currentQ.explanation && (
                     <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                       <h4 className="font-medium mb-2">📝 答案解析</h4>
-                      <p className="whitespace-pre-wrap text-sm text-gray-700 dark:text-gray-300">
+                      <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
                         {currentQ.explanation}
                       </p>
                     </div>
@@ -270,7 +409,7 @@ export default function LearningPage() {
                       ) : (
                         <Button
                           onClick={handleNext}
-                          disabled={currentQuestion === subjectQuestions.length - 1}
+                          disabled={currentQuestion === (selectedMaterial?.questions?.length || 0) - 1}
                         >
                           下一题
                         </Button>
@@ -280,72 +419,17 @@ export default function LearningPage() {
                 </>
               ) : (
                 <CardContent className="py-12 text-center text-gray-500">
-                  该学科暂无练习题
+                  {selectedMaterial ? (
+                    "已做完所有练习题"
+                  ) : (
+                    <div>
+                      <BookOpen className="w-16 h-16 mx-auto mb-4 text-gray-300" />
+                      <p className="mb-2">请从左侧选择学习资料开始练习</p>
+                      <p className="text-sm">或点击上方"生成学习计划"按钮</p>
+                    </div>
+                  )}
                 </CardContent>
               )}
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* 侧边栏 - 推荐内容 */}
-        <div className="space-y-6">
-          {/* 今日学习目标 */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base">今日学习目标</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-center gap-3">
-                <input type="checkbox" className="rounded" />
-                <span className="text-sm">完成5道练习题</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <input type="checkbox" className="rounded" />
-                <span className="text-sm">复习薄弱知识点</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <input type="checkbox" className="rounded" />
-                <span className="text-sm">学习30分钟</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* 待学习知识点 */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base">推荐学习</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              {["基础概念", "错题回顾", "知识点巩固"].map((item, index) => (
-                <Button
-                  key={index}
-                  variant="ghost"
-                  className="w-full justify-start text-sm"
-                >
-                  {item}
-                </Button>
-              ))}
-            </CardContent>
-          </Card>
-
-          {/* 学习统计 */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base">本周统计</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-400">完成题目</span>
-                <span className="font-medium">23 题</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-400">正确率</span>
-                <span className="font-medium">78%</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-400">学习时长</span>
-                <span className="font-medium">3.5 小时</span>
-              </div>
             </CardContent>
           </Card>
         </div>

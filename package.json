@@ -10,10 +10,12 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.41",
     "@langchain/core": "^0.3.17",
     "@prisma/client": "^6.1.0",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-label": "^2.1.8",
+    "ai": "^6.0.116",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "langchain": "^0.3.7",

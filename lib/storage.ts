@@ -1621,3 +1621,184 @@ export async function getDeepResearchReport(subject: string, reportId: string): 
     return null
   }
 }
+
+// ============================================
+// 练习题存储
+// ============================================
+
+const EXERCISES_DIR = path.join(DATA_DIR, 'exercises')
+
+export interface ExerciseQuestion {
+  id: string
+  type: string  // 选择题、填空题、解答题等
+  content: string
+  options?: string[]
+  correctAnswer: string
+  explanation?: string
+  difficulty: number  // 1-5
+  knowledgePoint: string
+  source?: string  // 来源URL或引用
+}
+
+export interface ExerciseMaterial {
+  id: string
+  knowledgePoint: string
+  severity: number  // 严重程度 1-5，5最严重
+  learningContent: string  // 学习资料内容
+  questions: ExerciseQuestion[]
+  sources: string[]  // 资料来源URL
+  createdAt: string
+}
+
+export interface LearningPlan {
+  subject: string
+  subjectFolder: string
+  weakPoints: Array<{
+    point: string
+    severity: number
+    errorCount?: number
+  }>
+  materials: ExerciseMaterial[]
+  createdAt: string
+  planId: string
+}
+
+/**
+ * 保存练习学习资料
+ */
+export async function saveExerciseMaterial(
+  subject: string,
+  knowledgePoint: string,
+  severity: number,
+  content: string,
+  questions: ExerciseQuestion[],
+  sources: string[]
+): Promise<ExerciseMaterial> {
+  await ensureDir(EXERCISES_DIR)
+
+  // 获取学科文件夹名
+  const folderName = await getSubjectFolderNameFromSettings(subject)
+  const subjectDir = path.join(EXERCISES_DIR, folderName)
+  await ensureDir(subjectDir)
+
+  // 生成时间戳文件夹名：年月日时分秒-知识点主题
+  const now = new Date()
+  const timestamp = now.getFullYear().toString() +
+    String(now.getMonth() + 1).padStart(2, '0') +
+    String(now.getDate()).padStart(2, '0') +
+    String(now.getHours()).padStart(2, '0') +
+    String(now.getMinutes()).padStart(2, '0') +
+    String(now.getSeconds()).padStart(2, '0')
+
+  // 清理知识点名称，移除不适合文件名的字符
+  const safeKnowledgePoint = knowledgePoint
+    .replace(/[<>:"/\\|?*]/g, '-')
+    .replace(/\s+/g, '_')
+    .substring(0, 30)  // 限制长度
+
+  const materialDir = path.join(subjectDir, `${timestamp}-${safeKnowledgePoint}`)
+  await ensureDir(materialDir)
+
+  // 生成ID
+  const materialId = `exercise-${Date.now()}`
+
+  const material: ExerciseMaterial = {
+    id: materialId,
+    knowledgePoint,
+    severity,
+    learningContent: content,
+    questions,
+    sources,
+    createdAt: now.toISOString()
+  }
+
+  // 保存数据
+  const dataPath = path.join(materialDir, 'data.json')
+  await fs.writeFile(dataPath, JSON.stringify(material, null, 2), 'utf-8')
+
+  return material
+}
+
+/**
+ * 保存完整学习计划
+ */
+export async function saveLearningPlan(plan: LearningPlan): Promise<void> {
+  const folderName = await getSubjectFolderNameFromSettings(plan.subject)
+  const subjectDir = path.join(EXERCISES_DIR, folderName)
+  await ensureDir(subjectDir)
+
+  const planPath = path.join(subjectDir, `plan-${plan.planId}.json`)
+  await fs.writeFile(planPath, JSON.stringify(plan, null, 2), 'utf-8')
+}
+
+/**
+ * 获取学科的练习资料列表
+ */
+export async function getExerciseMaterials(subject: string): Promise<ExerciseMaterial[]> {
+  const folderName = await getSubjectFolderNameFromSettings(subject)
+  const subjectDir = path.join(EXERCISES_DIR, folderName)
+
+  try {
+    await fs.access(subjectDir)
+  } catch {
+    return []
+  }
+
+  const materials: ExerciseMaterial[] = []
+
+  try {
+    const entries = await fs.readdir(subjectDir, { withFileTypes: true })
+
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        try {
+          const dataPath = path.join(subjectDir, entry.name, 'data.json')
+          const content = await fs.readFile(dataPath, 'utf-8')
+          materials.push(JSON.parse(content))
+        } catch {
+          // 跳过无法读取的文件夹
+        }
+      }
+    }
+  } catch (error) {
+    console.error('Failed to read exercise materials:', error)
+  }
+
+  // 按严重程度和创建时间排序
+  return materials.sort((a, b) => {
+    if (b.severity !== a.severity) {
+      return b.severity - a.severity  // 严重程度高的在前
+    }
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  })
+}
+
+/**
+ * 获取学科的学习计划
+ */
+export async function getLearningPlan(subject: string): Promise<LearningPlan | null> {
+  const folderName = await getSubjectFolderNameFromSettings(subject)
+  const subjectDir = path.join(EXERCISES_DIR, folderName)
+
+  try {
+    const entries = await fs.readdir(subjectDir)
+
+    // 查找最新的计划文件
+    const planFiles = entries.filter(e => e.startsWith('plan-') && e.endsWith('.json'))
+
+    if (planFiles.length === 0) {
+      return null
+    }
+
+    // 按文件名排序，获取最新的
+    planFiles.sort().reverse()
+    const latestPlan = planFiles[0]
+    const planPath = path.join(subjectDir, latestPlan)
+    const content = await fs.readFile(planPath, 'utf-8')
+
+    return JSON.parse(content)
+  } catch (error) {
+    console.error('Failed to get learning plan:', error)
+    return null
+  }
+}
