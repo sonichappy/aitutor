@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { getEnabledSubjects, clearSubjectsCache, getDefaultReportPrompt, saveSubjects, type Subject } from "@/types/subject"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
-import { Loader2, Brain, Sparkles, Calendar } from "lucide-react"
+import { Loader2, Brain, Sparkles, Calendar, BookOpen } from "lucide-react"
 import { DetailedAnalysisViewer } from "@/app/(dashboard)/subject/english/DetailedAnalysisViewer"
 
 // 普通报告接口
@@ -92,6 +92,9 @@ export default function SubjectsPage() {
   const [deepAnalysisEndDate, setDeepAnalysisEndDate] = useState("")
   const [deepAnalysisResult, setDeepAnalysisResult] = useState<any>(null)
   const [deepAnalysisError, setDeepAnalysisError] = useState<string | null>(null)
+
+  // 从报告生成学习内容状态
+  const [generatingLearning, setGeneratingLearning] = useState<string | null>(null) // reportId
 
   useEffect(() => {
     loadSubjects()
@@ -298,6 +301,34 @@ export default function SubjectsPage() {
     }
   }
 
+  // 从深入分析报告生成学习内容
+  const handleGenerateLearningFromReport = async (subject: Subject, reportId: string) => {
+    setGeneratingLearning(reportId)
+
+    try {
+      // 调用 API 生成学习内容
+      const response = await fetch(`/api/learning/${encodeURIComponent(subject.name)}/generate-from-report`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ reportId })
+      })
+
+      if (response.ok) {
+        const result = await response.json()
+        // 跳转到学习页面
+        router.push('/learning')
+      } else {
+        const error = await response.json()
+        alert(error.error || '生成学习内容失败')
+      }
+    } catch (error) {
+      console.error('Failed to generate learning content:', error)
+      alert('生成学习内容失败')
+    } finally {
+      setGeneratingLearning(null)
+    }
+  }
+
   const getAccuracyColor = (accuracy: number) => {
     if (accuracy >= 0.9) return "bg-green-100 text-green-800"
     if (accuracy >= 0.8) return "bg-blue-100 text-blue-800"
@@ -448,11 +479,10 @@ export default function SubjectsPage() {
                         {deepReports.reports.map((report) => (
                           <div
                             key={report.id}
-                            className="border border-purple-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer bg-gradient-to-r from-purple-50/50 to-transparent"
-                            onClick={() => router.push(`/subjects/${encodeURIComponent(subject.name)}/report/${report.id}`)}
+                            className="border border-purple-200 rounded-lg p-4 hover:shadow-md transition-shadow bg-gradient-to-r from-purple-50/50 to-transparent"
                           >
                             <div className="flex items-start justify-between">
-                              <div className="flex-1">
+                              <div className="flex-1 cursor-pointer" onClick={() => router.push(`/subjects/${encodeURIComponent(subject.name)}/report/${report.id}`)}>
                                 <div className="flex items-center gap-2 mb-2">
                                   <h4 className="font-semibold text-purple-900">
                                     {getAnalysisTypeName(report.analysisType)}
@@ -486,8 +516,30 @@ export default function SubjectsPage() {
                                   )}
                                 </div>
                               </div>
-                              <div className="text-right">
-                                <Button variant="ghost" size="sm">
+                              <div className="flex items-center gap-2">
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    handleGenerateLearningFromReport(subject, report.id)
+                                  }}
+                                  disabled={generatingLearning === report.id}
+                                  className="border-green-500 text-green-600 hover:bg-green-50"
+                                >
+                                  {generatingLearning === report.id ? (
+                                    <>
+                                      <Loader2 className="w-3 h-3 mr-1 animate-spin" />
+                                      生成中
+                                    </>
+                                  ) : (
+                                    <>
+                                      <BookOpen className="w-3 h-3 mr-1" />
+                                      生成学习内容
+                                    </>
+                                  )}
+                                </Button>
+                                <Button variant="ghost" size="sm" onClick={() => router.push(`/subjects/${encodeURIComponent(subject.name)}/report/${report.id}`)}>
                                   查看 →
                                 </Button>
                               </div>
