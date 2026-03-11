@@ -7,10 +7,12 @@ export async function GET(
 ) {
   const { examId } = await params
 
-  console.log(`[API] GET /api/exam/${examId}/data`)
+  console.log(`[API] GET /api/exam/${examId}/data - examId: ${examId}`)
 
   // 从文件系统读取数据
   const examData = await getExamData(examId)
+
+  console.log(`[API] Exam data result:`, examData ? 'FOUND' : 'NOT FOUND')
 
   if (examData) {
     console.log(`[API] Found exam data for ${examId}`)
