@@ -1,0 +1,16 @@
+{
+  "userId": "user-1",
+  "subject": "几何",
+  "subjectId": "geometry",
+  "analysisType": "comprehensive",
+  "generatedAt": "2026-03-11T01:01:52.929Z",
+  "analysisTime": 103271,
+  "reportMetadata": {
+    "reportType": "学科状态深入分析报告",
+    "questionTypes": [],
+    "knowledgePoints": [],
+    "modelName": "通义千问 qwen3.5-plus",
+    "analysisDurationFormatted": "103.3秒"
+  },
+  "id": "deepresearch-20260311090152"
+}

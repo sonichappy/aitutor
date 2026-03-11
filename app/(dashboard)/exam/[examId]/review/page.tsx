@@ -99,7 +99,34 @@ export default function ExamReviewPage() {
     console.log(`[Review] Loading exam data for examId: ${examId}`)
 
     try {
-      // 从服务端 API 获取数据
+      // 首先尝试从 sessionStorage 读取（新上传的试卷）
+      const sessionStorageKey = `exam_${examId}`
+      const storedData = sessionStorage.getItem(sessionStorageKey)
+
+      if (storedData) {
+        console.log(`[Review] Found data in sessionStorage`)
+        const data = JSON.parse(storedData)
+        setExamData(data)
+        setQuestions(data.questions || [])
+
+        // 从题目对象中加载答题标记状态（使用数组索引作为 key）
+        const marksFromQuestions: Record<number, 'correct' | 'wrong' | 'skipped'> = {}
+        data.questions?.forEach((q: Question, index: number) => {
+          if (q.isCorrect === true) {
+            marksFromQuestions[index] = 'correct'
+          } else if (q.isCorrect === false) {
+            marksFromQuestions[index] = 'wrong'
+          } else if (q.isSkipped) {
+            marksFromQuestions[index] = 'skipped'
+          }
+        })
+        setQuestionMarks(marksFromQuestions)
+        console.log(`[Review] Loaded ${Object.keys(marksFromQuestions).length} question marks from sessionStorage`)
+        setLoading(false)
+        return
+      }
+
+      // 如果 sessionStorage 没有，尝试从服务端 API 获取
       console.log(`[Review] Fetching from API: /api/exam/${examId}/data`)
       const response = await fetch(`/api/exam/${examId}/data`)
       console.log(`[Review] API response status:`, response.status)
@@ -123,7 +150,6 @@ export default function ExamReviewPage() {
         })
         setQuestionMarks(marksFromQuestions)
         console.log(`[Review] Loaded ${Object.keys(marksFromQuestions).length} question marks from questions`)
-
         setLoading(false)
         return
       }
