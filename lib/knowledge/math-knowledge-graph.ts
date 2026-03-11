@@ -8,7 +8,7 @@
 // 知识节点
 // ============================================
 
-const algebraNodes = [
+const algebraNodes: MathKnowledgeGraphNode[] = [
   // 实数与运算
   { id: 'number_real', name: '实数', category: 'algebra', level: 'basic', description: '有理数和无理数', dependencies: [] },
   { id: 'number_operation', name: '实数运算', category: 'algebra', level: 'basic', description: '加减乘除乘方开方', dependencies: ['number_real'] },
@@ -36,7 +36,7 @@ const algebraNodes = [
   { id: 'equation_fraction', name: '分式方程', category: 'algebra', level: 'advanced', description: '分式方程的解法', dependencies: ['algebra_fraction', 'equation_quadratic'] },
 ]
 
-const geometryNodes = [
+const geometryNodes: MathKnowledgeGraphNode[] = [
   // 线与角
   { id: 'geo_line', name: '线段、射线、直线', category: 'geometry', level: 'basic', description: '线段、射线、直线的概念和性质', dependencies: [] },
   { id: 'geo_angle', name: '角', category: 'geometry', level: 'basic', description: '角的度量、分类和性质', dependencies: ['geo_line'] },
@@ -72,7 +72,7 @@ const geometryNodes = [
   { id: 'geo_transform_translation', name: '平移', category: 'geometry', level: 'intermediate', description: '平移变换', dependencies: [] },
 ]
 
-const functionNodes = [
+const functionNodes: MathKnowledgeGraphNode[] = [
   // 坐标与函数基础
   { id: 'func_coord', name: '平面直角坐标系', category: 'function', level: 'basic', description: '坐标与点的位置', dependencies: [] },
   { id: 'func_basic', name: '函数', category: 'function', level: 'basic', description: '函数的概念和表示法', dependencies: ['func_coord'] },
@@ -97,7 +97,7 @@ const functionNodes = [
   { id: 'func_trig_solve', name: '解直角三角形', category: 'function', level: 'advanced', description: '利用三角函数解直角三角形', dependencies: ['func_trig_basic', 'geo_triangle_pythagoras'] },
 ]
 
-const statisticsNodes = [
+const statisticsNodes: MathKnowledgeGraphNode[] = [
   // 数据的收集与整理
   { id: 'stat_data', name: '数据的收集', category: 'statistics', level: 'basic', description: '普查与抽样调查', dependencies: [] },
   { id: 'stat organise', name: '数据的整理', category: 'statistics', level: 'basic', description: '统计图表', dependencies: ['stat_data'] },
@@ -113,7 +113,7 @@ const statisticsNodes = [
 ]
 
 // 辅助节点
-const auxiliaryNodes = [
+const auxiliaryNodes: MathKnowledgeGraphNode[] = [
   { id: 'math_logic', name: '数学逻辑', category: 'auxiliary', level: 'basic', description: '命题与推理', dependencies: [] },
   { id: 'math_method', name: '数学方法', category: 'auxiliary', level: 'basic', description: '分类讨论、数形结合', dependencies: [] },
 ]

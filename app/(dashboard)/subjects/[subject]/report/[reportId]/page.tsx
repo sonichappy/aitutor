@@ -3,6 +3,12 @@
 import { useState, useEffect } from "react"
 import { useRouter, useParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { Card, CardContent } from "@/components/ui/card"
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -76,19 +82,25 @@ export default function ReportDetailPage() {
     }
   }
 
-  const handleExport = () => {
+  const handleExport = async (format: 'md' | 'pdf' = 'md') => {
     if (!report) return
 
-    // 创建下载链接
-    const blob = new Blob([report.content], { type: 'text/markdown' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `${report.title}_${report.generatedAt.split('T')[0]}.md`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
+    if (format === 'md') {
+      // 导出 Markdown 文件
+      const blob = new Blob([report.content], { type: 'text/markdown' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `${report.title}_${report.generatedAt.split('T')[0]}.md`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+    } else if (format === 'pdf') {
+      // 使用导出 API 打开 PDF 打印页面
+      const exportUrl = `/api/reports/${encodeURIComponent(subject)}/${reportId}/export?format=pdf`
+      window.open(exportUrl, '_blank')
+    }
   }
 
   if (loading) {
@@ -136,13 +148,24 @@ export default function ReportDetailPage() {
             </div>
           </div>
           <div className="flex gap-2">
-            <Button
-              variant="outline"
-              onClick={handleExport}
-              className="hover:bg-blue-50 hover:border-blue-300"
-            >
-              📥 导出
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="hover:bg-blue-50 hover:border-blue-300"
+                >
+                  📥 导出
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => handleExport('md')}>
+                  📝 Markdown (.md)
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleExport('pdf')}>
+                  📄 PDF 文档
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Button
               variant="destructive"
               onClick={handleDelete}

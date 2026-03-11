@@ -292,7 +292,7 @@ function mergeParseResults(results: Array<{
   results.forEach(result => {
     const stats = result.examData?.metadata?.questionTypeStats || {}
     Object.entries(stats).forEach(([type, count]) => {
-      mergedQuestionTypeStats[type] = (mergedQuestionTypeStats[type] || 0) + count
+      mergedQuestionTypeStats[type] = (mergedQuestionTypeStats[type] || 0) + (count as number)
     })
   })
 

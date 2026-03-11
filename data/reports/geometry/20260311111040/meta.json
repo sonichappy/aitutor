@@ -1,0 +1,73 @@
+{
+  "userId": "user-1",
+  "subject": "几何",
+  "subjectId": "geometry",
+  "title": "几何学习报告",
+  "startDate": "2026-02-09",
+  "endDate": "2026-03-11",
+  "generatedAt": "2026-03-11T03:10:40.579Z",
+  "stats": {
+    "totalExams": 13,
+    "totalQuestions": 103,
+    "markedQuestions": 28,
+    "correctQuestions": 0,
+    "wrongQuestions": 28,
+    "skippedQuestions": 0,
+    "avgAccuracy": 0.7281553398058253
+  },
+  "analysis": {
+    "knowledgeMatrix": {
+      "description": "知识点覆盖矩阵",
+      "topWeakPoints": [
+        {
+          "point": "平行线的判定定理",
+          "errorRate": 78,
+          "count": 14
+        },
+        {
+          "point": "几何证明逻辑书写",
+          "errorRate": 72,
+          "count": 10
+        },
+        {
+          "point": "垂直与距离概念",
+          "errorRate": 65,
+          "count": 8
+        },
+        {
+          "point": "三线八角识别",
+          "errorRate": 60,
+          "count": 6
+        }
+      ]
+    },
+    "abilityAssessment": {
+      "description": "能力维度评估",
+      "mainIssue": "逻辑推理漏洞",
+      "analysis": "学生在几何证明题中表现出明显的逻辑链条断裂，特别是在填写证明依据时，无法准确匹配定理条件与结论。虽然具备基础的计算能力，但在将图形语言转化为符号语言的过程中存在障碍，尤其是在涉及多重条件（如垂直加角平分线）的综合题中，推理步骤容易跳跃或混淆判定与性质。"
+    },
+    "errorPatterns": {
+      "description": "错误模式挖掘",
+      "patterns": [
+        "判定定理条件匹配错误",
+        "复杂图形中角的关系识别失败",
+        "证明过程依据缺失或错误",
+        "动态问题分类讨论遗漏"
+      ]
+    },
+    "prediction": {
+      "description": "潜能与风险预判",
+      "nextChapterRisks": [
+        "三角形内角和定理与平行线结合应用",
+        "复杂辅助线构造能力不足",
+        "多步骤证明的逻辑连贯性下降"
+      ],
+      "recommendations": [
+        "建立几何模型库，强化基本图形（如三线八角）的变式识别训练",
+        "规范证明书写模板，强制要求每一步骤标注理论依据",
+        "针对动态几何问题，专项训练分类讨论思想与方程建模能力"
+      ]
+    }
+  },
+  "id": "20260311111040"
+}
