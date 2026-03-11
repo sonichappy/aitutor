@@ -35,7 +35,7 @@ export async function POST(
     // 从普通报告中提取薄弱知识点
     for (const report of reports) {
       const stats = report.stats as any
-      if (stats?.wrongQuestions) {
+      if (stats?.wrongQuestions && Array.isArray(stats.wrongQuestions)) {
         for (const q of stats.wrongQuestions) {
           if (q.knowledgePoints && Array.isArray(q.knowledgePoints)) {
             for (const point of q.knowledgePoints) {
