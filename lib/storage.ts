@@ -204,15 +204,12 @@ export async function getExamData(examId: string): Promise<ExamData | null> {
   try {
     const examDir = await findExamDir(examId)
     if (!examDir) {
-      console.error(`[Storage] Exam ${examId} not found`)
       return null
     }
 
     const dataPath = path.join(examDir, 'data.json')
-    console.log(`[Storage] Reading exam data from: ${dataPath}`)
     const content = await fs.readFile(dataPath, 'utf-8')
     const data = JSON.parse(content)
-    console.log(`[Storage] Successfully read exam ${examId}`)
     return data
   } catch (error) {
     console.error(`[Storage] Failed to read exam ${examId}:`, error)

@@ -96,15 +96,12 @@ export default function ExamReviewPage() {
   }, [examId])
 
   const loadExamData = async () => {
-    console.log(`[Review] Loading exam data for examId: ${examId}`)
-
     try {
       // 首先尝试从 sessionStorage 读取（新上传的试卷）
       const sessionStorageKey = `exam_${examId}`
       const storedData = sessionStorage.getItem(sessionStorageKey)
 
       if (storedData) {
-        console.log(`[Review] Found data in sessionStorage`)
         const data = JSON.parse(storedData)
         setExamData(data)
         setQuestions(data.questions || [])
@@ -121,19 +118,15 @@ export default function ExamReviewPage() {
           }
         })
         setQuestionMarks(marksFromQuestions)
-        console.log(`[Review] Loaded ${Object.keys(marksFromQuestions).length} question marks from sessionStorage`)
         setLoading(false)
         return
       }
 
       // 如果 sessionStorage 没有，尝试从服务端 API 获取
-      console.log(`[Review] Fetching from API: /api/exam/${examId}/data`)
       const response = await fetch(`/api/exam/${examId}/data`)
-      console.log(`[Review] API response status:`, response.status)
 
       if (response.ok) {
         const data = await response.json()
-        console.log(`[Review] Loaded from API, questions:`, data.questions?.length)
         setExamData(data)
         setQuestions(data.questions || [])
 
@@ -149,14 +142,12 @@ export default function ExamReviewPage() {
           }
         })
         setQuestionMarks(marksFromQuestions)
-        console.log(`[Review] Loaded ${Object.keys(marksFromQuestions).length} question marks from questions`)
         setLoading(false)
         return
       }
 
       // 都没有则提示重新上传
       const errorData = await response.json().catch(() => ({ error: 'Unknown error' }))
-      console.error(`[Review] API error:`, errorData)
       alert(`试卷数据不存在或已过期: ${errorData.error || '未知错误'}`)
       router.push("/exam")
     } catch (error) {

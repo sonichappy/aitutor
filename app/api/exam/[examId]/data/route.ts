@@ -7,22 +7,16 @@ export async function GET(
 ) {
   const { examId } = await params
 
-  console.log(`[API] GET /api/exam/${examId}/data - examId: ${examId}`)
-
   // 从文件系统读取数据
   const examData = await getExamData(examId)
 
-  console.log(`[API] Exam data result:`, examData ? 'FOUND' : 'NOT FOUND')
-
   if (examData) {
-    console.log(`[API] Found exam data for ${examId}`)
     return NextResponse.json({
       ...examData,
       imageUrl: `/api/exam/${examId}/image`,
     })
   }
 
-  console.log(`[API] Exam data NOT found for ${examId}`)
   return NextResponse.json(
     { error: "试卷数据不存在或已过期" },
     { status: 404 }
