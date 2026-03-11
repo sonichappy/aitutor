@@ -1781,6 +1781,9 @@ export async function getLearningPlan(subject: string): Promise<LearningPlan | n
   const subjectDir = path.join(EXERCISES_DIR, folderName)
 
   try {
+    // 先检查目录是否存在
+    await fs.access(subjectDir)
+
     const entries = await fs.readdir(subjectDir)
 
     // 查找最新的计划文件
@@ -1798,7 +1801,7 @@ export async function getLearningPlan(subject: string): Promise<LearningPlan | n
 
     return JSON.parse(content)
   } catch (error) {
-    console.error('Failed to get learning plan:', error)
+    // 目录不存在或读取失败，返回 null
     return null
   }
 }
