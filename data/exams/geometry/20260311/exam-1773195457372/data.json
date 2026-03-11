@@ -1,0 +1,321 @@
+{
+  "id": "exam-1773195457372",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "unit_test",
+  "rawText": "=== 第1页 ===\n7.2.2(1) 平行线的判定\n一、基础落实\n1. 如图, ∠1=120°, 要使a∥b, 则∠2的大小是 ( )\nA. 60°\nB. 80°\nC. 100°\nD. 120°\n\n2. 如图, 把三角板的直角顶点放在直线b上, 若∠1=40°, 则当∠2= 度时, 直线a∥b.\n\n3. 如图, 直线c与a, b相交. 若∠2=115°, 则∠1= °\n\n4. 如图, 用直尺和三角尺作直线AB, CD, 从图中可知, 直线AB与CD的位置关系为 平行\n\n5. 排列好应是 ( )\n①沿直尺下移三角尺;\n②用直尺紧靠三角尺的一条边贴住直线AB;\n③沿三角尺的边作出直线CD;\n④作直线AB, 并用三角尺的一条边贴住直线AB.\nA. ①②③④\nB. ②④①③\nC. ④②③①\nD. ④③①②\n\n6. 如图, 已知AC⊥AE, BD⊥BF, ∠1=35°, ∠2=35°, AC与BD平行吗? 补全下面的解答过程(括号中填写理论依据).\n解: ∵AC⊥AE, BD⊥BF, (已知)\n∴∠1=90°, ∠2=90° (垂直的定义)\n∵∠1=∠2, (等量代换)\n∴AC∥BD, (同位角相等, 两直线平行)\n又∵AC⊥AE, BD⊥BF, (已知)\n∴∠EAB=∠FBD=90°\n∴∠EAB+∠1=∠FBD+∠2 (等式的性质)\n即∠EAB=∠FBD\n∴AE∥BF. (同位角相等, 两直线平行)\n\n7. 如图, ∠B=70°, ∠ACB=40°, CD平分∠ACE, 求证: AB∥CD.\n证明: ∵∠ACB=40°, ∠B=70°\n∴∠ACE=180°-40°-70°=70°\n∵CD平分∠ACE\n∴∠DCE=$\frac{1}{2}$∠ACE=35°\n∵∠B=70°, ∠DCE=35°\n∴∠B=∠DCE\n∴AB∥CD\n\n=== 第2页 ===\n二、综合应用\n8. 如图，直线AB∥CD，CD∥EF，则AB与EF的位置关系是（A）\nA. 平行\nB. 相交\nC. 垂直\nD. 不能确定\n\n9. 如图，OM∥g，ON∥a，则O，M，N三点共线的理由是（B）\nA. 三点确定一条直线\nB. 如果两条直线都与第三条直线平行，那么这两条直线也互相平行\nC. 经过直线外一点，有且只有一条直线与这条直线平行\nD. 过三点可作一条直线与已知直线平行\n\n10. 如图，直线AB，CD被直线EF所截，H为CD与EF的交点，GH⊥CD于点H，∠2=30°，求证：AB∥CD。\n证明：∵∠2=60°，∴∠1=∠2=60°，∵∠DGH=90°，∠CHF=180°-∠2-∠DHG=180°-60°-90°=30°，∴∠CHE=180°-∠CHF=120°，∵∠4=60°，∠4=∠CHE=60°，∴∠1=∠4，∴AB∥CD。\n\n11. 已知：如图，已知直线AB、CD被直线EF所截，∠BMN=∠DNF，∠1=∠2，求证：MQ∥NP。\n证明：∵∠1=∠2，∴∠BMN=∠DNF，∵∠QMN=∠PWF，∴∠QMN=∠PWF，∴MQ∥NP。\n\n三、能力拓展\n12. 如图，直线EF上有A、C两点，分别引两条射线AB、CD，CD⊥AB于点A，点C分别同时绕点A、C以1s和6s的速度顺时针旋转。设转动时间为ts，在射线CD转动一圈的过程中，当t的值为多少时，CD与AB平行？\n解：∵∠EAB=180°-∠BAF=180°-50°=130°，∴∠EAB=130°，∵∠EAB=180°-∠BAF=130°，∴80+t=60+6t，∴t=4，∴80+30t=60+6t，∴t=10，∴30t+10=40（秒），答：当t为4秒和10秒时，CD与AB平行。",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "如图, ∠1=120°, 要使a∥b, 则∠2的大小是 ( )",
+      "options": [
+        "60°",
+        "80°",
+        "100°",
+        "120°"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定",
+        "同旁内角互补"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1",
+      "bbox": {
+        "x": 14.243498817966904,
+        "y": 18.99425845283333,
+        "width": 15.721040189125295,
+        "height": 8.343272404515574
+      }
+    },
+    {
+      "number": "2",
+      "type": "fill",
+      "content": "如图, 把三角板的直角顶点放在直线b上, 若∠1=40°, 则当∠2= 度时, 直线a∥b.",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "同位角相等"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2",
+      "bbox": {
+        "x": 29.1371158392435,
+        "y": 19.349291321110588,
+        "width": 14.657210401891255,
+        "height": 8.165755970376946
+      }
+    },
+    {
+      "number": "3",
+      "type": "fill",
+      "content": "如图, 直线c与a, b相交. 若∠2=115°, 则∠1= °",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "对顶角相等",
+        "邻补角之和为180°"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3",
+      "bbox": {
+        "x": 44.50354609929078,
+        "y": 20.059357057665103,
+        "width": 12.411347517730498,
+        "height": 7.4556902338224305
+      }
+    },
+    {
+      "number": "4",
+      "type": "answer",
+      "content": "如图, 用直尺和三角尺作直线AB, CD, 从图中可知, 直线AB与CD的位置关系为 平行",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定",
+        "直尺和三角尺的应用"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4",
+      "bbox": {
+        "x": 57.15130023640662,
+        "y": 18.99425845283333,
+        "width": 14.184397163120572,
+        "height": 8.165755970376942
+      }
+    },
+    {
+      "number": "5",
+      "type": "choice",
+      "content": "排列好应是 ( )\n①沿直尺下移三角尺;\n②用直尺紧靠三角尺的一条边贴住直线AB;\n③沿三角尺的边作出直线CD;\n④作直线AB, 并用三角尺的一条边贴住直线AB.",
+      "options": [
+        "①②③④",
+        "②④①③",
+        "④②③①",
+        "④③①②"
+      ],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的作图方法",
+        "操作步骤的理解"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5",
+      "bbox": {
+        "x": 71.33569739952719,
+        "y": 18.46170915041744,
+        "width": 19.26713947990544,
+        "height": 8.96457992400078
+      }
+    },
+    {
+      "number": "6",
+      "type": "answer",
+      "content": "如图, 已知AC⊥AE, BD⊥BF, ∠1=35°, ∠2=35°, AC与BD平行吗? 补全下面的解答过程(括号中填写理论依据).解: ∵AC⊥AE, BD⊥BF, (已知)∴∠1=90°, ∠2=90° (垂直的定义)∵∠1=∠2, (等量代换)∴AC∥BD, (同位角相等, 两直线平行)又∵AC⊥AE, BD⊥BF, (已知)∴∠EAB=∠FBD=90°∴∠EAB+∠1=∠FBD+∠2 (等式的性质)即∠EAB=∠FBD∴AE∥BF. (同位角相等, 两直线平行)",
+      "options": [],
+      "score": 6,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "垂直的定义",
+        "等量代换",
+        "平行线的判定定理",
+        "逻辑推理能力"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6",
+      "bbox": {
+        "x": 59.160756501182036,
+        "y": 56.62774249022273,
+        "width": 27.186761229314428,
+        "height": 9.585887443485973
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:20:36.847Z"
+    },
+    {
+      "number": "7",
+      "type": "answer",
+      "content": "如图, ∠B=70°, ∠ACB=40°, CD平分∠ACE, 求证: AB∥CD.",
+      "options": [],
+      "score": 6,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "三角形内角和定理",
+        "角平分线的性质",
+        "平行线的判定定理",
+        "逻辑推理能力"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7",
+      "bbox": {
+        "x": 67.90780141843972,
+        "y": 82.45638365739329,
+        "width": 22.576832151300223,
+        "height": 8.165755970376935
+      }
+    },
+    {
+      "number": "8",
+      "type": "choice",
+      "content": "如图，直线AB∥CD，CD∥EF，则AB与EF的位置关系是",
+      "options": [
+        "平行",
+        "相交",
+        "垂直",
+        "不能确定"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "8",
+      "bbox": {
+        "x": 66.37115839243499,
+        "y": 10.029678528832552,
+        "width": 19.858156028368796,
+        "height": 8.165755970376946
+      }
+    },
+    {
+      "number": "9",
+      "type": "choice",
+      "content": "如图，OM∥g，ON∥a，则O，M，N三点共线的理由是",
+      "options": [
+        "三点确定一条直线",
+        "如果两条直线都与第三条直线平行，那么这两条直线也互相平行",
+        "经过直线外一点，有且只有一条直线与这条直线平行",
+        "过三点可作一条直线与已知直线平行"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "9",
+      "bbox": {
+        "x": 64.47990543735224,
+        "y": 27.515047291487534,
+        "width": 23.522458628841605,
+        "height": 6.301833411921336
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:20:22.447Z"
+    },
+    {
+      "number": "10",
+      "type": "answer",
+      "content": "如图，直线AB，CD被直线EF所截，H为CD与EF的交点，GH⊥CD于点H，∠2=30°，求证：AB∥CD。",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "垂直的性质",
+        "角度计算"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "10",
+      "bbox": {
+        "x": 64.83451536643025,
+        "y": 37.45596760325077,
+        "width": 20.921985815602838,
+        "height": 13.935040079882391
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:20:23.871Z"
+    },
+    {
+      "number": "11",
+      "type": "answer",
+      "content": "已知：如图，已知直线AB、CD被直线EF所截，∠BMN=∠DNF，∠1=∠2，求证：MQ∥NP。",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "角的关系"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11",
+      "bbox": {
+        "x": 65.54373522458629,
+        "y": 55.03009458297507,
+        "width": 22.222222222222214,
+        "height": 13.935040079882398
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:20:24.665Z"
+    },
+    {
+      "number": "12",
+      "type": "answer",
+      "content": "如图，直线EF上有A、C两点，分别引两条射线AB、CD，CD⊥AB于点A，点C分别同时绕点A、C以1s和6s的速度顺时针旋转。设转动时间为ts，在射线CD转动一圈的过程中，当t的值为多少时，CD与AB平行？",
+      "options": [],
+      "score": 6,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定",
+        "动态几何问题",
+        "角度计算"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12",
+      "bbox": {
+        "x": 64.24349881796691,
+        "y": 79.88239536238316,
+        "width": 23.049645390070907,
+        "height": 16.420270157823197
+      }
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-11 10:17:37",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 60,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-11T02:20:39.122Z"
+}

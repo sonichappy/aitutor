@@ -18,6 +18,7 @@ export async function GET(request: NextRequest) {
       examType: exam.examType,
       totalScore: exam.totalScore,
       questionCount: exam.questions?.length || 0,
+      pageCount: (exam as any).pageCount || 1,  // 试卷页数，默认为 1
       imageUrl: exam.imageUrl,
       createdAt: exam.createdAt,
       updatedAt: exam.updatedAt,

@@ -42,6 +42,7 @@ interface ExamListItem {
   examType: string
   totalScore: number
   questionCount: number
+  pageCount?: number  // 试卷页数
   imageUrl?: string
   createdAt: string
   updatedAt?: string
@@ -253,11 +254,6 @@ export default function ExamPage() {
       return
     }
 
-    const examCount = selectedExams.size
-    if (!confirm(`确定要删除选中的 ${examCount} 份试卷吗？此操作不可恢复。`)) {
-      return
-    }
-
     try {
       // 调用删除API
       const response = await fetch("/api/exam/batch-delete", {
@@ -278,8 +274,6 @@ export default function ExamPage() {
       // 退出管理模式
       setIsManageMode(false)
       setSelectedExams(new Set())
-
-      alert(`成功删除 ${examCount} 份试卷`)
     } catch (error) {
       console.error("Delete error:", error)
       alert("删除失败，请重试")
@@ -296,11 +290,15 @@ export default function ExamPage() {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
-    // 返回年-月-日格式，如 2025-03-08
-    return date.toLocaleDateString('zh-CN', {
+    // 返回年-月-日 时:分:秒格式，如 2025-03-08 14:30:25
+    return date.toLocaleString('zh-CN', {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
     }).replace(/\//g, '-')
   }
 
@@ -560,8 +558,14 @@ export default function ExamPage() {
                                   {/* 日期 - 突出显示 */}
                                   <div className="text-sm font-semibold text-blue-600 mt-1">
                                     {formatDate(exam.createdAt)}
+                                  </div>
+                                  {/* 页数（如果是多页试卷） */}
+                                  {exam.pageCount && exam.pageCount > 1 && (
+                                    <div className="text-xs text-gray-500 mt-0.5">
+                                      📄 {exam.pageCount} 页
+                                    </div>
+                                  )}
                                 </div>
-                              </div>
                               {/* 正确率（如果已完成） */}
                               {exam.answerStats?.completedAt && (
                                 <div className="flex flex-col items-end">

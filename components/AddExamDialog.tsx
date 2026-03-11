@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import {
   Dialog,
@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { ImageUpload } from "@/components/ImageUpload"
+import { MultiImageUpload, type ImageFile } from "@/components/MultiImageUpload"
 
 interface AddExamDialogProps {
   open: boolean
@@ -23,19 +23,14 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
   const [content, setContent] = useState("")
   const [customPrompt, setCustomPrompt] = useState("")
   const [isParsing, setIsParsing] = useState(false)
-  const [imageFile, setImageFile] = useState<File | null>(null)
-  const [imagePreview, setImagePreview] = useState<string | null>(null)
-
-  useEffect(() => {
-    // 不再需要加载学科和试卷类型
-  }, [])
+  const [imageFiles, setImageFiles] = useState<ImageFile[]>([])
 
   const handleParse = async () => {
     if (activeTab === "text" && !content.trim()) {
       alert("请输入试卷内容")
       return
     }
-    if (activeTab === "image" && !imageFile) {
+    if (activeTab === "image" && imageFiles.length === 0) {
       alert("请上传试卷图片")
       return
     }
@@ -47,13 +42,16 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
       let errorMsg = ""
 
       if (activeTab === "image") {
+        // 使用多图合并解析 API
         const formData = new FormData()
-        formData.append("file", imageFile!)
+        imageFiles.forEach(img => {
+          formData.append("files", img.file)
+        })
         if (customPrompt.trim()) {
           formData.append("customPrompt", customPrompt.trim())
         }
 
-        response = await fetch("/api/exam/parse-image", {
+        response = await fetch("/api/exam/parse-merge", {
           method: "POST",
           body: formData,
         })
@@ -101,6 +99,11 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
         sessionStorage.setItem(`exam_${data.examId}`, JSON.stringify(data.examData))
       }
 
+      // 重置表单
+      setContent("")
+      setCustomPrompt("")
+      setImageFiles([])
+
       // 关闭对话框并跳转到确认页面
       onOpenChange(false)
       router.push(`/exam/${data.examId}/review`)
@@ -112,31 +115,20 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
     }
   }
 
-  const handleImageSelect = (file: File, preview: string) => {
-    setImageFile(file)
-    setImagePreview(preview)
-  }
-
-  const handleImageRemove = () => {
-    setImageFile(null)
-    setImagePreview(null)
-  }
-
   const handleClose = () => {
     if (!isParsing) {
       onOpenChange(false)
       // 重置表单
       setContent("")
       setCustomPrompt("")
-      setImageFile(null)
-      setImagePreview(null)
+      setImageFiles([])
       setActiveTab("image")
     }
   }
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>添加新试卷</DialogTitle>
           <DialogDescription>
@@ -183,8 +175,8 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
             {activeTab === "image" && (
               <div className="p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                 <p className="text-xs text-blue-800 dark:text-blue-300">
-                  📷 图片上传功能需要使用支持视觉的 AI 模型。支持的模型：
-                  <span className="font-semibold"> Gemini（推荐）、通义千问 VL、GPT-4o、Claude 3.5</span>
+                  📷 支持多图上传，多页试卷会自动合并为同一份试卷
+                  <span className="font-semibold ml-1">（推荐按页码顺序上传）</span>
                 </p>
               </div>
             )}
@@ -208,9 +200,9 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
           {activeTab === "image" && (
             <div className="space-y-4">
               <h3 className="text-sm font-medium">上传试卷图片</h3>
-              <ImageUpload
-                onImageSelect={handleImageSelect}
-                onImageRemove={handleImageRemove}
+              <MultiImageUpload
+                images={imageFiles}
+                onImagesChange={setImageFiles}
               />
             </div>
           )}
@@ -222,9 +214,9 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
             </Button>
             <Button
               onClick={handleParse}
-              disabled={isParsing || (activeTab === "text" && !content.trim()) || (activeTab === "image" && !imageFile)}
+              disabled={isParsing || (activeTab === "text" && !content.trim()) || (activeTab === "image" && imageFiles.length === 0)}
             >
-              {isParsing ? "解析中..." : "开始解析"}
+              {isParsing ? "解析中..." : `开始解析${activeTab === "image" && imageFiles.length > 1 ? ` (${imageFiles.length}张图片)` : ""}`}
             </Button>
           </div>
         </div>

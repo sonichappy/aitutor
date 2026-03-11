@@ -238,13 +238,25 @@ export async function updateExamQuestions(examId: string, questions: ExamQuestio
 export async function saveExamImage(examId: string, base64Image: string) {
   await initStorage()
 
+  console.log(`[saveExamImage] Starting for examId: ${examId}`)
+
   // 获取试卷数据以确定学科和创建时间
   const examData = await getExamData(examId)
+
+  if (!examData) {
+    console.error(`[saveExamImage] Exam data not found for examId: ${examId}`)
+    throw new Error(`试卷数据不存在: ${examId}`)
+  }
+
   const subject = examData?.subject
   const createdAt = examData?.createdAt
 
+  console.log(`[saveExamImage] Found exam - subject: ${subject}, createdAt: ${createdAt}`)
+
   const examDir = await getExamDirPath(examId, subject, createdAt)
   await ensureDir(examDir)
+
+  console.log(`[saveExamImage] Saving image to: ${examDir}`)
 
   // 解析 mime 类型
   const mimeType = base64Image.match(/data:([^;]+);/)?.[1] || 'image/jpeg'
@@ -258,6 +270,8 @@ export async function saveExamImage(examId: string, base64Image: string) {
   // 保存图片
   const imagePath = path.join(examDir, `image.${ext}`)
   await fs.writeFile(imagePath, Buffer.from(base64Data, 'base64'))
+
+  console.log(`[saveExamImage] Image saved successfully to: ${imagePath}`)
 
   return {
     path: imagePath,
@@ -291,6 +305,106 @@ export async function getExamImage(examId: string): Promise<{ data: Buffer; mime
   } catch {
     return null
   }
+}
+
+/**
+ * 保存试卷的多张图片（支持多页试卷）
+ */
+export async function saveExamImages(examId: string, base64Images: string[]): Promise<void> {
+  await initStorage()
+
+  console.log(`[saveExamImages] Starting for examId: ${examId}, images: ${base64Images.length}`)
+
+  // 获取试卷数据以确定学科和创建时间
+  const examData = await getExamData(examId)
+
+  if (!examData) {
+    console.error(`[saveExamImages] Exam data not found for examId: ${examId}`)
+    throw new Error(`试卷数据不存在: ${examId}`)
+  }
+
+  const subject = examData?.subject
+  const createdAt = examData?.createdAt
+
+  const examDir = await getExamDirPath(examId, subject, createdAt)
+  await ensureDir(examDir)
+
+  // 保存每张图片
+  for (let i = 0; i < base64Images.length; i++) {
+    const base64Image = base64Images[i]
+    const mimeType = base64Image.match(/data:([^;]+);/)?.[1] || 'image/jpeg'
+    const ext = mimeType.split('/')[1] || 'jpg'
+
+    // 提取 base64 数据
+    const base64Data = base64Image.includes('base64,')
+      ? base64Image.split('base64,')[1]
+      : base64Image
+
+    // 保存为 page-1.jpg, page-2.jpg, etc.
+    const imagePath = path.join(examDir, `page-${i + 1}.${ext}`)
+    await fs.writeFile(imagePath, Buffer.from(base64Data, 'base64'))
+
+    console.log(`[saveExamImages] Saved page ${i + 1} to: ${imagePath}`)
+  }
+
+  console.log(`[saveExamImages] All ${base64Images.length} images saved for exam: ${examId}`)
+}
+
+/**
+ * 获取试卷的所有图片
+ */
+export async function getExamImages(examId: string): Promise<Array<{ data: Buffer; mimeType: string; pageIndex: number }>> {
+  try {
+    const examDir = await findExamDir(examId)
+    if (!examDir) {
+      return []
+    }
+
+    const images: Array<{ data: Buffer; mimeType: string; pageIndex: number }> = []
+
+    // 首先检查是否有 page-1.jpg, page-2.jpg 等文件（多页格式）
+    for (let i = 1; i <= 100; i++) { // 最多支持100页
+      let found = false
+      const formats = ['jpg', 'jpeg', 'png', 'webp']
+
+      for (const ext of formats) {
+        try {
+          const imagePath = path.join(examDir, `page-${i}.${ext}`)
+          const data = await fs.readFile(imagePath)
+          const mimeType = `image/${ext === 'jpg' ? 'jpeg' : ext}`
+          images.push({ data, mimeType, pageIndex: i })
+          found = true
+          break
+        } catch {
+          continue
+        }
+      }
+
+      if (!found) {
+        break // 没有更多页了
+      }
+    }
+
+    // 如果没有找到多页格式，检查旧的单页格式 image.jpg
+    if (images.length === 0) {
+      const singleImage = await getExamImage(examId)
+      if (singleImage) {
+        images.push({ ...singleImage, pageIndex: 1 })
+      }
+    }
+
+    return images
+  } catch {
+    return []
+  }
+}
+
+/**
+ * 获取试卷页数
+ */
+export async function getExamPageCount(examId: string): Promise<number> {
+  const images = await getExamImages(examId)
+  return images.length
 }
 
 // 删除试卷

@@ -59,6 +59,7 @@ interface ExamData {
   examType: string
   totalScore: number
   imageUrl?: string
+  pageCount?: number  // 试卷页数
   rawText?: string
   questions: Question[]
   createdAt: string
@@ -90,21 +91,42 @@ export default function ExamReviewPage() {
   const [editingExamType, setEditingExamType] = useState(false)
   const [questionMarks, setQuestionMarks] = useState<Record<number, 'correct' | 'wrong' | 'skipped'>>({})  // 使用数组索引作为 key
 
+  // 多页图片支持
+  const [examImages, setExamImages] = useState<Array<{ pageIndex: number; url: string }>>([])
+  const [currentPage, setCurrentPage] = useState(1)
+
   useEffect(() => {
     loadExamData()
     loadExamMetadata()
+    loadExamImages()  // 加载所有图片
   }, [examId])
+
+  const loadExamImages = async () => {
+    try {
+      const response = await fetch(`/api/exam/${examId}/images`)
+      if (response.ok) {
+        const data = await response.json()
+        setExamImages(data.images || [])
+        setCurrentPage(1)
+      }
+    } catch (error) {
+      console.error("Failed to load exam images:", error)
+    }
+  }
 
   const loadExamData = async () => {
     try {
-      // 首先尝试从 sessionStorage 读取（新上传的试卷）
-      const sessionStorageKey = `exam_${examId}`
-      const storedData = sessionStorage.getItem(sessionStorageKey)
+      // 首先尝试从服务端 API 获取（优先使用服务器数据，确保获取最新的标记状态）
+      const response = await fetch(`/api/exam/${examId}/data`)
 
-      if (storedData) {
-        const data = JSON.parse(storedData)
+      if (response.ok) {
+        const data = await response.json()
         setExamData(data)
         setQuestions(data.questions || [])
+
+        // 更新 sessionStorage，保持数据同步
+        const sessionStorageKey = `exam_${examId}`
+        sessionStorage.setItem(sessionStorageKey, JSON.stringify(data))
 
         // 从题目对象中加载答题标记状态（使用数组索引作为 key）
         const marksFromQuestions: Record<number, 'correct' | 'wrong' | 'skipped'> = {}
@@ -122,11 +144,12 @@ export default function ExamReviewPage() {
         return
       }
 
-      // 如果 sessionStorage 没有，尝试从服务端 API 获取
-      const response = await fetch(`/api/exam/${examId}/data`)
+      // 如果服务端没有数据，尝试从 sessionStorage 读取（新上传的试卷）
+      const sessionStorageKey = `exam_${examId}`
+      const storedData = sessionStorage.getItem(sessionStorageKey)
 
-      if (response.ok) {
-        const data = await response.json()
+      if (storedData) {
+        const data = JSON.parse(storedData)
         setExamData(data)
         setQuestions(data.questions || [])
 
@@ -287,8 +310,8 @@ export default function ExamReviewPage() {
         return
       }
 
-      // 保存成功提示
-      alert("保存成功！")
+      // 保存成功，直接跳转回试卷中心
+      router.push("/exam")
     } catch (error) {
       console.error("Sync error:", error)
       alert("保存数据失败，请重试")
@@ -414,6 +437,15 @@ export default function ExamReviewPage() {
 
       if (response.ok) {
         console.log('[Review] Saved to server successfully')
+
+        // 同时更新 sessionStorage 中的数据
+        const sessionStorageKey = `exam_${examId}`
+        const stored = sessionStorage.getItem(sessionStorageKey)
+        if (stored) {
+          const data = JSON.parse(stored)
+          data.questions = updatedQuestions
+          sessionStorage.setItem(sessionStorageKey, JSON.stringify(data))
+        }
       } else {
         console.error('[Review] Failed to save to server')
       }
@@ -619,16 +651,40 @@ export default function ExamReviewPage() {
                 <CardTitle>📸 图像标注模式</CardTitle>
                 <CardDescription>
                   正在为第 {annotatingQuestion} 题标注图片区域
+                  {examImages.length > 1 && `（当前第 ${currentPage} 页）`}
                 </CardDescription>
               </div>
-              <Button variant="outline" onClick={handleCancelAnnotation}>
-                取消标注
-              </Button>
+              <div className="flex gap-2">
+                {examImages.length > 1 && (
+                  <div className="flex items-center gap-1">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                      disabled={currentPage === 1}
+                    >
+                      ←
+                    </Button>
+                    <span className="text-sm">{currentPage}/{examImages.length}</span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage(Math.min(examImages.length, currentPage + 1))}
+                      disabled={currentPage === examImages.length}
+                    >
+                      →
+                    </Button>
+                  </div>
+                )}
+                <Button variant="outline" onClick={handleCancelAnnotation}>
+                  取消标注
+                </Button>
+              </div>
             </div>
           </CardHeader>
           <CardContent>
             <ImageAnnotationTool
-              imageUrl={examData?.imageUrl || ''}
+              imageUrl={examImages.length > 0 ? examImages[currentPage - 1]?.url : (examData?.imageUrl || '')}
               questionNumber={annotatingQuestion}
               onSave={handleSaveAnnotation}
               onCancel={handleCancelAnnotation}
@@ -638,17 +694,63 @@ export default function ExamReviewPage() {
       )}
 
       {/* 原图预览 - 默认显示，方便对照 */}
-      {examData.imageUrl && !annotatingQuestion && (
+      {(examData.imageUrl || examImages.length > 0) && !annotatingQuestion && (
         <Card>
           <CardHeader>
-            <CardTitle>试卷原图</CardTitle>
-            <CardDescription>可以对照查看原图，验证题目识别是否正确</CardDescription>
+            <div className="flex justify-between items-center">
+              <div>
+                <CardTitle>试卷原图</CardTitle>
+                <CardDescription>可以对照查看原图，验证题目识别是否正确</CardDescription>
+              </div>
+              {examImages.length > 1 && (
+                <div className="text-sm text-gray-600">
+                  第 {currentPage} / {examImages.length} 页
+                </div>
+              )}
+            </div>
           </CardHeader>
           <CardContent className="pt-2">
+            {/* 多页图片导航 */}
+            {examImages.length > 1 && (
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                  disabled={currentPage === 1}
+                >
+                  ← 上一页
+                </Button>
+                <div className="flex gap-1">
+                  {examImages.map((img) => (
+                    <button
+                      key={img.pageIndex}
+                      onClick={() => setCurrentPage(img.pageIndex)}
+                      className={`w-8 h-8 rounded text-sm font-medium ${
+                        currentPage === img.pageIndex
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      }`}
+                    >
+                      {img.pageIndex}
+                    </button>
+                  ))}
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(Math.min(examImages.length, currentPage + 1))}
+                  disabled={currentPage === examImages.length}
+                >
+                  下一页 →
+                </Button>
+              </div>
+            )}
+
             <div className="rounded-lg overflow-hidden border">
               <img
-                src={examData.imageUrl}
-                alt="试卷原图"
+                src={examImages.length > 0 ? examImages[currentPage - 1]?.url : examData.imageUrl}
+                alt={`试卷原图 - 第${currentPage}页`}
                 className="w-full h-auto"
               />
             </div>

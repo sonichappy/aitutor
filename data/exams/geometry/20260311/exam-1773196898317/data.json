@@ -1,0 +1,142 @@
+{
+  "id": "exam-1773196898317",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "unit_test",
+  "rawText": "=== 第1页 ===\n7.2.2(3) 平行线的判定\n一、基础落实\n1. 如图，用两个相同的三角板按照如图方式作平行线，能解释其中道理的是（ ）\nA. 同位角相等，两直线平行\nB. 内错角相等，两直线平行\nC. 同旁内角互补，两直线平行\nD. 以上都不对\n2. 在铺设铁轨时，两条直轨必须是互相平行的，如图，已经知道∠2是直角，那么再度量图中已标出的哪个角，不能判断两条直轨是否平行（ ）\nA. ∠1\nB. ∠3\nC. ∠4\nD. ∠5\n3. 如图，有以下四个条件，其中能判定AB∥CD的条件有（ ）\n①∠B+∠BCD=180°；\n②∠1=∠2；\n③∠3=∠4；\n④∠B=∠5.\nA. ①②③\nB. ①②④\nC. ①③④\nD. ②③④\n4. 已知如图，AB⊥BC，∠1+∠2=90°，∠2=∠3.\n试说明：BE∥DE\n5. 如图，已知∠ABC=∠ADC，BF，DE分别平分∠ABC与∠ADC，∠1=∠3.\n试说明：AB∥DC.",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "如图，用两个相同的三角板按照如图方式作平行线，能解释其中道理的是（ ）",
+      "options": [
+        "同位角相等，两直线平行",
+        "内错角相等，两直线平行",
+        "同旁内角互补，两直线平行",
+        "以上都不对"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定定理",
+        "同位角、内错角、同旁内角的概念"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:42:17.324Z"
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "在铺设铁轨时，两条直轨必须是互相平行的，如图，已经知道∠2是直角，那么再度量图中已标出的哪个角，不能判断两条直轨是否平行（ ）",
+      "options": [
+        "∠1",
+        "∠3",
+        "∠4",
+        "∠5"
+      ],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定方法",
+        "直角的性质"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:42:18.531Z"
+    },
+    {
+      "number": "3",
+      "type": "choice",
+      "content": "如图，有以下四个条件，其中能判定AB∥CD的条件有（ ）",
+      "options": [
+        "①∠B+∠BCD=180°；\n②∠1=∠2；\n③∠3=∠4；\n④∠B=∠5.\nA. ①②③",
+        "①②④",
+        "①③④",
+        "②③④"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定定理",
+        "角的关系与平行线的关系"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3"
+    },
+    {
+      "number": "4",
+      "type": "answer",
+      "content": "已知如图，AB⊥BC，∠1+∠2=90°，∠2=∠3.\n试说明：BE∥DE",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "垂直的定义",
+        "角的和差关系",
+        "平行线的判定定理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:42:20.186Z",
+      "bbox": {
+        "x": 71.80851063829788,
+        "y": 47.92943721742989,
+        "width": 22.104018912529554,
+        "height": 14.556347599367605
+      }
+    },
+    {
+      "number": "5",
+      "type": "answer",
+      "content": "如图，已知∠ABC=∠ADC，BF，DE分别平分∠ABC与∠ADC，∠1=∠3.\n试说明：AB∥DC.",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "角平分线的性质",
+        "角的关系与平行线的关系",
+        "平行线的判定定理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:42:20.951Z",
+      "bbox": {
+        "x": 65.30732860520094,
+        "y": 76.59834133081851,
+        "width": 26.950354609929093,
+        "height": 11.18353535073365
+      }
+    }
+  ],
+  "pageCount": 1,
+  "createdAt": "2026-03-11 10:41:38",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-11T02:42:54.781Z"
+}

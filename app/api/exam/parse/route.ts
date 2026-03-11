@@ -66,6 +66,7 @@ ${content}
 {
   "title": "试卷标题",
   "detectedSubject": "识别的科目名称",
+  "examType": "试卷类型ID（daily_homework=日常作业, unit_test=单元测试, midterm_exam=期中考试, final_exam=期末考试, mock_exam=模拟考试, tutoring=课外辅导, competition=竞赛练习, special_practice=专项练习, composition=作文）",
   "overallDifficulty": 整体难度(1-5),
   "estimatedTime": 预估完成时间(分钟),
   "knowledgePointsSummary": ["主要知识点1", "主要知识点2"],
@@ -84,15 +85,16 @@ ${content}
 
 注意：
 1. detectedSubject 必须识别科目（数学、语文、英语、物理、化学、生物、历史、地理、道法、政治等）
-2. 题号要准确识别（包括一、1、(1)等格式）
-3. **重要：不同章节的题目可能有相同的题号（如第一章第1题和第二章第1题），这是正常的，必须全部保留在 questions 数组中，不要去重或删除**
-4. **按题目在试卷中出现的顺序添加到数组，即使题号重复也要保留**
-5. 选择题要提取选项，选项内容不要包含 A. B. C. D. 前缀
-6. 填空题用____标识空位
-7. 解答题可能有多个小题
-8. 合理估算每题分值和难度
-9. overallDifficulty 根据题目复杂度综合评估
-10. 识别主要知识点
+2. examType 识别试卷类型并返回对应的类型ID：daily_homework（日常作业）、unit_test（单元测试）、midterm_exam（期中考试）、final_exam（期末考试）、mock_exam（模拟考试）、tutoring（课外辅导）、competition（竞赛练习）、special_practice（专项练习）、composition（作文），默认值为 daily_homework
+3. 题号要准确识别（包括一、1、(1)等格式）
+4. **重要：不同章节的题目可能有相同的题号（如第一章第1题和第二章第1题），这是正常的，必须全部保留在 questions 数组中，不要去重或删除**
+5. **按题目在试卷中出现的顺序添加到数组，即使题号重复也要保留**
+6. 选择题要提取选项，选项内容不要包含 A. B. C. D. 前缀
+7. 填空题用____标识空位
+8. 解答题可能有多个小题
+9. 合理估算每题分值和难度
+10. overallDifficulty 根据题目复杂度综合评估
+11. 识别主要知识点
 
 只返回JSON，不要有其他内容。`
 
@@ -320,6 +322,14 @@ ${content}
       questionTypeStats[type] = (questionTypeStats[type] || 0) + 1
     })
 
+    // 提取知识点汇总
+    const knowledgePointsSummary = Array.from(
+      new Set(
+        cleanedQuestions
+          .flatMap((q: any) => q.knowledgePoints || [])
+      )
+    )
+
     // 生成试卷 ID
     const examId = `exam-${Date.now()}`
 
@@ -359,6 +369,7 @@ ${content}
       userId: DEFAULT_USER_ID,
       subject: folderName,  // 使用智能匹配后的文件夹名称
       subjectName: matchedSubject?.name || parsed.detectedSubject,  // 保存学科中文名称用于显示
+      examType: parsed.examType || "daily_homework", // 默认为日常作业
       rawText: content,  // 使用 rawText 字段存储文本内容
       questions: cleanedQuestions,
       createdAt: chinaTime,  // 使用中国时区时间
@@ -366,7 +377,7 @@ ${content}
         detectedSubject: parsed.detectedSubject,
         overallDifficulty: parsed.overallDifficulty || Math.round(avgDifficulty),
         estimatedTime: parsed.estimatedTime || cleanedQuestions.length * 5,
-        knowledgePointsSummary: parsed.knowledgePointsSummary || [],
+        knowledgePointsSummary, // 使用从题目中提取的知识点汇总
         questionTypeStats,
         // 保存用户提供的自定义提示词
         customPrompt: customPrompt?.trim() || undefined,

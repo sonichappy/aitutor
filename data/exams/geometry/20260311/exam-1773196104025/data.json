@@ -1,0 +1,295 @@
+{
+  "id": "exam-1773196104025",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "unit_test",
+  "rawText": "=== 第1页 ===\n7.2.2(2) 平行线的判定\n一、基础落实\n1. 如图(1)，因为∠DAC=∠C，所以AD∥BC。（依据：内错角相等，两直线平行）\n2. 如图(2)，若∠1=∠2，则AB∥CD；若∠3=∠4，则58°时，直线AC∥BE.\n3. 如图(3)，B为DC上一点，若∠DBE=58°，则当∠C=°时，直线AC∥BE.\n4. 如图(4)，一个弯形管道ABCD的拐角∠ABC=120°，∠BCD=60°，这时说管道AB∥CD，是根据同旁内角互补，两直线平行.\n5. 如图(5)，直线a、b被直线c所截，下列条件中不能判定a∥b的是（ ）\n   A. ∠3+∠4=180°\n   B. ∠2=∠3\n   C. ∠3=∠4\n   D. ∠BAC=∠ACD\n6. 如图(6)所示，BE是AB的延长线，量得∠CBE=∠A=∠C.\n   (1)由∠CBE=∠A可以判断AD∥BC，依据是。\n   (2)由∠CBE=∠C可以判断CD∥AE，依据是。\n7. 如图(7)所示，下列条件中，能判断AB∥CD的是（ ）\n   A. ∠BAD=∠BCD\n   B. ∠1=∠2\n   C. ∠3=∠4\n   D. ∠BAC=∠ACD\n8. 如图，AB⊥BC，CD⊥BC，∠1=∠2，BE与CF平行吗？请说明理由。\n   证：BE∥CF。理由如下：\n   ∵AB⊥BC，CD⊥BC，（依据：）\n   ∴∠ABC=∠BCD=90°。（依据：）\n   即∠1+∠EBC=∠2+∠FCB，\n   ∵∠1=∠2，（依据：）\n   ∴∠EBC=∠FCB，（依据：）\n   ∴BE∥CF。（依据：）\n\n=== 第2页 ===\n二、综合应用 9. 如图，添加下列条件，其中不能判定l₁∥l₂的是（C） A. ∠1=∠3 B. ∠4=∠5 C. ∠2=∠3 D. ∠2+∠4=180° 10. 将一块三角尺△ABC（∠ABC=30°）按如图所示的方式摆放，使A，B两点分别落在直线m，n上。给出下列条件中，能判断直线m//n的条件有①④（填序号）。 ①∠1=25.5°，∠2=55°30′； ②∠1+∠3=50°； ③∠1+∠2=90°； ④∠ACB=∠1+∠3。 11. 如图，已知点A、F在线段BG上，连接AD、BC、EF，若∠BFE=∠DEF，求证：AD∥BC。 12. 已知：如图，点D、E分别在AB和AC上，CD平分∠ACB，∠DCB=40°，∠AED=80°，求证：DE∥BC。 三、能力拓展 13. 在学习平行线的判定条件时，涉及同位角、内错角、同旁内角、同旁内角如图①，在“三线八角”中类似内错角具有∠1与∠8这样位置关系的角称为“外错角”，试完成下面的探究问题： (1) 探究定义：如图①，请另写出另外一对“外错角”。 (2) 猜想判定：外错角相等，两直线平行。 如图②，∠1与∠2是直线a、b被直线c截出的一对外错角，且∠1=∠2，试说明a∥b。",
+  "questions": [
+    {
+      "number": "1",
+      "type": "fill",
+      "content": "如图(1)，因为∠DAC=∠C，所以AD∥BC。（依据：）",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平行线的判定定理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1",
+      "bbox": {
+        "x": 12.35224586288416,
+        "y": 15.177655118852801,
+        "width": 19.148936170212764,
+        "height": 9.142096358139405
+      }
+    },
+    {
+      "number": "2",
+      "type": "fill",
+      "content": "如图(2)，若∠1=∠2，则AB∥CD；若∠3=∠4，则°时，直线AC∥BE。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定定理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2",
+      "bbox": {
+        "x": 37.05673758865248,
+        "y": 15.798962638338002,
+        "width": 21.985815602836887,
+        "height": 9.05333814107009
+      }
+    },
+    {
+      "number": "3",
+      "type": "fill",
+      "content": "如图(3)，B为DC上一点，若∠DBE=58°，则当∠C=°时，直线AC∥BE。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定定理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3",
+      "bbox": {
+        "x": 63.888888888888886,
+        "y": 16.686544809031147,
+        "width": 18.085106382978736,
+        "height": 8.609547055723517
+      }
+    },
+    {
+      "number": "4",
+      "type": "fill",
+      "content": "如图(4)，一个弯形管道ABCD的拐角∠ABC=120°，∠BCD=60°，这时说管道AB∥CD，是根据。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定定理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4",
+      "bbox": {
+        "x": 14.00709219858156,
+        "y": 41.538845588439244,
+        "width": 16.193853427895984,
+        "height": 7.455690233822423
+      }
+    },
+    {
+      "number": "5",
+      "type": "choice",
+      "content": "如图(5)，直线a、b被直线c所截，下列条件中不能判定a∥b的是（ ）",
+      "options": [
+        "∠3+∠4=180°",
+        "∠2=∠3",
+        "∠3=∠4",
+        "∠BAC=∠ACD"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定定理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5",
+      "bbox": {
+        "x": 32.21040189125296,
+        "y": 40.828779851884725,
+        "width": 18.085106382978722,
+        "height": 7.4556902338224305
+      }
+    },
+    {
+      "number": "6",
+      "type": "fill",
+      "content": "如图(6)所示，BE是AB的延长线，量得∠CBE=∠A=∠C。\n(1)由∠CBE=∠A可以判断AD∥BC，依据是。\n(2)由∠CBE=∠C可以判断CD∥AE，依据是。",
+      "options": [],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定定理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6",
+      "bbox": {
+        "x": 55.023640661938536,
+        "y": 40.56250520067678,
+        "width": 15.248226950354614,
+        "height": 7.633206667961055
+      }
+    },
+    {
+      "number": "7",
+      "type": "choice",
+      "content": "如图(7)所示，下列条件中，能判断AB∥CD的是（ ）",
+      "options": [
+        "∠BAD=∠BCD",
+        "∠1=∠2",
+        "∠3=∠4",
+        "∠BAC=∠ACD"
+      ],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定定理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7",
+      "bbox": {
+        "x": 75.23640661938535,
+        "y": 39.142373727567744,
+        "width": 15.011820330969272,
+        "height": 8.609547055723517
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:40:36.126Z"
+    },
+    {
+      "number": "8",
+      "type": "answer",
+      "content": "如图，AB⊥BC，CD⊥BC，∠1=∠2，BE与CF平行吗？请说明理由。\n证：BE∥CF。理由如下：\n∵AB⊥BC，CD⊥BC，（依据：）\n∴∠ABC=∠BCD=90°。（依据：）\n即∠1+∠EBC=∠2+∠FCB，\n∵∠1=∠2，（依据：）\n∴∠EBC=∠FCB，（依据：）\n∴BE∥CF。（依据：）",
+      "options": [],
+      "score": 6,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定定理",
+        "垂直的性质"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8",
+      "bbox": {
+        "x": 70.27186761229315,
+        "y": 70.47402435303582,
+        "width": 21.0401891252955,
+        "height": 8.076997753307623
+      },
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-11T02:40:36.846Z"
+    },
+    {
+      "number": "9",
+      "type": "choice",
+      "content": "如图，添加下列条件，其中不能判定l₁∥l₂的是",
+      "options": [
+        "∠1=∠3",
+        "∠4=∠5",
+        "∠2=∠3",
+        "∠2+∠4=180°"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "9"
+    },
+    {
+      "number": "10",
+      "type": "fill",
+      "content": "将一块三角尺△ABC（∠ABC=30°）按如图所示的方式摆放，使A，B两点分别落在直线m，n上。给出下列条件中，能判断直线m//n的条件有",
+      "options": [
+        "①∠1=25.5°，∠2=55°30′",
+        "②∠1+∠3=50°",
+        "③∠1+∠2=90°",
+        "④∠ACB=∠1+∠3"
+      ],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "三角形内角和"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "10"
+    },
+    {
+      "number": "11",
+      "type": "answer",
+      "content": "如图，已知点A、F在线段BG上，连接AD、BC、EF，若∠BFE=∠DEF，求证：AD∥BC。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "角的关系"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11"
+    },
+    {
+      "number": "12",
+      "type": "answer",
+      "content": "已知：如图，点D、E分别在AB和AC上，CD平分∠ACB，∠DCB=40°，∠AED=80°，求证：DE∥BC。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "角平分线性质"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12"
+    },
+    {
+      "number": "13",
+      "type": "answer",
+      "content": "在学习平行线的判定条件时，涉及同位角、内错角、同旁内角、同旁内角如图①，在“三线八角”中类似内错角具有∠1与∠8这样位置关系的角称为“外错角”，试完成下面的探究问题：(1) 探究定义：如图①，请另写出另外一对“外错角”。(2) 猜想判定：外错角相等，两直线平行。如图②，∠1与∠2是直线a、b被直线c截出的一对外错角，且∠1=∠2，试说明a∥b。",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定",
+        "外错角概念"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13"
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-11 10:28:24",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 65,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-11T02:40:46.024Z"
+}
