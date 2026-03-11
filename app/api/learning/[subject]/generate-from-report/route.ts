@@ -34,8 +34,25 @@ export async function POST(
 
     console.log(`[Generate from Report] Loading report ${reportId} for ${subject}...`)
 
-    // 读取深入分析报告 - 路径格式: data/reports/{subject}/{reportId}/
-    const reportDir = path.join(process.cwd(), 'data', 'reports', subject, reportId)
+    // 获取学科的 folderName（用于文件系统路径）
+    // 需要从 subjects.json 获取 subject 对应的 folderName
+    let subjectFolder = subject.toLowerCase() // 默认使用小写
+
+    try {
+      const subjectsPath = path.join(process.cwd(), 'data', 'subjects.json')
+      const subjectsRaw = await fs.readFile(subjectsPath, 'utf-8')
+      const subjectsData = JSON.parse(subjectsRaw)
+
+      const matchedSubject = subjectsData.subjects?.find((s: any) => s.name === subject)
+      if (matchedSubject?.folderName) {
+        subjectFolder = matchedSubject.folderName
+      }
+    } catch (error) {
+      console.log('[Generate from Report] Could not get folderName, using default')
+    }
+
+    // 读取深入分析报告 - 路径格式: data/reports/{folderName}/{reportId}/
+    const reportDir = path.join(process.cwd(), 'data', 'reports', subjectFolder, reportId)
 
     let metaContent: any = null
     let reportMarkdown: string = ''
