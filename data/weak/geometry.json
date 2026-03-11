@@ -1,0 +1,35 @@
+[
+  {
+    "point": "平行线判定定理应用",
+    "severity": 5,
+    "reason": "15道错题关联，核心知识掌握不牢",
+    "priority": 1,
+    "count": 1,
+    "sourceReports": [
+      "几何-1773221931986"
+    ],
+    "addedAt": "2026-03-11T09:38:52.125Z"
+  },
+  {
+    "point": "三线八角识别",
+    "severity": 5,
+    "reason": "概念混淆严重，影响判定与证明基础",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "几何-1773221931986"
+    ],
+    "addedAt": "2026-03-11T09:38:52.125Z"
+  },
+  {
+    "point": "几何概念深度理解",
+    "severity": 4,
+    "reason": "停留表面，变式图形识别能力弱",
+    "priority": 4,
+    "count": 1,
+    "sourceReports": [
+      "几何-1773221931986"
+    ],
+    "addedAt": "2026-03-11T09:38:52.125Z"
+  }
+]

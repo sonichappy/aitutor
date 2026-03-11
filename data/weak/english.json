@@ -1,0 +1,68 @@
+[
+  {
+    "point": "可数/不可数名词辨析",
+    "severity": 5,
+    "reason": "13道错题，影响限定词、动词、复数",
+    "priority": 1,
+    "count": 1,
+    "sourceReports": [
+      "英语-1773222968472"
+    ],
+    "addedAt": "2026-03-11T09:56:08.598Z"
+  },
+  {
+    "point": "主谓一致（复杂结构）",
+    "severity": 5,
+    "reason": "The Browns、many a student等全错",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "英语-1773222968472"
+    ],
+    "addedAt": "2026-03-11T09:56:08.598Z"
+  },
+  {
+    "point": "疑问句基本结构",
+    "severity": 5,
+    "reason": "be/助动词/实义动词混用，框架未建",
+    "priority": 3,
+    "count": 1,
+    "sourceReports": [
+      "英语-1773222968472"
+    ],
+    "addedAt": "2026-03-11T09:56:08.598Z"
+  },
+  {
+    "point": "中英思维转换能力",
+    "severity": 4,
+    "reason": "翻译题中式英语频发，句法意识弱",
+    "priority": 4,
+    "count": 1,
+    "sourceReports": [
+      "英语-1773222968472"
+    ],
+    "addedAt": "2026-03-11T09:56:08.598Z"
+  },
+  {
+    "point": "所有格构成规则",
+    "severity": 4,
+    "reason": "时间名词、双重所有格掌握不牢",
+    "priority": 5,
+    "count": 1,
+    "sourceReports": [
+      "英语-1773222968472"
+    ],
+    "addedAt": "2026-03-11T09:56:08.598Z"
+  },
+  {
+    "point": "量词与名词搭配",
+    "severity": 4,
+    "reason": "amounts of、pairs of等搭配错误多",
+    "priority": 6,
+    "count": 1,
+    "sourceReports": [
+      "英语-1773222968472"
+    ],
+    "addedAt": "2026-03-11T09:56:08.598Z"
+  }
+]

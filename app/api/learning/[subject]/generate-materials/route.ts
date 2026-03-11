@@ -1,13 +1,20 @@
 import { NextRequest, NextResponse } from "next/server"
 import fs from "fs/promises"
 import path from "path"
-import { generateText } from "ai"
-import { createOpenAI } from "@ai-sdk/openai"
 
-const openai = createOpenAI({
-  baseURL: process.env.DASHSCOPE_BASE_URL,
-  apiKey: process.env.DASHSCOPE_API_KEY,
-})
+// 获取学科的 folderName
+async function getSubjectFolderName(subject: string): Promise<string> {
+  try {
+    const subjectsPath = path.join(process.cwd(), 'data', 'subjects.json')
+    const subjectsRaw = await fs.readFile(subjectsPath, 'utf-8')
+    const subjectsData = JSON.parse(subjectsRaw)
+
+    const matchedSubject = subjectsData.subjects?.find((s: any) => s.name === subject)
+    return matchedSubject?.folderName || subject.toLowerCase()
+  } catch {
+    return subject.toLowerCase()
+  }
+}
 
 interface LearningPlan {
   subject: string
@@ -28,7 +35,7 @@ interface LearningPlan {
 
 // Direct file system operations to avoid import issues
 async function saveExerciseMaterial(
-  subject: string,
+  subjectFolder: string,
   knowledgePoint: string,
   severity: number,
   content: string,
@@ -38,7 +45,7 @@ async function saveExerciseMaterial(
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-')
   const folderName = `${timestamp}-${knowledgePoint.replace(/[<>:"/\\|?*]/g, '_')}`
 
-  const exercisesDir = path.join(process.cwd(), 'data', 'exercises', subject, folderName)
+  const exercisesDir = path.join(process.cwd(), 'data', 'exercises', subjectFolder, folderName)
 
   await fs.mkdir(exercisesDir, { recursive: true })
 
@@ -52,14 +59,14 @@ async function saveExerciseMaterial(
   }
 
   await fs.writeFile(
-    path.join(exercisesDir, 'material.json'),
+    path.join(exercisesDir, 'data.json'),
     JSON.stringify(material, null, 2),
     'utf-8'
   )
 }
 
 async function saveLearningPlan(plan: LearningPlan) {
-  const plansDir = path.join(process.cwd(), 'data', plan.subjectFolder, 'learning-plans')
+  const plansDir = path.join(process.cwd(), 'data', 'exercises', plan.subjectFolder, 'learning-plans')
   await fs.mkdir(plansDir, { recursive: true })
 
   const filePath = path.join(plansDir, `${plan.planId}.json`)
@@ -102,6 +109,9 @@ export async function POST(
 
     console.log(`[Generate Materials] Generating for ${weakPoints.length} points in ${subject}...`)
 
+    // 获取学科 folderName
+    const subjectFolder = await getSubjectFolderName(subject)
+
     const materials = []
     const planId = `plan-${Date.now()}`
 
@@ -121,7 +131,7 @@ export async function POST(
 
         // 保存到文件系统
         await saveExerciseMaterial(
-          subject,
+          subjectFolder,
           weakPoint.point,
           material.severity || 3,
           material.content,
@@ -138,7 +148,7 @@ export async function POST(
     // 保存学习计划
     const plan: LearningPlan = {
       subject,
-      subjectFolder: subject,
+      subjectFolder,
       weakPoints: weakPoints.map((wp: any) => ({
         point: wp.point,
         severity: wp.severity || 3,
@@ -237,7 +247,7 @@ async function generateMaterialForKnowledgePoint(
       "id": "q1",
       "type": "选择题",
       "content": "题目内容",
-      "options": ["A. 选项1", "B. 选项2", "C. 选项3", "D. 选项4"],
+      "options": ["选项1", "选项2", "选项3", "选项4"],
       "correctAnswer": "A",
       "explanation": "解析：\\n\\n解题思路：\\n...",
       "difficulty": 3,
@@ -247,26 +257,64 @@ async function generateMaterialForKnowledgePoint(
 }
 
 要求：
+- options 数组中只需要选项内容，不要加 A、B、C、D 前缀
+- correctAnswer 使用 A、B、C、D 表示正确选项的索引
 - 内容要系统、全面、易懂
 - 只返回JSON格式，不要有其他文字`
 
   try {
-    const result = await generateText({
-      model: openai("qwen-max"),
-      prompt,
+    // 直接使用 fetch 调用 DashScope API
+    const dashscopeResponse = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.DASHSCOPE_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'qwen-plus',
+        messages: [
+          {
+            role: 'system',
+            content: `你是一位资深的${subject}教师，擅长生成学习资料和练习题。请严格按照要求返回JSON格式。`
+          },
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        temperature: 0.7,
+      }),
     })
 
+    if (!dashscopeResponse.ok) {
+      const errorText = await dashscopeResponse.text()
+      console.error('[DashScope API] Error:', errorText)
+      throw new Error(`DashScope API error: ${dashscopeResponse.status}`)
+    }
+
+    const dashscopeData = await dashscopeResponse.json()
+    const content = dashscopeData.choices?.[0]?.message?.content || ''
+
     // 解析 JSON 响应
-    const jsonMatch = result.text.match(/\{[\s\S]*\}/)
+    const jsonMatch = content.match(/\{[\s\S]*\}/)
     if (!jsonMatch) {
       throw new Error("AI 响应中未找到有效 JSON")
     }
 
     const parsed = JSON.parse(jsonMatch[0])
 
+    // 清理选项格式：移除可能重复的字母前缀（如 "A.A. xxx" -> "A. xxx"）
+    const cleanedQuestions = (parsed.questions || []).map((q: any) => ({
+      ...q,
+      options: (q.options || []).map((opt: string) => {
+        // 移除开头的重复字母前缀，如 "A.A." -> "A." 或 "A.A. xxx" -> "xxx"
+        return opt.replace(/^[A-D]\.([A-D]\.)?\s*/, '').trim()
+      })
+    }))
+
     return {
       content: parsed.content || "",
-      questions: parsed.questions || [],
+      questions: cleanedQuestions,
       sources: [],
       severity: 3
     }

@@ -1,0 +1,69 @@
+{
+  "knowledgePoint": "可数/不可数名词辨析",
+  "severity": 3,
+  "learningContent": "# 可数/不可数名词辨析\n\n## 1. 概念定义和基本原理\n- **可数名词（Countable Nouns）**：表示可以被逐个计数的人、事物或概念，有单数和复数两种形式。如：book → books, child → children。\n- **不可数名词（Uncountable Nouns）**：表示无法分割成独立个体、通常不能直接用数字计数的物质、抽象概念、集合概念等，**只有单数形式，无复数变化**。如：water, information, advice, furniture, luggage。\n- **核心原理**：名词是否可数，取决于其**语义范畴**（是否具有自然个体边界）和**英语习惯用法**，而非汉语直译——例如汉语说“一条建议”，英语中 *advice* 却是不可数；汉语说“一份工作”，*job* 是可数，但 *work*（工作内容/劳动）却是不可数。\n\n## 2. 重要公式、定理或法则\n✅ **可数名词三要素法则**：\n> 若名词满足以下三点，通常为可数名词：\n> - 有单复数变化（可加 `-s/-es` 或不规则复数）\n> - 可与 `a/an` 连用（表泛指单数）\n> - 可与具体数量词连用（`one`, `two`, `several`, `many`, `few` 等）\n\n✅ **不可数名词三特征法则**：\n> 若名词满足以下三点，通常为不可数名词：\n> - **无复数形式**（不可加 `-s`；如 ❌ *informations*, ❌ *furnitures*）\n> - **不可与 `a/an` 连用**（如 ❌ *an information*, ✅ *some information*）\n> - **只能与不可数限定词搭配**：`much`, `little`, `a little`, `a lot of`, `some`, `any`, `no`, `this/that`（不可用 `these/those`）\n\n✅ **量词桥接法则（Key Bridge Rule）**：\n> 不可数名词可通过**单位量词短语**转化为可计量表达：\n> `a piece of advice` / `two pieces of advice`\n> `a loaf of bread` / `three loaves of bread`\n> `an item of furniture` / `five items of furniture`\n> ⚠️ 注意：量词本身是可数的，而其后的不可数名词保持原形（不加-s）。\n\n## 3. 解题方法和步骤\n**四步辨析法**：\n1. **看冠词**：能否用 `a/an`？能 → 极可能可数；不能 → 倾向不可数。\n2. **看复数**：能否加 `-s` 或变不规则复数？能 → 可数；不能（或语义错误）→ 不可数。\n3. **看修饰词**：前面是 `many/few/several`？→ 可数；是 `much/little/a little`？→ 不可数。\n4. **查语义+查词典**：结合意义判断（物质/抽象/集合？），并以权威词典标注（标 `C` = countable, `U` = uncountable, `C/U` = both）为准。\n\n## 4. 常见易错点提醒\n⚠️ **误区1：汉语思维干扰**\n- 错：*I have many homeworks.*（× homework 是不可数）\n- 对：*I have a lot of homework.* / *I have two assignments.*（assignment 可数）\n\n⚠️ **误区2：形似可数，实为不可数**\n- `news`（不可数，❌ *a news*, ❌ *newses*）→ *The news is surprising.*\n- `physics/mathematics`（学科名，不可数）→ *Physics is challenging.*\n- `fruit`（泛指“水果”时不可数；指“各种水果”或“果实”时可数）→ *I love fruit.*（U） vs. *There are many fruits in the basket.*（C，强调种类）\n\n⚠️ **误区3：抽象名词误加复数**\n- ❌ *She gave me many advices.* → ✅ *She gave me much/a lot of advice.* 或 *She gave me several pieces of advice.*\n\n⚠️ **误区4：忽略 C/U 双重身份词**\n- `time`：不可数（时间）→ *Time is precious.*；可数（次数/一段时间）→ *I’ve been to Paris three times.* / *We had a good time.*\n- `hair`：不可数（总体毛发）→ *She has long hair.*；可数（一根根头发）→ *There’s a hair in my soup!* \n\n## 5. 记忆技巧或理解方法\n🔹 **‘五感联想记忆法’**：\n- 能**看见个体轮廓**（apple, chair, idea）→ 可数；\n- 能**摸到连续质地**（water, sand, rice）、**听到整体概念**（music, news）、**想到抽象状态**（happiness, courage）、**感知集合整体**（luggage, equipment）→ 不可数。\n\n🔹 **‘ABCD 分类口诀’**：\n> **A**bstractions（抽象）— *love, freedom*\n> **B**ulk substances（大块物质）— *rice, sugar, air*\n> **C**ollections（集合）— *furniture, jewelry, baggage*\n> **D**isciplines & diseases（学科/疾病）— *mathematics, measles, mumps*\n\n🔹 **高频不可数名词速记表（首字母缩略）**：\n> **M**oney, **I**nformation, **N**ews, **C**ourage, **E**quipment, **R**ice, **A**dvice, **T**ime（泛指）, **W**ork（劳动）, **O**xygen, **R**esearch —— **“MINCE A TOWER”**（谐音：‘猛吃一座塔’，助记！）",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "选择题",
+      "content": "Which of the following nouns is uncountable?",
+      "options": [
+        "apple",
+        "book",
+        "information",
+        "chair"
+      ],
+      "correctAnswer": "C",
+      "explanation": "解析：\n\n解题思路：\n第一步看冠词——'information' 不能与 'a/an' 连用（❌ an information）；第二步看复数——不可加 '-s'（❌ informations）；第三步看修饰词——可用 'much', 'some', 'a lot of' 修饰，符合不可数名词三大特征。其余三项（apple, book, chair）均可加 '-s'、可用 'a/an'、可与 'many' 连用，均为典型可数名词。",
+      "difficulty": 3,
+      "knowledgePoint": "可数/不可数名词辨析"
+    },
+    {
+      "id": "q2",
+      "type": "选择题",
+      "content": "Choose the correct sentence:",
+      "options": [
+        "She gave me many advices.",
+        "She gave me much advices.",
+        "She gave me many pieces of advice.",
+        "She gave me much pieces of advice."
+      ],
+      "correctAnswer": "C",
+      "explanation": "解析：\n\n解题思路：\n'advice' 是不可数名词，不能直接用 'many' 或 'much' 修饰复数形式（排除 A、B、D）。正确方式是通过单位量词 'piece' 桥接：'a piece of advice' → 复数为 'pieces of advice'；修饰量词 'pieces' 用可数限定词 'many'。因此 C 正确。D 错在 'much' 用于不可数中心词，但 'pieces' 是可数复数，须用 'many'。",
+      "difficulty": 4,
+      "knowledgePoint": "可数/不可数名词辨析"
+    },
+    {
+      "id": "q3",
+      "type": "选择题",
+      "content": "Which option correctly completes the sentence? 'I need ______ for my project.'",
+      "options": [
+        "some informations",
+        "some advice",
+        "an advice",
+        "many advices"
+      ],
+      "correctAnswer": "B",
+      "explanation": "解析：\n\n解题思路：\n'advice' 是不可数名词，因此：A 错（informations 不存在，information 无复数）；C 错（不可与 'an' 连用）；D 错（advices 非法复数）；B 正确——'some advice' 是标准不可数名词搭配（some + 不可数名词原形）。注意：'information' 和 'advice' 均属高频易错不可数名词，需重点区分。",
+      "difficulty": 4,
+      "knowledgePoint": "可数/不可数名词辨析"
+    },
+    {
+      "id": "q4",
+      "type": "选择题",
+      "content": "Select the noun that can be BOTH countable and uncountable with a change in meaning:",
+      "options": [
+        "water",
+        "furniture",
+        "hair",
+        "equipment"
+      ],
+      "correctAnswer": "C",
+      "explanation": "解析：\n\n解题思路：\n本题考查 C/U 双重身份名词。'hair' 是典型双功能词：不可数时指‘头发’整体（She has beautiful hair.）；可数时指‘一根头发’（There’s a hair in my soup!）。其他选项均为纯不可数名词：'water'（物质，不可数；虽有 'waters' 表特定水域，但属专有名词用法，非基础辨析范畴）；'furniture' 和 'equipment' 均为集合不可数名词，无常规可数用法（❌ a furniture, ❌ two equipments）。因此 C 是唯一符合题干要求的答案。",
+      "difficulty": 5,
+      "knowledgePoint": "可数/不可数名词辨析"
+    }
+  ],
+  "sources": [],
+  "createdAt": "2026-03-11T10:14:47.293Z"
+}

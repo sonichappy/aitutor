@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { getEnabledSubjects, clearSubjectsCache, getDefaultReportPrompt, saveSubjects, type Subject } from "@/types/subject"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
+import { Checkbox } from "@/components/ui/checkbox"
 import { Loader2, Brain, Sparkles, Calendar, BookOpen } from "lucide-react"
 import { DetailedAnalysisViewer } from "@/app/(dashboard)/subject/english/DetailedAnalysisViewer"
 
@@ -93,8 +94,12 @@ export default function SubjectsPage() {
   const [deepAnalysisResult, setDeepAnalysisResult] = useState<any>(null)
   const [deepAnalysisError, setDeepAnalysisError] = useState<string | null>(null)
 
-  // 从报告生成学习内容状态
+  // 从报告提取薄弱项状态
   const [generatingLearning, setGeneratingLearning] = useState<string | null>(null) // reportId
+  const [showWeakPointsDialog, setShowWeakPointsDialog] = useState(false)
+  const [extractedWeakPoints, setExtractedWeakPoints] = useState<any[]>([])
+  const [selectedWeakPointsToAdd, setSelectedWeakPointsToAdd] = useState<Set<string>>(new Set())
+  const [savingWeakPoints, setSavingWeakPoints] = useState(false)
 
   useEffect(() => {
     loadSubjects()
@@ -301,12 +306,13 @@ export default function SubjectsPage() {
     }
   }
 
-  // 从深入分析报告生成学习内容
+  // 从深入分析报告提取薄弱知识点
   const handleGenerateLearningFromReport = async (subject: Subject, reportId: string) => {
     setGeneratingLearning(reportId)
+    setSelectedSubject(subject)
 
     try {
-      // 调用 API 生成学习内容
+      // 调用 API 提取薄弱知识点
       const response = await fetch(`/api/learning/${encodeURIComponent(subject.name)}/generate-from-report`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -315,17 +321,65 @@ export default function SubjectsPage() {
 
       if (response.ok) {
         const result = await response.json()
-        // 跳转到学习页面
+        if (result.success && result.weakPoints) {
+          setExtractedWeakPoints(result.weakPoints)
+          setSelectedWeakPointsToAdd(new Set())
+          setShowWeakPointsDialog(true)
+        } else {
+          alert(result.error || '提取薄弱知识点失败')
+        }
+      } else {
+        const error = await response.json()
+        alert(error.error || '提取薄弱知识点失败')
+      }
+    } catch (error) {
+      console.error('Failed to extract weak points:', error)
+      alert('提取薄弱知识点失败')
+    } finally {
+      setGeneratingLearning(null)
+    }
+  }
+
+  // 保存选中的薄弱知识点到学科列表
+  const handleSaveSelectedWeakPoints = async () => {
+    if (selectedWeakPointsToAdd.size === 0) {
+      alert('请至少选择一个薄弱知识点')
+      return
+    }
+
+    setSavingWeakPoints(true)
+
+    try {
+      const selectedPoints = extractedWeakPoints.filter(wp => selectedWeakPointsToAdd.has(wp.point))
+
+      const response = await fetch(`/api/learning/${encodeURIComponent(selectedSubject!.name)}/weak-points`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          weakPoints: selectedPoints.map(wp => ({
+            point: wp.point,
+            severity: wp.severity,
+            reason: wp.reason,
+            priority: wp.priority,
+            sourceReportId: selectedSubject!.name + '-' + Date.now()
+          }))
+        })
+      })
+
+      if (response.ok) {
+        const result = await response.json()
+        setShowWeakPointsDialog(false)
+        // 跳转到个性化学习页面
         router.push('/learning')
       } else {
         const error = await response.json()
-        alert(error.error || '生成学习内容失败')
+        alert(error.error || '保存失败')
       }
     } catch (error) {
-      console.error('Failed to generate learning content:', error)
-      alert('生成学习内容失败')
+      console.error('Failed to save weak points:', error)
+      alert('保存失败')
     } finally {
-      setGeneratingLearning(null)
+      setSavingWeakPoints(false)
     }
   }
 
@@ -535,7 +589,7 @@ export default function SubjectsPage() {
                                   ) : (
                                     <>
                                       <BookOpen className="w-3 h-3 mr-1" />
-                                      生成学习内容
+                                      提取薄弱点
                                     </>
                                   )}
                                 </Button>
@@ -885,6 +939,101 @@ export default function SubjectsPage() {
               </Button>
               <Button onClick={handleSavePrompt}>
                 保存
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* 薄弱知识点选择对话框 */}
+      <Dialog open={showWeakPointsDialog} onOpenChange={setShowWeakPointsDialog}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-green-600" />
+              选择要添加的薄弱知识点
+            </DialogTitle>
+            <DialogDescription>
+              从深入分析报告中提取了 {extractedWeakPoints.length} 个薄弱知识点，请选择要添加到学习列表的项
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-3 py-4">
+            {extractedWeakPoints.map((wp, index) => (
+              <div
+                key={index}
+                className={`p-4 border rounded-lg cursor-pointer transition-colors ${
+                  selectedWeakPointsToAdd.has(wp.point)
+                    ? 'border-green-500 bg-green-50 dark:bg-green-900/20'
+                    : 'border-gray-200 hover:border-green-300'
+                }`}
+                onClick={() => {
+                  const newSelected = new Set(selectedWeakPointsToAdd)
+                  if (newSelected.has(wp.point)) {
+                    newSelected.delete(wp.point)
+                  } else {
+                    newSelected.add(wp.point)
+                  }
+                  setSelectedWeakPointsToAdd(newSelected)
+                }}
+              >
+                <div className="flex items-start gap-3">
+                  <div className="mt-1">
+                    <Checkbox
+                      checked={selectedWeakPointsToAdd.has(wp.point)}
+                      onCheckedChange={(checked: boolean) => {
+                        const newSelected = new Set(selectedWeakPointsToAdd)
+                        if (checked) {
+                          newSelected.add(wp.point)
+                        } else {
+                          newSelected.delete(wp.point)
+                        }
+                        setSelectedWeakPointsToAdd(newSelected)
+                      }}
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-semibold">{wp.point}</span>
+                      <span className={`text-xs px-2 py-0.5 rounded ${
+                        wp.severity >= 4 ? 'bg-red-100 text-red-700' :
+                        wp.severity >= 3 ? 'bg-orange-100 text-orange-700' :
+                        'bg-yellow-100 text-yellow-700'
+                      }`}>
+                        严重度: {wp.severity}
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{wp.reason}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-between items-center pt-4 border-t">
+            <div className="text-sm text-gray-500">
+              已选择 {selectedWeakPointsToAdd.size} / {extractedWeakPoints.length} 个
+            </div>
+            <div className="flex gap-2">
+              <Button variant="outline" onClick={() => setShowWeakPointsDialog(false)}>
+                取消
+              </Button>
+              <Button
+                onClick={handleSaveSelectedWeakPoints}
+                disabled={selectedWeakPointsToAdd.size === 0 || savingWeakPoints}
+                className="bg-green-600 hover:bg-green-700"
+              >
+                {savingWeakPoints ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    保存中
+                  </>
+                ) : (
+                  <>
+                    <BookOpen className="w-4 h-4 mr-2" />
+                    保存并前往学习页面
+                  </>
+                )}
               </Button>
             </div>
           </div>
