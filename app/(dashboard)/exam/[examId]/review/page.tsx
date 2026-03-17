@@ -763,7 +763,60 @@ export default function ExamReviewPage() {
 
       {/* 题目列表 */}
       <div className="space-y-4">
-        {questions.map((question, index) => (
+        {questions.length === 0 ? (
+          <Card className="border-yellow-200 bg-yellow-50">
+            <CardHeader>
+              <CardTitle className="text-yellow-800">⚠️ 试卷数据不完整</CardTitle>
+              <CardDescription className="text-yellow-700">
+                该试卷尚未进行 OCR 识别，或识别失败导致题目数据为空。
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="text-sm text-gray-700">
+                <p className="font-medium mb-2">可能的原因：</p>
+                <ul className="list-disc list-inside space-y-1 ml-2">
+                  <li>上传时只选择了图片，没有完成 OCR 识别</li>
+                  <li>图片质量过低导致识别失败</li>
+                  <li>网络问题导致识别过程中断</li>
+                </ul>
+              </div>
+              <div className="flex gap-3">
+                <Button
+                  onClick={async () => {
+                    if (!confirm('确定要删除这个不完整的试卷吗？删除后需要重新上传。')) {
+                      return
+                    }
+                    try {
+                      const response = await fetch('/api/exam/batch-delete', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ examIds: [examId] })
+                      })
+                      if (response.ok) {
+                        alert('试卷已删除')
+                        window.location.href = '/exam'
+                      } else {
+                        alert('删除失败：' + (await response.text()))
+                      }
+                    } catch (error: any) {
+                      alert('删除失败：' + error.message)
+                    }
+                  }}
+                  variant="destructive"
+                >
+                  🗑️ 删除试卷
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => window.location.href = '/exam'}
+                >
+                  返回试卷列表
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          questions.map((question, index) => (
           <Card key={index} className={editingQuestion === question.number ? "ring-2 ring-blue-500" : ""}>
             <CardHeader>
               <div className="flex justify-between items-start">
@@ -925,7 +978,7 @@ export default function ExamReviewPage() {
               )}
             </CardContent>
           </Card>
-        ))}
+        )))}
       </div>
 
       {/* 操作按钮 */}
@@ -1175,6 +1228,7 @@ function QuestionImageDisplay({ question, examImageUrl }: { question: Question; 
 function QuestionCropCanvas({ question, examImageUrl }: { question: Question; examImageUrl: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageError, setImageError] = useState(false)
   const [processed, setProcessed] = useState(false)
 
   useEffect(() => {
@@ -1224,16 +1278,23 @@ function QuestionCropCanvas({ question, examImageUrl }: { question: Question; ex
         ctx.drawImage(tempCanvas, 0, 0, canvas.width, canvas.height)
 
         setImageLoaded(true)
+        setImageError(false)
         setProcessed(true)
       } catch (error) {
         console.error('Canvas draw error:', error)
         setImageLoaded(false)
+        setImageError(true)
       }
     }
 
     img.onerror = () => {
-      console.error('Image load error')
+      console.error('Image load error', {
+        url: examImageUrl,
+        bbox: question.bbox,
+        hasCanvas: !!canvasRef.current
+      })
       setImageLoaded(false)
+      setImageError(true)
     }
 
     img.src = examImageUrl
@@ -1290,13 +1351,22 @@ function QuestionCropCanvas({ question, examImageUrl }: { question: Question; ex
         <span>扫描效果</span>
         {processed && <span className="text-green-600">✓</span>}
       </div>
-      {!imageLoaded && (
+      {imageError ? (
+        <div className="p-8 text-center text-red-500">
+          <p className="font-medium mb-2">⚠️ 图片加载失败</p>
+          <p className="text-xs text-gray-500">
+            图片地址可能已过期或不存在
+            <br />
+            请尝试重新上传试卷
+          </p>
+        </div>
+      ) : !imageLoaded ? (
         <div className="p-8 text-center text-gray-500">
           加载图片中...
           <br />
           <span className="text-xs">(如果长时间未加载，可能图片地址已过期)</span>
         </div>
-      )}
+      ) : null}
       <canvas
         ref={canvasRef}
         className="w-full h-auto"
