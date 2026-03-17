@@ -1,0 +1,169 @@
+{
+  "id": "exam-1773592003768",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\n二、综合应用\n8. 如图是某超市里购物车的侧面示意图，扶手AB与车底CD平行，∠1=100°，∠2=52°，则∠3的度数是 48 °。\n9. 如图，把一张长方形纸片ABCD沿EF折叠后，点C，D分别落在C'，D'的位置，EC'交AD于点G。已知FGE=70°，则∠GFE的度数为 55 °。\n10. 如图AB//EF//CD，EM//BD，则图中与∠1相等的角（除∠1外）共有（ B ）\nA. 6个   B. 5个   C. 4个   D. 2个\n11. 如图，直线AB//CD//EF，点O在直线EF上，下列结论正确的是（ B ）\nA. ∠α+∠β-∠γ=90°\nB. α-∠β+∠γ=180°\nC. ∠γ+∠β-∠α=90°\nD. ∠α+∠β+∠γ=180°\n12. 如图，AD⊥BC，EF⊥BC，∠1=2，求证：AB//DG。\n13. 如图，∠1=∠2，∠C=∠D，那么∠A=∠F吗？试说明理由。\n三、能力拓展\n14. 如图1，已知直线l₁//l₂，点A，B在直线l₁上，点C，D在l₂上。线段AD、BC交点E，且∠BED=63°。\n(1) 求∠ABE+∠EDC的值；\n(2) 如图2，当F、G分别在线段AE、EC上，标记∠BFE为∠1，BGD为∠2。\n若∠1-∠2=12°，则∠ABC的度数为 63 °。\n②当k=1/2时，∠1+k∠2为定值，此时定值为 73.5 °。",
+  "questions": [
+    {
+      "number": "1",
+      "type": "fill",
+      "content": "如图是某超市里购物车的侧面示意图，扶手AB与车底CD平行，1=100°，∠2=52°，则∠3的度数是____。",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角性质"
+      ],
+      "userAnswer": "48",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8"
+    },
+    {
+      "number": "2",
+      "type": "fill",
+      "content": "如图，把一张长方形纸片ABCD沿EF折叠后，点C，D分别落在C'，D'的位置，EC'交AD于点G。已知∠FGE=70°，则∠GFE的度数为____。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "折叠问题",
+        "平行线的性质",
+        "三角形内角和"
+      ],
+      "userAnswer": "55",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "9"
+    },
+    {
+      "number": "3",
+      "type": "choice",
+      "content": "如图AB//EF//CD，EM//BD，则图中与∠1相等的角（除∠1外）共有（ ）",
+      "options": [
+        "6个",
+        "5个",
+        "4个",
+        "2个"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "10"
+    },
+    {
+      "number": "4",
+      "type": "choice",
+      "content": "如图，直线AB//CD//EF，点O在直线EF上，下列结论正确的是（ ）",
+      "options": [
+        "∠α+∠β-∠γ=90°",
+        "∠α-∠β+γ=180°",
+        "∠γ+∠β-∠α=90°",
+        "∠α+∠β+∠γ=180°"
+      ],
+      "score": 3,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角度计算"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "11"
+    },
+    {
+      "number": "5",
+      "type": "answer",
+      "content": "如图，ADBC，EF⊥BC，∠1=∠2，求证：AB//DG。",
+      "options": [],
+      "score": 6,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "垂直定义",
+        "平行线的判定与性质"
+      ],
+      "userAnswer": "证明：∵ADBC, EF⊥BC (已知) ∴∠EFB=90°, ∠ADB=90° (垂直定义) ∠EFB=∠ADB (等量代换) ∴EF//AD (同位角相等, 两直线平行) ∴∠1=∠BAD (两直线平行, 同位角相等) ∵∠1=∠2 (已知) ∠2=∠BAD (等量代换) ∴DG//AB (内错角相等, 两直线平行)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "12"
+    },
+    {
+      "number": "6",
+      "type": "answer",
+      "content": "如图，∠1=∠2，∠C=∠D，那么A=∠F吗？试说明理由。",
+      "options": [],
+      "score": 6,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "对顶角相等"
+      ],
+      "userAnswer": "∠A=∠F。理由如下：∵∠1=∠2 (已知), ∠2=∠DGF (对顶角相等) ∴∠1=∠DGF ∴BD//CE (同位角相等, 两直线平行) ∴C=∠ABD (两直线平行, 同位角相等) ∵∠C=∠D (已知) ∴∠D=∠ABD (等量代换) ∴DF//AC (内错角相等, 两直线平行) ∴∠A=F (两直线平行, 内错角相等)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "13",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-15T16:27:11.169Z",
+      "bbox": {
+        "x": 73.58156028368793,
+        "y": 57.47054703806176,
+        "width": 15.130023640661946,
+        "height": 10.56215459077891
+      }
+    },
+    {
+      "number": "7",
+      "type": "answer",
+      "content": "如图1，已知直线l₁//l₂，点A，B在直线l₁上，点C，D在l₂上。线段AD、BC交点E，且∠BED=63°。(1) 求∠ABE+∠EDC的值；",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角性质"
+      ],
+      "userAnswer": "63°",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "14(1)"
+    },
+    {
+      "number": "8",
+      "type": "answer",
+      "content": "如图2，当F、G分别在线段AE、EC上，标记∠BFE为1，∠BGD为∠2。\n①若∠1-∠2=12°，则∠ABC的度数为____。\n②当k=1/2时，∠1+k∠2为定值，此时定值为____。",
+      "options": [],
+      "score": 6,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角度计算",
+        "代数式求值"
+      ],
+      "userAnswer": "① 63°; ② 73.5°",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "14(2)"
+    }
+  ],
+  "pageCount": 1,
+  "createdAt": "2026-03-16 00:26:43",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 40,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-15T16:27:52.418Z"
+}

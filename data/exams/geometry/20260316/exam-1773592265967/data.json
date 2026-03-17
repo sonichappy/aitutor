@@ -1,0 +1,205 @@
+{
+  "id": "exam-1773592265967",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "7.2.3(1) 平行线的性质\n一、基础落实\n1. (1) 如图(1)，已知 a//b，∠1=60°，则∠2的度数是 60°，理由是 两直线平行，同位角相等\n(2) 如图(2)，l1//l2，则∠α的度数为 49°，理由是 两直线平行，内错角相等\n(3) 如图(3)，BAAE，∠EAC=40° 且 BA//DC，则∠C的度数是 130°\n(4) 如图(4)，若 a//b，∠1=50°，则∠2 = 50°\n2. 如图，一条公路的两侧铺设了 AB, CD 两条平行管道，并由纵向管道 AC 连通，若∠1=120°，则∠2的度数是 60°\n3. 如图，把一块直角三角板的直角顶点放在直尺的一边上，如果∠1=32°，那么∠2的度数是 58°\n4. 如图，直线 l1, l2, l3 交于一点，直线 l4//l1，若∠1=36°，∠2=56°，则3= 88°\n5. 如图，若 l1//l2，l3//l4，∠1=70°，则 ∠2 = 110°\n6. 如图，DE//AB，请根据已知进行推理并在括号内注明理由：\n(1) ∵DE//AB，( 已知 ) ∴∠2=∠5 . ( 两直线平行，内错角相等 )\n(2) ∵DE//AB，( 已知 ) ∴∠3=∠1 . ( 两直线平行，同位角相等 )\n(3) ∵DE//AB，( 已知 ) ∴∠1+∠2 =180°. ( 两直线平行，同旁内角互补 )\n7. 如图，已知 EF//AD，∠1=∠2，∠BAC=70°，将求∠AGD的过程填写完整并注明理由.\n解：EF//AD，∴∠1= 3 ，( 两直线平行，同位角相等 )\n∵∠1=∠2，∴∠2=3 ，( 等量代换 )\n∴AB//DG ，( 内错角相等，两直线平行 )\n∴BAC+∠AGD =180°，( 两直线平行，同旁内角互补 )\n∵∠BAC=70°，∴∠AGD= 110",
+  "questions": [
+    {
+      "number": "1.(1)",
+      "type": "fill",
+      "content": "如图（1），已知 a//b，∠1=60°，则∠2的度数是____，理由是____",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平行线的性质",
+        "同位角"
+      ],
+      "userAnswer": "60°，两直线平行，同位角相等",
+      "correctAnswer": ""
+    },
+    {
+      "number": "1.(2)",
+      "type": "fill",
+      "content": "如图（2），l1//l2，则∠α的度数为____，理由是____",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平行线的性质",
+        "内错角"
+      ],
+      "userAnswer": "49°，两直线平行，内错角相等",
+      "correctAnswer": ""
+    },
+    {
+      "number": "1.(3)",
+      "type": "fill",
+      "content": "如图（3），BA⊥AE，EAC=40° 且 BA//DC，则∠C的度数是____",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "垂直定义"
+      ],
+      "userAnswer": "130°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "1.(4)",
+      "type": "fill",
+      "content": "如图（4），若 a//b，∠1=50°，则∠2 =____",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平行线的性质",
+        "对顶角"
+      ],
+      "userAnswer": "50°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "2",
+      "type": "fill",
+      "content": "如图，一条公路的两侧铺设了 AB, CD 两条平行管道，并由纵向管道 AC 连通，若∠1=120°，则∠2的度数是____",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "同旁内角互补"
+      ],
+      "userAnswer": "60°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "3",
+      "type": "fill",
+      "content": "如图，把一块直角三角板的直角顶点放在直尺的一边上，如果∠1=32°，那么∠2的度数是____",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "余角"
+      ],
+      "userAnswer": "58°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "4",
+      "type": "fill",
+      "content": "如图，直线 l1, l2, l3 交于一点，直线 l4//l1，若∠1=36°，∠2=56°，则∠3=____",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角",
+        "对顶角"
+      ],
+      "userAnswer": "88°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "5",
+      "type": "fill",
+      "content": "如图，若 l1//l2，l3//l4，∠1=70°，则 ∠2 =____",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "同旁内角"
+      ],
+      "userAnswer": "110°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "6.(1)",
+      "type": "answer",
+      "content": "如图，DE//AB，请根据已知进行推理并在括号内注明理由：(1) ∵DE//AB，(____) ∴2=∠____ . (____)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "内错角"
+      ],
+      "userAnswer": "已知，5，两直线平行，内错角相等",
+      "correctAnswer": ""
+    },
+    {
+      "number": "6.(2)",
+      "type": "answer",
+      "content": "(2) ∵DE//AB，(____) ∴∠3=∠____ . (____)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "同位角"
+      ],
+      "userAnswer": "已知，1，两直线平行，同位角相等",
+      "correctAnswer": ""
+    },
+    {
+      "number": "6.(3)",
+      "type": "answer",
+      "content": "(3) ∵DE//AB，(____) ∠1+∠____ =180°. (____)",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "同旁内角"
+      ],
+      "userAnswer": "已知，2，两直线平行，同旁内角互补",
+      "correctAnswer": ""
+    },
+    {
+      "number": "7",
+      "type": "answer",
+      "content": "如图，已知 EF//AD，∠1=∠2，∠BAC=70°，将求∠AGD的过程填写完整并注明理由.\n解：∵EF//AD，∴∠1= ∠____，(____)\n∵∠1=∠2，∴∠2=∠____，(____)\n∴AB//____，(____)\n∴∠BAC+∠AGD =180°，(____)\n∵∠BAC=70°，∠AGD=____",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "逻辑推理"
+      ],
+      "userAnswer": "3，两直线平行，同位角相等；3，等量代换；DG，内错角相等，两直线平行；两直线平行，同旁内角互补；110",
+      "correctAnswer": ""
+    }
+  ],
+  "createdAt": "2026-03-16 00:31:05",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 2,
+    "estimatedTime": 20,
+    "knowledgePointsSummary": [
+      "平行线的性质",
+      "同位角",
+      "内错角",
+      "垂直定义",
+      "对顶角",
+      "同旁内角互补",
+      "余角",
+      "三角形外角",
+      "同旁内角",
+      "平行线的判定与性质",
+      "逻辑推理"
+    ],
+    "questionTypeStats": {
+      "fill": 8,
+      "answer": 4
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-15T16:31:05.974Z"
+}

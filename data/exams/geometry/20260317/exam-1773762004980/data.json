@@ -1,0 +1,515 @@
+{
+  "id": "exam-1773762004980",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "unit_test",
+  "rawText": "=== 第1页 ===\n2025 级初一数学《相交线与平行线》练习卷一\n班级 七(6) 姓名 王怡然 学号 37\n一、选择题（共 8 小题，每题 3 分，共 24 分）\n1. 如图，直线 AB, CD 被直线 EF 所截，∠1=55°，下列条件中能推出 AB//CD 的是（ C ）\nA. ∠2=35°\nB. ∠2=45°\nC. ∠2=55°\nD. ∠2=125°\n2. 点到直线的距离是指（ B ）改：D\nA. 直线外一点到这条直线的垂线段\nB. 直线外一点与这条直线上任意一点之间的距离\nC. 直线外一点到这条直线的垂线的长度\nD. 直线外一点到这条直线的垂线段的长度\n3. 如图，下列推理错误的是（ D ）\nA. ∵∠1=∠2, ∴a//b\nB. ∵∠2=∠4, ∴b//c\nC. ∵∠1+∠3=180°, ∴a//c\nD. ∵∠2+∠3=180°, ∴a//c\n4. 下列说法中正确的是（ C ）改：D\nA. 两条不相交的直线是平行线\nB. 同一平面内，两条不相交的线段是平行线\nC. 同一平面内，两条不相交的射线是平行线\nD. 两条射线平行，是指它们所在的直线平行\n5. 如图，直线 AB//CD，CE 交 AB 于 F，∠C=48°，则AFE 的度数是（ A ）\nA. 132°\nB. 120°\nC. 152°\nD. 136°\n6. 下列实际操作依据的数学道理是“垂线段最短”的是（ B ）\nA. 将弯曲的河道改直\nB. 测量跳远成绩\nC. 建筑工人砌墙拉参照线\nD. 公园建九曲桥\n7. 将两根矩形木条如图放置，固定其中一根，转动另一根，若∠1 增大 5°，则下列说法正确的是（ A ）\nA. ∠2 减小 5°\nB. ∠3 减小 5°\nC. ∠4 增大 5°\nD. ∠2 与4 的和不变\n8. 如图，直线 AB 上有一点 O，OMAB 于 O，另有直角COD 在平角∠AOB 内绕 O 点左右摆动（OC 与 OA、OD 与 OB 不重合），在摆动时，始终与∠MOD 保持相等的角是（ B ）\nA. ∠BOD\nB. ∠AOC\nC. ∠COM\nD. 没有\n\n=== 第2页 ===\n二、填空题（共8小题，每题3分，共24分）\n9. 如图，直线a，b相交于点O，∠2+3=60°，则∠1=150°.\n10. 如图1，要测量两堵围墙所形成的AOB的度数，但人不能进入围墙，如图2，小轩分别延长AO至点C，BO至点D，则可得∠AOB=∠COD，小轩测量∠AOB的依据是对顶角相等.\n11. 如图，如果∠2=100°，那么∠1的同位角等于80°，∠1的内错角等于80°，∠1的同旁内角等于100°.\n12. 在直线AB上任取一点O，过点O作射线OC、OD，使OC⊥OD，当∠AOC=30°时，∠BOD的度数是60°或120°.\n13. 如图，三角形ABC中，∠ACB=90°，CD⊥AB于点D，若AB=5，AC=3，BC=4，则点C到直线AB的距离是2.4.\n14. 如图，BCAE于点C，CD//AB，∠1=35°，则∠B=55°.\n15. 下列语句正确的序号是①③④（填序号）.\n①过一点有且只有一条直线与已知直线垂直；\n②过一点有且只有一条直线与已知直线平行；\n③如果两条直线都与第三条直线平行，那么这两条直线也互相平行；\n④在同一平面内，如果两条直线都与第三条直线垂直，那么这两条直线也互相平行.\n16. 如图，E是BA延长线上一点，有下列条件：\n①∠1=∠3；②∠5=∠B；③∠1=∠4且∠1=∠2；④∠B+∠BCD=180°，\n其中能推出AB//CD的是④（填序号）.\n三、解答题（本大题共5题，共52分）\n17. 如图，点P是∠AOB的边OB上的一点\n(1) 过点P画OA的平行线PQ\n(2) 过点P画OA的垂线，垂足为H\n(3) 过点P画OB的垂线，交OA于点C\n(4) 线段PH的长度是点P到OA的距离，线段PC是点C到直线OB的距离.\n(5) 线段PC、PH、OC这三条线段大小关系是PH<OC<PC（用“<”号连接）.\n\n=== 第3页 ===\n18. 如下图，直线AB与CD相交于点O，∠AOE=80°，且∠COE=3∠EOD. 求∠BOC的度数.\n∠COE=3∠EOD(已知), ∠AOE=80°\n∴设∠COE=3x, EOD=x\n∴3x+x+80=180\n4x=100\nx=25°\n∴3x=3×25°=75°\n∴∠COE=75°\n∴∠BOC=180°-∠COE=105°\n-10\n19. 如图，已知直线AB和CD相交于点O，OECD，OF平分∠BOE，∠AOC=18°，求BOE和∠DOF的度数.\n∵∠AOC=18°\n∴∠BOD=∠DOB=18°\n∵OE⊥CD\n∴∠BOE=∠EOD+∠DOB=108°\n∵OF平分∠BOE\n∴BOF=1/2∠BOE=54°\n∵∠DOB=18°\n∴∠DOF=BOF-∠DOB=36°\n答：∠BOE=108°, ∠DOF=36°\n-1\n3\n\n=== 第4页 ===\n20. 如图，点O为直线AB上一点，OF⊥OE，∠DOE=55°，OF平分∠AOD，∠D=110°。证明：CD // AB。\n证：∵∠DOE=55°，OF⊥OE（已知）\n∴∠FOD=∠FOE-∠DOE=35°\n∵OF平分∠AOD（已知）\n∴∠AOF=∠FOD=35°（角平分线定义）\n∴∠EOB=180°-∠AOF-∠FOD-DOE=55°\n∵D=110°（已知）\n∴∠D=∠DOE+EOB=110°\n∴CD // AB（内错角相等，两直线平行）\n\n21. 如图，直线AB // CD，BEC是一条折线段，BP平分ABE。若BP // CE，探究∠BEC和∠DCE的数量关系。\nBP平分∠ABE，BP // CE（已知）\n∴1/2∠ABE=∠PBE=∠BEC\n添加辅助线\n过E作EF // CD交BP于点G\n∵AB // CD\n∴EF // CD\n∵BP平分∠ABE\n∴∠4=5",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "如图，直线 AB, CD 被直线 EF 所截，∠1=55°，下列条件中能推出 AB//CD 的是",
+      "options": [
+        "∠2=35°",
+        "∠2=45°",
+        "2=55°",
+        "∠2=125°"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定",
+        "同位角相等"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1"
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "点到直线的距离是指",
+      "options": [
+        "直线外一点到这条直线的垂线段",
+        "直线外一点与这条直线上任意一点之间的距离",
+        "直线外一点到这条直线的垂线的长度",
+        "直线外一点到这条直线的垂线段的长度"
+      ],
+      "score": 3,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "点到直线的距离定义"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:41:24.352Z"
+    },
+    {
+      "number": "3",
+      "type": "choice",
+      "content": "如图，下列推理错误的是",
+      "options": [
+        "∵∠1=∠2, ∴a//b",
+        "∵∠2=∠4, b//c",
+        "∵∠1+∠3=180°, ∴a//c",
+        "∵∠2+∠3=180°, ∴a//c"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定",
+        "同位角",
+        "内错角",
+        "同旁内角"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3"
+    },
+    {
+      "number": "4",
+      "type": "choice",
+      "content": "下列说法中正确的是",
+      "options": [
+        "两条不相交的直线是平行线",
+        "同一平面内，两条不相交的线段是平行线",
+        "同一平面内，两条不相交的射线是平行线",
+        "两条射线平行，是指它们所在的直线平行"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的定义",
+        "射线与直线的关系"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:41:26.445Z"
+    },
+    {
+      "number": "5",
+      "type": "choice",
+      "content": "如图，直线 AB//CD，CE 交 AB 于 F，∠C=48°，则∠AFE 的度数是",
+      "options": [
+        "132°",
+        "120°",
+        "152°",
+        "136°"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "邻补角"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5"
+    },
+    {
+      "number": "6",
+      "type": "choice",
+      "content": "下列实际操作依据的数学道理是“垂线段最短”的是",
+      "options": [
+        "将弯曲的河道改直",
+        "测量跳远成绩",
+        "建筑工人砌墙拉参照线",
+        "公园建九曲桥"
+      ],
+      "score": 3,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "垂线段最短",
+        "两点之间线段最短"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6"
+    },
+    {
+      "number": "7",
+      "type": "choice",
+      "content": "将两根矩形木条如图放置，固定其中一根，转动另一根，若∠1 增大 5°，则下列说法正确的是",
+      "options": [
+        "∠2 减小 5°",
+        "∠3 减小 5°",
+        "∠4 增大 5°",
+        "∠2 与∠4 的和不变"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "对顶角",
+        "邻补角",
+        "角度变化关系"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "8",
+      "type": "choice",
+      "content": "如图，直线 AB 上有一点 O，OM⊥AB 于 O，另有直角∠COD 在平角∠AOB 内绕 O 点左右摆动（OC 与 OA、OD 与 OB 不重合），在摆动时，始终与MOD 保持相等的角是",
+      "options": [
+        "∠BOD",
+        "∠AOC",
+        "∠COM",
+        "没有"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "余角的性质",
+        "同角的余角相等"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8"
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "如图，直线a，b相交于点O，∠2+∠3=60°，则∠1=____.",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "对顶角",
+        "邻补角"
+      ],
+      "userAnswer": "150°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "9"
+    },
+    {
+      "number": "10",
+      "type": "fill",
+      "content": "如图1，要测量两堵围墙所形成的∠AOB的度数，但人不能进入围墙，如图2，小轩分别延长AO至点C，BO至点D，则可得∠AOB=∠COD，小轩测量∠AOB的依据是____.",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "对顶角相等"
+      ],
+      "userAnswer": "对顶角相等",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "10"
+    },
+    {
+      "number": "11",
+      "type": "fill",
+      "content": "如图，如果∠2=100°，那么∠1的同位角等于____，1的内错角等于____，∠1的同旁内角等于____.",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "同位角",
+        "内错角",
+        "同旁内角",
+        "邻补角"
+      ],
+      "userAnswer": "80°, 80°, 100°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11"
+    },
+    {
+      "number": "12",
+      "type": "fill",
+      "content": "在直线AB上任取一点O，过点O作射线OC、OD，使OC⊥OD，当∠AOC=30°时，∠BOD的度数是____.",
+      "options": [],
+      "score": 3,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "垂线定义",
+        "角的计算",
+        "分类讨论"
+      ],
+      "userAnswer": "60°或120°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:41:30.607Z"
+    },
+    {
+      "number": "13",
+      "type": "fill",
+      "content": "如图，三角形ABC中，∠ACB=90°，CDAB于点D，若AB=5，AC=3，BC=4，则点C到直线AB的距离是____.",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "点到直线的距离",
+        "三角形面积公式",
+        "勾股定理"
+      ],
+      "userAnswer": "2.4",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:41:43.375Z"
+    },
+    {
+      "number": "14",
+      "type": "fill",
+      "content": "如图，BC⊥AE于点C，CD//AB，∠1=35°，则∠B=____.",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "垂直定义",
+        "三角形内角和"
+      ],
+      "userAnswer": "55°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "14"
+    },
+    {
+      "number": "15",
+      "type": "fill",
+      "content": "下列语句正确的序号是____（填序号）.\n①过一点有且只有一条直线与已知直线垂直；\n②过一点有且只有一条直线与已知直线平行；\n③如果两条直线都与第三条直线平行，那么这两条直线也互相平行；\n④在同一平面内，如果两条直线都与第三条直线垂直，那么这两条直线也互相平行.",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行公理",
+        "垂线性质",
+        "平行线判定"
+      ],
+      "userAnswer": "①③④",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "15",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:41:32.103Z"
+    },
+    {
+      "number": "16",
+      "type": "fill",
+      "content": "如图，E是BA延长线上一点，有下列条件：\n①∠1=3；②∠5=∠B；③∠1=∠4且∠1=∠2；④∠B+∠BCD=180°，\n其中能推出AB//CD的是____（填序号）.",
+      "options": [],
+      "score": 3,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定"
+      ],
+      "userAnswer": "④",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "16"
+    },
+    {
+      "number": "17",
+      "type": "answer",
+      "content": "如图，点P是∠AOB的边OB上的一点。(1) 过点P画OA的平行线PQ",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "尺规作图",
+        "平行线画法"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "17(1)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:42:06.271Z"
+    },
+    {
+      "number": "18",
+      "type": "answer",
+      "content": "如图，点P是∠AOB的边OB上的一点。(2) 过点P画OA的垂线，垂足为H",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "尺规作图",
+        "垂线画法"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "17(2)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:42:06.981Z"
+    },
+    {
+      "number": "19",
+      "type": "answer",
+      "content": "如图，点P是∠AOB的边OB上的一点。(3) 过点P画OB的垂线，交OA于点C",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "尺规作图",
+        "垂线画法"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "17(3)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:42:08.374Z"
+    },
+    {
+      "number": "20",
+      "type": "fill",
+      "content": "如图，点P是∠AOB的边OB上的一点。(4) 线段PH的长度是点P到____的距离，____是点C到直线OB的距离.",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "点到直线的距离定义"
+      ],
+      "userAnswer": "OA, 线段PC",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "17(4)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:42:10.207Z"
+    },
+    {
+      "number": "21",
+      "type": "fill",
+      "content": "如图，点P是∠AOB的边OB上的一点。(5) 线段PC、PH、OC这三条线段大小关系是____（用“<”号连接）.",
+      "options": [],
+      "score": 2,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "垂线段最短",
+        "直角三角形斜边大于直角边"
+      ],
+      "userAnswer": "PH<OC<PC",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "17(5)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:42:11.345Z"
+    },
+    {
+      "number": "22",
+      "type": "answer",
+      "content": "如下图，直线AB与CD相交于点O，∠AOE=80°，且∠COE=3∠EOD. 求∠BOC的度数.",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "相交线",
+        "邻补角",
+        "角度计算"
+      ],
+      "userAnswer": "105°",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "18",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:43:25.021Z"
+    },
+    {
+      "number": "23",
+      "type": "answer",
+      "content": "如图，已知直线AB和CD相交于点O，OECD，OF平分∠BOE，∠AOC=18°，求BOE和∠DOF的度数.",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "垂直定义",
+        "对顶角",
+        "角平分线",
+        "角度计算"
+      ],
+      "userAnswer": "∠BOE=108°, ∠DOF=36°",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "19",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:43:26.201Z"
+    },
+    {
+      "number": "24",
+      "type": "answer",
+      "content": "如图，点O为直线AB上一点，OF⊥OE，DOE=55°，OF平分∠AOD，∠D=110°。证明：CD // AB。",
+      "options": [],
+      "score": 10,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "角平分线的定义",
+        "垂直的定义",
+        "角的计算"
+      ],
+      "userAnswer": "证：∵∠DOE=55°，OF⊥OE（已知）\n∴∠FOD=∠FOE-∠DOE=35°\n∵OF平分∠AOD（已知）\n∴∠AOF=FOD=35°（角平分线定义）\n∴∠EOB=180°-∠AOF-∠FOD-∠DOE=55°\n∵∠D=110°（已知）\n∴∠D=∠DOE+∠EOB=110°\n∴CD // AB（内错角相等，两直线平行）",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "20",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:43:27.732Z"
+    },
+    {
+      "number": "25",
+      "type": "answer",
+      "content": "如图，直线AB // CD，BEC是一条折线段，BP平分∠ABE。若BP // CE，探究∠BEC和∠DCE的数量关系。",
+      "options": [],
+      "score": 10,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角平分线的定义",
+        "辅助线的作法",
+        "几何探究"
+      ],
+      "userAnswer": "∵BP平分∠ABE，BP // CE（已知）\n∴1/2∠ABE=∠PBE=∠BEC\n添加辅助线：过E作EF // CD交BP于点G\n∵AB // CD\n∴EF // CD\n∵BP平分∠ABE\n∴∠4=∠5",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "21",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-17T15:43:28.395Z"
+    }
+  ],
+  "pageCount": 4,
+  "createdAt": "2026-03-17 23:40:04",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 125,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-17T15:43:30.020Z"
+}
