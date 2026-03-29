@@ -22,6 +22,7 @@ export async function GET(request: NextRequest) {
       imageUrl: exam.imageUrl,
       createdAt: exam.createdAt,
       updatedAt: exam.updatedAt,
+      testDate: (exam as any).testDate,  // 测试日期
       metadata: exam.metadata,
       // 返回题目对象的标记字段用于计算统计
       questions: exam.questions?.map((q: any) => ({

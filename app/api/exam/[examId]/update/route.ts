@@ -8,7 +8,7 @@ export async function POST(
   try {
     const { examId } = await params
     const body = await request.json()
-    const { examType, questions } = body
+    const { examType, questions, testDate } = body
 
     console.log(`[Update API] ExamId: ${examId}, Received:`, JSON.stringify(body, null, 2))
 
@@ -24,6 +24,11 @@ export async function POST(
     // 更新试卷类型
     if (examType) {
       examData.examType = examType
+    }
+
+    // 更新测试日期
+    if (testDate !== undefined) {
+      examData.testDate = testDate
     }
 
     // 更新题目列表（答题数据现在直接在题目对象中）

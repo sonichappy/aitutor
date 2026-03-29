@@ -14,6 +14,7 @@ interface ExamData {
   totalScore: number
   createdAt: string
   updatedAt: string
+  testDate?: string  // 测试日期
   questions?: Array<{
     userAnswer?: string
     correctAnswer?: string
@@ -38,7 +39,8 @@ const subjectNameMap: { [key: string]: string } = {
 export async function GET(request: NextRequest) {
   try {
     const examsDir = path.join(process.cwd(), 'data', 'exams')
-    const subjectTrends: { [key: string]: { date: string; score: number }[] } = {}
+    const subjectTrends: { [key: string]: { date: string; score: number; examCount: number }[] } = {}
+    const subjectExamCounts: { [key: string]: number } = {}
 
     // 读取所有学科的试卷
     const subjects = await fs.readdir(examsDir, { withFileTypes: true })
@@ -74,71 +76,125 @@ export async function GET(request: NextRequest) {
 
       await findExams(subjectPath)
 
-      // 按更新时间排序（批改时间）
+      // 按测试时间排序（如果没有测试时间，使用创建时间）
       exams.sort((a, b) => {
-        const dateA = new Date(a.updatedAt).getTime()
-        const dateB = new Date(b.updatedAt).getTime()
+        const dateA = new Date(a.testDate || a.createdAt).getTime()
+        const dateB = new Date(b.testDate || b.createdAt).getTime()
         return dateA - dateB
       })
 
       // 计算每次考试的分数（正确率）
-      const trend = exams.map(exam => {
-        const totalQuestions = exam.questions?.length || 0
-        let correctCount = 0
-
-        if (exam.questions) {
-          correctCount = exam.questions.filter(q => {
-            // 判断答案是否正确
-            if (q.userAnswer && q.correctAnswer) {
-              // 简单比较字符串
-              return q.userAnswer.trim() === q.correctAnswer.trim()
-            }
-            return false
-          }).length
+      // 使用与试卷中心相同的计算逻辑
+      const examScores = exams.map(exam => {
+        if (!exam.questions || exam.questions.length === 0) {
+          return {
+            date: exam.testDate || exam.createdAt,  // 使用测试时间
+            score: 100,  // 无题目的试卷默认满分
+            questionCount: 0
+          }
         }
 
-        const score = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0
+        let correctCount = 0  // 明确标记为做对的数量
+        let wrongCount = 0     // 标记为做错的数量
+        let skippedCount = 0   // 标记为不会做的数量
+        let markedCount = 0    // 已标记的数量
+        let correctScore = 0   // 做对题目得分
+        let totalScore = 0     // 题目总分
+
+        exam.questions.forEach((q: any) => {
+          totalScore += q.score || 0
+
+          if (q.isCorrect === true) {
+            correctCount++
+            correctScore += q.score || 0
+            markedCount++
+          } else if (q.isCorrect === false) {
+            wrongCount++
+            markedCount++
+          } else if (q.isSkipped) {
+            skippedCount++
+            markedCount++
+          }
+          // 未标记的题目不计入统计
+        })
+
+        // 如果没有任何标记过的题目，视为全对（100分）
+        if (markedCount === 0) {
+          return {
+            date: exam.testDate || exam.createdAt,  // 使用测试时间
+            score: 100,
+            questionCount: exam.questions.length
+          }
+        }
+
+        // 未标记的题目默认为做对
+        const unmarkedCount = exam.questions.length - markedCount
+        const totalCorrect = correctCount + unmarkedCount
+        totalScore = exam.questions.reduce((sum: number, q: any) => sum + (q.score || 0), 0)
+
+        // 计算正确率：做对题目得分 / 题目总分
+        const finalCorrectScore = correctScore + unmarkedCount * (totalScore / exam.questions.length)
+        const accuracy = totalScore > 0 ? Math.round((finalCorrectScore / totalScore) * 100) : 0
 
         return {
-          date: exam.updatedAt,
-          score: score
+          date: exam.testDate || exam.createdAt,  // 使用测试时间
+          score: accuracy,
+          questionCount: exam.questions.length
         }
       })
 
-      // 只保留至少有2次试卷记录的学科，且不是所有分数都为0（说明试卷已批改）
-      if (trend.length >= 2) {
-        const allZero = trend.every(t => t.score === 0)
-        if (!allZero) {
-          // 优先使用试卷中的学科名称，否则使用文件夹映射后的名称
-          let subjectName = exams[0]?.subjectName
-          if (!subjectName) {
-            subjectName = subjectNameMap[subjectDir.name] || subjectDir.name
-          }
-          subjectTrends[subjectName] = trend
-        }
-      }
-    }
+      // 按日期分组，同一天的多份试卷做加权平均
+      const dailyScores: { [date: string]: { totalScore: number; totalWeight: number; firstDate: string; examCount: number } } = {}
 
-    // 临时测试数据（演示用）- 仅在没有真实数据时添加
-    if (Object.keys(subjectTrends).length === 0) {
-      subjectTrends['英语'] = [
-        { date: '2026-03-01T10:00:00.000Z', score: 75 },
-        { date: '2026-03-08T10:00:00.000Z', score: 82 },
-        { date: '2026-03-15T10:00:00.000Z', score: 88 },
-        { date: '2026-03-22T10:00:00.000Z', score: 85 }
-      ]
-      subjectTrends['数学'] = [
-        { date: '2026-03-01T10:00:00.000Z', score: 68 },
-        { date: '2026-03-08T10:00:00.000Z', score: 72 },
-        { date: '2026-03-15T10:00:00.000Z', score: 65 },
-        { date: '2026-03-22T10:00:00.000Z', score: 78 }
-      ]
+      examScores.forEach(exam => {
+        const date = new Date(exam.date)
+        const dateKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+
+        if (!dailyScores[dateKey]) {
+          dailyScores[dateKey] = {
+            totalScore: 0,
+            totalWeight: 0,
+            firstDate: exam.date,
+            examCount: 0
+          }
+        }
+
+        // 使用题目数量作为权重
+        dailyScores[dateKey].totalScore += exam.score * exam.questionCount
+        dailyScores[dateKey].totalWeight += exam.questionCount
+        dailyScores[dateKey].examCount += 1
+      })
+
+      // 转换为趋势数组
+      const trend = Object.entries(dailyScores)
+        .map(([dateKey, data]) => ({
+          date: data.firstDate,
+          score: Math.round(data.totalScore / data.totalWeight),
+          examCount: data.examCount
+        }))
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+
+      // 计算总试卷数
+      const totalExamCount = exams.length
+
+      // 只保留至少有2次试卷记录的学科
+      // 即使分数为0（未批改）也显示，因为这是真实的提交记录
+      if (trend.length >= 2) {
+        // 优先使用试卷中的学科名称，否则使用文件夹映射后的名称
+        let subjectName = exams[0]?.subjectName
+        if (!subjectName) {
+          subjectName = subjectNameMap[subjectDir.name] || subjectDir.name
+        }
+        subjectTrends[subjectName] = trend
+        subjectExamCounts[subjectName] = totalExamCount
+      }
     }
 
     return NextResponse.json({
       success: true,
       data: {
-        subjectTrends
+        subjectTrends,
+        subjectExamCounts
       }
     })
   } catch (error: any) {

@@ -63,6 +63,7 @@ interface ExamData {
   rawText?: string
   questions: Question[]
   createdAt: string
+  testDate?: string  // 测试日期
   metadata?: {
     detectedSubject?: string
     overallDifficulty?: number
@@ -89,6 +90,8 @@ export default function ExamReviewPage() {
   const [annotatingQuestion, setAnnotatingQuestion] = useState<number | null>(null)  // 正在标注的题目
   const [examMetadata, setExamMetadata] = useState<ExamMetadata | null>(null)
   const [editingExamType, setEditingExamType] = useState(false)
+  const [editingTestDate, setEditingTestDate] = useState(false)
+  const [testDateValue, setTestDateValue] = useState("")
   const [questionMarks, setQuestionMarks] = useState<Record<number, 'correct' | 'wrong' | 'skipped'>>({})  // 使用数组索引作为 key
 
   // 多页图片支持
@@ -225,6 +228,45 @@ export default function ExamReviewPage() {
       console.error("Failed to update exam type:", error)
       alert("更新试卷类型失败")
     }
+  }
+
+  const handleTestDateChange = async (newTestDate: string) => {
+    try {
+      const response = await fetch(`/api/exam/${examId}/update`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ testDate: newTestDate || null }),
+      })
+
+      if (response.ok) {
+        // Update local state
+        if (examData) {
+          setExamData({ ...examData, testDate: newTestDate || undefined })
+        }
+        // Update sessionStorage
+        const stored = sessionStorage.getItem(`exam_${examId}`)
+        if (stored) {
+          const data = JSON.parse(stored)
+          data.testDate = newTestDate || undefined
+          sessionStorage.setItem(`exam_${examId}`, JSON.stringify(data))
+        }
+        setEditingTestDate(false)
+        setTestDateValue("")
+      }
+    } catch (error) {
+      console.error("Failed to update test date:", error)
+      alert("更新测试时间失败")
+    }
+  }
+
+  const handleStartEditTestDate = () => {
+    setTestDateValue(examData?.testDate || "")
+    setEditingTestDate(true)
+  }
+
+  const handleCancelEditTestDate = () => {
+    setEditingTestDate(false)
+    setTestDateValue("")
   }
 
   const handleEditStart = (questionNum: number, content: string) => {
@@ -635,6 +677,62 @@ export default function ExamReviewPage() {
                   onClick={() => setEditingExamType(true)}
                 >
                   {getExamTypeInfo()?.icon || "📝"} {getExamTypeInfo()?.name || examData?.examType || "未设置"}
+                </Button>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* 测试时间编辑卡片 */}
+      <Card>
+        <CardContent className="pt-6">
+          {/* 测试时间编辑 */}
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300">测试时间</p>
+              <p className="text-xs text-gray-500 mt-1">
+                {examData?.testDate
+                  ? new Date(examData.testDate).toLocaleDateString('zh-CN', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })
+                  : "默认为上传时间"}
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              {editingTestDate ? (
+                <>
+                  <input
+                    type="date"
+                    value={testDateValue}
+                    onChange={(e) => setTestDateValue(e.target.value)}
+                    max={new Date().toISOString().split('T')[0]}
+                    className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => handleTestDateChange(testDateValue)}
+                  >
+                    ✓
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={handleCancelEditTestDate}
+                  >
+                    ✗
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleStartEditTestDate}
+                >
+                  📅 {examData?.testDate ? "修改" : "设置"}
                 </Button>
               )}
             </div>

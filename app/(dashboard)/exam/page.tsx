@@ -46,6 +46,7 @@ interface ExamListItem {
   imageUrl?: string
   createdAt: string
   updatedAt?: string
+  testDate?: string  // 测试日期
   metadata?: {
     detectedSubject?: string
     overallDifficulty?: number
@@ -345,11 +346,13 @@ export default function ExamPage() {
       }, {} as Record<string, ExamListItem[]>)
     : { [selectedSubject]: exams.filter(e => e.subject === selectedSubject) }
 
-  // 对每个科目的试卷按时间从新往旧排序
+  // 对每个科目的试卷按时间从新往旧排序（使用测试时间，如果没有则使用创建时间）
   Object.keys(groupedExams).forEach(subject => {
-    groupedExams[subject].sort((a, b) =>
-      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    )
+    groupedExams[subject].sort((a, b) => {
+      const dateA = new Date(a.testDate || a.createdAt).getTime()
+      const dateB = new Date(b.testDate || b.createdAt).getTime()
+      return dateB - dateA
+    })
   })
 
   // 获取所有科目的排序列表（按试卷数量，多的在前）
@@ -557,7 +560,7 @@ export default function ExamPage() {
                                   </CardTitle>
                                   {/* 日期 - 突出显示 */}
                                   <div className="text-sm font-semibold text-blue-600 mt-1">
-                                    {formatDate(exam.createdAt)}
+                                    {formatDate(exam.testDate || exam.createdAt)}
                                   </div>
                                   {/* 页数（如果是多页试卷） */}
                                   {exam.pageCount && exam.pageCount > 1 && (

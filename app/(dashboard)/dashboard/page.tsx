@@ -8,10 +8,12 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 interface SubjectTrend {
   date: string
   score: number
+  examCount: number
 }
 
 export default function DashboardPage() {
   const [subjectTrends, setSubjectTrends] = useState<{ [key: string]: SubjectTrend[] }>({})
+  const [subjectExamCounts, setSubjectExamCounts] = useState<{ [key: string]: number }>({})
   const [loadingTrends, setLoadingTrends] = useState(true)
 
   useEffect(() => {
@@ -22,6 +24,7 @@ export default function DashboardPage() {
         if (response.ok) {
           const data = await response.json()
           setSubjectTrends(data.data?.subjectTrends || {})
+          setSubjectExamCounts(data.data?.subjectExamCounts || {})
         }
       } catch (error) {
         console.error("Failed to load subject trends:", error)
@@ -44,13 +47,52 @@ export default function DashboardPage() {
     "道法": "#6366f1",
   }
 
+  // 学期结束日期（6月30日）
+  const SEMESTER_END = new Date(new Date().getFullYear(), 5, 30)
+  const TODAY = new Date()
+
+  // 生成完整的时间轴数据（从第一次提交到6月30日）
+  const generateSemesterData = (trends: SubjectTrend[]) => {
+    if (trends.length === 0) return []
+
+    // 找到第一次提交的日期
+    const firstExamDate = new Date(trends[0].date)
+
+    // 创建一个日期分数映射
+    const scoreMap = new Map<string, number>()
+    trends.forEach(trend => {
+      const date = new Date(trend.date)
+      const dateKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+      scoreMap.set(dateKey, trend.score)
+    })
+
+    // 生成从第一次提交到6月30日（或今天，取较早者）的所有日期
+    const data = []
+    let currentDate = new Date(firstExamDate)
+    const endDate = new Date(Math.min(TODAY.getTime(), SEMESTER_END.getTime()))
+
+    while (currentDate <= endDate) {
+      const dateKey = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`
+      const month = String(currentDate.getMonth() + 1).padStart(2, '0')
+      const day = String(currentDate.getDate()).padStart(2, '0')
+      const dateStr = `${month}-${day}`
+
+      data.push({
+        name: dateStr,
+        score: scoreMap.get(dateKey) ?? null, // 没有数据的日期为null
+        fullDate: currentDate.toLocaleDateString('zh-CN')
+      })
+
+      // 移到下一天
+      currentDate.setDate(currentDate.getDate() + 1)
+    }
+
+    return data
+  }
+
   // 格式化趋势数据用于图表显示
   const formatTrendData = (trends: SubjectTrend[]) => {
-    return trends.map((trend, index) => ({
-      name: `第${index + 1}次`,
-      score: trend.score,
-      date: new Date(trend.date).toLocaleDateString('zh-CN')
-    }))
+    return generateSemesterData(trends)
   }
 
   return (
@@ -63,57 +105,87 @@ export default function DashboardPage() {
               本学期成绩变化趋势
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mt-1">
-              基于试卷提交记录（至少2次试卷的学科）
+              基于试卷提交记录，横轴从首次提交至本学期末（6月30日），纵轴为正确率（至少2次试卷的学科）
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {Object.entries(subjectTrends).map(([subject, trends]) => (
-              <Card key={subject}>
-                <CardHeader>
-                  <CardTitle className="text-lg">{subject}</CardTitle>
-                  <CardDescription>
-                    共 {trends.length} 次试卷记录
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ResponsiveContainer width="100%" height={250}>
-                    <LineChart
-                      data={formatTrendData(trends)}
-                      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                      <XAxis
-                        dataKey="name"
-                        tick={{ fontSize: 12 }}
-                        stroke="#6b7280"
-                      />
-                      <YAxis
-                        domain={[0, 100]}
-                        tick={{ fontSize: 12 }}
-                        stroke="#6b7280"
-                        label={{ value: '分数', angle: -90, position: 'insideLeft', offset: -5, style: { fontSize: 12 } }}
-                      />
-                      <Tooltip
-                        contentStyle={{
-                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                          border: '1px solid #e5e7eb',
-                          borderRadius: '6px'
-                        }}
-                        formatter={(value: any) => [`${value}分`, '分数']}
-                      />
-                      <Line
-                        type="monotone"
-                        dataKey="score"
-                        stroke={subjectColors[subject] || "#6b7280"}
-                        strokeWidth={2}
-                        dot={{ fill: subjectColors[subject] || "#6b7280", r: 4 }}
-                        connectNulls={false}
-                      />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 gap-6">
+            {Object.entries(subjectTrends).map(([subject, trends]) => {
+              const chartData = formatTrendData(trends)
+              return (
+                <Card key={subject}>
+                  <CardHeader>
+                    <CardTitle className="text-lg">{subject}</CardTitle>
+                    <CardDescription>
+                      共 {subjectExamCounts[subject] || 0} 次试卷记录（{trends.length} 个学习日）
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ResponsiveContainer width="100%" height={300}>
+                      <LineChart
+                        data={chartData}
+                        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                        <XAxis
+                          dataKey="name"
+                          tick={{ fontSize: 11 }}
+                          stroke="#6b7280"
+                          interval={0}
+                          tickFormatter={(value: string, index: number) => {
+                            const date = new Date(chartData[index]?.fullDate || '')
+                            const day = date.getDate()
+                            // 只显示1日、15日和最后一天
+                            return (day === 1 || day === 15 || index === chartData.length - 1) ? value : ''
+                          }}
+                        />
+                        <YAxis
+                          domain={[0, 100]}
+                          tick={{ fontSize: 12 }}
+                          stroke="#6b7280"
+                          label={{ value: '正确率 (%)', angle: -90, position: 'insideLeft', offset: -5, style: { fontSize: 12 } }}
+                        />
+                        <Tooltip
+                          contentStyle={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                            border: '1px solid #e5e7eb',
+                            borderRadius: '6px'
+                          }}
+                          formatter={(value: any, name: string, props: any) => {
+                            if (value === null) return ['无数据', '']
+                            if (name === 'score') {
+                              return [`${value}%`, '正确率']
+                            }
+                            return [value, name]
+                          }}
+                          labelFormatter={(label: string) => {
+                            const dataPoint = chartData.find(d => d.name === label)
+                            return dataPoint?.fullDate || label
+                          }}
+                        />
+                        <Line
+                          type="monotone"
+                          dataKey="score"
+                          stroke={subjectColors[subject] || "#6b7280"}
+                          strokeWidth={2}
+                          dot={{ fill: subjectColors[subject] || "#6b7280", r: 4 }}
+                          label={(props: any) => {
+                            const { x, y, value } = props
+                            // 只在有数据的点显示标签
+                            if (value === null || value === undefined) return null
+                            return (
+                              <text x={x} y={y - 8} textAnchor="middle" fontSize={11} fontWeight={600} fill={subjectColors[subject] || "#6b7280"}>
+                                {value}%
+                              </text>
+                            )
+                          }}
+                          connectNulls={true}
+                        />
+                      </LineChart>
+                    </ResponsiveContainer>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
         </div>
       )}

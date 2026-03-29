@@ -149,6 +149,7 @@ export async function handleMergeParse(request: NextRequest): Promise<NextRespon
     const files = formData.getAll("files") as File[]
     const subject = formData.get("subject") as string | null
     const customPrompt = formData.get("customPrompt") as string | null
+    const testDate = formData.get("testDate") as string | null
 
     if (!files || files.length === 0) {
       return NextResponse.json(
@@ -179,7 +180,7 @@ export async function handleMergeParse(request: NextRequest): Promise<NextRespon
       const batch = files.slice(i, i + CONCURRENCY)
       const batchResults = await Promise.allSettled(
         batch.map(async (file, batchIdx) => {
-          const input = await convertFormDataToInput(file, subject, customPrompt)
+          const input = await convertFormDataToInput(file, subject, customPrompt, testDate)
           // 重要：设置 saveData: false，防止每个图片单独保存
           input.saveData = false
           return await parseExamImage(input)
@@ -208,7 +209,7 @@ export async function handleMergeParse(request: NextRequest): Promise<NextRespon
     }
 
     // 合并结果
-    const mergedResult = mergeParseResults(successfulResults.map(r => r.data!))
+    const mergedResult = mergeParseResults(successfulResults.map(r => r.data!), testDate)
 
     console.log(`[handleMergeParse] Merged ${successfulResults.length} pages, ${mergedResult.questions.length} questions total`)
 
@@ -256,7 +257,7 @@ function mergeParseResults(results: Array<{
   examId: string
   examData: any
   questions: any[]
-}>) {
+}>, testDate?: string | null) {
   // 使用第一个结果作为基础
   const firstResult = results[0]
   const baseQuestions = firstResult.questions || []
@@ -332,6 +333,8 @@ function mergeParseResults(results: Array<{
     questions: allQuestions,
     pageCount: results.length,
     createdAt: chinaTime,
+    updatedAt: chinaTime,
+    testDate: testDate || chinaTime,  // 使用用户提供的测试日期，默认为创建时间
     metadata: {
       detectedSubject: firstResult.examData?.metadata?.detectedSubject,
       overallDifficulty,
@@ -355,6 +358,7 @@ function mergeParseResults(results: Array<{
     questions: allQuestions,
     pageCount: results.length,
     createdAt: new Date().toISOString(),
+    testDate: testDate || new Date().toISOString(),  // 包含测试日期
   }
 
   return {
@@ -376,7 +380,8 @@ function mergeParseResults(results: Array<{
 async function convertFormDataToInput(
   file: File,
   subject?: string | null,
-  customPrompt?: string | null
+  customPrompt?: string | null,
+  testDate?: string | null
 ): Promise<ParseExamInput> {
   const bytes = await file.arrayBuffer()
   const buffer = Buffer.from(bytes)
@@ -389,6 +394,7 @@ async function convertFormDataToInput(
     },
     subject: subject || undefined,
     customPrompt: customPrompt || undefined,
+    testDate: testDate || undefined,
     userId: "user-1"
   }
 }

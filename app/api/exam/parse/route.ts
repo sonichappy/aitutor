@@ -372,7 +372,9 @@ ${content}
       examType: parsed.examType || "daily_homework", // 默认为日常作业
       rawText: content,  // 使用 rawText 字段存储文本内容
       questions: cleanedQuestions,
-      createdAt: chinaTime,  // 使用中国时区时间
+      createdAt: chinaTime,  // 创建时间
+      updatedAt: chinaTime,  // 更新时间
+      testDate: chinaTime,  // 测试时间，默认与创建时间相同
       metadata: {
         detectedSubject: parsed.detectedSubject,
         overallDifficulty: parsed.overallDifficulty || Math.round(avgDifficulty),

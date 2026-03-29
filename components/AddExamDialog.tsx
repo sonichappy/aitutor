@@ -22,6 +22,7 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
   const [activeTab, setActiveTab] = useState<"text" | "image">("image")
   const [content, setContent] = useState("")
   const [customPrompt, setCustomPrompt] = useState("")
+  const [testDate, setTestDate] = useState("")
   const [isParsing, setIsParsing] = useState(false)
   const [imageFiles, setImageFiles] = useState<ImageFile[]>([])
 
@@ -50,6 +51,9 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
         if (customPrompt.trim()) {
           formData.append("customPrompt", customPrompt.trim())
         }
+        if (testDate) {
+          formData.append("testDate", testDate)
+        }
 
         response = await fetch("/api/exam/parse-merge", {
           method: "POST",
@@ -63,6 +67,7 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
           body: JSON.stringify({
             content,
             customPrompt: customPrompt.trim() || undefined,
+            testDate: testDate || undefined,
           }),
         })
         errorMsg = "试卷解析失败"
@@ -102,6 +107,7 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
       // 重置表单
       setContent("")
       setCustomPrompt("")
+      setTestDate("")
       setImageFiles([])
 
       // 关闭对话框并跳转到确认页面
@@ -121,6 +127,7 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
       // 重置表单
       setContent("")
       setCustomPrompt("")
+      setTestDate("")
       setImageFiles([])
       setActiveTab("image")
     }
@@ -149,6 +156,23 @@ export function AddExamDialog({ open, onOpenChange }: AddExamDialogProps) {
               />
               <p className="text-xs text-gray-500">
                 💡 提示：如果试卷格式特殊或需要重点识别某些内容，可以在这里说明。留空则使用通用识别规则。
+              </p>
+            </div>
+          </div>
+
+          {/* 测试时间 */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-medium">测试时间（可选）</h3>
+            <div className="space-y-2">
+              <input
+                type="date"
+                value={testDate}
+                onChange={(e) => setTestDate(e.target.value)}
+                max={new Date().toISOString().split('T')[0]}
+                className="w-full p-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <p className="text-xs text-gray-500">
+                💡 提示：可选择试卷实际测试日期。留空则默认使用上传时间。
               </p>
             </div>
           </div>

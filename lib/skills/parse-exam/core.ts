@@ -27,6 +27,7 @@ export interface ParseExamInput {
   // 可选参数
   subject?: string
   customPrompt?: string
+  testDate?: string    // 测试日期（可选，默认为当前时间）
   userId?: string
   saveData?: boolean  // 是否保存数据到文件系统（默认 true）
 }
@@ -259,6 +260,8 @@ async function processParsedData(
     rawText: parsed.rawText || "",
     questions: cleanedQuestions,
     createdAt: chinaTime,
+    updatedAt: chinaTime,
+    testDate: input.testDate || chinaTime,  // 使用用户提供的测试日期，默认为创建时间
     metadata: {
       detectedSubject: parsed.detectedSubject,
       overallDifficulty: parsed.overallDifficulty || Math.round(avgDifficulty),
@@ -282,6 +285,7 @@ async function processParsedData(
     rawText: parsed.rawText || "",
     questions: parsed.questions || [],
     createdAt: new Date().toISOString(),
+    testDate: input.testDate || new Date().toISOString(),  // 包含测试日期
   }
 
   return {
