@@ -1,0 +1,160 @@
+{
+  "id": "exam-1773764927642",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "二、综合应用\n7. 如图，AB // EF，设∠C = 90°，那么x、y和z的关系是 ( B )\nA. y = x + z    B. x + y + z = 180°\nC. x + y - z = 90°    D. y + z - x = 90°\n8. 如图，已知 AB // CD，且∠ABE=70°，∠ECD=150°，则∠BEC= 40° .\n9. 车库的电动门栏杆如图(2)所示，BA垂直于地面AE于点A，CD平行于地面AE，则∠ABC + ∠BCD 的大小是 270° .\n10. 如图是一款长臂折叠LED护眼灯示意图，EF与DF垂直，当发光的灯管AB恰好与EF平行时，∠BAC = 110°，∠ACD = 105°，则∠CDF的度数为 25° .\n11. 滑雪深受年轻人的喜欢，滑雪时正确的滑雪姿势尤为重要。如图①，正确的滑雪姿势是上身挺直略前倾，与小腿平行，使脚的根部处于微微受力的状态。图(4)②是其示意图，已知FG // AC，BD // EF，则当∠CBD=120°时，上身与水平线夹角∠EFG的度数为 60° .\n三、能力拓展\n12. 经过平行线中的“拐点”作平行线是解决与平行线有关问题的常用思路.\n(1) 如图1，AB // CD，点E，F分别在直线AB，CD上，点M在AB，CD之间。过点M作MP // AB，利用平行线的性质可以得出∠1，∠2，∠EMF之间的数量关系为 ∠EMF = ∠1 + ∠2 ;\n(2) 用同样的辅助线还可以得到图1中∠BEM，∠EMF，MFD之间的数量关系，请写出此关系并说明理由；\n(3) 图2为北斗七星的位置图。将北斗七星从摇光到天枢依次标为A，B，C，D，E，F，G，并将A，B，C，D，E，F，G顺次首尾连接，得到如图3。若AG恰好经过点C，且B，C，D在一条直线上，AG // EF，∠B = ∠D + 18°，E = 100°，则∠B - ∠DCG的度数为 118° .",
+  "questions": [
+    {
+      "number": "7",
+      "type": "choice",
+      "content": "如图，AB // EF，设∠C = 90°，那么x、y和z的关系是 ( )",
+      "options": [
+        "y = x + z",
+        "x + y + z = 180°",
+        "x + y - z = 90°",
+        "y + z - x = 90°"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "拐点模型"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-28T12:43:28.159Z"
+    },
+    {
+      "number": "8",
+      "type": "fill",
+      "content": "如图，已知 AB // CD，且∠ABE=70°，∠ECD=150°，则∠BEC= ______ .",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角度计算"
+      ],
+      "userAnswer": "40°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "车库的电动门栏杆如图(2)所示，BA垂直于地面AE于点A，CD平行于地面AE，则ABC + ∠BCD 的大小是 ______ .",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "垂直定义"
+      ],
+      "userAnswer": "270°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "10",
+      "type": "fill",
+      "content": "如图是一款长臂折叠LED护眼灯示意图，EF与DF垂直，当发光的灯管AB恰好与EF平行时，∠BAC = 110°，∠ACD = 105°，则∠CDF的度数为 ______ .",
+      "options": [],
+      "score": 3,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "垂直定义",
+        "角度计算"
+      ],
+      "userAnswer": "25°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "11",
+      "type": "fill",
+      "content": "滑雪深受年轻人的喜欢，滑雪时正确的滑雪姿势尤为重要。如图①，正确的滑雪姿势是上身挺直略前倾，与小腿平行，使脚的根部处于微微受力的状态。图②是其示意图，已知FG // AC，BD // EF，则当∠CBD=120°时，上身与水平线夹角∠EFG的度数为 ______ .",
+      "options": [],
+      "score": 3,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "实际应用"
+      ],
+      "userAnswer": "60°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "12(1)",
+      "type": "fill",
+      "content": "经过平行线中的“拐点”作平行线是解决与平行线有关问题的常用思路。如图1，AB // CD，点E，F分别在直线AB，CD上，点M在AB，CD之间。过点M作MP // AB，利用平行线的性质可以得出∠1，∠2，∠EMF之间的数量关系为 ______ ;",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "辅助线作法"
+      ],
+      "userAnswer": "∠EMF = ∠1 + ∠2",
+      "correctAnswer": ""
+    },
+    {
+      "number": "12(2)",
+      "type": "answer",
+      "content": "用同样的辅助线还可以得到图1中∠BEM，∠EMF，∠MFD之间的数量关系，请写出此关系并说明理由；",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "逻辑推理"
+      ],
+      "userAnswer": "∠BEF = 180° - ∠1, ∠EMF = ∠1 + 2, ∠MFD = 180° - ∠2",
+      "correctAnswer": "",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-28T12:43:34.988Z"
+    },
+    {
+      "number": "12(3)",
+      "type": "fill",
+      "content": "图2为北斗七星的位置图。将北斗七星从摇光到天枢依次标为A，B，C，D，E，F，G，并将A，B，C，D，E，F，G顺次首尾连接，得到如图3。若AG恰好经过点C，且B，C，D在一条直线上，AG // EF，∠B = ∠D + 18°，∠E = 100°，则∠B - ∠DCG的度数为 ______ .",
+      "options": [],
+      "score": 5,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角性质",
+        "复杂角度计算"
+      ],
+      "userAnswer": "118°",
+      "correctAnswer": ""
+    }
+  ],
+  "createdAt": "2026-03-18 00:28:47",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 3,
+    "estimatedTime": 20,
+    "knowledgePointsSummary": [
+      "平行线的性质",
+      "拐点模型",
+      "角度计算",
+      "垂直定义",
+      "实际应用",
+      "辅助线作法",
+      "逻辑推理",
+      "三角形外角性质",
+      "复杂角度计算"
+    ],
+    "questionTypeStats": {
+      "choice": 1,
+      "fill": 6,
+      "answer": 1
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-28T12:43:39.010Z"
+}

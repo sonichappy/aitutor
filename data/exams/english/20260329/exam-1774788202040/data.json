@@ -1,0 +1,733 @@
+{
+  "id": "exam-1774788202040",
+  "userId": "user-1",
+  "subject": "english",
+  "subjectName": "英语",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\nD. best\n2. He _ goes to bed before 10 PM. He's always tired in the morning.\nA. always\nB. usually\nC. often\nD. never\n3. Please speak _. The baby is sleeping.\nA. quiet\nB. quietly\nC. quick\nD. loud\n4. I've _ finished my homework. Now I can watch TV.\nA. yet\nB. still\nC. already\nD. never\n5. They work _. They're very dedicated.\nA. hardly\nB. hard\nC. hardy\nD. hardship\n6. She is _ tired to continue working.\nA. very\nB. so\nC. too\nD. quite\n7. _ do you go to the library? — Twice a week.\nA. What\nB. When\nC. How often\nD. Where\n8. He drives _. Be careful in his car.\nA. dangerous\nB. dangerously\nC. danger\n\n=== 第2页 ===\nD. more dangerous\n9. I looked _ for my keys, but I couldn't find them.\nA. somewhere\nB. anywhere\nC. everywhere\nD. nowhere\n10. She's _ intelligent. She gets good grades in all subjects.\nA. extreme\nB. extremely\nC. extremity\nD. more extreme\n11. She has _ finished her meal. She's watching TV now.\nA. yet\nB. already\nC. still\nD. never\n12. He's not tall _ to play basketball professionally.\nA. very\nB. too\nC. enough\nD. so\n13. My sister _ helps me with my homework. She's very busy.\nA. always\nB. usually\nC. often\nD. rarely\n14. Come _! I want to show you something.\nA. there\nB. here\nC. everywhere\nD. anywhere\n15. She did _ on the test. She got 98 points!\nA. surprising good\nB. surprising well\nC. surprisingly good\nD. surprisingly well\n\n=== 第3页 ===\n第二部分：用括号内单词的适当形式填空（每题2分，共20分）\n16. He runs _ (fast) than his brother. (用比较级) faster\n17. She speaks English very _ (good). well\n18. They _ (usual) have dinner at 7 PM. usually\n19. Please listen _ (careful) to the teacher. carefully\n20. I'm _ (terrible) sorry for being late. terribly\n21. He works _ (hard) than anyone else in the class. (用比较级) harder\n22. She _ (rare) eats junk food. She prefers healthy food. rarely\n23. The children are playing _ (happy) in the garden. happily\n24. I can _ (hard) hear you. Could you speak louder? hardly\n25. He did _ (bad) on the exam because he didn't study. badly\n第三部分：频率副词位置练习（每题2分，共10分）\n26. I drink coffee in the morning. (always) -> always\n27. She is late for school. (never) -> never\n28. They go to the cinema on weekends. (sometimes) -> sometimes\n29. We have finished our project. (already) -> already\n30. He can understand Chinese. (almost) -> almost\n第四部分：改错题（每题3分，共15分）\n31. She sings good. -> She sings well.\n32. I always am hungry after school. -> I am always hungry after school.\n33. He is enough old to drive a car. -> He is old enough to drive a car.\n34. They work hardly every day. -> They work hard every day.\n\n=== 第4页 ===\n35. Please speak more slow.\n→ Please speak slowly\nmore\n第五部分：翻译题（每题5分，共25分）\n36. 她总是很早就起床。\n→ She always get up ealy.\n37. 他英语说得很好。\n→ He speaks English well\n38. 我几乎每天完成作业。\n→ I almost finish homework everyday.\n39. 请安静地走进房间。\n→ Please walk room quietly.\n40. 他工作太努力了，所以需要休息。\n→ He works hard, so need to have a rest.",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "He _ goes to bed before 10 PM. He's always tired in the morning.",
+      "options": [
+        "always",
+        "usually",
+        "often",
+        "never"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "频率副词",
+        "上下文逻辑推理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T13:16:37.004Z"
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "Please speak _. The baby is sleeping.",
+      "options": [
+        "quiet",
+        "quietly",
+        "quick",
+        "loud"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "副词用法",
+        "修饰动词"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3"
+    },
+    {
+      "number": "3",
+      "type": "choice",
+      "content": "I've _ finished my homework. Now I can watch TV.",
+      "options": [
+        "yet",
+        "still",
+        "already",
+        "never"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "现在完成时",
+        "副词辨析"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4"
+    },
+    {
+      "number": "4",
+      "type": "choice",
+      "content": "They work _. They're very dedicated.",
+      "options": [
+        "hardly",
+        "hard",
+        "hardy",
+        "hardship"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "hard与hardly的区别",
+        "词义辨析"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5"
+    },
+    {
+      "number": "5",
+      "type": "choice",
+      "content": "She is _ tired to continue working.",
+      "options": [
+        "very",
+        "so",
+        "too",
+        "quite"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "too...to结构",
+        "固定搭配"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6"
+    },
+    {
+      "number": "6",
+      "type": "choice",
+      "content": "_ do you go to the library? — Twice a week.",
+      "options": [
+        "What",
+        "When",
+        "How often",
+        "Where"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "特殊疑问词",
+        "频率提问"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "7",
+      "type": "choice",
+      "content": "He drives _. Be careful in his car.",
+      "options": [
+        "dangerous",
+        "dangerously",
+        "danger"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "副词修饰动词",
+        "词性转换"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8"
+    },
+    {
+      "number": "8",
+      "type": "choice",
+      "content": "I looked _ for my keys, but I couldn't find them.",
+      "options": [
+        "somewhere",
+        "anywhere",
+        "everywhere",
+        "nowhere"
+      ],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "不定代词",
+        "语境理解"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "9"
+    },
+    {
+      "number": "9",
+      "type": "choice",
+      "content": "She's _ intelligent. She gets good grades in all subjects.",
+      "options": [
+        "extreme",
+        "extremely",
+        "extremity",
+        "more extreme"
+      ],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "副词用法",
+        "形容词修饰"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "10"
+    },
+    {
+      "number": "10",
+      "type": "choice",
+      "content": "She has _ finished her meal. She's watching TV now.",
+      "options": [
+        "yet",
+        "already",
+        "still",
+        "never"
+      ],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "现在完成时",
+        "时间副词"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11"
+    },
+    {
+      "number": "11",
+      "type": "choice",
+      "content": "He's not tall _ to play basketball professionally.",
+      "options": [
+        "very",
+        "too",
+        "enough",
+        "so"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "enough的用法",
+        "形容词后置"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12"
+    },
+    {
+      "number": "12",
+      "type": "choice",
+      "content": "My sister _ helps me with my homework. She's very busy.",
+      "options": [
+        "always",
+        "usually",
+        "often",
+        "rarely"
+      ],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "频率副词",
+        "逻辑推理"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13"
+    },
+    {
+      "number": "13",
+      "type": "choice",
+      "content": "Come _! I want to show you something.",
+      "options": [
+        "there",
+        "here",
+        "everywhere",
+        "anywhere"
+      ],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "地点副词",
+        "祈使句"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "14"
+    },
+    {
+      "number": "14",
+      "type": "choice",
+      "content": "She did _ on the test. She got 98 points!",
+      "options": [
+        "surprising good",
+        "surprising well",
+        "surprisingly good",
+        "surprisingly well"
+      ],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "副词修饰副词",
+        "动词修饰"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "15",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T13:16:51.438Z"
+    },
+    {
+      "number": "15",
+      "type": "fill",
+      "content": "He runs _ (fast) than his brother. (用比较级)",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "形容词副词比较级",
+        "fast的比较级"
+      ],
+      "userAnswer": "faster",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "16"
+    },
+    {
+      "number": "16",
+      "type": "fill",
+      "content": "She speaks English very _ (good).",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "副词用法",
+        "good的副词形式"
+      ],
+      "userAnswer": "well",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "17"
+    },
+    {
+      "number": "17",
+      "type": "fill",
+      "content": "They _ (usual) have dinner at 7 PM.",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "频率副词",
+        "usual的副词形式"
+      ],
+      "userAnswer": "usually",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "18"
+    },
+    {
+      "number": "18",
+      "type": "fill",
+      "content": "Please listen _ (careful) to the teacher.",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "副词修饰动词",
+        "careful的副词形式"
+      ],
+      "userAnswer": "carefully",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "19"
+    },
+    {
+      "number": "19",
+      "type": "fill",
+      "content": "I'm _ (terrible) sorry for being late.",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "副词修饰形容词",
+        "terrible的副词形式"
+      ],
+      "userAnswer": "terribly",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "20"
+    },
+    {
+      "number": "20",
+      "type": "fill",
+      "content": "He works _ (hard) than anyone else in the class. (用比较级)",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "副词比较级",
+        "hard的比较级"
+      ],
+      "userAnswer": "harder",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "21"
+    },
+    {
+      "number": "21",
+      "type": "fill",
+      "content": "She _ (rare) eats junk food. She prefers healthy food.",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "频率副词",
+        "rare的副词形式"
+      ],
+      "userAnswer": "rarely",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "22"
+    },
+    {
+      "number": "22",
+      "type": "fill",
+      "content": "The children are playing _ (happy) in the garden.",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "副词修饰动词",
+        "happy的副词形式"
+      ],
+      "userAnswer": "happily",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "23"
+    },
+    {
+      "number": "23",
+      "type": "fill",
+      "content": "I can _ (hard) hear you. Could you speak louder?",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "hard与hardly的区别"
+      ],
+      "userAnswer": "hardly",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "24",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T13:17:08.123Z"
+    },
+    {
+      "number": "24",
+      "type": "fill",
+      "content": "He did _ (bad) on the exam because he didn't study.",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "副词修饰动词",
+        "bad的副词形式"
+      ],
+      "userAnswer": "badly",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "25"
+    },
+    {
+      "number": "25",
+      "type": "answer",
+      "content": "频率副词位置练习：I drink coffee in the morning. (always)",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "频率副词位置",
+        "always的用法"
+      ],
+      "userAnswer": "I always drink coffee in the morning.",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "26"
+    },
+    {
+      "number": "26",
+      "type": "answer",
+      "content": "频率副词位置练习：She is late for school. (never)",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "频率副词位置",
+        "never的用法"
+      ],
+      "userAnswer": "She is never late for school.",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "27"
+    },
+    {
+      "number": "27",
+      "type": "answer",
+      "content": "频率副词位置练习：They go to the cinema on weekends. (sometimes)",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "频率副词位置",
+        "sometimes的用法"
+      ],
+      "userAnswer": "They sometimes go to the cinema on weekends.",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "28"
+    },
+    {
+      "number": "28",
+      "type": "answer",
+      "content": "频率副词位置练习：We have finished our project. (already)",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "频率副词位置",
+        "already在现在完成时中的位置"
+      ],
+      "userAnswer": "We have already finished our project.",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "29",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T13:17:23.331Z"
+    },
+    {
+      "number": "29",
+      "type": "answer",
+      "content": "频率副词位置练习：He can understand Chinese. (almost)",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "频率副词位置",
+        "almost的用法"
+      ],
+      "userAnswer": "He can almost understand Chinese.",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "30",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T13:17:26.537Z"
+    },
+    {
+      "number": "30",
+      "type": "answer",
+      "content": "改错题：She sings good.",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "形容词与副词辨析",
+        "good与well"
+      ],
+      "userAnswer": "She sings well.",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "31"
+    },
+    {
+      "number": "31",
+      "type": "answer",
+      "content": "改错题：I always am hungry after school.",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "频率副词位置",
+        "be动词后"
+      ],
+      "userAnswer": "I am always hungry after school.",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "32"
+    },
+    {
+      "number": "32",
+      "type": "answer",
+      "content": "改错题：He is enough old to drive a car.",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "enough的用法",
+        "形容词+enough"
+      ],
+      "userAnswer": "He is old enough to drive a car.",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "33"
+    },
+    {
+      "number": "33",
+      "type": "answer",
+      "content": "改错题：They work hardly every day.",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "hard与hardly的区别"
+      ],
+      "userAnswer": "They work hard every day.",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "34"
+    },
+    {
+      "number": "34",
+      "type": "answer",
+      "content": "Please speak more slow.",
+      "options": [],
+      "score": 5,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "副词用法",
+        "比较级"
+      ],
+      "userAnswer": "Please speak slowly",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "35",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T13:17:51.851Z"
+    },
+    {
+      "number": "35",
+      "type": "answer",
+      "content": "她总是很早就起床。",
+      "options": [],
+      "score": 5,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "一般现在时",
+        "频率副词",
+        "动词短语"
+      ],
+      "userAnswer": "She always get up ealy.",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "36"
+    },
+    {
+      "number": "36",
+      "type": "answer",
+      "content": "他英语说得很好。",
+      "options": [],
+      "score": 5,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "动词speak",
+        "副词well"
+      ],
+      "userAnswer": "He speaks English well",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "37"
+    },
+    {
+      "number": "37",
+      "type": "answer",
+      "content": "我几乎每天完成作业。",
+      "options": [],
+      "score": 5,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "频率副词almost",
+        "时间状语everyday"
+      ],
+      "userAnswer": "I almost finish homework everyday.",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "38"
+    },
+    {
+      "number": "38",
+      "type": "answer",
+      "content": "请安静地走进房间。",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "祈使句",
+        "动词walk",
+        "副词quietly"
+      ],
+      "userAnswer": "Please walk room quietly.",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "39"
+    },
+    {
+      "number": "39",
+      "type": "answer",
+      "content": "他工作太努力了，所以需要休息。",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "工作work hard",
+        "因果连词so",
+        "休息have a rest"
+      ],
+      "userAnswer": "He works hard, so need to have a rest.",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "40"
+    }
+  ],
+  "pageCount": 4,
+  "createdAt": "2026-03-29 20:43:22",
+  "metadata": {
+    "overallDifficulty": 2,
+    "estimatedTime": 195,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-29T13:17:54.335Z"
+}

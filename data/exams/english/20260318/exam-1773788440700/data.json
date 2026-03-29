@@ -1,0 +1,499 @@
+{
+  "id": "exam-1773788440700",
+  "userId": "user-1",
+  "subject": "english",
+  "subjectName": "英语",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\nU1 基础知识——重点短语\ntake care of\ncome from be from be from be from\nkeep warm\nbe good for be good for be good for\nlook like\nin the sea\nblack and white\npick up\neach other\nlook after\nin danger\ncut down\ntoo much\nbe made of\nquite a\nnot at all\n1. 照顾；处理\n2. 来自\n3. 保持温暖\n4. 对......有好处\n5. 看起来像\n6. 在海里\n7. 黑白相间的\n8. 拿起\n9. 互相\n10. 照顾\n11. 处于危险之中\n12. 砍伐，减少\n13. 太多\n14. 由... ... 制成的\n15. 相当；非常\n16. 一点也不；完全不\n\n=== 第2页 ===\n北大附中25级初一（下）英语早读听力练习2\n班级 t(6) 姓名 王浩然\n一、听后选择。\n请听一段对话，完成第1至第2小题。\n(B) 1. Where does the girl think Hammy might be?\nA. In his cage.\nB. In the living room.\nC. In the bathroom.\n(A) 2. What is the girl worried about?\nA. Hammy is lost.\nB. Hammy likes to break toys.\nC. Hammy can't go far.\n请听一段对话，完成第3至第4小题。\n(B) 3. Why does Peter like monkeys?\nA. Because they're very smart.\nB. Because they're very cute.\nC. Because they're very interesting.\n(A) 4. What time do they plan to meet?\nA. At 3:00 p.m.\nB. At 3:30 p.m.\nC. At 4:30 p.m.\n请听一段独白，完成第5至第6小题。\n(B) 5. What can we learn from the talk?\nA. Tom lives in a restaurant with his family.\nB. Jerry goes to get food in the evening.\nC. Jerry usually gets up at six in the morning.\n(A) 6. Why does Jerry give the talk?\nA. To talk about his daily life.\nB. To share his eating habits.\nC. To show his family members.\n二、听后回答。\n请听一段对话，回答第7小题。\n7. Where does Coco often sleep?\nOn the sofa.\n请听一段对话，回答第8小题。\n8. Why does the girl like giraffes?\nBecause there are interesting.\n请听一段对话，回答第9小题。\n9. What does Sarah's cat love to do?\nShe loves to sleep and play with the balls.\n请听一段对话，回答第10小题。\n10. What does the man think of elephants?\nThey are smart.\n请听一段对话，回答第11至第12小题。\n11. What is Lily's favourite animal?\nDolphins.\n12. What can dolphins do according to Lily?\nThey are smart and friendly.\nDolphins can jump really high out of the water.",
+  "questions": [
+    {
+      "number": "1",
+      "type": "fill",
+      "content": "照顾；处理",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "take care of"
+      ],
+      "userAnswer": "take care of",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1"
+    },
+    {
+      "number": "2",
+      "type": "fill",
+      "content": "来自",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "be from / come from"
+      ],
+      "userAnswer": "come from / be from",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-27T15:45:08.726Z"
+    },
+    {
+      "number": "3",
+      "type": "fill",
+      "content": "保持温暖",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "keep warm"
+      ],
+      "userAnswer": "keep warm",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3"
+    },
+    {
+      "number": "4",
+      "type": "fill",
+      "content": "对......有好处",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "be good for"
+      ],
+      "userAnswer": "be good for",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-27T15:45:10.699Z"
+    },
+    {
+      "number": "5",
+      "type": "fill",
+      "content": "看起来像",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "look like"
+      ],
+      "userAnswer": "look like",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5"
+    },
+    {
+      "number": "6",
+      "type": "fill",
+      "content": "在海里",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "in the sea"
+      ],
+      "userAnswer": "in the sea",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6"
+    },
+    {
+      "number": "7",
+      "type": "fill",
+      "content": "黑白相间的",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "black and white"
+      ],
+      "userAnswer": "black and white",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "8",
+      "type": "fill",
+      "content": "拿起",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "pick up"
+      ],
+      "userAnswer": "pick up",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8"
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "互相",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "each other"
+      ],
+      "userAnswer": "each other",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "9"
+    },
+    {
+      "number": "10",
+      "type": "fill",
+      "content": "照顾",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "look after"
+      ],
+      "userAnswer": "look after",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "10"
+    },
+    {
+      "number": "11",
+      "type": "fill",
+      "content": "处于危险之中",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "in danger"
+      ],
+      "userAnswer": "in danger",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "11"
+    },
+    {
+      "number": "12",
+      "type": "fill",
+      "content": "砍伐，减少",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "cut down"
+      ],
+      "userAnswer": "cut down",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "12"
+    },
+    {
+      "number": "13",
+      "type": "fill",
+      "content": "太多",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "too much"
+      ],
+      "userAnswer": "too much",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "13"
+    },
+    {
+      "number": "14",
+      "type": "fill",
+      "content": "由... ... 制成的",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "be made of"
+      ],
+      "userAnswer": "be made of",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "14"
+    },
+    {
+      "number": "15",
+      "type": "fill",
+      "content": "相当；非常",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "quite a"
+      ],
+      "userAnswer": "quite a",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "15"
+    },
+    {
+      "number": "16",
+      "type": "fill",
+      "content": "一点也不；完全不",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语翻译",
+        "not at all"
+      ],
+      "userAnswer": "not at all",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "16"
+    },
+    {
+      "number": "17",
+      "type": "choice",
+      "content": "Where does the girl think Hammy might be?",
+      "options": [
+        "In his cage.",
+        "In the living room.",
+        "In the bathroom."
+      ],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "听力理解",
+        "地点询问"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "1"
+    },
+    {
+      "number": "18",
+      "type": "choice",
+      "content": "What is the girl worried about?",
+      "options": [
+        "Hammy is lost.",
+        "Hammy likes to break toys.",
+        "Hammy can't go far."
+      ],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "听力理解",
+        "情感/状态询问"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "2"
+    },
+    {
+      "number": "19",
+      "type": "choice",
+      "content": "Why does Peter like monkeys?",
+      "options": [
+        "Because they're very smart.",
+        "Because they're very cute.",
+        "Because they're very interesting."
+      ],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "听力理解",
+        "原因询问"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "3"
+    },
+    {
+      "number": "20",
+      "type": "choice",
+      "content": "What time do they plan to meet?",
+      "options": [
+        "At 3:00 p.m.",
+        "At 3:30 p.m.",
+        "At 4:30 p.m."
+      ],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "听力理解",
+        "时间询问"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "4"
+    },
+    {
+      "number": "21",
+      "type": "choice",
+      "content": "What can we learn from the talk?",
+      "options": [
+        "Tom lives in a restaurant with his family.",
+        "Jerry goes to get food in the evening.",
+        "Jerry usually gets up at six in the morning."
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "听力理解",
+        "细节推断"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "5"
+    },
+    {
+      "number": "22",
+      "type": "choice",
+      "content": "Why does Jerry give the talk?",
+      "options": [
+        "To talk about his daily life.",
+        "To share his eating habits.",
+        "To show his family members."
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "听力理解",
+        "目的询问"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "6"
+    },
+    {
+      "number": "23",
+      "type": "answer",
+      "content": "Where does Coco often sleep?",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "听力填空",
+        "地点询问"
+      ],
+      "userAnswer": "On the sofa.",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "7"
+    },
+    {
+      "number": "24",
+      "type": "answer",
+      "content": "Why does the girl like giraffes?",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "听力填空",
+        "原因询问"
+      ],
+      "userAnswer": "Because there are interesting.",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "8"
+    },
+    {
+      "number": "25",
+      "type": "answer",
+      "content": "What does Sarah's cat love to do?",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "听力填空",
+        "行为询问"
+      ],
+      "userAnswer": "She loves to sleep and play with the balls.",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "9"
+    },
+    {
+      "number": "26",
+      "type": "answer",
+      "content": "What does the man think of elephants?",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "听力填空",
+        "观点询问"
+      ],
+      "userAnswer": "They are smart.",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "10"
+    },
+    {
+      "number": "27",
+      "type": "answer",
+      "content": "What is Lily's favourite animal?",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "听力填空",
+        "喜好询问"
+      ],
+      "userAnswer": "Dolphins.",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11"
+    },
+    {
+      "number": "28",
+      "type": "answer",
+      "content": "What can dolphins do according to Lily?",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "听力填空",
+        "能力询问"
+      ],
+      "userAnswer": "They are smart and friendly. Dolphins can jump really high out of the water.",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12"
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-18 07:00:40",
+  "metadata": {
+    "overallDifficulty": 1,
+    "estimatedTime": 140,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-27T15:45:12.758Z"
+}

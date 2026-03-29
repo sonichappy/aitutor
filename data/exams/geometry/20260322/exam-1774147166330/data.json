@@ -1,0 +1,378 @@
+{
+  "id": "exam-1774147166330",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\n7.3 定义、命题、定理、证明\n一、基础落实\n1. 下列句子中，属于命题的是（A）\nA. 垂线段最短\nB. 作一个角等于已知角\nC. 将16开平方\nD. 负数小于正数吗？\n2. 下列命题中，假命题是（C）\nA. 所有的有理数都可用数轴上的点表示\nB. 等角的补角相等\nC. 若|a|=4，则a=4\nD. 两点之间，线段最短\n3. 命题“对顶角相等”的条件是（D）\nA. 两个角\nB. 相等\nC. 两个角相等\nD. 两个角是对顶角\n4. 命题：对顶角相等；②过一点有且只有一条直线与已知直线平行；相等的角是对顶角；④同位角相等；⑤明天可能会下雨，其中是真命题的有（D）\n5. 命题“两直线平行，同旁内角互补”的题设____，结论：____\n6. 下列说法错误的是（C）\nA. 命题不一定是定理，但定理一定是命题\nB. 定理不可能是假命题\nC. 真命题是定理\nD. 如果命题的正确性是经过推理证实的，那么这样得到的真命题就是定理\n7. 下列命题中是真命题的是（C）\nA. 两个锐角之和为钝角\nB. 两个锐角之和为锐角\nC. 钝角大于它的补角\nD. 锐角小于它的余角\n8. 下列例子能说明“相等的角是对顶角”是假命题的是（A）\nA. (图: 20°, 20°)\nB. (图: 20°, 20°)\nC. (图: 40°, 20°)\nD. (图: 20°, 40°)\n9. 把命题：“平行于同一条直线的两条直线互相平行”改写成“如果……，那么……”的形式：____\n10. 如图，现有以下3个论断：①AB // CD；②∠B = C；③∠E = ∠F。请以其中两个作为条件，剩下的一个作为结论构造命题。\n(1) 请写出所有的真命题序号：①②；\n(2) 请选择其中一个命题，并说明其是真命题的理由。\n∵ AB // CD\n∴ ∠B = ∠CDF\n∵ ∠B = ∠C\n∴ ∠C = ∠CDF\n∴ CE // BF\n∴ ∠E = ∠F\n\n=== 第2页 ===\n二、综合应用\n11. 下列语句中，真命题有（ A ）\n①同旁内角互补；\n②两条直线被第三条直线所截，内错角相等；\n③相等的角是对顶角；\n④直线外一点到这条直线的垂线段，叫做这点到这条直线的距离。\nA. 0个    B. 1个    C. 2个    D. 3个\n12. 写出一组a, b值，举例说明命题“若a² > b²，则a > b”是假命题，则a = -2, b = 1.\n13. 把“对顶角相等”改写成“如果……，那么……”的形式：如果这两个角是对顶角，那么这两个角相等\n14. 对于同一平面内的三条直线a、b、c，给出下列五个论断：\n①a//b; ②b//c; ③ab; ④a//c; ⑤a⊥c.\n以其中两个论断为条件，一个论断为结论，组成一个你认为正确的命题：\n条件：⑤，结论：②。（填序号）\n15. 已知：如图，在四边形ABCD中，给出下列论断：\n①AB//DC; ②AD//BC; ③AB=AD; ④∠A=∠C; AD=BC.\n以上面论断中的两个作为题设，再从余下的论断中选一个作为结论，并用“如果……，那么……”的形式写出一个真命题：条件：①②，结论：④。（填序号），并证明。\n证明：∵AB//CD\n∴A+∠D=180°\n∵AD//BC\n∴∠C+∠D=180°\n∴∠A=∠C\n三、能力拓展\n16. 如图1，由线段AB, AM, CM, CD组成的图形像Σ形，称为“Σ形BAMCD”。\n(1) 如图2，在Σ形BAMCD中，若AB//CD，AMC=60°，则∠A+∠C= 60 °；\n(2) 如图3，连接BD，若∠ABD+∠BDC=160，∠AMC=α，试猜想∠BAM与MCD之间的数量关系，并说明理由；\n∠BAM+∠MCD=α\n(3) 如图4，在(2)的条件下，当点M在线段BD的延长线上从上向下移动时，请直接写出∠BAM与∠MCD所有可能满足的数量关系。\n∠MCD=α+20\n∠MCD-∠BAM=α-20",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "下列句子中，属于命题的是（ ）",
+      "options": [
+        "垂线段最短",
+        "作一个角等于已知角",
+        "将16开平方",
+        "负数小于正数吗？"
+      ],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "命题的定义"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1"
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "下列命题中，假命题是（ ）",
+      "options": [
+        "所有的有理数都可用数轴上的点表示",
+        "等角的补角相等",
+        "若|a|=4，则a=4",
+        "两点之间，线段最短"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "真假命题判断",
+        "绝对值"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2"
+    },
+    {
+      "number": "3",
+      "type": "choice",
+      "content": "命题“对顶角相等”的条件是（ ）",
+      "options": [
+        "两个角",
+        "相等",
+        "两个角相等",
+        "两个角是对顶角"
+      ],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "命题的结构",
+        "题设与结论"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3"
+    },
+    {
+      "number": "4",
+      "type": "choice",
+      "content": "命题：①对顶角相等；②过一点有且只有一条直线与已知直线平行；③相等的角是对顶角；同位角相等；⑤明天可能会下雨，其中是真命题的有（ ）",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "真假命题判断",
+        "平行公理"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4"
+    },
+    {
+      "number": "5",
+      "type": "fill",
+      "content": "命题“两直线平行，同旁内角互补”的题设____，结论：____",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "命题的结构"
+      ],
+      "userAnswer": "两直线平行; 同旁内角互补",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T02:39:44.622Z"
+    },
+    {
+      "number": "6",
+      "type": "choice",
+      "content": "下列说法错误的是（ ）",
+      "options": [
+        "命题不一定是定理，但定理一定是命题",
+        "定理不可能是假命题",
+        "真命题是定理",
+        "如果命题的正确性是经过推理证实的，那么这样得到的真命题就是定理"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "定理与命题的关系"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6"
+    },
+    {
+      "number": "7",
+      "type": "choice",
+      "content": "下列命题中是真命题的是（ ）",
+      "options": [
+        "两个锐角之和为钝角",
+        "两个锐角之和为锐角",
+        "钝角大于它的补角",
+        "锐角小于它的余角"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "角的性质",
+        "真假命题判断"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "8",
+      "type": "choice",
+      "content": "下列例子能说明“相等的角是对顶角”是假命题的是（ ）",
+      "options": [
+        "两个20°的角（非对顶角位置）",
+        "两个20°的角",
+        "一个40°和一个20°的角",
+        "一个20°和一个40°的角"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "反例",
+        "对顶角"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8"
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "把命题：“平行于同一条直线的两条直线互相平行”改写成“如果……，那么……”的形式：____",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "命题改写"
+      ],
+      "userAnswer": "如果两条直线平行于同一条直线，那么这两条直线互相平行",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "9"
+    },
+    {
+      "number": "10",
+      "type": "answer",
+      "content": "如图，现有以下3个论断：AB // CD；②∠B = C；③∠E = ∠F。请以其中两个作为条件，剩下的一个作为结论构造命题。(1) 请写出所有的真命题序号：____",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "命题构造"
+      ],
+      "userAnswer": "①②③",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "10(1)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T02:39:47.131Z"
+    },
+    {
+      "number": "11",
+      "type": "answer",
+      "content": "如图，现有以下3个论断：①AB // CD；②∠B = ∠C；③∠E = ∠F。请以其中两个作为条件，剩下的一个作为结论构造命题。(2) 请选择其中一个命题，并说明其是真命题的理由。",
+      "options": [],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "逻辑推理"
+      ],
+      "userAnswer": "∵ AB // CD ∴ ∠B = ∠CDF ∵ ∠B = ∠C ∴ ∠C = ∠CDF ∴ CE // BF ∴ ∠E = ∠F",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "10(2)"
+    },
+    {
+      "number": "12",
+      "type": "choice",
+      "content": "下列语句中，真命题有（ ）\n①同旁内角互补；\n②两条直线被第三条直线所截，内错角相等；\n③相等的角是对顶角；\n④直线外一点到这条直线的垂线段，叫做这点到这条直线的距离。",
+      "options": [
+        "0个",
+        "1个",
+        "2个",
+        "3个"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "命题与定理",
+        "平行线性质",
+        "对顶角",
+        "点到直线的距离"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11"
+    },
+    {
+      "number": "13",
+      "type": "fill",
+      "content": "写出一组a, b值，举例说明命题“若a² > b²，则a > b”是假命题，则a = ______, b = ______。",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "命题",
+        "反例",
+        "不等式性质"
+      ],
+      "userAnswer": "a=-2, b=1",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12"
+    },
+    {
+      "number": "14",
+      "type": "fill",
+      "content": "把“对顶角相等”改写成“如果……，那么……”的形式：________________________________________。",
+      "options": [],
+      "score": 3,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "命题改写",
+        "对顶角"
+      ],
+      "userAnswer": "如果这两个角是对顶角，那么这两个角相等",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13"
+    },
+    {
+      "number": "15",
+      "type": "fill",
+      "content": "对于同一平面内的三条直线a、b、c，给出下列五个论断：\n①a//b; ②b//c; ③a⊥b; ④a//c; ⑤a⊥c.\n以其中两个论断为条件，一个论断为结论，组成一个你认为正确的命题：\n条件：________，结论：________。（填序号）",
+      "options": [],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线判定与性质",
+        "垂直定义",
+        "命题构造"
+      ],
+      "userAnswer": "条件：③⑤，结论：",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "14"
+    },
+    {
+      "number": "16",
+      "type": "answer",
+      "content": "已知：如图，在四边形ABCD中，给出下列论断：\n①AB//DC; ②AD//BC; ③AB=AD; ④∠A=∠C; AD=BC.\n以上面论断中的两个作为题设，再从余下的论断中选一个作为结论，并用“如果……，那么……”的形式写出一个真命题：条件：________，结论：________。（填序号），并证明。",
+      "options": [],
+      "score": 8,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行四边形性质",
+        "命题证明",
+        "平行线性质"
+      ],
+      "userAnswer": "条件：①②，结论：④。证明：∵AB//CD ∠A+∠D=180° ∵AD//BC ∴∠C+∠D=180° ∴∠A=∠C",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "15"
+    },
+    {
+      "number": "17",
+      "type": "fill",
+      "content": "如图1，由线段AB, AM, CM, CD组成的图形像Σ形，称为“Σ形BAMCD”。如图2，在Σ形BAMCD中，若AB//CD，AMC=60°，则∠A+∠C= ______°；",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线性质",
+        "拐点模型（猪蹄模型）"
+      ],
+      "userAnswer": "60",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "16(1)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T02:40:15.033Z"
+    },
+    {
+      "number": "18",
+      "type": "answer",
+      "content": "如图3，连接BD，若ABD+∠BDC=160，∠AMC=α，试猜想∠BAM与∠MCD之间的数量关系，并说明理由；",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "多边形内角和",
+        "角度计算",
+        "几何推理"
+      ],
+      "userAnswer": "∠BAM+∠MCD=α",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "16(2)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T02:40:16.022Z"
+    },
+    {
+      "number": "19",
+      "type": "answer",
+      "content": "如图4，在(2)的条件下，当点M在线段BD的延长线上从上向下移动时，请直接写出∠BAM与∠MCD所有可能满足的数量关系。",
+      "options": [],
+      "score": 5,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "动点问题",
+        "分类讨论",
+        "角度关系"
+      ],
+      "userAnswer": "MCD=α+20; ∠MCD-∠BAM=α-20",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "16(3)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T02:40:16.900Z"
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-22 10:39:26",
+  "metadata": {
+    "overallDifficulty": 2,
+    "estimatedTime": 95,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-22T02:40:19.563Z"
+}

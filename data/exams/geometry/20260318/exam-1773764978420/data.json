@@ -1,0 +1,117 @@
+{
+  "id": "exam-1773764978420",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "25. 直线 AB, CD 相交于点 O, OE 平分 ∠BOD.\n(1) 如图 1, ∠AOC=70°, OF⊥CD, 求 ∠EOF 的度数;\n(2) 如图 2, 若 OF 平分 ∠COE, ∠BOF=15°, 求 ∠AOC 的度数.\n26. 如图, 点 C 在线段 AE 上, 点 F 在线段 DE 上, 1=∠3, ∠2+BDE=180°.\n(1) 求证: AB//CD;\n(2) 已知 AB⊥AE 于点 A.\n① 若 ∠ECF=44°, 求 ∠ABD 的度数;\n② 若 ∠ECF=α, 则 ∠ABD 的度数为 ______ (用 α 表示).",
+  "questions": [
+    {
+      "number": "25(1)",
+      "type": "answer",
+      "content": "直线 AB, CD 相交于点 O, OE 平分 ∠BOD. (1) 如图 1, ∠AOC=70°, OF⊥CD, 求 ∠EOF 的度数;",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "对顶角",
+        "角平分线",
+        "垂直定义",
+        "角度计算"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-28T12:43:18.272Z"
+    },
+    {
+      "number": "25(2)",
+      "type": "answer",
+      "content": "直线 AB, CD 相交于点 O, OE 平分 ∠BOD. (2) 如图 2, 若 OF 平分 COE, ∠BOF=15°, 求 ∠AOC 的度数.",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "角平分线",
+        "邻补角",
+        "方程思想",
+        "角度计算"
+      ],
+      "userAnswer": "",
+      "correctAnswer": ""
+    },
+    {
+      "number": "26(1)",
+      "type": "answer",
+      "content": "如图, 点 C 在线段 AE 上, 点 F 在线段 DE 上, ∠1=∠3, ∠2+∠BDE=180°. (1) 求证: AB//CD;",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "同旁内角互补",
+        "内错角相等"
+      ],
+      "userAnswer": "",
+      "correctAnswer": ""
+    },
+    {
+      "number": "26(2)①",
+      "type": "answer",
+      "content": "如图, 点 C 在线段 AE 上, 点 F 在线段 DE 上, ∠1=∠3, ∠2+∠BDE=180°. (2) 已知 AB⊥AE 于点 A. ① 若 ∠ECF=44°, 求 ∠ABD 的度数;",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "垂直定义",
+        "角度计算"
+      ],
+      "userAnswer": "",
+      "correctAnswer": ""
+    },
+    {
+      "number": "26(2)②",
+      "type": "fill",
+      "content": "如图, 点 C 在线段 AE 上, 点 F 在线段 DE 上, ∠1=∠3, ∠2+∠BDE=180°. (2) 已知 AB⊥AE 于点 A. ② 若 ∠ECF=α, 则 ∠ABD 的度数为 ______ (用 α 表示).",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "代数表示",
+        "角度关系"
+      ],
+      "userAnswer": "",
+      "correctAnswer": ""
+    }
+  ],
+  "createdAt": "2026-03-18 00:29:38",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "对顶角",
+      "角平分线",
+      "垂直定义",
+      "角度计算",
+      "邻补角",
+      "方程思想",
+      "平行线的判定",
+      "同旁内角互补",
+      "内错角相等",
+      "平行线的性质",
+      "代数表示",
+      "角度关系"
+    ],
+    "questionTypeStats": {
+      "answer": 4,
+      "fill": 1
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-28T12:43:19.740Z"
+}

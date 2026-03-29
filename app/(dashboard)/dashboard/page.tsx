@@ -3,188 +3,120 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
-interface Subject {
-  id: string
-  name: string
-  icon: string
-  color: string
-  enabled: boolean
-  category: string
-  folderName: string
+interface SubjectTrend {
+  date: string
+  score: number
 }
 
 export default function DashboardPage() {
-  const [subjects, setSubjects] = useState<Subject[]>([])
+  const [subjectTrends, setSubjectTrends] = useState<{ [key: string]: SubjectTrend[] }>({})
+  const [loadingTrends, setLoadingTrends] = useState(true)
 
   useEffect(() => {
-    const loadSubjects = async () => {
+    const loadSubjectTrends = async () => {
+      setLoadingTrends(true)
       try {
-        const response = await fetch('/api/subjects')
+        const response = await fetch('/api/analytics/subject-trends')
         if (response.ok) {
           const data = await response.json()
-          setSubjects(data.subjects?.filter((s: Subject) => s.enabled) || [])
+          setSubjectTrends(data.data?.subjectTrends || {})
         }
       } catch (error) {
-        console.error("Failed to load subjects:", error)
+        console.error("Failed to load subject trends:", error)
+      } finally {
+        setLoadingTrends(false)
       }
     }
-    loadSubjects()
+    loadSubjectTrends()
   }, [])
 
-  // 模拟各科目进度数据
-  const subjectProgress: Record<string, number> = {
-    "数学": 75,
-    "语文": 82,
-    "英语": 80,
-    "物理": 60,
-    "化学": 45,
-    "生物": 70,
-    "历史": 65,
-    "地理": 72,
-    "道法": 85,
-  }
-
   const subjectColors: Record<string, string> = {
-    "数学": "bg-blue-500",
-    "语文": "bg-red-500",
-    "英语": "bg-purple-500",
-    "物理": "bg-green-500",
-    "化学": "bg-orange-500",
-    "生物": "bg-lime-500",
-    "历史": "bg-amber-500",
-    "地理": "bg-cyan-500",
-    "道法": "bg-indigo-500",
+    "数学": "#3b82f6",
+    "语文": "#ef4444",
+    "英语": "#a855f7",
+    "物理": "#22c55e",
+    "化学": "#f97316",
+    "生物": "#84cc16",
+    "历史": "#f59e0b",
+    "地理": "#06b6d4",
+    "道法": "#6366f1",
   }
 
-  // 模拟数据 - 实际应从数据库获取
-  const stats = {
-    todayStudyTime: 45, // 分钟
-    totalQuestions: 128,
-    correctRate: 0.82,
-    streakDays: 5,
+  // 格式化趋势数据用于图表显示
+  const formatTrendData = (trends: SubjectTrend[]) => {
+    return trends.map((trend, index) => ({
+      name: `第${index + 1}次`,
+      score: trend.score,
+      date: new Date(trend.date).toLocaleDateString('zh-CN')
+    }))
   }
-
-  const weakPoints = [
-    "二次函数",
-    "三角函数",
-    "力学综合",
-    "氧化还原反应",
-  ]
 
   return (
     <div className="space-y-8">
-      {/* 欢迎信息 */}
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          欢迎回来，张同学！
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
-          今天也是充满收获的一天，继续加油！
-        </p>
-      </div>
-
-      {/* 统计卡片 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription>今日学习</CardDescription>
-            <CardTitle className="text-3xl">{stats.todayStudyTime}分钟</CardTitle>
-          </CardHeader>
-        </Card>
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription>累计练习</CardDescription>
-            <CardTitle className="text-3xl">{stats.totalQuestions}题</CardTitle>
-          </CardHeader>
-        </Card>
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription>正确率</CardDescription>
-            <CardTitle className="text-3xl">{(stats.correctRate * 100).toFixed(0)}%</CardTitle>
-          </CardHeader>
-        </Card>
-        <Card>
-          <CardHeader className="pb-2">
-            <CardDescription>连续学习</CardDescription>
-            <CardTitle className="text-3xl">{stats.streakDays}天</CardTitle>
-          </CardHeader>
-        </Card>
-      </div>
-
-      {/* 各科目进度 */}
-      <Card>
-        <CardHeader>
-          <CardTitle>各科目学习进度</CardTitle>
-          <CardDescription>点击科目进入专栏学习</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {subjects.length > 0 ? (
-            subjects.map((subject) => {
-              const progress = subjectProgress[subject.name] || 50
-              const color = subjectColors[subject.name] || "bg-gray-500"
-              // 英语有专门的专栏页面
-              const subjectPath = subject.name === "英语" ? "/subject/english" : `/dashboard`
-              return (
-                <Link key={subject.id} href={subjectPath} className="block">
-                  <div className="space-y-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                    <div className="flex justify-between text-sm">
-                      <span className="font-medium">
-                        {subject.icon} {subject.name}
-                      </span>
-                      <span className="text-gray-600 dark:text-gray-400">{progress}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div
-                        className={`${color} h-2 rounded-full transition-all`}
-                        style={{ width: `${progress}%` }}
-                      />
-                    </div>
-                  </div>
-                </Link>
-              )
-            })
-          ) : (
-            <p className="text-gray-500 text-center py-4">
-              还没有启用任何学科，前往
-              <Link href="/settings" className="text-blue-600 hover:underline mx-1">
-                设置
-              </Link>
-              页面配置
+      {/* 学科成绩趋势 */}
+      {!loadingTrends && Object.keys(subjectTrends).length > 0 && (
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              本学期成绩变化趋势
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 mt-1">
+              基于试卷提交记录（至少2次试卷的学科）
             </p>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* 薄弱知识点 */}
-      <Card>
-        <CardHeader>
-          <div className="flex justify-between items-center">
-            <div>
-              <CardTitle>待加强知识点</CardTitle>
-              <CardDescription>基于你的练习情况分析</CardDescription>
-            </div>
-            <Link href="/analysis">
-              <Button variant="outline" size="sm">
-                查看详情
-              </Button>
-            </Link>
           </div>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-2">
-            {weakPoints.map((point) => (
-              <span
-                key={point}
-                className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-full text-sm"
-              >
-                {point}
-              </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {Object.entries(subjectTrends).map(([subject, trends]) => (
+              <Card key={subject}>
+                <CardHeader>
+                  <CardTitle className="text-lg">{subject}</CardTitle>
+                  <CardDescription>
+                    共 {trends.length} 次试卷记录
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={250}>
+                    <LineChart
+                      data={formatTrendData(trends)}
+                      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                      <XAxis
+                        dataKey="name"
+                        tick={{ fontSize: 12 }}
+                        stroke="#6b7280"
+                      />
+                      <YAxis
+                        domain={[0, 100]}
+                        tick={{ fontSize: 12 }}
+                        stroke="#6b7280"
+                        label={{ value: '分数', angle: -90, position: 'insideLeft', offset: -5, style: { fontSize: 12 } }}
+                      />
+                      <Tooltip
+                        contentStyle={{
+                          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                          border: '1px solid #e5e7eb',
+                          borderRadius: '6px'
+                        }}
+                        formatter={(value: any) => [`${value}分`, '分数']}
+                      />
+                      <Line
+                        type="monotone"
+                        dataKey="score"
+                        stroke={subjectColors[subject] || "#6b7280"}
+                        strokeWidth={2}
+                        dot={{ fill: subjectColors[subject] || "#6b7280", r: 4 }}
+                        connectNulls={false}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
             ))}
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      )}
 
       {/* 快速入口 */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

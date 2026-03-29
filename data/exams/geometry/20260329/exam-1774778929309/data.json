@@ -1,0 +1,418 @@
+{
+  "id": "exam-1774778929309",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\n第九章 平面直角坐标系\n9.1 平面直角坐标系的概念\n一、基础落实\n1. 下面四个图形中，是平面直角坐标系的是（ D ）\n2. 如图，小手盖住的点的坐标可能为（ D ）\nA. (4, 3)  B. (4, -3)\nC. (-4, 3) D. (-4, -3)\n3. 与平面直角坐标系内的点是一一对应关系的是（ C ）\nA. 实数 B. 实数对\nC. 有序实数对 D. 有序有理数对\n4. 如果点 P(5, y) 在第四象限，则 y 的取值范围是（ A ）\nA. y < 0  B. y > 0\nC. y >= 0 D. y <= 0\n5. 如果点 P(a, 2) 在第一象限，那么点 Q(-3, a) 在第 二 象限。\n6. 若点 P 在第二象限，且距离 x 轴和 y 轴分别为 4 和 3 个单位长度，则点 P 的坐标为 (-3, 4)。\n7. 已知点 P(x, y) 到 x 轴的距离为 3 个单位长度，到 y 轴的距离为 4 个单位长度，则点 P 的坐标为 (4, 3) (-4, 3) (4, -3) (-4, -3)。\n8. 若点 M(a-1, a+2) 是 x 轴上的点，则 a = -2；若点 N(2a-1, 3a+2) 是 y 轴上的点，则点 N 的坐标是 (0, 3.5)。\n9. 如果点 B(m-1, 3m+5) 到 x 轴的距离与它到 y 轴的距离相等，则点 B 的坐标是 (-4, -4) 或 (4, 4)。\n10. ①看右图写出下列各点的坐标：\nA(-2, -2), B(-5, 4), C(5, -4), D(0, -3), E(2, 5), F(-3, 0).\n②在右图的平面直角坐标系中描出下列各点：\nL(-5, -3), M(4, 0), N(-6, 2), P(5, -3.5), Q(0, 5), R(6, 2).\n\n=== 第2页 ===\n二、综合应用\n11. 已知点 P(a, 1) 不在第一象限，则点 Q(0, -a) 在 ( C )\nA. x轴正半轴上    B. x轴负半轴上    C. y轴正半轴或原点上    D. y轴负半轴上\n12. 在平面直角坐标系 xOy 中，点 P(x, y) 满足条件：① xy=6，② x, y 同时为整数，符合要求的点 P 有 8 个。\n13. 在平面直角坐标系中选择一些横、纵坐标满足下面条件的点，标出它们的位置，看一看它们在第几象限或在哪条坐标轴上：\n(1) 点 P(x, y) 的坐标满足 xy > 0;\n(2) 点 P(x, y) 的坐标满足 xy < 0;\n(3) 点 P(x, y) 的坐标满足 xy = 0.\n(4) 点 P(x, y) 的坐标满足 x = y.\n(5) 点 P(x, y) 的坐标满足 x + y = 0.\n14. 已知点 P(3m-6, m+1)，点 A 的坐标为 (-1, 2)，根据下列条件分别求出点 P 的坐标：\n(1) 点 P 在 y 轴上;\n(2) 点 P 的纵坐标比横坐标大 5;\n(3) 直线 PA // x 轴.\n三、能力拓展\n15. 在平面直角坐标系中，给出如下定义：点 Q 到 x 轴、y 轴的距离的较大值称为点 Q 的“长距”，当点 Q 到 x 轴、y 轴的距离相等时，称点 Q 为“完美点”。\n(1) 点 A(-8, 5) 的“长距”为 8 ;\n(2) 若点 B(4b-1, -3) 是“完美点”，求 b 的值;\n(3) 若点 C(m, n-2) 是“完美点”，且点 C 在第一象限内，m 为整数，若 P = √(mn+2n) + √(mn-2m)，请说明 P 一定是偶数。",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "下面四个图形中，是平面直角坐标系的是（ ）",
+      "options": [
+        "图形A",
+        "图形B",
+        "图形C",
+        "图形D"
+      ],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平面直角坐标系的定义"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1"
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "如图，小手盖住的点的坐标可能为（ ）",
+      "options": [
+        "(4, 3)",
+        "(4, -3)",
+        "(-4, 3)",
+        "(-4, -3)"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "象限内点的坐标特征"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2"
+    },
+    {
+      "number": "3",
+      "type": "choice",
+      "content": "与平面直角坐标系内的点是一一对应关系的是（ ）",
+      "options": [
+        "实数",
+        "实数对",
+        "有序实数对",
+        "有序有理数对"
+      ],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平面直角坐标系与有序实数对的关系"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T10:09:03.406Z"
+    },
+    {
+      "number": "4",
+      "type": "choice",
+      "content": "如果点 P(5, y) 在第四象限，则 y 的取值范围是（ ）",
+      "options": [
+        "y < 0",
+        "y > 0",
+        "y ≥ 0",
+        "y ≤ 0"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "象限内点的坐标符号特征"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T10:09:04.137Z"
+    },
+    {
+      "number": "5",
+      "type": "fill",
+      "content": "如果点 P(a, 2) 在第一象限，那么点 Q(-3, a) 在第____象限。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "象限内点的坐标特征"
+      ],
+      "userAnswer": "二",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5"
+    },
+    {
+      "number": "6",
+      "type": "fill",
+      "content": "若点 P 在第二象限，且距离 x 轴和 y 轴分别为 4 和 3 个单位长度，则点 P 的坐标为____。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "点到坐标轴的距离",
+        "象限内点的坐标特征"
+      ],
+      "userAnswer": "(-3, 4)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6"
+    },
+    {
+      "number": "7",
+      "type": "fill",
+      "content": "已知点 P(x, y) 到 x 轴的距离为 3 个单位长度，到 y 轴的距离为 4 个单位长度，则点 P 的坐标为____。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "点到坐标轴的距离",
+        "坐标的确定"
+      ],
+      "userAnswer": "(4, 3), (-4, 3), (4, -3), (-4, -3)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "8",
+      "type": "fill",
+      "content": "若点 M(a-1, a+2) 是 x 轴上的点，则 a = ____；若点 N(2a-1, 3a+2) 是 y 轴上的点，则点 N 的坐标是____。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "坐标轴上点的坐标特征"
+      ],
+      "userAnswer": "-2; (0, 3.5)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8"
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "如果点 B(m-1, 3m+5) 到 x 轴的距离与它到 y 轴的距离相等，则点 B 的坐标是____。",
+      "options": [],
+      "score": 3,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "点到坐标轴的距离",
+        "绝对值方程"
+      ],
+      "userAnswer": "(-4, -4) 或 (4, 4)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "9",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T10:09:06.545Z"
+    },
+    {
+      "number": "10",
+      "type": "answer",
+      "content": "①看右图写出下列各点的坐标：A(__, __), B(__, __), C(__, __), D(__, __), E(__, __), F(__, __).\n②在右图的平面直角坐标系中描出下列各点：L(-5, -3), M(4, 0), N(-6, 2), P(5, -3.5), Q(0, 5), R(6, 2).",
+      "options": [],
+      "score": 6,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平面直角坐标系中点的坐标",
+        "描点"
+      ],
+      "userAnswer": "①A(-2, -2), B(-5, 4), C(5, -4), D(0, -3), E(2, 5), F(-3, 0). ②见图中描点",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "10",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T10:09:08.087Z"
+    },
+    {
+      "number": "11",
+      "type": "choice",
+      "content": "已知点 P(a, 1) 不在第一象限，则点 Q(0, -a) 在 ( )",
+      "options": [
+        "x轴正半轴上",
+        "x轴负半轴上",
+        "y轴正半轴或原点上",
+        "y轴负半轴上"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "象限内点的坐标特征",
+        "坐标轴上点的坐标特征"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11"
+    },
+    {
+      "number": "12",
+      "type": "fill",
+      "content": "在平面直角坐标系 xOy 中，点 P(x, y) 满足条件：① xy=6，② x, y 同时为整数，符合要求的点 P 有 ______ 个。",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "整数解",
+        "反比例函数图像上的点"
+      ],
+      "userAnswer": "8",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12"
+    },
+    {
+      "number": "13",
+      "type": "answer",
+      "content": "在平面直角坐标系中选择一些横、纵坐标满足下面条件的点，标出它们的位置，看一看它们在第几象限或在哪条坐标轴上：(1) 点 P(x, y) 的坐标满足 xy > 0;",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "象限内点的符号特征"
+      ],
+      "userAnswer": "第一、三象限",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13(1)"
+    },
+    {
+      "number": "14",
+      "type": "answer",
+      "content": "在平面直角坐标系中选择一些横、纵坐标满足下面条件的点，标出它们的位置，看一看它们在第几象限或在哪条坐标轴上：(2) 点 P(x, y) 的坐标满足 xy < 0;",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "象限内点的符号特征"
+      ],
+      "userAnswer": "第二、四象限",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13(2)"
+    },
+    {
+      "number": "15",
+      "type": "answer",
+      "content": "在平面直角坐标系中选择一些横、纵坐标满足下面条件的点，标出它们的位置，看一看它们在第几象限或在哪条坐标轴上：(3) 点 P(x, y) 的坐标满足 xy = 0.",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "坐标轴上点的特征"
+      ],
+      "userAnswer": "在x, y轴上, 在原点上",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13(3)"
+    },
+    {
+      "number": "16",
+      "type": "answer",
+      "content": "在平面直角坐标系中选择一些横、纵坐标满足下面条件的点，标出它们的位置，看一看它们在第几象限或在哪条坐标轴上：(4) 点 P(x, y) 的坐标满足 x = y.",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "角平分线上的点"
+      ],
+      "userAnswer": "位于第一、三象限的角平分线上",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13(4)"
+    },
+    {
+      "number": "17",
+      "type": "answer",
+      "content": "在平面直角坐标系中选择一些横、纵坐标满足下面条件的点，标出它们的位置，看一看它们在第几象限或在哪条坐标轴上：(5) 点 P(x, y) 的坐标满足 x + y = 0.",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "角平分线上的点"
+      ],
+      "userAnswer": "位于第二、四象限的角平分线上",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13(5)"
+    },
+    {
+      "number": "18",
+      "type": "answer",
+      "content": "已知点 P(3m-6, m+1)，点 A 的坐标为 (-1, 2)，根据下列条件分别求出点 P 的坐标：(1) 点 P 在 y 轴上;",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "y轴上点的坐标特征",
+        "解一元一次方程"
+      ],
+      "userAnswer": "(0, 3)",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "14(1)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T10:09:51.522Z"
+    },
+    {
+      "number": "19",
+      "type": "answer",
+      "content": "已知点 P(3m-6, m+1)，点 A 的坐标为 (-1, 2)，根据下列条件分别求出点 P 的坐标：(2) 点 P 的纵坐标比横坐标大 5;",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "坐标运算",
+        "解一元一次方程"
+      ],
+      "userAnswer": "(-3, 2)",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "14(2)"
+    },
+    {
+      "number": "20",
+      "type": "answer",
+      "content": "已知点 P(3m-6, m+1)，点 A 的坐标为 (-1, 2)，根据下列条件分别求出点 P 的坐标：(3) 直线 PA // x 轴.",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行于x轴的直线上点的纵坐标相同"
+      ],
+      "userAnswer": "(-3, 2)",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "14(3)"
+    },
+    {
+      "number": "21",
+      "type": "fill",
+      "content": "在平面直角坐标系中，给出如下定义：点 Q 到 x 轴、y 轴的距离的较大值称为点 Q 的“长距”，当点 Q 到 x 轴、y 轴的距离相等时，称点 Q 为“完美点”。(1) 点 A(-8, 5) 的“长距”为 ______;",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "新定义理解",
+        "点到坐标轴的距离"
+      ],
+      "userAnswer": "8",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "15(1)"
+    },
+    {
+      "number": "22",
+      "type": "answer",
+      "content": "在平面直角坐标系中，给出如下定义：点 Q 到 x 轴、y 轴的距离的较大值称为点 Q 的“长距”，当点 Q 到 x 轴、y 轴的距离相等时，称点 Q 为“完美点”。(2) 若点 B(4b-1, -3) 是“完美点”，求 b 的值;",
+      "options": [],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "新定义应用",
+        "绝对值方程"
+      ],
+      "userAnswer": "b=1 或 b=-1/2",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "15(2)"
+    },
+    {
+      "number": "23",
+      "type": "answer",
+      "content": "在平面直角坐标系中，给出如下定义：点 Q 到 x 轴、y 轴的距离的较大值称为点 Q 的“长距”，当点 Q 到 x 轴、y 轴的距离相等时，称点 Q 为“完美点”。(3) 若点 C(m, n-2) 是“完美点”，且点 C 在第一象限内，m 为整数，若 P = √(mn+2n) + √(mn-2m)，请说明 P 一定是偶数。",
+      "options": [],
+      "score": 5,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "新定义综合应用",
+        "二次根式化简",
+        "整数性质"
+      ],
+      "userAnswer": "证明过程见解析",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "15(3)"
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-29 18:08:49",
+  "metadata": {
+    "overallDifficulty": 2,
+    "estimatedTime": 115,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-29T10:09:56.041Z"
+}

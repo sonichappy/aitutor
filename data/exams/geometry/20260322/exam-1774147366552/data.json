@@ -1,0 +1,306 @@
+{
+  "id": "exam-1774147366552",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\n7.4 平移\n一、基础落实\n1. 如图(1)，△A'B'C是由△ABC沿射线AC方向平移2cm得到，若AC=3cm，则A'C=____cm.\n2. 如图(2)，△ABC平移得到△DEF，点A的对应点是D，下列结论不一定正确的是( )\nA. BC//EF  B. AD=BE  C. BE//CF  D. AC=EF\n3. 如图(3)，一个水平放置的半圆，直径为10cm，向上平移6cm，阴影部分面积是____cm².\n4. 如图(4)，一段楼梯高BC为6m，地面长度AB为8m，在楼梯上铺地毯至少需要____m.\n5. 如图(5)，在一块长方形草地上原有一条等宽的笔直小路，现把这条小路改为同样宽度的等宽弯曲小路，则改造后小路的长度____（填变长、变短、不变），改造后小路的面积____（填变大、变小、不变）.\n6. 如图(6)是一块矩形场地，长AB=102m，宽AD=51m，A、B两处入口的路宽都为1m，两条路汇合处路宽为2m，其余部分种植草坪，则草坪的面积为____m².\n7. 如图(7)，AD//BC，三角形ABD的面积等于5，AD=4，BC=8，则三角形ABC的面积是____.\n8. 如图(8)，将方格纸中的三角形ABC先向右平移2格得到三角形DEF，再将三角形DEF向上平移3格得到三角形GPH，设AC与ED相交于点M.\n(1) 按上述步骤画出经过两次平移后分别得到的三角形，并标出点M.\n(2) 图中与AC既平行又相等的线段有____，图中与∠BAC相等的角有____.\n(3) 若∠BAC=43°，∠B=32°，求∠HAC和∠DMC的度数.\n\n=== 第2页 ===\n二、综合应用\n9. 某数学兴趣小组开展动手操作活动，设计了如图（9）所示的三种图形，现计划用铁丝按照图形制作相应的造型，则所用铁丝的长度关系是（ D ）\nA. 甲种方案所用铁丝最长\nB. 乙种方案所用铁丝最长\nC. 丙种方案所用铁丝最长\nD. 三种方案所用铁丝一样长\n10. 如图（10），两个直角三角形重叠在一起，将三角形ABC沿AB方向平移2cm得到三角形DEF，CH=2cm，EF=4cm，下列结论中正确的是 ①②④⑤ 。\n① BH//EF; ② AD=BE; ③ DH=CH; ④ ∠C=∠BHD; ⑤ 阴影部分的面积为6cm²。\n11. 如图（11），在长方形草地内修建了宽为2米的道路，则草地面积为 144 m²。\n12. 如图，三角形ABC通过平移得到三角形DEF，且BC分别与DE, DF交于点M, N，连接AD。四边形ABMD的面积记作S1，四边形ACND的面积记作S2，四边形MNFE的面积记作S3。请判断S1, S2, S3三者间的数量关系，并说明理由。\n三、能力拓展\n13. 架桥通常会考虑多种因素，其中一个就是路线规划，确保桥两边A, B两地间的路程尽量短，以减少通行时间和成本。\n(1) 如图①，河l的宽度忽略不计，即桥的宽度忽略不计，请你在l上画出表示桥的位置的点P，使从A地经过桥到B地的路程最短。\n(2) 如图②，河岸m和n之间的宽度不可忽略不计，即桥的宽度不可忽略不计，请你在m和n之间画出表示桥的位置的线段CD，使桥与河岸垂直，并且从A地经过桥到B地的路程最短。\n(3) 如图，河岸m和n，p和q之间的宽度不可忽略不计，即桥的宽度不可忽略不计，请你在m和n之间、p和q之间分别画出表示桥的位置的线段CD和EF，使每座桥与相应的河岸垂直，并且从A地经过2座桥到B地的路程最短。",
+  "questions": [
+    {
+      "number": "1",
+      "type": "fill",
+      "content": "如图(1)，△A'B'C是由△ABC沿射线AC方向平移2cm得到，若AC=3cm，则A'C=____cm.",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平移的性质"
+      ],
+      "userAnswer": "1",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1"
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "如图(2)，△ABC平移得到△DEF，点A的对应点是D，下列结论不一定正确的是( )",
+      "options": [
+        "BC//EF",
+        "AD=BE",
+        "BE//CF",
+        "AC=EF"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平移的性质",
+        "对应线段平行且相等"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2"
+    },
+    {
+      "number": "3",
+      "type": "fill",
+      "content": "如图(3)，一个水平放置的半圆，直径为10cm，向上平移6cm，阴影部分面积是____cm².",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平移的性质",
+        "面积计算"
+      ],
+      "userAnswer": "60",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3"
+    },
+    {
+      "number": "4",
+      "type": "fill",
+      "content": "如图(4)，一段楼梯高BC为6m，地面长度AB为8m，在楼梯上铺地毯至少需要____m.",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平移的应用",
+        "勾股定理（虽然这里不需要，只需要平移）"
+      ],
+      "userAnswer": "14",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4"
+    },
+    {
+      "number": "5",
+      "type": "fill",
+      "content": "如图(5)，在一块长方形草地上原有一条等宽的笔直小路，现把这条小路改为同样宽度的等宽弯曲小路，则改造后小路的长度____（填变长、变短、不变），改造后小路的面积____（填变大、变小、不变）.",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平移的性质",
+        "面积不变性"
+      ],
+      "userAnswer": "变长, 不变",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5"
+    },
+    {
+      "number": "6",
+      "type": "fill",
+      "content": "如图(6)是一块矩形场地，长AB=102m，宽AD=51m，A、B两处入口的路宽都为1m，两条路汇合处路宽为2m，其余部分种植草坪，则草坪的面积为____m².",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平移的应用",
+        "面积计算"
+      ],
+      "userAnswer": "5000",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6"
+    },
+    {
+      "number": "7",
+      "type": "fill",
+      "content": "如图(7)，AD//BC，三角形ABD的面积等于5，AD=4，BC=8，则三角形ABC的面积是____.",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线间的距离",
+        "三角形面积"
+      ],
+      "userAnswer": "10",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "8",
+      "type": "answer",
+      "content": "如图(8)，将方格纸中的三角形ABC先向右平移2格得到三角形DEF，再将三角形DEF向上平移3格得到三角形GPH，设AC与ED相交于点M.\n(1) 按上述步骤画出经过两次平移后分别得到的三角形，并标出点M.",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平移作图"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8(1)"
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "如图(8)，将方格纸中的三角形ABC先向右平移2格得到三角形DEF，再将三角形DEF向上平移3格得到三角形GPH，设AC与ED相交于点M.\n(2) 图中与AC既平行又相等的线段有____，图中与∠BAC相等的角有____.",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平移的性质"
+      ],
+      "userAnswer": "GH, DF; ∠EDF, ∠AMH, DGH, ∠CME",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8(2)"
+    },
+    {
+      "number": "10",
+      "type": "answer",
+      "content": "如图(8)，将方格纸中的三角形ABC先向右平移2格得到三角形DEF，再将三角形DEF向上平移3格得到三角形GPH，设AC与ED相交于点M.\n(3) 若∠BAC=43°，∠B=32°，求∠HAC和∠DMC的度数.",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平移的性质",
+        "角度计算",
+        "平行线性质"
+      ],
+      "userAnswer": "∠HAC=180°-∠BAP-∠A=105° (手写过程较乱，大致意图)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8(3)"
+    },
+    {
+      "number": "11",
+      "type": "choice",
+      "content": "某数学兴趣小组开展动手操作活动，设计了如图（9）所示的三种图形，现计划用铁丝按照图形制作相应的造型，则所用铁丝的长度关系是（ ）",
+      "options": [
+        "甲种方案所用铁丝最长",
+        "乙种方案所用铁丝最长",
+        "丙种方案所用铁丝最长",
+        "三种方案所用铁丝一样长"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平移的性质",
+        "周长的计算"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "9"
+    },
+    {
+      "number": "12",
+      "type": "fill",
+      "content": "如图（10），两个直角三角形重叠在一起，将三角形ABC沿AB方向平移2cm得到三角形DEF，CH=2cm，EF=4cm，下列结论中正确的是______。\n① BH//EF; ② AD=BE; ③ DH=CH; ④ ∠C=∠BHD; ⑤ 阴影部分的面积为6cm²。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平移的性质",
+        "全等三角形",
+        "面积计算"
+      ],
+      "userAnswer": "①④⑤",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "10"
+    },
+    {
+      "number": "13",
+      "type": "fill",
+      "content": "如图（11），在长方形草地内修建了宽为2米的道路，则草地面积为______m²。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平移的应用",
+        "矩形面积"
+      ],
+      "userAnswer": "56",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T02:43:17.924Z"
+    },
+    {
+      "number": "14",
+      "type": "answer",
+      "content": "如图，三角形ABC通过平移得到三角形DEF，且BC分别与DE, DF交于点M, N，连接AD。四边形ABMD的面积记作S1，四边形ACND的面积记作S2，四边形MNFE的面积记作S3。请判断S1, S2, S3三者间的数量关系，并说明理由。",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平移的性质",
+        "面积关系",
+        "几何证明"
+      ],
+      "userAnswer": "S1+S2=S3",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12"
+    },
+    {
+      "number": "15",
+      "type": "answer",
+      "content": "如图①，河l的宽度忽略不计，即桥的宽度忽略不计，请你在l上画出表示桥的位置的点P，使从A地经过桥到B地的路程最短。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "轴对称-最短路线问题",
+        "两点之间线段最短"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13(1)"
+    },
+    {
+      "number": "16",
+      "type": "answer",
+      "content": "如图②，河岸m和n之间的宽度不可忽略不计，即桥的宽度不可忽略不计，请你在m和n之间画出表示桥的位置的线段CD，使桥与河岸垂直，并且从A地经过桥到B地的路程最短。",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平移-最短路线问题",
+        "平行线性质"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13(2)"
+    },
+    {
+      "number": "17",
+      "type": "answer",
+      "content": "如图③，河岸m和n，p和q之间的宽度不可忽略不计，即桥的宽度不可忽略不计，请你在m和n之间、p和q之间分别画出表示桥的位置的线段CD和EF，使每座桥与相应的河岸垂直，并且从A地经过2座桥到B地的路程最短。",
+      "options": [],
+      "score": 5,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "平移-最短路线问题",
+        "多段路径优化"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13(3)"
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-22 10:42:46",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 85,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-22T02:43:22.131Z"
+}

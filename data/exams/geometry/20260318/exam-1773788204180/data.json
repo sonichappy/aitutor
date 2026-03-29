@@ -1,0 +1,368 @@
+{
+  "id": "exam-1773788204180",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\n二、综合应用\n8. 如图是某超市里购物车的侧面示意图，扶手AB与车底CD平行，∠1=100°，∠2=52°，则∠3的度数是 48 °。\n9. 如图，把一张长方形纸片ABCD沿EF折叠后，点C，D分别落在C'，D'的位置，EC'交AD于点G。已知∠FGE=70°，则∠GFE的度数为 55 °。\n10. 如图AB//EF//CD，EM//BD，则图中与∠1相等的角（除1外）共有（ B ）\nA. 6个    B. 5个    C. 4个    D. 2个\n11. 如图，直线AB//CD//EF，点O在直线EF上，下列结论正确的是（ B ）\nA. ∠α+∠β-∠γ=90°    B. ∠α-∠β+∠γ=180°\nC. ∠γ+∠β-∠α=90°    D. ∠α+∠β+γ=180°\n12. 如图，AD⊥BC，EFBC，∠1=2，求证：AB//DG。\n13. 如图，∠1=2，∠C=∠D，那么∠A=∠F吗？试说明理由。\n三、能力拓展\n14. 如图1，已知直线l1//l2，点A，B在直线l1上，点C，D在l2上，线段AD、BC交点E，且∠BED=63°。\n(1) 求∠ABE+∠EDC的值；\n(2) 如图2，当F、G分别在线段AE、EC上，标记∠BFE为1，∠BGD为∠2。\n①若∠1-∠2=12°，则∠ABC的度数为 63 °。\n②当k=1/2时，∠1+k2为定值，此时定值为 73.5 °。\n\n=== 第2页 ===\n7.2.3(1) 平行线的性质\n一、基础落实\n1. (1) 如图(1)，已知 a // b，∠1=60°，则∠2的度数是____，理由是____\n(2) 如图(2)，l1 // l2，则∠α的度数为____，理由是____\n(3) 如图(3)，BA⊥AE，∠EAC=40°且 BA // DC，则∠C的度数是____\n(4) 如图(4)，若 a // b，∠1=50°，则∠2=____\n2. 如图，一条公路的两侧铺设了 AB, CD 两条平行管道，并由纵向管道 AC 连通，若∠1=120°，则∠2的度数是____\n3. 如图，把一块直角三角板的直角顶点放在直尺的一边上，如果∠1=32°，那么∠2的度数是____\n4. 如图，直线 l1, l2, l3 交于一点，直线 l4 // l1，若∠1=36°，∠2=56°，则∠3=____\n5. 如图，若 l1 // l2, l3 // l4, 1=70°，则∠2=____\n6. 如图，DE // AB，请根据已知进行推理并在括号内注明理由：\n(1) ∵ DE // AB, (____) ∴ ∠2 = ____. (____)\n(2) ∵ DE // AB, (____) ∴ 3 = ∠____. (____)\n(3) ∵ DE // AB, (____)  ∠1 + ∠2 = 180°. (____)\n7. 如图，已知 EF // AD, ∠1=∠2, ∠BAC=70°，将求∠AGD的过程填写完整并注明理由。\n解：∵ EF // AD,\n∴ ∠1 = ∠____, (____)\n∵ ∠1 = ∠2,\n∴ ∠2 = ∠3, (____)\n∴ AB // ____, (____)\n∴ BAC + ∠____ = 180°, (____)\n∵ ∠BAC = 70°,\n∴ ∠AGD = ____",
+  "questions": [
+    {
+      "number": "1",
+      "type": "fill",
+      "content": "如图是某超市里购物车的侧面示意图，扶手AB与车底CD平行，∠1=100°，∠2=52°，则∠3的度数是______。",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角性质"
+      ],
+      "userAnswer": "48",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8"
+    },
+    {
+      "number": "2",
+      "type": "fill",
+      "content": "如图，把一张长方形纸片ABCD沿EF折叠后，点C，D分别落在C'，D'的位置，EC'交AD于点G。已知∠FGE=70°，则∠GFE的度数为______。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "折叠问题",
+        "平行线的性质",
+        "三角形内角和"
+      ],
+      "userAnswer": "55",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "9"
+    },
+    {
+      "number": "3",
+      "type": "choice",
+      "content": "如图AB//EF//CD，EM//BD，则图中与∠1相等的角（除∠1外）共有（ ）",
+      "options": [
+        "6个",
+        "5个",
+        "4个",
+        "2个"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "10"
+    },
+    {
+      "number": "4",
+      "type": "choice",
+      "content": "如图，直线AB//CD//EF，点O在直线EF上，下列结论正确的是（ ）",
+      "options": [
+        "∠α+∠β-γ=90°",
+        "∠α-∠β+∠γ=180°",
+        "∠γ+∠β-∠α=90°",
+        "α+∠β+∠γ=180°"
+      ],
+      "score": 3,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角度计算"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "11"
+    },
+    {
+      "number": "5",
+      "type": "answer",
+      "content": "如图，ADBC，EF⊥BC，∠1=∠2，求证：AB//DG。",
+      "options": [],
+      "score": 6,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "垂直的定义"
+      ],
+      "userAnswer": "证明：∵ADBC, EF⊥BC (已知) ∴∠EFB=90°, ∠ADB=90° (垂直定义) ∠EFB=∠ADB (等量代换) ∴EF//AD (同位角相等, 两直线平行) ∴∠1=∠BAD (两直线平行, 同位角相等) ∵∠1=∠2 (已知) ∴∠2=∠BAD (等量代换) ∴DG//AB (内错角相等, 两直线平行)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "12"
+    },
+    {
+      "number": "6",
+      "type": "answer",
+      "content": "如图，∠1=∠2，C=∠D，那么∠A=∠F吗？试说明理由。",
+      "options": [],
+      "score": 6,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定与性质"
+      ],
+      "userAnswer": "∠A=F。理由如下：∵∠1=∠2 (已知), ∠2=∠DGF (对顶角相等) ∴∠1=∠DGF ∴BD//CE (同位角相等, 两直线平行) ∴∠C=∠ABD (两直线平行, 同位角相等) ∵∠C=∠D (已知) ∴∠D=∠ABD DF//AC (内错角相等, 两直线平行) ∴∠A=∠F (两直线平行, 内错角相等)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "13",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-28T12:41:25.735Z"
+    },
+    {
+      "number": "7",
+      "type": "answer",
+      "content": "如图1，已知直线l1//l2，点A，B在直线l1上，点C，D在l2上，线段AD、BC交点E，且∠BED=63°。求∠ABE+∠EDC的值。",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角性质"
+      ],
+      "userAnswer": "∵∠BED=63° (已知) ∴∠AEC=∠BED=63° (对顶角相等) l1//l2 ∴∠ABE+∠EDC = ∠BED = 63° (此处手写过程简略，实际应为过E作平行线或利用三角形外角及平行线性质推导，通常结论是∠B+∠D=∠BED)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "14(1)"
+    },
+    {
+      "number": "8",
+      "type": "fill",
+      "content": "如图2，当F、G分别在线段AE、EC上，标记∠BFE为∠1，∠BGD为∠2。若∠1-∠2=12°，则∠ABC的度数为______。",
+      "options": [],
+      "score": 4,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "角度计算",
+        "几何模型"
+      ],
+      "userAnswer": "63",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "14(2)①"
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "当k=1/2时，∠1+k∠2为定值，此时定值为______。",
+      "options": [],
+      "score": 4,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "角度计算",
+        "代数式求值"
+      ],
+      "userAnswer": "73.5",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "14(2)②"
+    },
+    {
+      "number": "10",
+      "type": "fill",
+      "content": "如图(1)，已知 a // b，∠1=60°，则∠2的度数是____，理由是____",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平行线的性质",
+        "同位角相等"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "1(1)"
+    },
+    {
+      "number": "11",
+      "type": "fill",
+      "content": "如图(2)，l1 // l2，则∠α的度数为____，理由是____",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "内错角相等"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "1(2)"
+    },
+    {
+      "number": "12",
+      "type": "fill",
+      "content": "如图(3)，BAAE，∠EAC=40°且 BA // DC，则∠C的度数是____",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "垂直定义"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "1(3)"
+    },
+    {
+      "number": "13",
+      "type": "fill",
+      "content": "如图(4)，若 a // b，∠1=50°，则∠2=____",
+      "options": [],
+      "score": 2,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平行线的性质"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "1(4)"
+    },
+    {
+      "number": "14",
+      "type": "fill",
+      "content": "如图，一条公路的两侧铺设了 AB, CD 两条平行管道，并由纵向管道 AC 连通，若∠1=120°，则∠2的度数是____",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "同旁内角互补"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "2"
+    },
+    {
+      "number": "15",
+      "type": "fill",
+      "content": "如图，把一块直角三角板的直角顶点放在直尺的一边上，如果∠1=32°，那么∠2的度数是____",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "余角"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "3"
+    },
+    {
+      "number": "16",
+      "type": "fill",
+      "content": "如图，直线 l1, l2, l3 交于一点，直线 l4 // l1，若∠1=36°，∠2=56°，则∠3=____",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "对顶角",
+        "三角形内角和"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "4"
+    },
+    {
+      "number": "17",
+      "type": "fill",
+      "content": "如图，若 l1 // l2, l3 // l4, ∠1=70°，则∠2=____",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "5"
+    },
+    {
+      "number": "18",
+      "type": "fill",
+      "content": "如图，DE // AB，请根据已知进行推理并在括号内注明理由：\n(1) ∵ DE // AB, (____) ∴ ∠2 = ∠____. (____)",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "内错角相等"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "6(1)"
+    },
+    {
+      "number": "19",
+      "type": "fill",
+      "content": "如图，DE // AB，请根据已知进行推理并在括号内注明理由：\n(2) ∵ DE // AB, (____) ∴ ∠3 = ∠____. (____)",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "同位角相等"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "6(2)"
+    },
+    {
+      "number": "20",
+      "type": "fill",
+      "content": "如图，DE // AB，请根据已知进行推理并在括号内注明理由：\n(3) ∵ DE // AB, (____) ∴ ∠1 + ∠2 = 180°. (____)",
+      "options": [],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "同旁内角互补"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "6(3)"
+    },
+    {
+      "number": "21",
+      "type": "answer",
+      "content": "如图，已知 EF // AD, ∠1=∠2, ∠BAC=70°，将求∠AGD的过程填写完整并注明理由。\n解：∵ EF // AD,\n∴ ∠1 = ∠____, (____)\n∵ ∠1 = ∠2,\n∴ ∠2 = ∠3, (____)\n∴ AB // ____, (____)\n∴ ∠BAC + ∠____ = 180°, (____)\n∵ ∠BAC = 70°,\n∴ ∠AGD = ____",
+      "options": [],
+      "score": 8,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "逻辑推理"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "7"
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-18 06:56:44",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 105,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-28T12:41:30.185Z"
+}

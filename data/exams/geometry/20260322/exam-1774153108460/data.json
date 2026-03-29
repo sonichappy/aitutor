@@ -1,0 +1,489 @@
+{
+  "id": "exam-1774153108460",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "special_practice",
+  "rawText": "=== 第1页 ===\n2025 级初一数学《相交线与平行线》练习卷二\n班级 t.6 姓名 王怡然 学号 37\n一、选择题\n1. 如图，已知 EF // BC，∠DEF=34°，则∠ABC= ( A )\nA. 34°   B. 56°   C. 65°   D. 146°\n2. 如图，∠1=∠2=50°，∠3=80°，则4= ( D )\nA. 80°   B. 100°   C. 50°   D. 130°\n3. 我们曾利用手中的直尺和三角板，过直线外一点画出与已知直线平行的直线，你可能还见过木工师傅用角尺画出平行线的方法；两者的原理一样，依据是 ( A )\nA. 两直线平行，同位角相等   B. 同位角相等，两直线平行\nC. 两直线平行，内错角相等   D. 内错角相等，两直线平行\n4. 下列图形中，由 AB // CD，能得到∠1=∠2 的是 ( C )\n5. 如图，下列条件中，不能判定 l1 // l2 的是 ( C )\nA. ∠1=∠3   B. ∠2+∠4=180°   C. ∠2=∠3   D. ∠4+∠5=180°\n6. 如图，DE 平分∠ADC，∠A 与∠B 互补，∠1=35°，则∠2= ( C )\nA. 95°   B. 110°   C. 105°   D. 100°\n7. 已知直线 a、b、c 在同一平面内，则下列说法错误的是 ( D )\nA. 如果 a // b，b // c，那么 a // c\nB. 如果 a 与 b 相交，b 与 c 不相交，那么 a 与 c 一定相交\nC. a⊥b，c⊥b，那么 a // c\nD. 如果 a 与 b 相交，b 与 c 相交，那么 a 与 c 一定相交\n8. 如图，将长方形 ABCD 沿 EF 折叠，点 C，D 分别落在 C'，D' 的位置，C'F 的延长线交 CD 于点 G，∠EFG=2∠AED'，则∠BHD' 的度数为 ( A )\nA. 36°   B. 54°   C. 72°   D. 108°\n\n=== 第2页 ===\n选择填空答题卡\n1 A 2 D 3 A 4 C 5 C 6 C 7 D 8 A\n9. (1) 两直线平行，内错角相等 (2) 同旁内角互补，两直线平行\n10. 在同一平面内，过一点有且只有一条直线与已知直线垂直\n11. 64°\n12. 151°\n13. 50°\n14. ①④\n15. 45\n二、填空题\n9. 如图，(1) 若 GC // EF，则 ∠1 = ∠2，理由是______。\n(2) 若 ∠C + ∠B = 180°，则 GC // AB，理由是______。\n10. 在同一平面内，若 AB ⊥ a，AC ⊥ a，则 A, B, C 三点共线，理由是______。\n11. 如图，直线 a, b 被直线 c 所截，若 a // b，∠1 = 120°，∠2 = 56°，则 ∠3 = ______。\n12. 如图，AB // CD，∠1 = 58°，FG 平分 ∠EFD，则 ∠FGB = ______。\n13. 如图，已知直线 AB, CD 与直线 MN 相交于点 E, F，GE ⊥ MN 于点 E。若 ∠CFN = 140°，则 ∠BEG = ______。\n14. 如图，下列推理中正确的是______。（请填写序号）\n①  ∠B = ∠BEF,  AB // EF;\n② ∵ ∠B = ∠CDE,  AB // CD;\n③ ∵ ∠DCE + ∠AEF = 180°, ∴ AB // EF;\n④ ∵ ∠A + ∠AEF = 180°, ∴ AB // EF.\n15. 如图，已知 ∠AGF = ∠ABC, BF // ED, ∠2 = 135°, BF ⊥ AC, 则 ∠AFG = ______。\n16. 已知：线段 AB, CD, AB // CD, ∠DAB = 70°, 点 C 在点 D 右侧，点 A 在点 B 左侧，点 M 在直线 AD 上，点 N 在线段 DC 的延长线上，若 ∠MNC = α, 则 ∠AMN = ______。（用含 α 的式子表示）\n\n=== 第3页 ===\n三、解答题\n17. 中国汉字形意相生，方寸之间横竖藏乾坤，如图1是一个“九”字，如图2是由图1抽象出的几何图形，其中 AB // CD，且 ∠AGH = ∠B，BC // DE，求证：∠AGF = ∠D。\n在下列括号内填写推理过程或依据：\n证明：∵ AB // CD，\n ∠B = ∠C (依据：两直线平行，内错角相等)，\n又 ∵ ∠AGH = ∠B，\n∴ ∠C = AGH (依据：等量代换)，\n又 ∵ BC // DE，\n∴ ∠C + ∠D = 180° (依据：两直线平行，同旁内角互补)，\n又 ∵ ∠AGH + ∠AGF = 180° (依据：平角的定义)，\n∴ ∠AGF = ∠D (依据：等量代换)。\n18. 如图，已知 ∠1 = ∠BDC，∠2 + ∠3 = 180°，CE ⊥ AE 于 E，求证：AD ⊥ FE。\n证：∵ ∠2 + ∠3 = 180°\n∴ ∠2 = ∠ADC (同角的补角相等? 此处手写较乱，推测为平行线判定)\n∴ AB // CD\n∵ CE ⊥ AE\n∴ ∠CEA = 90°\n∴ ∠DAE = 180° - ∠CEA = 90°\n∴ AD ⊥ FE\n(右侧还有手写证明过程：∵ EC // AD ...)\n\n=== 第4页 ===\n19. 如图，直线 AM // CN，求证：∠MAB + ∠ABC - ∠BCN = 180°。\n将 AM 延长至点 P\n∵ ∠ABC = ∠PAB + ∠NCB\n∴ ∠ABC = (180° - ∠MAB) + ∠NCB\n∴ ∠ABC - (180° - ∠MAB) - ∠BCN = 0\n∠ABC - 180° + ∠MAB - ∠BCN = 0\n∠ABC + ∠MAB - BCN = 180°\n-10\n20. 如图 1，AB // CD，M, N 为直线 AB, CD 上的点，EM 和 EN 交于点 E。\n(1) 若 ∠EMB = 35°，∠END = 65°，则 ∠MEN 的度数是 30°；\n(2) 探究 ∠MEN，∠END，∠EMB 之间的数量关系，并证明；\nMEN + ∠EMB = ∠END\n AB // CD\n∴ ∠END = EFB\n∴ ∠MEN + ∠EMB = ∠EFB\n-6\n(3) 如图 2，MQ 平分 ∠EMB，NQ 平分 ∠END，若 ∠MEN = α，则 ∠MQN = 1/2 α（含 α 的代数式表示）。\n4",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "如图，已知 EF // BC，∠DEF=34°，则∠ABC= ( )",
+      "options": [
+        "34°",
+        "56°",
+        "65°",
+        "146°"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "内错角相等"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1"
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "如图，∠1=∠2=50°，∠3=80°，则∠4= ( )",
+      "options": [
+        "80°",
+        "100°",
+        "50°",
+        "130°"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "对顶角",
+        "邻补角"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:01:00.737Z"
+    },
+    {
+      "number": "3",
+      "type": "choice",
+      "content": "我们曾利用手中的直尺和三角板，过直线外一点画出与已知直线平行的直线，你可能还见过木工师傅用角尺画出平行线的方法；两者的原理一样，依据是 ( )",
+      "options": [
+        "两直线平行，同位角相等",
+        "同位角相等，两直线平行",
+        "两直线平行，内错角相等",
+        "内错角相等，两直线平行"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定",
+        "同位角相等，两直线平行"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:01:01.661Z"
+    },
+    {
+      "number": "4",
+      "type": "choice",
+      "content": "下列图形中，由 AB // CD，能得到∠1=∠2 的是 ( )",
+      "options": [
+        "图形A",
+        "图形B",
+        "图形C",
+        "图形D"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "内错角",
+        "同位角"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:01:04.034Z"
+    },
+    {
+      "number": "5",
+      "type": "choice",
+      "content": "如图，下列条件中，不能判定 l1 // l2 的是 ( )",
+      "options": [
+        "∠1=∠3",
+        "∠2+∠4=180°",
+        "∠2=∠3",
+        "4+∠5=180°"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5"
+    },
+    {
+      "number": "6",
+      "type": "choice",
+      "content": "如图，DE 平分∠ADC，∠A 与∠B 互补，∠1=35°，则2= ( )",
+      "options": [
+        "95°",
+        "110°",
+        "105°",
+        "100°"
+      ],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "角平分线",
+        "互补"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:01:05.654Z"
+    },
+    {
+      "number": "7",
+      "type": "choice",
+      "content": "已知直线 a、b、c 在同一平面内，则下列说法错误的是 ( )",
+      "options": [
+        "如果 a // b，b // c，那么 a // c",
+        "如果 a 与 b 相交，b 与 c 不相交，那么 a 与 c 一定相交",
+        "a⊥b，c⊥b，那么 a // c",
+        "如果 a 与 b 相交，b 与 c 相交，那么 a 与 c 一定相交"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行公理",
+        "垂直的性质",
+        "直线的位置关系"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "8",
+      "type": "choice",
+      "content": "如图，将长方形 ABCD 沿 EF 折叠，点 C，D 分别落在 C'，D' 的位置，C'F 的延长线交 CD 于点 G，∠EFG=2∠AED'，则∠BHD' 的度数为 ( )",
+      "options": [
+        "36°",
+        "54°",
+        "72°",
+        "108°"
+      ],
+      "score": 1,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "折叠问题",
+        "平行线的性质",
+        "角度计算"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:01:07.409Z"
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "如图，(1) 若 GC // EF，则 ∠1 = ∠2，理由是______。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "内错角"
+      ],
+      "userAnswer": "两直线平行，内错角相等",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "9(1)"
+    },
+    {
+      "number": "10",
+      "type": "fill",
+      "content": "(2) 若 ∠C + ∠B = 180°，则 GC // AB，理由是______。",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定",
+        "同旁内角"
+      ],
+      "userAnswer": "同旁内角互补，两直线平行",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "9(2)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:01:30.336Z"
+    },
+    {
+      "number": "11",
+      "type": "fill",
+      "content": "在同一平面内，若 AB ⊥ a，AC ⊥ a，则 A, B, C 三点共线，理由是______。",
+      "options": [],
+      "score": 2,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "垂线的性质",
+        "平面几何公理"
+      ],
+      "userAnswer": "在同一平面内，过一点有且只有一条直线与已知直线垂直",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "10"
+    },
+    {
+      "number": "12",
+      "type": "fill",
+      "content": "如图，直线 a, b 被直线 c 所截，若 a // b，∠1 = 120°，∠2 = 56°，则 ∠3 = ______。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角",
+        "角度计算"
+      ],
+      "userAnswer": "64°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11"
+    },
+    {
+      "number": "13",
+      "type": "fill",
+      "content": "如图，AB // CD，∠1 = 58°，FG 平分 ∠EFD，则 ∠FGB = ______。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角平分线",
+        "角度计算"
+      ],
+      "userAnswer": "151°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12"
+    },
+    {
+      "number": "14",
+      "type": "fill",
+      "content": "如图，已知直线 AB, CD 与直线 MN 相交于点 E, F，GE ⊥ MN 于点 E。若 ∠CFN = 140°，则 ∠BEG = ______。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "对顶角",
+        "垂直定义",
+        "角度计算"
+      ],
+      "userAnswer": "50°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:01:32.317Z"
+    },
+    {
+      "number": "15",
+      "type": "choice",
+      "content": "如图，下列推理中正确的是______。（请填写序号）",
+      "options": [
+        "① ∵ ∠B = ∠BEF,  AB // EF",
+        "∵ ∠B = ∠CDE, ∴ AB // CD",
+        "③ ∵ ∠DCE + ∠AEF = 180°, ∴ AB // EF",
+        "④ ∵ ∠A + ∠AEF = 180°, ∴ AB // EF"
+      ],
+      "score": 3,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定"
+      ],
+      "userAnswer": "①④",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "14"
+    },
+    {
+      "number": "16",
+      "type": "fill",
+      "content": "如图，已知 ∠AGF = ∠ABC, BF // ED, ∠2 = 135°, BF ⊥ AC, 则 ∠AFG = ______。",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "垂直定义",
+        "角度计算"
+      ],
+      "userAnswer": "45",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "15",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:01:33.892Z"
+    },
+    {
+      "number": "17",
+      "type": "fill",
+      "content": "已知：线段 AB, CD, AB // CD, ∠DAB = 70°, 点 C 在点 D 右侧，点 A 在点 B 左侧，点 M 在直线 AD 上，点 N 在线段 DC 的延长线上，若 ∠MNC = α, 则 ∠AMN = ______。（用含 α 的式子表示）",
+      "options": [],
+      "score": 4,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "平行线的性质",
+        "动点问题",
+        "代数表示"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "16"
+    },
+    {
+      "number": "18",
+      "type": "fill",
+      "content": "中国汉字形意相生，方寸之间横竖藏乾坤，如图1是一个“九”字，如图2是由图1抽象出的几何图形，其中 AB // CD，且 ∠AGH = ∠B，BC // DE，求证：∠AGF = ∠D。\n在下列括号内填写推理过程或依据：\n证明：∵ AB // CD，\n∴ B = ∠C (依据：__________________)，\n又 ∵ ∠AGH = ∠B，\n∴ ∠C = _________ (依据：__________________)，\n又 ∵ _________，\n∴ ∠C + ∠D = 180° (依据：__________________)，\n又 ∵ ∠AGH + _________ = 180° (依据：平角的定义)，\n∴ ∠AGF = ∠D (依据：__________________)。",
+      "options": [],
+      "score": 10,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "平行线的判定",
+        "逻辑推理"
+      ],
+      "userAnswer": "两直线平行，内错角相等; ∠AGH; 等量代换; BC // DE; 两直线平行，同旁内角互补; ∠AGF; 等量代换",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "17",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:00:26.144Z"
+    },
+    {
+      "number": "19",
+      "type": "answer",
+      "content": "如图，已知 ∠1 = ∠BDC，∠2 + ∠3 = 180°，CE ⊥ AE 于 E，求证：AD ⊥ FE。",
+      "options": [],
+      "score": 10,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "垂直的定义",
+        "几何证明"
+      ],
+      "userAnswer": "见手写证明过程",
+      "correctAnswer": "",
+      "pageIndex": 2,
+      "originalNumber": "18",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:00:28.901Z"
+    },
+    {
+      "number": "20",
+      "type": "answer",
+      "content": "如图，直线 AM // CN，求证：∠MAB + ∠ABC - ∠BCN = 180°。",
+      "options": [],
+      "score": 10,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角度计算",
+        "几何证明"
+      ],
+      "userAnswer": "将 AM 延长至点 P... ∠ABC + ∠MAB - ∠BCN = 180°",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "19",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:00:30.734Z"
+    },
+    {
+      "number": "21",
+      "type": "fill",
+      "content": "如图 1，AB // CD，M, N 为直线 AB, CD 上的点，EM 和 EN 交于点 E。若 ∠EMB = 35°，∠END = 65°，则 ∠MEN 的度数是____；",
+      "options": [],
+      "score": 2,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角性质"
+      ],
+      "userAnswer": "30°",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "20(1)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:00:32.117Z"
+    },
+    {
+      "number": "22",
+      "type": "answer",
+      "content": "探究 ∠MEN，∠END，∠EMB 之间的数量关系，并证明；",
+      "options": [],
+      "score": 6,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角度关系探究",
+        "几何证明"
+      ],
+      "userAnswer": "∠MEN + EMB = ∠END (证明过程略)",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "20(2)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:00:33.535Z"
+    },
+    {
+      "number": "23",
+      "type": "fill",
+      "content": "如图 2，MQ 平分 ∠EMB，NQ 平分 ∠END，若 ∠MEN = α，则 ∠MQN = ____（含 α 的代数式表示）。",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "角平分线定义",
+        "平行线的性质",
+        "代数式表示角度"
+      ],
+      "userAnswer": "1/2 α",
+      "correctAnswer": "",
+      "pageIndex": 3,
+      "originalNumber": "20(3)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-22T05:00:35.302Z"
+    }
+  ],
+  "pageCount": 4,
+  "createdAt": "2026-03-22 12:18:28",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 115,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-22T05:01:40.988Z"
+}

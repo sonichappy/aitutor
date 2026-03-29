@@ -103,7 +103,10 @@
         "对顶角"
       ],
       "userAnswer": "88°",
-      "correctAnswer": ""
+      "correctAnswer": "",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-28T12:43:54.531Z"
     },
     {
       "number": "5",
@@ -201,5 +204,5 @@
     "isEssay": false,
     "essayType": null
   },
-  "updatedAt": "2026-03-15T16:31:05.974Z"
+  "updatedAt": "2026-03-28T12:43:57.092Z"
 }

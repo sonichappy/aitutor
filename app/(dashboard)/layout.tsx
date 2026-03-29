@@ -1,17 +1,32 @@
-import Link from "next/link"
+"use client"
 
-// 默认用户配置
-const DEFAULT_USER = {
-  id: "user-1",
-  name: "学习者",
-  grade: 9, // 初三
-}
+import Link from "next/link"
+import { useState, useEffect } from "react"
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const [studentName, setStudentName] = useState("学习者")
+
+  useEffect(() => {
+    const loadUserSettings = async () => {
+      try {
+        const response = await fetch('/api/user-settings')
+        if (response.ok) {
+          const data = await response.json()
+          if (data.data?.studentName) {
+            setStudentName(data.data.studentName)
+          }
+        }
+      } catch (error) {
+        console.error("Failed to load user settings:", error)
+      }
+    }
+    loadUserSettings()
+  }, [])
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* 顶部导航栏 */}
@@ -53,8 +68,8 @@ export default function DashboardLayout({
                 设置
               </Link>
             </nav>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
-              {DEFAULT_USER.name}
+            <div className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              欢迎，{studentName}
             </div>
           </div>
         </div>

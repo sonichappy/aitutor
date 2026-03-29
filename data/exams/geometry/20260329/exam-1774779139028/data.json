@@ -1,0 +1,291 @@
+{
+  "id": "exam-1774779139028",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\n9.1.2 用坐标描述简单几何图形\n一、基础落实\n1. 在平面直角坐标系中，过点A(2, -4)和点B(-4, -4)作直线，那么直线AB ( )\nA. 平行于x轴\nB. 平行于y轴\nC. 与x轴相交\nD. 经过原点\n2. 方格纸上有A, B两点，若以点B为原点建立平面直角坐标系，则点A的坐标为(-2, 1)。若以点A为原点建立平面直角坐标系，则点B的坐标为 ( )\nA. (-2, 1)\nB. (2, -1)\nC. (-2, -1)\nD. (2, 1)\n3. 如图，将一片枫叶固定在正方形网格中，若点A的坐标为(-2, 0)，点B的坐标为(0, -1)，则点C的坐标为____\n4. 已知点C(-1, -2), D(-1, 2)，则线段CD的长是____\n5. 点P在坐标平面内位置如图所示，则点P的坐标为____\n6. 如图，长方形ABCD中，BC=6, CD=3, OC=2，则点A的坐标为____\n7. 如图，在平面直角坐标系中，点A的坐标为(-3, 3)，点B的坐标为(2, 0)，则三角形ABO的面积为____\n8. 如图，建立平面直角坐标系，使点B, C的坐标分别为(-3, -2)和(1, -2)，此时图中标出的7个点中在第一象限的点有__个，在第二象限的点有__个，在第三象限的点有__个，在第四象限的点有__个。\n9. 在如图所示的正方形网格中，每个小正方形的边长都为1，三角形ABC的三个顶点恰好是正方形网格的格点。\n(1) 写出A, B, C的坐标: A(__), B(__), C(__).\n(2) 求三角形ABC的面积.\n\n=== 第2页 ===\n二、综合应用\n10. 如图是象棋棋盘一部分的示意图，建立平面直角坐标系，使棋子“帅”位于点(0, -4)，“马”位于点(3, -4)，则“兵”位于点____。如果“马”再走一步，那么“马”的新位置位于点____。（按照象棋规则，棋子“马”只能沿着棋盘上“日”或“田”的对角线行走）\n11. 在平面直角坐标系中，AB // y轴，AB = 3，若点A(-1, 2)，则点B的坐标是 ( )\nA. (-1, -1)  B. (-1, -1) 或 (-1, 5)  C. (-1, 5)  D. (-4, 2) 或 (2, 2)\n12. 如图，已知直线 l1 ⊥ l2，且在某平面直角坐标系中，l1 // x轴，l2 // y轴，若点A的坐标为(-1, 2)，点B的坐标为(2, -1)，则点C在 ( )\nA. 第一象限  B. 第二象限  C. 第三象限  D. 第四象限\n13. 在如图所示的平面直角坐标系中，四边形OABC各顶点的坐标分别是O(0, 0)，A(-4, 10)，B(-12, 8)，C(-14, 0)，求四边形OABC的面积。\n三、能力拓展\n14. 如图，已知在平面直角坐标系中有三点A(-2, 1)，B(3, 1)，C(2, 3)，请回答下列问题：\n(1) 描出点A, B, C的位置，连接AB, AC, BC，则三角形ABC的面积是____；\n(2) 画出三角形ABC关于x轴对称的三角形A1B1C1；\n(3) 在y轴上是否存在点P，使以A, B, P三点为顶点的三角形的面积为5。若存在，请求出点P的坐标；若不存在，请说明理由。\n44",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "在平面直角坐标系中，过点A(2, -4)和点B(-4, -4)作直线，那么直线AB ( )",
+      "options": [
+        "平行于x轴",
+        "平行于y轴",
+        "与x轴相交",
+        "经过原点"
+      ],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "平面直角坐标系",
+        "直线与坐标轴的关系"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1"
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "方格纸上有A, B两点，若以点B为原点建立平面直角坐标系，则点A的坐标为(-2, 1)。若以点A为原点建立平面直角坐标系，则点B的坐标为 ( )",
+      "options": [
+        "(-2, 1)",
+        "(2, -1)",
+        "(-2, -1)",
+        "(2, 1)"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "坐标系的变换",
+        "相对坐标"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2"
+    },
+    {
+      "number": "3",
+      "type": "fill",
+      "content": "如图，将一片枫叶固定在正方形网格中，若点A的坐标为(-2, 0)，点B的坐标为(0, -1)，则点C的坐标为____",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平面直角坐标系",
+        "点的坐标"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3"
+    },
+    {
+      "number": "4",
+      "type": "fill",
+      "content": "已知点C(-1, -2), D(-1, 2)，则线段CD的长是____",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "两点间距离",
+        "平行于坐标轴的线段长度"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4"
+    },
+    {
+      "number": "5",
+      "type": "fill",
+      "content": "点P在坐标平面内位置如图所示，则点P的坐标为____",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "点的坐标"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5"
+    },
+    {
+      "number": "6",
+      "type": "fill",
+      "content": "如图，长方形ABCD中，BC=6, CD=3, OC=2，则点A的坐标为____",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "长方形的性质",
+        "点的坐标"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6"
+    },
+    {
+      "number": "7",
+      "type": "fill",
+      "content": "如图，在平面直角坐标系中，点A的坐标为(-3, 3)，点B的坐标为(2, 0)，则三角形ABO的面积为____",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "三角形面积",
+        "坐标与图形"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "8",
+      "type": "fill",
+      "content": "如图，建立平面直角坐标系，使点B, C的坐标分别为(-3, -2)和(1, -2)，此时图中标出的7个点中在第一象限的点有__个，在第二象限的点有__个，在第三象限的点有__个，在第四象限的点有__个。",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "象限",
+        "点的坐标"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T10:14:49.269Z"
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "在如图所示的正方形网格中，每个小正方形的边长都为1，三角形ABC的三个顶点恰好是正方形网格的格点。(1) 写出A, B, C的坐标",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "点的坐标"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "9(1)"
+    },
+    {
+      "number": "10",
+      "type": "answer",
+      "content": "在如图所示的正方形网格中，每个小正方形的边长都为1，三角形ABC的三个顶点恰好是正方形网格的格点。(2) 求三角形ABC的面积.",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "网格中图形面积计算",
+        "割补法"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "9(2)"
+    },
+    {
+      "number": "11",
+      "type": "fill",
+      "content": "如图是象棋棋盘一部分的示意图，建立平面直角坐标系，使棋子“帅”位于点(0, -4)，“马”位于点(3, -4)，则“兵”位于点____。如果“马”再走一步，那么“马”的新位置位于点____。（按照象棋规则，棋子“马”只能沿着棋盘上“日”或“田”的对角线行走）",
+      "options": [],
+      "score": 4,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平面直角坐标系",
+        "点的坐标",
+        "象棋规则"
+      ],
+      "userAnswer": "(-6, 3); (1, -3) 或 (2, -2)",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "10",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T10:14:58.719Z"
+    },
+    {
+      "number": "12",
+      "type": "choice",
+      "content": "在平面直角坐标系中，AB // y轴，AB = 3，若点A(-1, 2)，则点B的坐标是 ( )",
+      "options": [
+        "(-1, -1)",
+        "(-1, -1) 或 (-1, 5)",
+        "(-1, 5)",
+        "(-4, 2) 或 (2, 2)"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行于坐标轴的直线",
+        "两点间距离",
+        "点的坐标"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11"
+    },
+    {
+      "number": "13",
+      "type": "choice",
+      "content": "如图，已知直线 l1 ⊥ l2，且在某平面直角坐标系中，l1 // x轴，l2 // y轴，若点A的坐标为(-1, 2)，点B的坐标为(2, -1)，则点C在 ( )",
+      "options": [
+        "第一象限",
+        "第二象限",
+        "第三象限",
+        "第四象限"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平面直角坐标系",
+        "象限",
+        "直线与坐标轴平行"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12"
+    },
+    {
+      "number": "14",
+      "type": "answer",
+      "content": "在如图所示的平面直角坐标系中，四边形OABC各顶点的坐标分别是O(0, 0)，A(-4, 10)，B(-12, 8)，C(-14, 0)，求四边形OABC的面积。",
+      "options": [],
+      "score": 8,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "多边形面积计算",
+        "割补法",
+        "坐标与图形"
+      ],
+      "userAnswer": "100",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13"
+    },
+    {
+      "number": "15",
+      "type": "answer",
+      "content": "如图，已知在平面直角坐标系中有三点A(-2, 1)，B(3, 1)，C(2, 3)，请回答下列问题：\n(1) 描出点A, B, C的位置，连接AB, AC, BC，则三角形ABC的面积是____；\n(2) 画出三角形ABC关于x轴对称的三角形A1B1C1；\n(3) 在y轴上是否存在点P，使以A, B, P三点为顶点的三角形的面积为5。若存在，请求出点P的坐标；若不存在，请说明理由。",
+      "options": [],
+      "score": 10,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "三角形面积",
+        "轴对称变换",
+        "存在性问题",
+        "动点问题"
+      ],
+      "userAnswer": "(1) 5; (2) 图略; (3) 存在，P(0, 3) 或 (0, -1)",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "14"
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-29 18:12:19",
+  "metadata": {
+    "overallDifficulty": 2,
+    "estimatedTime": 75,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-29T10:15:08.467Z"
+}

@@ -1,0 +1,76 @@
+{
+  "id": "exam-1773765012894",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "27. 如图，已知∠EFB+∠ADC=180°，且∠1=2，求证：DG//AB.\n证 ∵∠EFB+∠ADC=180°，∠ADC+∠ADB=180°(已知)\n∴∠EFB=∠ADB(等量代换)\n∴EF//AD(同位角相等，两直线平行)\n∵EF//AD(已证)\n∴∠1=∠BAD(两直线平行，同位角相等)\n∵∠1=∠2(已知)\n∴∠BAD=∠2(等量代换)\n∴DG//AB(内错角相等，两直线平行)\n\n28. 如图，已知GE//BC，DE//AF，∠1=50°.\n(1) 求∠AFG的度数；\n∵GE//BC(已知)\n∴∠E=∠1(两直线平行，内错角相等)\n∵ED//AF(已知)\n∴∠AFG=∠E(两直线平行，同位角相等)\n∵∠1=50°(已知)\n∴∠AFG=∠1=50°(等量代换)\n\n(2) 若AQ平分FAC，交BC于点Q，且Q=15°，求∠FAQ和∠ACB.\n∵∠Q=15°，∠1=50°(已知)\n∴∠DMQ=180°-∠1-∠Q=115°\n∴AME=∠DMQ=115°(对顶角相等)\n∵AF//ED(已知)\n∴∠FAQ=180°-∠AME=65°(两直线平行，同旁内角互补)\nAQ平分∠FAC(已知)\n∠QAC=∠FAQ=65°(角平分线定义)\n∴∠AMD=180°-∠QMD=65°\n∴∠ACQ=360°-∠AMD-∠QAC-∠BDE=100°\n∴∠ACB=180°-∠ACQ=80°\n答：∠ACB=80°，∠FAQ=65°",
+  "questions": [
+    {
+      "number": "27",
+      "type": "answer",
+      "content": "如图，已知∠EFB+∠ADC=180°，且∠1=2，求证：DG//AB.",
+      "options": [],
+      "score": 10,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "平行线的性质",
+        "补角性质"
+      ],
+      "userAnswer": "",
+      "correctAnswer": ""
+    },
+    {
+      "number": "28(1)",
+      "type": "answer",
+      "content": "如图，已知GE//BC，DE//AF，1=50°. 求∠AFG的度数；",
+      "options": [],
+      "score": 5,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角的计算"
+      ],
+      "userAnswer": "",
+      "correctAnswer": ""
+    },
+    {
+      "number": "28(2)",
+      "type": "answer",
+      "content": "若AQ平分FAC，交BC于点Q，且Q=15°，求∠FAQ和∠ACB.",
+      "options": [],
+      "score": 10,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "角平分线定义",
+        "三角形内角和",
+        "平行线的性质",
+        "多边形内角和"
+      ],
+      "userAnswer": "",
+      "correctAnswer": ""
+    }
+  ],
+  "createdAt": "2026-03-18 00:30:12",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 3,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "平行线的判定",
+      "平行线的性质",
+      "补角性质",
+      "角的计算",
+      "角平分线定义",
+      "三角形内角和",
+      "多边形内角和"
+    ],
+    "questionTypeStats": {
+      "answer": 3
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-17T16:30:12.896Z"
+}

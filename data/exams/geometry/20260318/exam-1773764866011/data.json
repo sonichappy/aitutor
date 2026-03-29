@@ -1,0 +1,128 @@
+{
+  "id": "exam-1773764866011",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "7.2.4 平行线的性质与判定的综合应用\n一、基础落实\n1. 如图，AB // CD, CD // EF, 则BCE = ( A )\nA. 180°-∠2+∠1   B. 180°-∠1-∠2\nC. ∠2-2∠1        D. ∠1+∠2\n2. 如图是某工程车的工作示意图，已知工作篮底部与支撑平台平行。\n若∠1=150°, ∠3=25°, 则∠2的度数是 ( A )\nA. 55°  B. 50°  C. 60°  D. 65°\n3. 如图所示，将一条两边沿互相平行的纸带按折叠，已知∠1=76°,\n则∠2的度数为 28°.\n4. 填空并说理. 已知：如图，若∠1=2, ∠3=∠E. 求证：AD // BE.\n证明：∵ 1 = ∠2,\n∴ DB // CE, (内错角相等,两直线平行)\n∴ ∠E = ∠4, (两直线平行,内错角相等)\n∵ ∠E = ∠3,\n∴ 3 = ∠4, (等量代换)\n∴ AD // BE. (内错角相等,两直线平行)\n5. 如图，已知：AB // CD, ∠B+∠D=180°, 那么直线 BC 与 ED 的位置关系如何？并说明理由.\n答：BC // ED.\n理由：∵ AB // CD, (已知)\n∴ ∠B = ∠C, (两直线平行,内错角相等)\n∵ ∠B+D=180°, (已知)\n ∠C+∠D=180° (等量代换)\n∴ BC // DE. (同旁内角互补,两直线平行)\n6. 如图，CD // AB, ∠DCB=70°, ∠CBF=20°, ∠EFB=130°, 问直线 EF 与 AB 有怎样的位置关系，为什么？\n∵ CD // AB (已知),\n∴ ∠ABC = ∠DCB = 70° (两直线平行,内错角相等)\n∵ ∠CBF (已知)\n∴ ∠ABF = ∠ABC - ∠CBF = 50°\n∵ ∠EFB = 130° (已知)\n∴ ∠ABF + ∠EFB = 180°\n∴ EF // AB (同旁内角互补,两直线平行)",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "如图，AB // CD, CD // EF, 则BCE = ( )",
+      "options": [
+        "180°-∠2+∠1",
+        "180°-∠1-∠2",
+        "∠2-21",
+        "∠1+∠2"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角度计算"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": ""
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "如图是某工程车的工作示意图，已知工作篮底部与支撑平台平行。若∠1=150°, ∠3=25°, 则∠2的度数是 ( )",
+      "options": [
+        "55°",
+        "50°",
+        "60°",
+        "65°"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角性质"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": ""
+    },
+    {
+      "number": "3",
+      "type": "fill",
+      "content": "如图所示，将一条两边沿互相平行的纸带按折叠，已知∠1=76°, 则∠2的度数为____.",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "折叠问题"
+      ],
+      "userAnswer": "28°",
+      "correctAnswer": ""
+    },
+    {
+      "number": "4",
+      "type": "answer",
+      "content": "填空并说理. 已知：如图，若∠1=∠2, 3=∠E. 求证：AD // BE.\n证明：\n∵ ∠1 = ∠2,\n∴ DB // ____, (________________)\n∴ ∠E = ∠____, (________________)\n ∠E = ∠3,\n∴ ∠3 = ∠____, (________________)\n∴ AD // BE. (________________)",
+      "options": [],
+      "score": 5,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的判定",
+        "平行线的性质",
+        "逻辑推理"
+      ],
+      "userAnswer": "CE, 内错角相等,两直线平行; 4, 两直线平行,内错角相等; 4, 等量代换; 内错角相等,两直线平行",
+      "correctAnswer": ""
+    },
+    {
+      "number": "5",
+      "type": "answer",
+      "content": "如图，已知：AB // CD, ∠B+∠D=180°, 那么直线 BC 与 ED 的位置关系如何？并说明理由.",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "平行线的性质"
+      ],
+      "userAnswer": "BC // ED. 理由：∵ AB // CD, ∴ ∠B = ∠C (两直线平行,内错角相等). ∵ ∠B+∠D=180°, ∴ ∠C+∠D=180° (等量代换). ∴ BC // DE (同旁内角互补,两直线平行).",
+      "correctAnswer": ""
+    },
+    {
+      "number": "6",
+      "type": "answer",
+      "content": "如图，CD // AB, ∠DCB=70°, CBF=20°, ∠EFB=130°, 问直线 EF 与 AB 有怎样的位置关系，为什么？",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "平行线的性质",
+        "角度计算"
+      ],
+      "userAnswer": "EF // AB. 理由：∵ CD // AB, ∴ ∠ABC = ∠DCB = 70°. ∴ ∠ABF = ∠ABC - ∠CBF = 50°. ∵ ∠EFB = 130°, ∴ ∠ABF + ∠EFB = 180°. ∴ EF // AB (同旁内角互补,两直线平行).",
+      "correctAnswer": ""
+    }
+  ],
+  "createdAt": "2026-03-18 00:27:46",
+  "metadata": {
+    "detectedSubject": "数学",
+    "overallDifficulty": 2,
+    "estimatedTime": 25,
+    "knowledgePointsSummary": [
+      "平行线的性质",
+      "角度计算",
+      "三角形外角性质",
+      "折叠问题",
+      "平行线的判定",
+      "逻辑推理"
+    ],
+    "questionTypeStats": {
+      "choice": 2,
+      "fill": 1,
+      "answer": 3
+    },
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-17T16:27:46.016Z"
+}

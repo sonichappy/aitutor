@@ -1,0 +1,340 @@
+{
+  "id": "exam-1774626157737",
+  "userId": "user-1",
+  "subject": "english",
+  "subjectName": "英语",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\nU2 基础知识——重点短语\n1. 迟到 late for\n2. 准时 on time\n3. 不得不 have to\n4. 当然 of course\n5. 手机 mobile phone\n6. 关掉（水、电或燃气） turn off\n7. 插队 jump the queue\n8. 缺席；不在 absent from\n9. 戴上；穿上；增加 put on\n10. 太多的规则 too many rules\n11. 整理床铺；铺床 make the bed\n12. 在工作日 on weekdays\n13. 闲逛；常去某地 hang out\n14. 集中（注意力、精力等）于 foucs on\n15. 思考；考虑 think about\n16. 遵守规则 protect the rules (follow rules)\n17. 遛狗 walk the dog\n18. 在周末 on the weekends\n19. 练习小提琴 practise the violin\n20. 与...和睦相处 get along with",
+  "questions": [
+    {
+      "number": "1",
+      "type": "fill",
+      "content": "迟到",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语搭配"
+      ],
+      "userAnswer": "late for",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1"
+    },
+    {
+      "number": "2",
+      "type": "fill",
+      "content": "准时",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "短语搭配"
+      ],
+      "userAnswer": "on time",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2"
+    },
+    {
+      "number": "3",
+      "type": "fill",
+      "content": "不得不",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "情态动词短语"
+      ],
+      "userAnswer": "have to",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3"
+    },
+    {
+      "number": "4",
+      "type": "fill",
+      "content": "当然",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "常用口语"
+      ],
+      "userAnswer": "of course",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4"
+    },
+    {
+      "number": "5",
+      "type": "fill",
+      "content": "手机",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "名词短语"
+      ],
+      "userAnswer": "mobile phone",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5"
+    },
+    {
+      "number": "6",
+      "type": "fill",
+      "content": "关掉（水、电或燃气）",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "turn off",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6"
+    },
+    {
+      "number": "7",
+      "type": "fill",
+      "content": "插队",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "jump the queue",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "8",
+      "type": "fill",
+      "content": "缺席；不在",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "形容词短语"
+      ],
+      "userAnswer": "absent from",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "8",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-27T15:42:57.729Z"
+    },
+    {
+      "number": "9",
+      "type": "fill",
+      "content": "戴上；穿上；增加",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "put on",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "9"
+    },
+    {
+      "number": "10",
+      "type": "fill",
+      "content": "太多的规则",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "名词短语"
+      ],
+      "userAnswer": "too many rules",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "10"
+    },
+    {
+      "number": "11",
+      "type": "fill",
+      "content": "整理床铺；铺床",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "make the bed",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "11"
+    },
+    {
+      "number": "12",
+      "type": "fill",
+      "content": "在工作日",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "时间状语"
+      ],
+      "userAnswer": "on weekdays",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "12"
+    },
+    {
+      "number": "13",
+      "type": "fill",
+      "content": "闲逛；常去某地",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "hang out",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "13",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-27T15:43:00.530Z"
+    },
+    {
+      "number": "14",
+      "type": "fill",
+      "content": "集中（注意力、精力等）于",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "focus on",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "14"
+    },
+    {
+      "number": "15",
+      "type": "fill",
+      "content": "思考；考虑",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "think about",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "15",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-27T15:43:12.748Z"
+    },
+    {
+      "number": "16",
+      "type": "fill",
+      "content": "遵守规则",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "follow rules",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "16",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-27T15:43:13.612Z"
+    },
+    {
+      "number": "17",
+      "type": "fill",
+      "content": "遛狗",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "walk the dog",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "17"
+    },
+    {
+      "number": "18",
+      "type": "fill",
+      "content": "在周末",
+      "options": [],
+      "score": 1,
+      "difficulty": 1,
+      "knowledgePoints": [
+        "时间状语"
+      ],
+      "userAnswer": "on the weekends",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "18"
+    },
+    {
+      "number": "19",
+      "type": "fill",
+      "content": "练习小提琴",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "动词短语",
+        "乐器搭配"
+      ],
+      "userAnswer": "practise the violin",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "19",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-27T15:43:15.234Z"
+    },
+    {
+      "number": "20",
+      "type": "fill",
+      "content": "与...和睦相处",
+      "options": [],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "动词短语"
+      ],
+      "userAnswer": "get along with",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "20",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-27T15:43:16.819Z"
+    }
+  ],
+  "pageCount": 1,
+  "createdAt": "2026-03-27 23:42:37",
+  "metadata": {
+    "overallDifficulty": 1,
+    "estimatedTime": 100,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-27T15:43:18.004Z"
+}

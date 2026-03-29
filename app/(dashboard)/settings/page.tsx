@@ -31,6 +31,10 @@ export default function SettingsPage() {
   const [editingFolder, setEditingFolder] = useState<string | null>(null)
   const [folderValue, setFolderValue] = useState("")
 
+  // 用户设置相关状态
+  const [studentName, setStudentName] = useState("张同学")
+  const [isSavingSettings, setIsSavingSettings] = useState(false)
+
   // 提示词编辑相关状态
   const [promptModalOpen, setPromptModalOpen] = useState(false)
   const [editingPromptSubject, setEditingPromptSubject] = useState<Subject | null>(null)
@@ -39,6 +43,7 @@ export default function SettingsPage() {
 
   useEffect(() => {
     loadSubjects()
+    loadUserSettings()
   }, [])
 
   const loadSubjects = async () => {
@@ -53,6 +58,41 @@ export default function SettingsPage() {
       setSubjects(DEFAULT_SUBJECTS)
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const loadUserSettings = async () => {
+    try {
+      const response = await fetch('/api/user-settings')
+      if (response.ok) {
+        const data = await response.json()
+        if (data.data?.studentName) {
+          setStudentName(data.data.studentName)
+        }
+      }
+    } catch (error) {
+      console.error("Failed to load user settings:", error)
+    }
+  }
+
+  const handleSaveUserSettings = async () => {
+    setIsSavingSettings(true)
+    try {
+      const response = await fetch('/api/user-settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studentName })
+      })
+      if (response.ok) {
+        alert('学生姓名已保存')
+      } else {
+        alert('保存失败，请重试')
+      }
+    } catch (error) {
+      console.error("Failed to save user settings:", error)
+      alert('保存失败，请重试')
+    } finally {
+      setIsSavingSettings(false)
     }
   }
 
@@ -303,6 +343,37 @@ export default function SettingsPage() {
           </CardHeader>
         </Card>
       </div>
+
+      {/* 个人信息设置 */}
+      <Card>
+        <CardHeader>
+          <CardTitle>个人信息</CardTitle>
+          <CardDescription>
+            设置您的称呼，将显示在首页欢迎信息中
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center gap-4">
+            <div className="flex-1 max-w-sm">
+              <Label htmlFor="student-name" className="mb-2 block">学生姓名</Label>
+              <Input
+                id="student-name"
+                value={studentName}
+                onChange={(e) => setStudentName(e.target.value)}
+                placeholder="请输入姓名"
+                className="max-w-sm"
+              />
+            </div>
+            <Button
+              onClick={handleSaveUserSettings}
+              disabled={isSavingSettings}
+              className="mt-6"
+            >
+              {isSavingSettings ? "保存中..." : "保存"}
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* 学科列表 */}
       <Card>

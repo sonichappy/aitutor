@@ -1,0 +1,294 @@
+{
+  "id": "exam-1773788030915",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\n二、综合应用\n9. 某市为了方便市民绿色出行，推出了共享单车服务。如图是某品牌共享单车在水平地面上的示意图，其中AB, CD都与地面l平行，∠BCD=60°，BAC=54°，AM与CB平行，则∠MAC的度数为（ B ）\nA. 114°    B. 66°\nC. 60°     D. 16°\n10. 若两个角的两边分别平行，其中一个角是另一个角的4倍少30°，那么这两个角是42°和138°或10°和10°。\n11. 如图，已知EF // CD，∠1 + ∠2 = 180°。\n(1) 证明：DG // AC；\n(2) 若CD平分∠ACB，DG平分∠BDC，且∠A = 38°，求∠ACB的度数。\n12. 如图，∠1 + ∠2 = 180°，3 = ∠B，试判断∠AED与∠ACB的大小关系，并证明。\n三、能力拓展\n13. 如图1，已知AB // CD，∠B = 20°，∠D = 110°。\n(1) 探索E与∠F之间满足的数量关系，并说明理由；\n(2) 如图2，EP平分∠BEF，FG平分∠EFD，FG的反向延长线交EP于点P，求∠P的度数。\n\n=== 第2页 ===\n7.2.3(2) 平行线的性质\n一、基础落实\n1. 如图(1)，小明从A处出发沿北偏东60°方向行走至B处，又沿北偏西20°方向行走至C处，此时需把方向调整到与出发时一致，则方向的调整应是( )\nA. 右转 80°    B. 左转 80°    C. 右转 100°    D. 左转 100°\n2. 光线在不同介质中的传播速度不同，当光线从水中射向空气时，会发生折射，由于折射率相同，所以在水中平行的光线，在空气中也是平行的。如图(2)，∠1=122°，2的度数为( )\nA. 32°    B. 58°    C. 68°    D. 78°\n3. 如图(3)，将一副三角板按如图所示方式摆放在一组平行线内，∠1=40°，∠2=60°，则∠3的度数为( )\nA. 45°    B. 30°    C. 25°    D. 35°\n4. 如图(4)，l1 // l2，把一块含30°角的三角尺按如图位置摆放，若∠1=130°，则∠2=____\n5. 一次数学实践活动中，小鹏将一条对边互相平行的纸带沿EF折叠（如图(5)），若AB // CD，∠1=65°，则∠2为( )\nA. 30°    B. 40°    C. 50°    D. 60°\n6. 如图(6)，∠1+∠2=180°，DE平分∠CDF，EF // AB。若∠DCE=130°，则∠DEF=____\n7. 如图，AB // CD，E是CD上一点，∠A=42°，EF平分∠AED交AB于点F，求∠EFB。\n8. 如图，已知DF // AC，∠C=∠D，CE与BD有怎样的位置关系？证明你的结论。",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "某市为了方便市民绿色出行，推出了共享单车服务。如图是某品牌共享单车在水平地面上的示意图，其中AB, CD都与地面l平行，∠BCD=60°，∠BAC=54°，AM与CB平行，则∠MAC的度数为（ ）",
+      "options": [
+        "114°",
+        "66°",
+        "60°",
+        "16°"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角度计算"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "9"
+    },
+    {
+      "number": "2",
+      "type": "fill",
+      "content": "若两个角的两边分别平行，其中一个角是另一个角的4倍少30°，那么这两个角是______。",
+      "options": [],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "方程思想",
+        "分类讨论"
+      ],
+      "userAnswer": "42°和138°或10°和10°",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "10"
+    },
+    {
+      "number": "3",
+      "type": "answer",
+      "content": "如图，已知EF // CD，∠1 + ∠2 = 180°。(1) 证明：DG // AC；",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "平行线的性质"
+      ],
+      "userAnswer": "证明：EF // CD (已知)\n∴∠1 + ∠ACD = 180° (两直线平行，同旁内角互补)\n∵∠1 + ∠2 = 180° (已知)\n∴∠ACD = ∠2 (等量代换)\n∴DG // AC (内错角相等，两直线平行)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "11(1)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-28T12:42:26.103Z"
+    },
+    {
+      "number": "4",
+      "type": "answer",
+      "content": "如图，已知EF // CD，∠1 + ∠2 = 180°。(2) 若CD平分∠ACB，DG平分∠BDC，且∠A = 38°，求∠ACB的度数。",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "角平分线的定义",
+        "平行线的性质",
+        "三角形内角和"
+      ],
+      "userAnswer": "解：∵DG // AC (已证)\n∠A = ∠GDB (两直线平行，同位角相等)\n∵A = 38°\n∴GDB = 38°\n∵DG平分∠BDC\n∴∠BDC = 2∠GDB = 76°\n∵CD平分∠ACB\n∴∠ACB = 2ACD\n又∵DG // AC\n∴∠ACD = ∠2 (内错角相等)\n而∠2 = ∠GDB = 38° (这里推导可能有误，按图上手写：∠BDC = 2∠GDB = 76°, ∠ACD = 2, ∠2 = ∠GDB? 不，∠2和∠GDB是内错角吗？看图。手写过程：∠BDC = 2∠GDB = 76°, CD平分∠ACB => ∠ACB = 2∠ACD. 又DG//AC => ∠ACD = ∠2. 且∠2 = ∠GDB? 不，是∠2 = ∠ACD. 手写最后算出∠ACB = 152°? 或者是 76°? 手写比较乱。正确逻辑：DG//AC => ACD = ∠2. DG平分∠BDC => ∠BDG = 2. 所以∠ACD = ∠BDG. 又∠A = ∠BDG (同位角). 所以∠ACD = ∠A = 38°. ∠ACB = 2∠ACD = 76°.",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "11(2)"
+    },
+    {
+      "number": "5",
+      "type": "answer",
+      "content": "如图，∠1 + ∠2 = 180°，∠3 = ∠B，试判断∠AED与∠ACB的大小关系，并证明。",
+      "options": [],
+      "score": 6,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "等量代换"
+      ],
+      "userAnswer": "解：∠AED = ∠ACB\n证明：\n∵∠1 + ∠EFD = 180°, ∠1 + ∠2 = 180°\n∴∠EFD = ∠2 (等量代换)\n∴EF // AB (内错角相等，两直线平行)\n∴∠3 = ∠ADE (两直线平行，内错角相等)\n∵∠3 = ∠B (已知)\n∴∠B = ∠ADE (等量代换)\nDE // BC (同位角相等，两直线平行)\n∴∠AED = ∠ACB (两直线平行，同位角相等)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "12"
+    },
+    {
+      "number": "6",
+      "type": "answer",
+      "content": "如图1，已知AB // CD，∠B = 20°，∠D = 110°。(1) 探索∠E与∠F之间满足的数量关系，并说明理由；",
+      "options": [],
+      "score": 6,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "拐点模型（猪蹄模型）"
+      ],
+      "userAnswer": "解：∠E = ∠F + 90° (或者是其他关系，看手写：∠E = ∠A + ∠B... 手写过程较乱。通常结论是 ∠E + ∠D = ∠B + F 或者类似。根据手写：∠F = (180° - ∠D) + ∠B = 70° + 20° = 90°? 不对。手写最后算出 ∠F - E = 50°。)",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "13(1)"
+    },
+    {
+      "number": "7",
+      "type": "answer",
+      "content": "如图2，EP平分∠BEF，FG平分∠EFD，FG的反向延长线交EP于点P，求∠P的度数。",
+      "options": [],
+      "score": 6,
+      "difficulty": 5,
+      "knowledgePoints": [
+        "角平分线的定义",
+        "平行线的性质",
+        "三角形外角性质"
+      ],
+      "userAnswer": "解：... ∠P = 25°",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "13(2)",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-28T12:42:47.737Z"
+    },
+    {
+      "number": "8",
+      "type": "choice",
+      "content": "如图(1)，小明从A处出发沿北偏东60°方向行走至B处，又沿北偏西20°方向行走至C处，此时需把方向调整到与出发时一致，则方向的调整应是( )",
+      "options": [
+        "右转 80°",
+        "左转 80°",
+        "右转 100°",
+        "左转 100°"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "方向角"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "1"
+    },
+    {
+      "number": "9",
+      "type": "choice",
+      "content": "光线在不同介质中的传播速度不同，当光线从水中射向空气时，会发生折射，由于折射率相同，所以在水中平行的光线，在空气中也是平行的。如图(2)，∠1=122°，∠2的度数为( )",
+      "options": [
+        "32°",
+        "58°",
+        "68°",
+        "78°"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "补角"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "2"
+    },
+    {
+      "number": "10",
+      "type": "choice",
+      "content": "如图(3)，将一副三角板按如图所示方式摆放在一组平行线内，∠1=40°，∠2=60°，则∠3的度数为( )",
+      "options": [
+        "45°",
+        "30°",
+        "25°",
+        "35°"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形内角和"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "3"
+    },
+    {
+      "number": "11",
+      "type": "fill",
+      "content": "如图(4)，l1 // l2，把一块含30°角的三角尺按如图位置摆放，若∠1=130°，则∠2=____",
+      "options": [],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "4"
+    },
+    {
+      "number": "12",
+      "type": "choice",
+      "content": "一次数学实践活动中，小鹏将一条对边互相平行的纸带沿EF折叠（如图(5)），若AB // CD，∠1=65°，则∠2为( )",
+      "options": [
+        "30°",
+        "40°",
+        "50°",
+        "60°"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "折叠问题"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "5"
+    },
+    {
+      "number": "13",
+      "type": "fill",
+      "content": "如图(6)，∠1+∠2=180°，DE平分∠CDF，EF // AB。若∠DCE=130°，则∠DEF=____",
+      "options": [],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定与性质",
+        "角平分线"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "6"
+    },
+    {
+      "number": "14",
+      "type": "answer",
+      "content": "如图，AB // CD，E是CD上一点，∠A=42°，EF平分∠AED交AB于点F，求∠EFB。",
+      "options": [],
+      "score": 5,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角平分线"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "7"
+    },
+    {
+      "number": "15",
+      "type": "answer",
+      "content": "如图，已知DF // AC，∠C=∠D，CE与BD有怎样的位置关系？证明你的结论。",
+      "options": [],
+      "score": 5,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的判定与性质"
+      ],
+      "userAnswer": "",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "8"
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-18 06:53:50",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 75,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-28T12:42:51.569Z"
+}

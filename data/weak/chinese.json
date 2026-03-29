@@ -1,0 +1,184 @@
+[
+  {
+    "point": "字词掌握：元勋",
+    "severity": 5,
+    "reason": "字词\"元勋\"（yuán xūn）在练习中多次出错，含义：立大功的人",
+    "priority": 1,
+    "count": 4,
+    "sourceReports": [
+      "word-word-1774193637595-rr6yq27n5-1774754120990"
+    ],
+    "addedAt": "2026-03-29T03:15:20.995Z",
+    "archived": true,
+    "archivedAt": "2026-03-29T03:30:39.981Z"
+  },
+  {
+    "point": "字词掌握：奠基",
+    "severity": 5,
+    "reason": "字词\"奠基\"（diàn jī）在练习中多次出错，含义：打下基础",
+    "priority": 1,
+    "count": 3,
+    "sourceReports": [
+      "word-word-1774193637595-ghxvpaak1-1774754137699"
+    ],
+    "addedAt": "2026-03-29T03:15:37.710Z",
+    "archived": true,
+    "archivedAt": "2026-03-29T03:30:41.293Z"
+  },
+  {
+    "point": "字词掌握：选聘",
+    "severity": 3,
+    "reason": "字词\"选聘\"（xuǎn pìn）在练习中多次出错，含义：选拔聘用",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774754780883-o8qwipjx6-1774755034676"
+    ],
+    "addedAt": "2026-03-29T03:30:34.683Z",
+    "archived": true,
+    "archivedAt": "2026-03-29T03:30:41.822Z"
+  },
+  {
+    "point": "字词掌握：骨碌",
+    "severity": 3,
+    "reason": "字词\"骨碌\"（gū lu）在练习中多次出错，含义：滚动",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-mxaoqph0p-1774764693136"
+    ],
+    "addedAt": "2026-03-29T06:11:33.397Z"
+  },
+  {
+    "point": "字词掌握：督促",
+    "severity": 3,
+    "reason": "字词\"督促\"（dū cù）在练习中多次出错，含义：监督催促",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-6slku4h4b-1774764697035"
+    ],
+    "addedAt": "2026-03-29T06:11:37.047Z"
+  },
+  {
+    "point": "字词掌握：灌输",
+    "severity": 3,
+    "reason": "字词\"灌输\"（guàn shū）在练习中多次出错，含义：输送（思想、知识等）",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-tit4e880f-1774764700803"
+    ],
+    "addedAt": "2026-03-29T06:11:40.817Z"
+  },
+  {
+    "point": "字词掌握：掰",
+    "severity": 3,
+    "reason": "字词\"掰\"（bāi）在练习中多次出错，含义：用手把东西分开或折断",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-sg5azfgo3-1774764720504"
+    ],
+    "addedAt": "2026-03-29T06:12:00.515Z"
+  },
+  {
+    "point": "字词掌握：淳朴",
+    "severity": 3,
+    "reason": "字词\"淳朴\"（chún pǔ）在练习中多次出错，含义：诚实朴素",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-ahjs94b4v-1774764726172"
+    ],
+    "addedAt": "2026-03-29T06:12:06.183Z"
+  },
+  {
+    "point": "字词掌握：豁亮",
+    "severity": 3,
+    "reason": "字词\"豁亮\"（huò liàng）在练习中多次出错，含义：宽敞明亮、（嗓音）响亮",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-fk800aup6-1774764729704"
+    ],
+    "addedAt": "2026-03-29T06:12:09.715Z"
+  },
+  {
+    "point": "字词掌握：犁耙",
+    "severity": 3,
+    "reason": "字词\"犁耙\"（lí bà）在练习中多次出错，含义：犁和耙、泛指农具",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-07x0g7ehh-1774764743128"
+    ],
+    "addedAt": "2026-03-29T06:12:23.140Z"
+  },
+  {
+    "point": "字词掌握：高粱",
+    "severity": 3,
+    "reason": "字词\"高粱\"（gāo liáng）在练习中多次出错，含义：一种粮食作物",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-02uuac8xa-1774764748897"
+    ],
+    "addedAt": "2026-03-29T06:12:28.910Z"
+  },
+  {
+    "point": "字词掌握：斑斓",
+    "severity": 3,
+    "reason": "字词\"斑斓\"（bān lán）在练习中多次出错，含义：灿烂多彩",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-p5y1ili7x-1774764751609"
+    ],
+    "addedAt": "2026-03-29T06:12:31.619Z"
+  },
+  {
+    "point": "字词掌握：田垄",
+    "severity": 3,
+    "reason": "字词\"田垄\"（tián lǒng）在练习中多次出错，含义：田埂、田地分界的埂子",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-u2q6juuz8-1774764756154"
+    ],
+    "addedAt": "2026-03-29T06:12:36.167Z"
+  },
+  {
+    "point": "字词掌握：土壤",
+    "severity": 3,
+    "reason": "字词\"土壤\"（tǔ rǎng）在练习中多次出错，含义：地球表面的一层疏松的物质、能生长植物",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-takwqof2z-1774764759833"
+    ],
+    "addedAt": "2026-03-29T06:12:39.844Z"
+  },
+  {
+    "point": "字词掌握：禾稻",
+    "severity": 3,
+    "reason": "字词\"禾稻\"（hé dào）在练习中多次出错，含义：稻谷",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-v4cnlek1d-1774764764662"
+    ],
+    "addedAt": "2026-03-29T06:12:44.673Z"
+  },
+  {
+    "point": "字词掌握：污秽",
+    "severity": 3,
+    "reason": "字词\"污秽\"（wū huì）在练习中多次出错，含义：肮脏的、不洁净的",
+    "priority": 2,
+    "count": 1,
+    "sourceReports": [
+      "word-word-1774758907122-zqo2feeu5-1774764768506"
+    ],
+    "addedAt": "2026-03-29T06:12:48.517Z"
+  }
+]

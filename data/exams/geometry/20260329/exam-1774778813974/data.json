@@ -1,0 +1,310 @@
+{
+  "id": "exam-1774778813974",
+  "userId": "user-1",
+  "subject": "geometry",
+  "subjectName": "几何",
+  "examType": "daily_homework",
+  "rawText": "=== 第1页 ===\n7.5 全章练习\n一、选择题\n1. 已知直线 AB 和一点 P，过点 P 画直线与 AB 平行，可以画 ( C )\nA. 1条    B. 0条    C. 0条或1条    D. 无数条\n2. 如图(2)，下列条件中，能判断直线 AB // CD 的是 ( A )\nA. ∠BAD = ∠ADC   B. ∠ABC = ∠ADC   C. ∠ABC + ∠ABE = 180°   D. ∠BCG + ABE = 180°\n3. 在两千多年前，我们的先祖就运用杠杆原理发明了木杆秤，学名叫作戥子，如图(3)，这是一杆古秤在称物时的状态，已知∠1=102°，则∠2的度数为 ( C )\nA. 102°    B. 72°    C. 78°    D. 90°\n4. 下列各项中能用“垂线段最短”来解释的现象是 ( A )\nA. 测量跳远成绩    B. 木板上弹墨线    C. 弯曲河道改直    D. 两个钉子固定木条\n5. 如图(5)，平行于主光轴 MN 的光线 AB 和 CD 经过凹透镜的折射后，折射光线 BE、DF 的反向延长线交于主光轴 MN 上一点 P。若∠ABE=145°, ∠CDF=165°，则∠EPF 的度数是 ( B )\nA. 40°    B. 50°    C. 55°    D. 60°\n6. 斜空竹是我国传统的体育、游艺与杂技项目，是国家级非物质文化遗产之一。如图(6)，线某一时刻对空竹进行受力分析，斜线给空竹的拉力为 F1 和 F2，空竹受到的重力为计 G，方向竖直向下。若∠1=20°, ∠2=130°，则∠3的度数为 ( A )\nA. 70°    B. 75°    C. 80°    D. 90°\n7. 在同一平面内，将直尺和一副直角三角尺按如图方式摆放，若含 30° 角的直角三角尺的顶点 D 放在含 45° 角的直角三角尺的斜边 AB 上，且 BC // DF，则∠BDE 的大小为 ( B )\nA. 10°    B. 15°    C. 20°    D. 25°\n\n=== 第2页 ===\n8. 已知直线a，点C为直线a外一点，要用直尺和圆规作直线b，使得a//b，下图是小于同学的作图步骤，他作图的依据是（D）\n①过点C作直线l与a相交 ②作∠1=∠2，则a//b\nA. 两直线平行，同位角相等\nB. 内错角相等，两直线平行\nC. 同旁内角互补，两直线平行\nD. 同位角相等，两直线平行\n9. 某汽车在路上行驶，两次拐弯后，仍在原来的方向上行驶，那么两次拐弯的角度可能为（D）\nA. 第一次左拐50°，第二次左拐50°\nB. 第一次左拐50°，第二次右拐40°\nC. 第一次左拐50°，第二次右拐130°\nD. 第一次左拐50°，第二次右拐50°\n10. 将一副三角板按如图放置，则以下结论中正确的有（D）\n①∠1=∠3；②如果∠2=30°则有AC//DE；\n③如果∠2=30°，则有BC//AD；④如果∠2=45°，必有∠4=30°；\nA. ①②③④  B. ①②④  C. ①②  D. ③④\n二、填空题\n11. 如图，小明利用一张左、右两边已经破损的长方形纸片ABCD做折纸游戏，他将纸片沿EF折叠后，D、C两点分别落在D'、C'的位置，并利用量角器量得∠EFB=66°，则∠AED'= 48° 。\n12. 平面镜反射光线的规律是：射到平面镜上的光线和被反射出的光线与平面镜所夹的锐角相等，如图1，一束光线m射到平面镜a上，被平面镜a反射后的光线为n，则∠1=∠2。如图2，一束光线AB先后经平面镜OM、ON反射后，反射光线CD与AB平行。若∠OCB=58°，则∠MBA的度数为 32° 。\n13. 如图，已知AB//CD，点Q为射线CD外一点，AH平分∠QAB，CH交AH于点H。若∠QCH:∠HCD=2:3，∠HCD=30°，∠AHC=25°，则∠AQC= 60° 。\n14. 为响应新能源建设，某校园路灯加装了太阳能电池板，当太阳光线垂直照射电池板时接收的太阳光能最多。某一时刻，太阳光线、电池板与水平线所成锐角分别为70°和45°，如图所示，若要使此时接收的太阳光能最多，则电池板绕支点P逆时针旋转的最小角度是 25 度。",
+  "questions": [
+    {
+      "number": "1",
+      "type": "choice",
+      "content": "已知直线 AB 和一点 P，过点 P 画直线与 AB 平行，可以画 ( )",
+      "options": [
+        "1条",
+        "0条",
+        "0条或1条",
+        "无数条"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行公理",
+        "平行线的画法"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "1"
+    },
+    {
+      "number": "2",
+      "type": "choice",
+      "content": "如图(2)，下列条件中，能判断直线 AB // CD 的是 ( )",
+      "options": [
+        "∠BAD = ∠ADC",
+        "∠ABC = ∠ADC",
+        "∠ABC + ∠ABE = 180°",
+        "∠BCG + ∠ABE = 180°"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "平行线的判定",
+        "内错角相等",
+        "同旁内角互补"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "2"
+    },
+    {
+      "number": "3",
+      "type": "choice",
+      "content": "在两千多年前，我们的先祖就运用杠杆原理发明了木杆秤，学名叫作戥子，如图(3)，这是一杆古秤在称物时的状态，已知∠1=102°，则∠2的度数为 ( )",
+      "options": [
+        "102°",
+        "72°",
+        "78°",
+        "90°"
+      ],
+      "score": 1,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "补角",
+        "角度计算"
+      ],
+      "userAnswer": "C",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "3"
+    },
+    {
+      "number": "4",
+      "type": "choice",
+      "content": "下列各项中能用“垂线段最短”来解释的现象是 ( )",
+      "options": [
+        "测量跳远成绩",
+        "木板上弹墨线",
+        "弯曲河道改直",
+        "两个钉子固定木条"
+      ],
+      "score": 1,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "垂线段最短",
+        "两点确定一条直线",
+        "两点之间线段最短"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "4"
+    },
+    {
+      "number": "5",
+      "type": "choice",
+      "content": "如图(5)，平行于主光轴 MN 的光线 AB 和 CD 经过凹透镜的折射后，折射光线 BE、DF 的反向延长线交于主光轴 MN 上一点 P。若∠ABE=145°, ∠CDF=165°，则∠EPF 的度数是 ( )",
+      "options": [
+        "40°",
+        "50°",
+        "55°",
+        "60°"
+      ],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形外角性质",
+        "角度计算"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "5"
+    },
+    {
+      "number": "6",
+      "type": "choice",
+      "content": "斜空竹是我国传统的体育、游艺与杂技项目，是国家级非物质文化遗产之一。如图(6)，线某一时刻对空竹进行受力分析，斜线给空竹的拉力为 F1 和 F2，空竹受到的重力为计 G，方向竖直向下。若∠1=20°, ∠2=130°，则∠3的度数为 ( )",
+      "options": [
+        "70°",
+        "75°",
+        "80°",
+        "90°"
+      ],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形内角和",
+        "角度计算"
+      ],
+      "userAnswer": "A",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "6"
+    },
+    {
+      "number": "7",
+      "type": "choice",
+      "content": "在同一平面内，将直尺和一副直角三角尺按如图方式摆放，若含 30° 角的直角三角尺的顶点 D 放在含 45° 角的直角三角尺的斜边 AB 上，且 BC // DF，则∠BDE 的大小为 ( )",
+      "options": [
+        "10°",
+        "15°",
+        "20°",
+        "25°"
+      ],
+      "score": 1,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角板角度",
+        "角度计算"
+      ],
+      "userAnswer": "B",
+      "correctAnswer": "",
+      "pageIndex": 0,
+      "originalNumber": "7"
+    },
+    {
+      "number": "8",
+      "type": "choice",
+      "content": "已知直线a，点C为直线a外一点，要用直尺和圆规作直线b，使得a//b，下图是小于同学的作图步骤，他作图的依据是（ ）\n①过点C作直线l与a相交 ②作∠1=∠2，则a//b",
+      "options": [
+        "两直线平行，同位角相等",
+        "内错角相等，两直线平行",
+        "同旁内角互补，两直线平行",
+        "同位角相等，两直线平行"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "尺规作图",
+        "平行线的判定"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "8"
+    },
+    {
+      "number": "9",
+      "type": "choice",
+      "content": "某汽车在路上行驶，两次拐弯后，仍在原来的方向上行驶，那么两次拐弯的角度可能为（ ）",
+      "options": [
+        "第一次左拐50°，第二次左拐50°",
+        "第一次左拐50°，第二次右拐40°",
+        "第一次左拐50°，第二次右拐130°",
+        "第一次左拐50°，第二次右拐50°"
+      ],
+      "score": 3,
+      "difficulty": 2,
+      "knowledgePoints": [
+        "平行线的性质",
+        "方向角"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "9",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T10:07:06.339Z"
+    },
+    {
+      "number": "10",
+      "type": "choice",
+      "content": "将一副三角板按如图放置，则以下结论中正确的有（ ）\n①∠1=∠3；②如果∠2=30°则有AC//DE；\n③如果∠2=30°，则有BC//AD；④如果∠2=45°，必有∠4=30°；",
+      "options": [
+        "①②③④",
+        "①②④",
+        "①②",
+        "③④"
+      ],
+      "score": 3,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "三角板角度",
+        "平行线的判定与性质"
+      ],
+      "userAnswer": "D",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "10",
+      "isCorrect": false,
+      "isSkipped": false,
+      "markedAt": "2026-03-29T10:07:07.114Z"
+    },
+    {
+      "number": "11",
+      "type": "fill",
+      "content": "如图，小明利用一张左、右两边已经破损的长方形纸片ABCD做折纸游戏，他将纸片沿EF折叠后，D、C两点分别落在D'、C'的位置，并利用量角器量得∠EFB=66°，则∠AED'=______。",
+      "options": [],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "折叠问题",
+        "平行线的性质",
+        "平角定义"
+      ],
+      "userAnswer": "48°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "11"
+    },
+    {
+      "number": "12",
+      "type": "fill",
+      "content": "平面镜反射光线的规律是：射到平面镜上的光线和被反射出的光线与平面镜所夹的锐角相等，如图1，一束光线m射到平面镜a上，被平面镜a反射后的光线为n，则∠1=∠2。如图2，一束光线AB先后经平面镜OM、ON反射后，反射光线CD与AB平行。若∠OCB=58°，则∠MBA的度数为______。",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "三角形内角和",
+        "反射定律"
+      ],
+      "userAnswer": "32°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "12"
+    },
+    {
+      "number": "13",
+      "type": "fill",
+      "content": "如图，已知AB//CD，点Q为射线CD外一点，AH平分∠QAB，CH交AH于点H。若∠QCH:∠HCD=2:3，∠HCD=30°，∠AHC=25°，则∠AQC=______。",
+      "options": [],
+      "score": 4,
+      "difficulty": 4,
+      "knowledgePoints": [
+        "平行线的性质",
+        "角平分线",
+        "三角形外角性质"
+      ],
+      "userAnswer": "60°",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "13"
+    },
+    {
+      "number": "14",
+      "type": "fill",
+      "content": "为响应新能源建设，某校园路灯加装了太阳能电池板，当太阳光线垂直照射电池板时接收的太阳光能最多。某一时刻，太阳光线、电池板与水平线所成锐角分别为70°和45°，如图所示，若要使此时接收的太阳光能最多，则电池板绕支点P逆时针旋转的最小角度是______度。",
+      "options": [],
+      "score": 4,
+      "difficulty": 3,
+      "knowledgePoints": [
+        "角度计算",
+        "垂直定义",
+        "实际应用"
+      ],
+      "userAnswer": "25",
+      "correctAnswer": "",
+      "pageIndex": 1,
+      "originalNumber": "14"
+    }
+  ],
+  "pageCount": 2,
+  "createdAt": "2026-03-29 18:06:53",
+  "metadata": {
+    "overallDifficulty": 3,
+    "estimatedTime": 70,
+    "knowledgePointsSummary": [],
+    "questionTypeStats": {},
+    "isEssay": false,
+    "essayType": null
+  },
+  "updatedAt": "2026-03-29T10:07:09.807Z"
+}

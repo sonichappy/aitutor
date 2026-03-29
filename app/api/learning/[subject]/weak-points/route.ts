@@ -10,6 +10,8 @@ interface WeakPoint {
   count: number  // 出现次数/计数
   sourceReports: string[]  // 来源报告ID列表
   addedAt: string
+  archived?: boolean
+  archivedAt?: string
 }
 
 // 薄弱知识点存储目录
@@ -157,6 +159,89 @@ export async function POST(
       {
         success: false,
         error: "保存薄弱知识点失败",
+        details: error.message
+      },
+      { status: 500 }
+    )
+  }
+}
+
+/**
+ * 更新单个薄弱知识点
+ * PATCH /api/learning/[subject]/weak-points
+ * Body: { point: string, updates: Partial<WeakPoint> }
+ */
+export async function PATCH(
+  request: NextRequest,
+  { params }: { params: Promise<{ subject: string }> }
+) {
+  const { subject } = await params
+
+  try {
+    const body = await request.json()
+    const { point, updates } = body as { point: string; updates: Partial<WeakPoint> }
+
+    if (!point) {
+      return NextResponse.json(
+        { success: false, error: "缺少知识点名称" },
+        { status: 400 }
+      )
+    }
+
+    // 使用学科 folderName（英文名）作为文件名
+    const folderName = await getSubjectFolderName(subject)
+    const weakPointsPath = path.join(WEAK_DIR, `${folderName}.json`)
+
+    // 读取现有薄弱项列表
+    let existingWeakPoints: WeakPoint[] = []
+    try {
+      const content = await fs.readFile(weakPointsPath, 'utf-8')
+      existingWeakPoints = JSON.parse(content)
+    } catch {
+      return NextResponse.json(
+        { success: false, error: "薄弱知识点文件不存在" },
+        { status: 404 }
+      )
+    }
+
+    // 查找并更新目标知识点
+    const targetIndex = existingWeakPoints.findIndex(wp => wp.point === point)
+
+    if (targetIndex === -1) {
+      return NextResponse.json(
+        { success: false, error: "未找到指定的薄弱知识点" },
+        { status: 404 }
+      )
+    }
+
+    // 更新字段
+    const updatedPoint = {
+      ...existingWeakPoints[targetIndex],
+      ...updates,
+      // 确保这些字段不被覆盖
+      point: existingWeakPoints[targetIndex].point,
+      addedAt: existingWeakPoints[targetIndex].addedAt
+    }
+
+    existingWeakPoints[targetIndex] = updatedPoint
+
+    // 按优先级排序
+    const sortedWeakPoints = existingWeakPoints.sort((a, b) => a.priority - b.priority)
+
+    // 保存
+    await fs.writeFile(weakPointsPath, JSON.stringify(sortedWeakPoints, null, 2), 'utf-8')
+
+    return NextResponse.json({
+      success: true,
+      weakPoint: updatedPoint
+    })
+
+  } catch (error: any) {
+    console.error("[Weak Points PATCH API] Error:", error)
+    return NextResponse.json(
+      {
+        success: false,
+        error: "更新薄弱知识点失败",
         details: error.message
       },
       { status: 500 }
