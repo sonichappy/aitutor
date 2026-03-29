@@ -212,7 +212,7 @@ export default function KnowledgeBaseUploadPage() {
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
             />
             <p className="mt-2 text-xs text-gray-500">
-              格式：- {词语}（{拼音}）：{释义}
+              格式：- 词语（拼音）：释义
             </p>
           </div>
         </div>

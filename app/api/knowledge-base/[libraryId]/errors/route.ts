@@ -9,10 +9,10 @@ import path from 'path'
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { libraryId: string } }
+  { params }: { params: Promise<{ libraryId: string }> }
 ) {
   try {
-    const { libraryId } = params
+    const { libraryId } = await params
 
     // 获取知识库根目录下的所有子目录（学科目录）
     const knowledgeBaseDir = path.join(process.cwd(), 'data', 'knowledge-base')

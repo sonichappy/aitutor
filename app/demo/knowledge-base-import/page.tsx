@@ -79,7 +79,7 @@ export default function KnowledgeBaseImportPage() {
         </p>
         <ul className="list-disc list-inside text-sm text-blue-800 mt-2 space-y-1">
           <li>表格格式：<code>| 字词 | 拼音 | 释义 |</code></li>
-          <li>列表格式：<code>- {词语}（{拼音}）：{释义}</code></li>
+          <li>列表格式：<code>- 词语（拼音）：释义</code></li>
         </ul>
       </div>
 

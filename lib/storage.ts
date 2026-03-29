@@ -92,6 +92,7 @@ export interface ExamData {
   analysis?: any
   createdAt: string
   updatedAt?: string
+  testDate?: string  // 测试日期
   // 元数据
   metadata?: {
     detectedSubject?: string  // AI 识别的科目

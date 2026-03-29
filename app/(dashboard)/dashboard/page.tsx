@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 interface SubjectTrend {
@@ -97,6 +98,16 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-8">
+      {/* 欢迎标题 */}
+      <div>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          欢迎回来
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-2">
+          查看你的学习进度和统计信息
+        </p>
+      </div>
+
       {/* 学科成绩趋势 */}
       {!loadingTrends && Object.keys(subjectTrends).length > 0 && (
         <div className="space-y-6">
@@ -171,7 +182,9 @@ export default function DashboardPage() {
                           label={(props: any) => {
                             const { x, y, value } = props
                             // 只在有数据的点显示标签
-                            if (value === null || value === undefined) return null
+                            if (value === null || value === undefined) {
+                              return <></>
+                            }
                             return (
                               <text x={x} y={y - 8} textAnchor="middle" fontSize={11} fontWeight={600} fill={subjectColors[subject] || "#6b7280"}>
                                 {value}%
@@ -188,6 +201,33 @@ export default function DashboardPage() {
             })}
           </div>
         </div>
+      )}
+
+      {/* 加载中状态 */}
+      {loadingTrends && (
+        <Card>
+          <CardContent className="py-12 text-center">
+            <p className="text-gray-500">加载中...</p>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* 无数据提示 */}
+      {!loadingTrends && Object.keys(subjectTrends).length === 0 && (
+        <Card>
+          <CardContent className="py-12 text-center">
+            <div className="text-6xl mb-4">📊</div>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+              还没有足够的试卷数据
+            </h3>
+            <p className="text-gray-500 mb-6">
+              至少需要2次试卷记录才能显示趋势图
+            </p>
+            <Link href="/exam">
+              <Button>添加试卷</Button>
+            </Link>
+          </CardContent>
+        </Card>
       )}
 
       {/* 快速入口 */}

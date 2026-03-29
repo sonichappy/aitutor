@@ -87,6 +87,9 @@ export default function ExamPage() {
   const [selectedExams, setSelectedExams] = useState<Set<string>>(new Set())
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
+  // 视图模式：list (列表视图) | timeline (时间轴视图)
+  const [viewMode, setViewMode] = useState<"list" | "timeline">("timeline")
+
   useEffect(() => {
     loadSubjects()
     loadExams()
@@ -336,6 +339,24 @@ export default function ExamPage() {
     return "困难"
   }
 
+  const getSubjectColor = (subjectName: string) => {
+    const subject = getSubjectInfo(subjectName)
+    if (!subject?.color) return "text-gray-900 dark:text-white"
+
+    const colorMap: Record<string, string> = {
+      blue: "text-blue-600 dark:text-blue-400",
+      red: "text-red-600 dark:text-red-400",
+      purple: "text-purple-600 dark:text-purple-400",
+      green: "text-green-600 dark:text-green-400",
+      yellow: "text-yellow-600 dark:text-yellow-400",
+      orange: "text-orange-600 dark:text-orange-400",
+      pink: "text-pink-600 dark:text-pink-400",
+      cyan: "text-cyan-600 dark:text-cyan-400",
+    }
+
+    return colorMap[subject.color] || "text-gray-900 dark:text-white"
+  }
+
   // 按科目分组试卷，每个科目内按时间从新往旧排序
   const groupedExams = selectedSubject === "all"
     ? exams.reduce((acc, exam) => {
@@ -362,6 +383,77 @@ export default function ExamPage() {
 
   // 获取所有科目选项（包括 all）
   const allSubjects = ["all", ...Array.from(new Set(exams.map(e => e.subject)))]
+
+  // 时间轴视图数据分组逻辑
+  // 学科显示顺序：几何、代数、英语、语文、地理、生物、历史、道法
+  const subjectOrder = ["geometry", "math", "english", "chinese", "geography", "biology", "history", "politics"]
+
+  // 按测试日期分组，每个日期内按学科顺序排列
+  const timelineData = (() => {
+    // 按日期分组
+    const dateGroups: Record<string, ExamListItem[]> = {}
+    exams.forEach(exam => {
+      // 提取日期部分，支持多种格式：
+      // 1. "2026-03-03"
+      // 2. "2026-03-07T17:36:21.550Z"
+      // 3. "2026-03-09 14:24:14"
+      let dateKey: string
+      if (exam.testDate) {
+        // 尝试解析日期
+        const parsed = new Date(exam.testDate)
+        if (!isNaN(parsed.getTime())) {
+          // 如果成功解析，格式化为 YYYY-MM-DD
+          dateKey = parsed.toISOString().split('T')[0]
+        } else {
+          // 解析失败，尝试直接提取日期部分
+          dateKey = exam.testDate.split(/[T\s]/)[0]
+        }
+      } else {
+        dateKey = exam.createdAt.split('T')[0]
+      }
+
+      if (!dateGroups[dateKey]) {
+        dateGroups[dateKey] = []
+      }
+      dateGroups[dateKey].push(exam)
+    })
+
+    // 转换为数组并按日期从新到旧排序
+    const sortedDates = Object.entries(dateGroups)
+      .map(([date, examList]) => ({ date, exams: examList }))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+    // 对每个日期的试卷按学科分组，并按指定学科顺序排列
+    return sortedDates.map(({ date, exams: dateExams }) => {
+      // 按学科分组
+      const subjectGroups: Record<string, ExamListItem[]> = {}
+      dateExams.forEach(exam => {
+        const subject = exam.subject || "未分类"
+        if (!subjectGroups[subject]) {
+          subjectGroups[subject] = []
+        }
+        subjectGroups[subject].push(exam)
+      })
+
+      // 按学科顺序排列，只保留有试卷的学科
+      const orderedSubjects = subjectOrder
+        .filter(subject => subjectGroups[subject])
+        .map(subject => ({
+          subject,
+          exams: subjectGroups[subject].sort((a, b) => {
+            // 同一学科的试卷按时间从新到旧排序
+            const timeA = new Date(a.testDate || a.createdAt).getTime()
+            const timeB = new Date(b.testDate || b.createdAt).getTime()
+            return timeB - timeA
+          })
+        }))
+
+      return {
+        date,
+        subjects: orderedSubjects
+      }
+    })
+  })()
 
   return (
     <div className="max-w-7xl mx-auto space-y-6">
@@ -435,31 +527,52 @@ export default function ExamPage() {
         </div>
       )}
 
-      {/* 科目筛选 */}
+      {/* 科目筛选和视图切换 */}
       {exams.length > 0 && !isManageMode && (
-        <div className="flex gap-2 overflow-x-auto pb-2">
-          <Button
-            variant={selectedSubject === "all" ? "default" : "outline"}
-            size="sm"
-            onClick={() => setSelectedSubject("all")}
-          >
-            全部 ({exams.length})
-          </Button>
-          {allSubjects.slice(1).map((subject) => {
-            const subjectInfo = getSubjectInfo(subject)
-            const count = exams.filter(e => e.subject === subject).length
-            const displayName = subjectInfo?.name || subject
-            return (
-              <Button
-                key={subject}
-                variant={selectedSubject === subject ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedSubject(subject)}
-              >
-                {subjectInfo?.icon || "📚"} {displayName} ({count})
-              </Button>
-            )
-          })}
+        <div className="flex items-center gap-3">
+          {/* 学科筛选 */}
+          <div className="flex gap-2 overflow-x-auto pb-2 flex-1">
+            <Button
+              variant={selectedSubject === "all" ? "default" : "outline"}
+              size="sm"
+              onClick={() => setSelectedSubject("all")}
+            >
+              全部 ({exams.length})
+            </Button>
+            {allSubjects.slice(1).map((subject) => {
+              const subjectInfo = getSubjectInfo(subject)
+              const count = exams.filter(e => e.subject === subject).length
+              const displayName = subjectInfo?.name || subject
+              return (
+                <Button
+                  key={subject}
+                  variant={selectedSubject === subject ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setSelectedSubject(subject)}
+                >
+                  {subjectInfo?.icon || "📚"} {displayName} ({count})
+                </Button>
+              )
+            })}
+          </div>
+
+          {/* 视图切换 */}
+          <div className="flex gap-2 flex-shrink-0">
+            <Button
+              variant={viewMode === "list" ? "default" : "outline"}
+              size="sm"
+              onClick={() => setViewMode("list")}
+            >
+              📋 列表
+            </Button>
+            <Button
+              variant={viewMode === "timeline" ? "default" : "outline"}
+              size="sm"
+              onClick={() => setViewMode("timeline")}
+            >
+              📅 时间轴
+            </Button>
+          </div>
         </div>
       )}
 
@@ -502,15 +615,18 @@ export default function ExamPage() {
               </CardContent>
             </Card>
           ) : (
-            <div className="space-y-8">
-              {subjectList.map((subject) => {
-                const subjectInfo = getSubjectInfo(subject)
-                const subjectExams = groupedExams[subject]
-                const displayName = subjectInfo?.name || subject
+            <>
+              {/* 列表视图 */}
+              {viewMode === "list" && (
+                <div className="space-y-8">
+                  {subjectList.map((subject) => {
+                    const subjectInfo = getSubjectInfo(subject)
+                    const subjectExams = groupedExams[subject]
+                    const displayName = subjectInfo?.name || subject
 
-                return (
-                  <div key={subject}>
-                    {/* 科目标题 */}
+                    return (
+                      <div key={subject}>
+                        {/* 科目标题 */}
                     <div className="flex items-center gap-3 mb-4">
                       <span className="text-3xl">{subjectInfo?.icon || "📚"}</span>
                       <div>
@@ -709,6 +825,216 @@ export default function ExamPage() {
                 )
               })}
             </div>
+              )}
+
+              {/* 时间轴视图 */}
+              {viewMode === "timeline" && (
+                <div className="relative">
+                  {/* 日期节点 */}
+                  <div className="space-y-12">
+                    {timelineData.map(({ date, subjects: dateSubjects }) => {
+                      // 格式化日期显示
+                      const dateObj = new Date(date)
+                      const formattedDate = dateObj.toLocaleDateString('zh-CN', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                      })
+
+                      // 计算该日期的试卷总数
+                      const totalExams = dateSubjects.reduce((sum, s) => sum + s.exams.length, 0)
+
+                      return (
+                        <div key={date} className="flex gap-6">
+                          {/* 左侧：日期显示 */}
+                          <div className="flex-shrink-0 w-24 pt-2">
+                            <div className="text-right">
+                              <div className="text-sm font-bold text-gray-900 dark:text-white">
+                                {formattedDate}
+                              </div>
+                              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                {totalExams} 份
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* 时间轴线条 */}
+                          <div className="flex-shrink-0">
+                            <div className="relative w-0.5 h-full bg-gray-300 dark:bg-gray-600">
+                              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-blue-500 rounded-full border-2 border-white dark:border-gray-900"></div>
+                            </div>
+                          </div>
+
+                          {/* 右侧：试卷卡片 */}
+                          <div className="flex-1 space-y-4">
+                            {dateSubjects.map(({ subject: subj, exams: subjExams }) => {
+                              const subjectInfo = getSubjectInfo(subj)
+                              const subjectDisplayName = subjectInfo?.name || subj
+                              const subjectColor = getSubjectColor(subj)
+
+                              return (
+                                <div key={subj}>
+                                  {/* 学科标题 */}
+                                  <div className="flex items-center gap-2 mb-3">
+                                    <span className="text-xl">{subjectInfo?.icon || "📚"}</span>
+                                    <h4 className={`text-base font-semibold ${subjectColor}`}>
+                                      {subjectDisplayName}
+                                    </h4>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                                      {subjExams.length} 份试卷
+                                    </span>
+                                  </div>
+
+                                  {/* 试卷卡片列表 */}
+                                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                    {subjExams.map((exam) => {
+                                      const accuracyLevel = getAccuracyLevel(exam.answerStats?.accuracy)
+                                      const isSelected = selectedExams.has(exam.id)
+
+                                      return (
+                                        <Card
+                                          key={exam.id}
+                                          className={clsx(
+                                            "cursor-pointer hover:shadow-lg transition-shadow",
+                                            isManageMode && isSelected && "ring-2 ring-blue-500",
+                                            exam.answerStats?.accuracy !== undefined && (exam.answerStats.total || 0) > 0 && accuracyLevel?.bgColor,
+                                            exam.answerStats?.accuracy !== undefined && (exam.answerStats.total || 0) > 0 && accuracyLevel?.borderColor,
+                                          )}
+                                          onClick={() => handleCardClick(exam.id)}
+                                        >
+                                          <CardHeader className="pb-3">
+                                            <div className="flex items-start justify-between gap-2">
+                                              <div className="flex-1">
+                                                <CardTitle className="text-base">
+                                                  {getExamTypeInfo(exam)?.icon && <span className="mr-1">{getExamTypeInfo(exam)?.icon}</span>}
+                                                  {getExamTypeInfo(exam)?.name || exam.examType}
+                                                </CardTitle>
+                                                {/* 页数（如果是多页试卷） */}
+                                                {exam.pageCount && exam.pageCount > 1 && (
+                                                  <div className="text-xs text-gray-500 mt-0.5">
+                                                    📄 {exam.pageCount} 页
+                                                  </div>
+                                                )}
+                                              </div>
+                                              {/* 正确率（如果已完成） */}
+                                              {exam.answerStats?.completedAt && (
+                                                <div className="flex flex-col items-end">
+                                                  <div className={`text-2xl font-bold ${
+                                                    exam.answerStats.accuracy! >= 80
+                                                      ? "text-green-600"
+                                                      : exam.answerStats.accuracy! >= 60
+                                                        ? "text-yellow-600"
+                                                        : "text-red-600"
+                                                  }`}>
+                                                    {exam.answerStats.accuracy}%
+                                                  </div>
+                                                  <div className="text-xs text-gray-500">
+                                                    正确率
+                                                  </div>
+                                                </div>
+                                              )}
+                                            </div>
+                                          </CardHeader>
+                                          <CardContent>
+                                            <div className="space-y-3">
+                                              {/* 元数据标签 */}
+                                              <div className="flex flex-wrap gap-2">
+                                                {exam.metadata?.overallDifficulty && (
+                                                  <span className={`px-2 py-1 rounded text-xs font-medium ${getDifficultyColor(exam.metadata.overallDifficulty)}`}>
+                                                    难度: {getDifficultyLabel(exam.metadata.overallDifficulty)}
+                                                  </span>
+                                                )}
+                                                {exam.answerStats?.accuracy !== undefined && (exam.answerStats.total ?? 0) > 0 && (
+                                                  <span className={`px-2 py-1 rounded text-xs font-medium ${
+                                                    exam.answerStats.accuracy >= 80
+                                                      ? 'bg-green-100 text-green-700'
+                                                      : exam.answerStats.accuracy >= 60
+                                                        ? 'bg-yellow-100 text-yellow-700'
+                                                        : 'bg-red-100 text-red-700'
+                                                  }`}>
+                                                    正确率: {exam.answerStats.accuracy}%
+                                                  </span>
+                                                )}
+                                              </div>
+
+                                              {/* 统计信息 - 题目数量和分类合并显示 */}
+                                              <div className="text-sm">
+                                                <span className="text-gray-600 dark:text-gray-400">题目：</span>
+                                                <span className="font-medium text-gray-900 dark:text-white ml-1">
+                                                  {exam.questionCount} 题
+                                                </span>
+                                                {exam.metadata?.questionTypeStats && Object.keys(exam.metadata.questionTypeStats).length > 0 && (
+                                                  <span className="ml-2">
+                                                    {Object.entries(exam.metadata.questionTypeStats).map(([type, count], index) => {
+                                                      const typeLabels: Record<string, string> = {
+                                                        'choice': '选择',
+                                                        'fill': '填空',
+                                                        'answer': '解答',
+                                                        'calculation': '计算',
+                                                        'essay': '作文',
+                                                        'reading': '阅读',
+                                                        'unknown': '其他',
+                                                      }
+                                                      return (
+                                                        <span key={type} className="text-xs text-gray-600 dark:text-gray-400">
+                                                          {index > 0 && ' · '}
+                                                          {typeLabels[type] || type} {count}
+                                                        </span>
+                                                      )
+                                                    })}
+                                                  </span>
+                                                )}
+                                              </div>
+
+                                              {/* 答题统计 - 显示对题、错题、跳过数量 */}
+                                              {exam.answerStats && (exam.answerStats.total ?? 0) > 0 && (
+                                                <div className="flex items-center gap-3 text-sm">
+                                                  <span className="flex items-center gap-1">
+                                                    <span className="text-green-600">✓</span>
+                                                    <span className="text-gray-600 dark:text-gray-400">对 {exam.answerStats.correct || 0}</span>
+                                                  </span>
+                                                  <span className="flex items-center gap-1">
+                                                    <span className="text-red-600">✗</span>
+                                                    <span className="text-gray-600 dark:text-gray-400">错 {exam.answerStats.wrong || 0}</span>
+                                                  </span>
+                                                  {(exam.answerStats.skipped || 0) > 0 && (
+                                                    <span className="flex items-center gap-1">
+                                                      <span className="text-gray-400">○</span>
+                                                      <span className="text-gray-600 dark:text-gray-400">跳过 {exam.answerStats.skipped || 0}</span>
+                                                    </span>
+                                                  )}
+                                                </div>
+                                              )}
+
+                                              {/* 作文类型标识 */}
+                                              {exam.metadata?.isEssay && (
+                                                <div className="pt-2 border-t">
+                                                  <span className={`text-xs px-2 py-1 rounded ${
+                                                    exam.metadata.essayType === '英语作文'
+                                                      ? 'bg-purple-100 text-purple-700'
+                                                      : 'bg-rose-100 text-rose-700'
+                                                  }`}>
+                                                    ✍️ {exam.metadata.essayType || '作文'}
+                                                  </span>
+                                                </div>
+                                              )}
+                                            </div>
+                                          </CardContent>
+                                        </Card>
+                                      )
+                                    })}
+                                  </div>
+                                </div>
+                              )
+                            })}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </>
       )}

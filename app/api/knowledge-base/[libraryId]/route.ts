@@ -9,10 +9,10 @@ import path from 'path'
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { libraryId: string } }
+  { params }: { params: Promise<{ libraryId: string }> }
 ) {
   try {
-    const { libraryId } = params
+    const { libraryId } = await params
 
     // 在所有学科目录中搜索知识库
     const subjects = ['chinese', 'english']
@@ -83,10 +83,10 @@ export async function GET(
 // DELETE 方法：删除知识库
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { libraryId: string } }
+  { params }: { params: Promise<{ libraryId: string }> }
 ) {
   try {
-    const { libraryId } = params
+    const { libraryId } = await params
 
     // 在所有学科目录中搜索知识库
     const subjects = ['chinese', 'english']
