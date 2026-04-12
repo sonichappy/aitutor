@@ -7,6 +7,7 @@ import { ChevronDown, ChevronUp, CheckCircle2, AlertCircle, BookOpen, Loader2, A
 import ReactMarkdown from 'react-markdown'
 import { Checkbox } from "@/components/ui/checkbox"
 import { WordLibraryUploadDialog } from "@/components/WordLibraryUploadDialog"
+import { ChineseWordLibraryManager } from "@/components/ChineseWordLibraryManager"
 import {
   Dialog,
   DialogContent,
@@ -1492,136 +1493,10 @@ export default function LearningPage() {
                 </div>
               )
             ) : (
-              /* 语文学科：字词库内容 */
-              <>
-                {!selectedLibrary ? (
-                  // 字词库列表
-                  <div className="space-y-3">
-                    {knowledgeLibraries.length === 0 ? (
-                      <div className="py-8 text-center text-gray-500 border-2 border-dashed rounded-lg">
-                        <BookOpen className="w-12 h-12 mx-auto mb-2 text-gray-300" />
-                        <p>暂无字词库</p>
-                        <p className="text-sm mt-1">点击上方按钮上传字词库</p>
-                      </div>
-                    ) : (
-                      knowledgeLibraries.map((library) => {
-                        const errorCount = getLibraryErrorCount(library.id)
-                        const libraryColor = getLibraryErrorColor(library.id)
-
-                        return (
-                        <div
-                          key={library.id}
-                          className={`p-4 rounded-lg border cursor-pointer transition-all ${libraryColor}`}
-                          onClick={() => {
-                            setSelectedLibrary(library)
-                            loadLibraryWords(library.id)
-                          }}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2 mb-1">
-                                <h3 className="font-medium text-sm">{library.name}</h3>
-                                {errorCount > 0 && (
-                                  <span className="px-2 py-0.5 text-xs rounded bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300">
-                                    错误 {errorCount} 个
-                                  </span>
-                                )}
-                              </div>
-                              <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{library.description}</p>
-                              <div className="flex items-center gap-3 text-xs text-gray-500">
-                                <span>📝 {library.wordCount} 个字词</span>
-                                <span>📅 {new Date(library.createdAt).toLocaleDateString('zh-CN')}</span>
-                              </div>
-                            </div>
-                            <ChevronDown className="w-5 h-5 text-gray-400" />
-                          </div>
-                        </div>
-                        )
-                      })
-                    )}
-                  </div>
-                ) : (
-                  // 字词详情
-                  <>
-                    <div className="flex items-center justify-between mb-4">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => {
-                          setSelectedLibrary(null)
-                          setLibraryWords([])
-                          setWordErrors([])
-                        }}
-                      >
-                        ← 返回列表
-                      </Button>
-                      <span className="text-sm text-gray-500">
-                        {selectedLibrary.name} · {libraryWords.length} 个字词
-                      </span>
-                    </div>
-
-                    {loadingLibrary ? (
-                      <div className="py-8 text-center">
-                        <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-600" />
-                        <p className="text-gray-500">加载中...</p>
-                      </div>
-                    ) : (
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                        {libraryWords.map((word, index) => {
-                          const wordError = wordErrors.find(e => e.wordId === word.id)
-                          const wordNumber = index + 1
-                          return (
-                            <div
-                              key={word.id}
-                              className={`p-3 rounded-lg border transition-all ${
-                                wordError
-                                  ? "border-red-300 bg-red-50 dark:bg-red-900/20"
-                                  : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
-                              } hover:shadow-md`}
-                            >
-                              <div className="flex items-start justify-between mb-2">
-                                <div className="text-center flex-1">
-                                  {/* 编号 */}
-                                  <div className="inline-block px-2 py-0.5 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 rounded text-xs font-bold mb-2">
-                                    {wordNumber}
-                                  </div>
-                                  <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                                    {word.word}
-                                  </div>
-                                  <div className="text-sm text-gray-600 dark:text-gray-400">
-                                    {word.pinyin}
-                                  </div>
-                                </div>
-                                <Button
-                                  size="sm"
-                                  variant="outline"
-                                  className="text-red-600 border-red-300 hover:bg-red-50 flex items-center gap-1"
-                                  onClick={() => markWordError(word)}
-                                >
-                                  ❌ 错误+1
-                                </Button>
-                              </div>
-                              <div className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
-                                {word.meanings.map((meaning, idx) => (
-                                  <div key={idx} className="flex items-start gap-1">
-                                    <span className="text-gray-400">•</span>
-                                    <span>{meaning}</span>
-                                  </div>
-                                ))}
-                              </div>
-                              {wordError && (
-                                <div className="mt-2 pt-2 border-t border-red-200 dark:border-red-800 text-xs text-red-600 dark:text-red-400">
-                                  错误 {wordError.errorCount} 次 · 最后: {new Date(wordError.lastErrorAt).toLocaleDateString('zh-CN')}
-                                </div>
-                              )}
-                            </div>
-                          )
-                        })}
-                      </div>
-                    )}
-                  </>
-                )}
-              </>
+              /* 语文学科：使用新的字词库管理组件 */
+              <div className={mainActiveTab === 'learning-resources' ? '' : 'hidden'}>
+                <ChineseWordLibraryManager onBack={() => setSelectedSubject('')} />
+              </div>
             )}
           </CardContent>
         </Card>

@@ -88,7 +88,8 @@ export async function parseExamImage(input: ParseExamInput): Promise<ParseExamRe
       input.subject,
       userId,
       base64Image,  // 传入原始图片用于保存
-      customPrompt
+      customPrompt,
+      input.testDate  // 传入测试日期
     )
 
     // 4. 保存数据（仅在需要时）
@@ -139,6 +140,9 @@ async function callAIForParsing(
     const provider = process.env.AI_PROVIDER || "deepseek"
     const visionProviders = ["dashscope", "openai", "anthropic", "gemini"]
 
+    console.log("[callAIForParsing] Provider:", provider)
+    console.log("[callAIForParsing] Image length:", base64Image.length)
+
     if (!visionProviders.includes(provider)) {
       return {
         success: false,
@@ -149,6 +153,8 @@ async function callAIForParsing(
     // 准备提示词
     const defaultPrompt = getDefaultPrompt()
     const finalPrompt = customPrompt?.trim() || defaultPrompt
+
+    console.log("[callAIForParsing] Final prompt length:", finalPrompt.length)
 
     const messages: ChatMessage[] = [
       {
@@ -162,10 +168,14 @@ async function callAIForParsing(
       },
     ]
 
+    console.log("[callAIForParsing] Calling LLM...")
+
     const response = await callLLM(messages, {
       temperature: 0.1,
       maxTokens: 8000,
     })
+
+    console.log("[callAIForParsing] LLM response received, content length:", response.content?.length)
 
     // 解析 AI 返回的 JSON
     const parseResult = parseAIResponse(response)
@@ -188,6 +198,7 @@ async function callAIForParsing(
     }
   } catch (error: any) {
     console.error("[callAIForParsing] Error:", error)
+    console.error("[callAIForParsing] Error stack:", error.stack)
     return {
       success: false,
       error: error.message || "AI 调用失败"
@@ -203,7 +214,8 @@ async function processParsedData(
   preferredSubject: string | undefined,
   userId: string,
   base64Image: string,  // 添加 base64Image 参数
-  customPrompt?: string
+  customPrompt?: string,
+  testDate?: string  // 添加 testDate 参数
 ) {
   // 打印调试信息
   console.log("[processParsedData] Raw parsed data keys:", Object.keys(parsed || {}))
@@ -261,7 +273,7 @@ async function processParsedData(
     questions: cleanedQuestions,
     createdAt: chinaTime,
     updatedAt: chinaTime,
-    testDate: input.testDate || chinaTime,  // 使用用户提供的测试日期，默认为创建时间
+    testDate: testDate || chinaTime,  // 使用用户提供的测试日期，默认为创建时间
     metadata: {
       detectedSubject: parsed.detectedSubject,
       overallDifficulty: parsed.overallDifficulty || Math.round(avgDifficulty),
@@ -285,7 +297,7 @@ async function processParsedData(
     rawText: parsed.rawText || "",
     questions: parsed.questions || [],
     createdAt: new Date().toISOString(),
-    testDate: input.testDate || new Date().toISOString(),  // 包含测试日期
+    testDate: testDate || new Date().toISOString(),  // 包含测试日期
   }
 
   return {

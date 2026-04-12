@@ -159,6 +159,8 @@ export async function handleMergeParse(request: NextRequest): Promise<NextRespon
     }
 
     console.log(`[handleMergeParse] Processing ${files.length} images...`)
+    console.log(`[handleMergeParse] Subject: ${subject}`)
+    console.log(`[handleMergeParse] TestDate: ${testDate}`)
 
     // 转换所有文件为 base64（用于保存第一张图片）
     const filePromises = files.map(async (file) => {
@@ -188,12 +190,25 @@ export async function handleMergeParse(request: NextRequest): Promise<NextRespon
       )
 
       batchResults.forEach((result, idx) => {
-        parseResults.push({
-          pageIndex: i + idx,
-          success: result.status === "fulfilled" && result.value.success,
-          data: result.status === "fulfilled" ? result.value : undefined,
-          error: result.status === "rejected" ? result.reason?.message : (result.value?.error || "Unknown error")
-        })
+        const pageIndex = i + idx
+        if (result.status === "fulfilled" && result.value.success) {
+          console.log(`[handleMergeParse] Page ${pageIndex} parsed successfully`)
+          parseResults.push({
+            pageIndex,
+            success: true,
+            data: result.value
+          })
+        } else {
+          const errorMsg = result.status === "rejected"
+            ? result.reason?.message || "Unknown rejection error"
+            : (result.value?.error || "Unknown parse error")
+          console.error(`[handleMergeParse] Page ${pageIndex} failed:`, errorMsg)
+          parseResults.push({
+            pageIndex,
+            success: false,
+            error: errorMsg
+          })
+        }
       })
     }
 
