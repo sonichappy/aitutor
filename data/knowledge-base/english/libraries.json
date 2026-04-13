@@ -1,0 +1,22 @@
+{
+  "libraries": [
+    {
+      "id": "lib-1776078406151-cmo6wun",
+      "subject": "english",
+      "name": "七年级下英语单词",
+      "description": "",
+      "wordCount": 454,
+      "createdAt": "2026-04-13T11:06:46.151Z",
+      "updatedAt": "2026-04-13T15:05:09.426Z"
+    },
+    {
+      "id": "lib-1776093632652-p8uq4m0",
+      "subject": "english",
+      "name": "不规则动词",
+      "description": "",
+      "wordCount": 1,
+      "createdAt": "2026-04-13T15:20:32.652Z",
+      "updatedAt": "2026-04-13T15:34:40.056Z"
+    }
+  ]
+}

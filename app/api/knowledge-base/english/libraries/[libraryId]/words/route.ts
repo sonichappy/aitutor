@@ -3,16 +3,16 @@ import { writeFile, readFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 
-const CHINESE_BASE_DIR = path.join(process.cwd(), 'data', 'knowledge-base', 'chinese')
+const ENGLISH_BASE_DIR = path.join(process.cwd(), 'data', 'knowledge-base', 'english')
 
-// GET - 获取字词列表
+// GET - 获取单词列表
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ libraryId: string }> }
 ) {
   try {
     const { libraryId } = await params
-    const libraryDir = path.join(CHINESE_BASE_DIR, libraryId)
+    const libraryDir = path.join(ENGLISH_BASE_DIR, libraryId)
 
     if (!existsSync(libraryDir)) {
       return NextResponse.json({
@@ -45,23 +45,23 @@ export async function GET(
   }
 }
 
-// POST - 添加新字词
+// POST - 添加新单词
 export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ libraryId: string }> }
 ) {
   try {
     const { libraryId } = await params
-    const { word, pinyin, meanings } = await request.json()
+    const { word, pronunciation, partOfSpeech, meanings, example } = await request.json()
 
-    if (!word || !pinyin || !meanings) {
+    if (!word || !pronunciation || !meanings) {
       return NextResponse.json({
         success: false,
         error: 'Missing required fields'
       }, { status: 400 })
     }
 
-    const libraryDir = path.join(CHINESE_BASE_DIR, libraryId)
+    const libraryDir = path.join(ENGLISH_BASE_DIR, libraryId)
     if (!existsSync(libraryDir)) {
       return NextResponse.json({
         success: false,
@@ -77,7 +77,7 @@ export async function POST(
     }
 
     // 检查是否已存在
-    const existing = words.find(w => w.word === word)
+    const existing = words.find(w => w.word.toLowerCase() === word.toLowerCase())
     if (existing) {
       return NextResponse.json({
         success: false,
@@ -85,12 +85,14 @@ export async function POST(
       }, { status: 400 })
     }
 
-    // 添加新字词
+    // 添加新单词
     const newWord = {
       id: `word-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
       word,
-      pinyin,
+      pronunciation,
+      partOfSpeech,
       meanings,
+      example,
       errorCount: 0,
       addedAt: new Date().toISOString()
     }

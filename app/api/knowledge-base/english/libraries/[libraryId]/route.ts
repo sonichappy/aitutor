@@ -3,8 +3,8 @@ import { readFile, writeFile, rm } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 
-const CHINESE_BASE_DIR = path.join(process.cwd(), 'data', 'knowledge-base', 'chinese')
-const LIBRARIES_INDEX_FILE = path.join(CHINESE_BASE_DIR, 'libraries.json')
+const ENGLISH_BASE_DIR = path.join(process.cwd(), 'data', 'knowledge-base', 'english')
+const LIBRARIES_INDEX_FILE = path.join(ENGLISH_BASE_DIR, 'libraries.json')
 
 // GET - 获取字词库详情
 export async function GET(
@@ -13,7 +13,7 @@ export async function GET(
 ) {
   try {
     const { libraryId } = await params
-    const libraryDir = path.join(CHINESE_BASE_DIR, libraryId)
+    const libraryDir = path.join(ENGLISH_BASE_DIR, libraryId)
 
     if (!existsSync(libraryDir)) {
       return NextResponse.json({
@@ -50,7 +50,7 @@ export async function GET(
           wordCount: imageWords.length,
           words: imageWords
         }
-      }).sort((a, b) => new Date(a.uploadedAt).getTime() - new Date(b.uploadedAt).getTime()) // 按时间正序，先解析的在前
+      }).sort((a, b) => new Date(a.uploadedAt).getTime() - new Date(b.uploadedAt).getTime()) // 按时间正序
     }
 
     return NextResponse.json({
@@ -78,7 +78,7 @@ export async function DELETE(
 ) {
   try {
     const { libraryId } = await params
-    const libraryDir = path.join(CHINESE_BASE_DIR, libraryId)
+    const libraryDir = path.join(ENGLISH_BASE_DIR, libraryId)
 
     if (!existsSync(libraryDir)) {
       return NextResponse.json({
@@ -116,9 +116,10 @@ export async function PATCH(
 ) {
   try {
     const { libraryId } = await params
-    const { name, description } = await request.json()
+    const body = await request.json()
+    const { name, description } = body
 
-    const libraryDir = path.join(CHINESE_BASE_DIR, libraryId)
+    const libraryDir = path.join(ENGLISH_BASE_DIR, libraryId)
 
     if (!existsSync(libraryDir)) {
       return NextResponse.json({

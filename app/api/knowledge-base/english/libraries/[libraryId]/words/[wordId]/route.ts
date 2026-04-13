@@ -3,18 +3,18 @@ import { writeFile, readFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 
-const CHINESE_BASE_DIR = path.join(process.cwd(), 'data', 'knowledge-base', 'chinese')
+const ENGLISH_BASE_DIR = path.join(process.cwd(), 'data', 'knowledge-base', 'english')
 
-// PATCH - 更新字词（包括错误次数）
+// PATCH - 更新单词（包括错误次数）
 export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ libraryId: string; wordId: string }> }
 ) {
   try {
     const { libraryId, wordId } = await params
-    const { errorCount, pinyin, meanings } = await request.json()
+    const { errorCount, pronunciation, meanings, example } = await request.json()
 
-    const libraryDir = path.join(CHINESE_BASE_DIR, libraryId)
+    const libraryDir = path.join(ENGLISH_BASE_DIR, libraryId)
     if (!existsSync(libraryDir)) {
       return NextResponse.json({
         success: false,
@@ -45,11 +45,14 @@ export async function PATCH(
     if (errorCount !== undefined) {
       words[wordIndex].errorCount = errorCount
     }
-    if (pinyin !== undefined) {
-      words[wordIndex].pinyin = pinyin
+    if (pronunciation !== undefined) {
+      words[wordIndex].pronunciation = pronunciation
     }
     if (meanings !== undefined) {
       words[wordIndex].meanings = meanings
+    }
+    if (example !== undefined) {
+      words[wordIndex].example = example
     }
 
     await writeFile(wordsPath, JSON.stringify(words, null, 2))
@@ -67,15 +70,15 @@ export async function PATCH(
   }
 }
 
-// DELETE - 删除字词
+// DELETE - 删除单词
 export async function DELETE(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ libraryId: string; wordId: string }> }
 ) {
   try {
     const { libraryId, wordId } = await params
 
-    const libraryDir = path.join(CHINESE_BASE_DIR, libraryId)
+    const libraryDir = path.join(ENGLISH_BASE_DIR, libraryId)
     if (!existsSync(libraryDir)) {
       return NextResponse.json({
         success: false,

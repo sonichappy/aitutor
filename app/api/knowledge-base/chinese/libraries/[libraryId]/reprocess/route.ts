@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { writeFile, mkdir, readFile } from 'fs/promises'
+import { writeFile, readFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 import { callLLM } from '@/lib/ai/llm'
@@ -17,31 +17,29 @@ interface OCRResult {
 
 // 使用AI进行OCR识别和字词解析
 async function recognizeAndParseWords(imageBase64: string): Promise<OCRResult> {
-  const prompt = `你是一个专业的语文教师。请分析这张图片中的田字格汉字或词组。
+  const prompt = `你是一个专业的语文教师。请分析这张图片中的生字词。
 
 请按照以下JSON格式输出，不要包含任何其他文字：
 {
   "words": [
     {
-      "word": "汉字或词组",
-      "pinyin": "拼音（带声调）",
+      "word": "汉字",
+      "pinyin": "拼音",
       "meanings": ["释义1", "释义2"]
     }
   ]
 }
 
-注意事项：
-1. 识别所有可见的汉字或词组
-2. 拼音必须准确，包含声调
-3. 释义要简洁准确，适合中学生理解
-4. 如果是成语，给出成语释义
-5. 如果是单个字，给出基本义项
-6. 严格按照JSON格式输出，不要添加任何markdown标记`
+识别规则：
+1. 识别所有可见的汉字、词语
+2. 拼音必须准确，包括声调
+3. 释义要简洁准确
+4. 严格按照JSON格式输出，不要添加任何markdown标记`
 
   const response = await callLLM([
     {
       role: 'system',
-      content: '你是专业的语文教师，擅长汉字识别和教学。'
+      content: '你是专业的语文教师，擅长汉字教学和图片识别。'
     },
     {
       role: 'user',
@@ -65,20 +63,19 @@ async function recognizeAndParseWords(imageBase64: string): Promise<OCRResult> {
   }
 }
 
-// POST - 上传图片并识别字词
+// POST - 重新识别批次
 export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ libraryId: string }> }
 ) {
   try {
     const { libraryId } = await params
-    const formData = await request.formData()
-    const image = formData.get('image') as File
+    const { image } = await request.json()
 
     if (!image) {
       return NextResponse.json({
         success: false,
-        error: 'No image provided'
+        error: 'Image name is required'
       }, { status: 400 })
     }
 
@@ -90,27 +87,22 @@ export async function POST(
       }, { status: 404 })
     }
 
-    // 保存图片
-    const imagesDir = path.join(libraryDir, 'images')
-    if (!existsSync(imagesDir)) {
-      await mkdir(imagesDir, { recursive: true })
+    // 读取图片文件
+    const imagePath = path.join(libraryDir, 'images', image)
+    if (!existsSync(imagePath)) {
+      return NextResponse.json({
+        success: false,
+        error: 'Image not found'
+      }, { status: 404 })
     }
 
-    const timestamp = Date.now()
-    const filename = `image-${timestamp}.png`
-    const imagePath = path.join(imagesDir, filename)
-
-    const bytes = await image.arrayBuffer()
-    const buffer = Buffer.from(bytes)
-    await writeFile(imagePath, buffer)
-
-    console.log('[Upload] Image saved:', filename)
+    const imageBuffer = await readFile(imagePath)
 
     // 转换为base64进行OCR识别
-    const base64Image = `data:image/png;base64,${buffer.toString('base64')}`
+    const base64Image = `data:image/png;base64,${imageBuffer.toString('base64')}`
 
     // 调用AI识别
-    console.log('[Upload] Starting OCR recognition...')
+    console.log('[Reprocess] Starting OCR recognition for:', image)
     const ocrResult = await recognizeAndParseWords(base64Image)
 
     // 读取现有的words.json
@@ -121,6 +113,11 @@ export async function POST(
       existingWords = JSON.parse(wordsContent)
     }
 
+    // 删除该批次之前的旧字词
+    const originalCount = existingWords.length
+    existingWords = existingWords.filter(w => w.sourceImage !== image)
+    console.log(`[Reprocess] Removed ${originalCount - existingWords.length} old words from batch`)
+
     // 添加新识别的字词
     const timestampStr = new Date().toISOString()
     const newWords = ocrResult.words.map(w => ({
@@ -128,7 +125,7 @@ export async function POST(
       word: w.word,
       pinyin: w.pinyin,
       meanings: w.meanings,
-      sourceImage: filename,
+      sourceImage: image,
       errorCount: 0,
       addedAt: timestampStr
     }))
@@ -143,10 +140,10 @@ export async function POST(
         if (!existing.sourceImages) {
           existing.sourceImages = [existing.sourceImage]
         }
-        if (!existing.sourceImages.includes(filename)) {
-          existing.sourceImages.push(filename)
+        if (!existing.sourceImages.includes(image)) {
+          existing.sourceImages.push(image)
         }
-        existing.sourceImage = filename // 更新最新的图片
+        existing.sourceImage = image // 更新最新的图片
       } else {
         wordMap.set(w.word, w)
       }
@@ -174,19 +171,19 @@ export async function POST(
       await writeFile(librariesIndexPath, JSON.stringify(librariesIndex, null, 2))
     }
 
-    console.log('[Upload] Recognition complete:', newWords.length, 'words')
+    console.log('[Reprocess] Recognition complete:', newWords.length, 'new words')
 
     return NextResponse.json({
       success: true,
-      image: filename,
+      image: image,
       words: newWords,
       totalWords: updatedWords.length
     })
   } catch (error) {
-    console.error('[API] Failed to upload image:', error)
+    console.error('[API] Failed to reprocess batch:', error)
     return NextResponse.json({
       success: false,
-      error: error instanceof Error ? error.message : 'Failed to upload image'
+      error: error instanceof Error ? error.message : 'Failed to reprocess batch'
     }, { status: 500 })
   }
 }

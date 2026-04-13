@@ -3,16 +3,16 @@ import { readFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
 
-const CHINESE_BASE_DIR = path.join(process.cwd(), 'data', 'knowledge-base', 'chinese')
+const ENGLISH_BASE_DIR = path.join(process.cwd(), 'data', 'knowledge-base', 'english')
 
 // GET - 获取字词库图片
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ libraryId: string; image: string }> }
 ) {
   try {
     const { libraryId, image } = await params
-    const imagePath = path.join(CHINESE_BASE_DIR, libraryId, 'images', image)
+    const imagePath = path.join(ENGLISH_BASE_DIR, libraryId, 'images', image)
 
     if (!existsSync(imagePath)) {
       return NextResponse.json({

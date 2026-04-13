@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import { Checkbox } from "@/components/ui/checkbox"
 import { WordLibraryUploadDialog } from "@/components/WordLibraryUploadDialog"
 import { ChineseWordLibraryManager } from "@/components/ChineseWordLibraryManager"
+import { EnglishWordLibraryManager } from "@/components/EnglishWordLibraryManager"
 import {
   Dialog,
   DialogContent,
@@ -119,6 +120,9 @@ export default function LearningPage() {
   const [wordErrors, setWordErrors] = useState<WordError[]>([])
   const [showUploadDialog, setShowUploadDialog] = useState(false)
 
+  // 英语知识库相关
+  const [englishKnowledgeLibraries, setEnglishKnowledgeLibraries] = useState<KnowledgeLibrary[]>([])
+
   // 编辑薄弱知识点标题
   const [editingWeakPoint, setEditingWeakPoint] = useState<string | null>(null)
   const [editWeakPointTitle, setEditWeakPointTitle] = useState('')
@@ -174,8 +178,8 @@ export default function LearningPage() {
       // 加载自定义分组名称
       loadCustomGroupNames()
 
-      // 语文学科默认显示学习资源，其他学科默认显示薄弱知识点
-      if (selectedSubject === "语文") {
+      // 语文和英语学科默认显示学习资源，其他学科默认显示薄弱知识点
+      if (selectedSubject === "语文" || selectedSubject === "英语") {
         setMainActiveTab('learning-resources')
       } else {
         setMainActiveTab('weak-points')
@@ -353,39 +357,50 @@ export default function LearningPage() {
     }
   }
 
-  // 加载知识库列表（仅语文学科）
+  // 加载知识库列表（语文和英语学科）
   const loadKnowledgeLibraries = async () => {
-    if (selectedSubject !== "语文") {
-      setKnowledgeLibraries([])
-      setWordErrors([])
-      return
-    }
+    if (selectedSubject === "语文") {
+      try {
+        const subjectFolder = subjects.find(s => s.name === selectedSubject)?.folderName || "chinese"
+        const response = await fetch(`/api/knowledge-base/libraries?subject=${subjectFolder}`)
+        if (response.ok) {
+          const data = await response.json()
+          const libraries = data.data?.libraries || []
+          setKnowledgeLibraries(libraries)
 
-    try {
-      const subjectFolder = subjects.find(s => s.name === selectedSubject)?.folderName || "chinese"
-      const response = await fetch(`/api/knowledge-base/libraries?subject=${subjectFolder}`)
-      if (response.ok) {
-        const data = await response.json()
-        const libraries = data.data?.libraries || []
-        setKnowledgeLibraries(libraries)
-
-        // 加载所有字词库的错误记录
-        const allErrors: WordError[] = []
-        for (const library of libraries) {
-          try {
-            const errorResponse = await fetch(`/api/knowledge-base/${library.id}/errors`)
-            if (errorResponse.ok) {
-              const errorData = await errorResponse.json()
-              allErrors.push(...(errorData.data?.errors || []))
+          // 加载所有字词库的错误记录
+          const allErrors: WordError[] = []
+          for (const library of libraries) {
+            try {
+              const errorResponse = await fetch(`/api/knowledge-base/${library.id}/errors`)
+              if (errorResponse.ok) {
+                const errorData = await errorResponse.json()
+                allErrors.push(...(errorData.data?.errors || []))
+              }
+            } catch (error) {
+              console.error(`Failed to load errors for library ${library.id}:`, error)
             }
-          } catch (error) {
-            console.error(`Failed to load errors for library ${library.id}:`, error)
           }
+          setWordErrors(allErrors)
         }
-        setWordErrors(allErrors)
+      } catch (error) {
+        console.error("Failed to load knowledge libraries:", error)
       }
-    } catch (error) {
-      console.error("Failed to load knowledge libraries:", error)
+    } else if (selectedSubject === "英语") {
+      try {
+        const response = await fetch('/api/knowledge-base/english/libraries')
+        if (response.ok) {
+          const data = await response.json()
+          setEnglishKnowledgeLibraries(data.libraries || [])
+        }
+      } catch (error) {
+        console.error("Failed to load English knowledge libraries:", error)
+      }
+    } else {
+      // 其他学科清空数据
+      setKnowledgeLibraries([])
+      setEnglishKnowledgeLibraries([])
+      setWordErrors([])
     }
   }
 
@@ -983,7 +998,7 @@ export default function LearningPage() {
 
       {/* 主内容选项卡 */}
       <div className="flex gap-2 border-b">
-        {selectedSubject === "语文" ? (
+        {(selectedSubject === "语文" || selectedSubject === "英语") ? (
           <>
             <Button
               variant={mainActiveTab === 'learning-resources' ? "default" : "ghost"}
@@ -1390,13 +1405,15 @@ export default function LearningPage() {
                 <CardDescription>
                   {selectedSubject === "语文"
                     ? `${knowledgeLibraries.length} 个字词库 · ${materials.length} 个学习资料`
+                    : selectedSubject === "英语"
+                    ? `${englishKnowledgeLibraries.length} 个单词库 · ${materials.length} 个学习资料`
                     : `${materials.length} 个知识点已生成`
                   }
                 </CardDescription>
               </div>
 
-              {/* 语文学科显示上传按钮 */}
-              {selectedSubject === "语文" && (
+              {/* 语文和英语学科显示上传按钮 */}
+              {(selectedSubject === "语文" || selectedSubject === "英语") && (
                 <Button
                   size="sm"
                   variant="outline"
@@ -1408,8 +1425,18 @@ export default function LearningPage() {
             </div>
           </CardHeader>
           <CardContent>
-            {/* 非语文学科：显示学习资料 */}
-            {selectedSubject !== "语文" ? (
+            {/* 语文和英语学科：使用字词库管理组件 */}
+            {selectedSubject === "语文" || selectedSubject === "英语" ? (
+              /* 字词库管理组件 */
+              <div className={mainActiveTab === 'learning-resources' ? '' : 'hidden'}>
+                {selectedSubject === "语文" ? (
+                  <ChineseWordLibraryManager onBack={() => setSelectedSubject('')} />
+                ) : selectedSubject === "英语" ? (
+                  <EnglishWordLibraryManager onBack={() => setSelectedSubject('')} />
+                ) : null}
+              </div>
+            ) : (
+              /* 其他学科：显示学习资料 */
               materials.length === 0 ? (
                 <div className="py-8 text-center text-gray-500 border-2 border-dashed rounded-lg">
                   <BookOpen className="w-12 h-12 mx-auto mb-2 text-gray-300" />
@@ -1492,11 +1519,6 @@ export default function LearningPage() {
                   })}
                 </div>
               )
-            ) : (
-              /* 语文学科：使用新的字词库管理组件 */
-              <div className={mainActiveTab === 'learning-resources' ? '' : 'hidden'}>
-                <ChineseWordLibraryManager onBack={() => setSelectedSubject('')} />
-              </div>
             )}
           </CardContent>
         </Card>

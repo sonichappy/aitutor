@@ -252,12 +252,12 @@ export default function ChineseWordLearning() {
               }} variant="outline">
                 返回
               </Button>
-              <Button onClick={() => {
+              {/* <Button onClick={() => {
                 // 保存结果
                 saveExamResults()
               }} className="bg-green-600 hover:bg-green-700">
                 保存结果
-              </Button>
+              </Button> */}
             </div>
           </CardContent>
         </Card>
@@ -315,7 +315,7 @@ export default function ChineseWordLearning() {
               disabled={!!currentResult}
               onImageReady={(imageData) => {
                 if (imageData && !currentResult) {
-                  recognizeHandwriting(imageData, currentWord.word)
+                  // recognizeHandwriting(imageData, currentWord.word)
                 }
               }}
               onClear={() => setCurrentResult(null)}

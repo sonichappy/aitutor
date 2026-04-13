@@ -14,16 +14,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
 import { BookOpen, Plus, Upload, Trash2, Edit, CheckCircle2, AlertCircle, ChevronRight, Image as ImageIcon } from "lucide-react"
 
 interface WordLibrary {
@@ -38,11 +28,17 @@ interface WordLibrary {
 interface Word {
   id: string
   word: string
-  pinyin: string
+  pronunciation: string
+  partOfSpeech: string
   meanings: string[]
+  example?: string
   sourceImage?: string
   errorCount: number
   addedAt: string
+  pastForm?: string
+  pastParticiple?: string
+  presentParticiple?: string
+  isIrregularVerb?: boolean
 }
 
 interface LibraryDetail {
@@ -60,7 +56,7 @@ interface WordBatch {
   words: Word[]
 }
 
-export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
+export function EnglishWordLibraryManager({ onBack }: { onBack: () => void }) {
   const [libraries, setLibraries] = useState<WordLibrary[]>([])
   const [selectedLibrary, setSelectedLibrary] = useState<LibraryDetail | null>(null)
   const [loading, setLoading] = useState(true)
@@ -72,6 +68,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
   const [uploading, setUploading] = useState(false)
   const [reprocessingBatch, setReprocessingBatch] = useState<string | null>(null)
   const [currentBatchPage, setCurrentBatchPage] = useState(0)
+  const [uploadType, setUploadType] = useState<'normal' | 'irregular'>('normal')
 
   // 新建/编辑表单
   const [libraryName, setLibraryName] = useState("")
@@ -80,7 +77,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
   // 加载字词库列表
   const loadLibraries = async () => {
     try {
-      const response = await fetch('/api/knowledge-base/chinese/libraries')
+      const response = await fetch('/api/knowledge-base/english/libraries')
       if (response.ok) {
         const data = await response.json()
         setLibraries(data.libraries || [])
@@ -95,7 +92,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
   // 加载字词库详情
   const loadLibraryDetail = async (libraryId: string) => {
     try {
-      const response = await fetch(`/api/knowledge-base/chinese/libraries/${libraryId}`)
+      const response = await fetch(`/api/knowledge-base/english/libraries/${libraryId}`)
       if (response.ok) {
         const data = await response.json()
         setSelectedLibrary(data.library)
@@ -110,7 +107,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
     if (!libraryName.trim()) return
 
     try {
-      const response = await fetch('/api/knowledge-base/chinese/libraries', {
+      const response = await fetch('/api/knowledge-base/english/libraries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -135,7 +132,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
     if (!editingLibrary || !libraryName.trim()) return
 
     try {
-      const response = await fetch(`/api/knowledge-base/chinese/libraries/${editingLibrary.id}`, {
+      const response = await fetch(`/api/knowledge-base/english/libraries/${editingLibrary.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -150,6 +147,9 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
         setLibraryName("")
         setLibraryDesc("")
         loadLibraries()
+        if (selectedLibrary?.library.id === editingLibrary.id) {
+          loadLibraryDetail(editingLibrary.id)
+        }
       }
     } catch (error) {
       console.error('Failed to update library:', error)
@@ -159,7 +159,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
   // 删除字词库
   const handleDeleteLibrary = async (libraryId: string) => {
     try {
-      const response = await fetch(`/api/knowledge-base/chinese/libraries/${libraryId}`, {
+      const response = await fetch(`/api/knowledge-base/english/libraries/${libraryId}`, {
         method: 'DELETE'
       })
 
@@ -182,7 +182,11 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
       const formData = new FormData()
       formData.append('image', file)
 
-      const response = await fetch(`/api/knowledge-base/chinese/libraries/${libraryId}/upload`, {
+      const endpoint = uploadType === 'irregular'
+        ? `/api/knowledge-base/english/libraries/${libraryId}/upload-irregular`
+        : `/api/knowledge-base/english/libraries/${libraryId}/upload`
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         body: formData
       })
@@ -198,11 +202,10 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
         loadLibraries()
       } else {
         const error = await response.json()
-        alert(error.error || '上传失败')
+        console.error('上传失败:', error.error || '未知错误')
       }
     } catch (error: any) {
       console.error('Failed to upload image:', error)
-      alert(`上传失败: ${error?.message || '未知错误'}`)
     } finally {
       setUploading(false)
     }
@@ -217,7 +220,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
 
     try {
       const response = await fetch(
-        `/api/knowledge-base/chinese/libraries/${selectedLibrary.library.id}/words/${wordId}`,
+        `/api/knowledge-base/english/libraries/${selectedLibrary.library.id}/words/${wordId}`,
         {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
@@ -239,7 +242,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
 
     try {
       const response = await fetch(
-        `/api/knowledge-base/chinese/libraries/${selectedLibrary.library.id}/words/${wordId}`,
+        `/api/knowledge-base/english/libraries/${selectedLibrary.library.id}/words/${wordId}`,
         {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
@@ -255,13 +258,13 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
     }
   }
 
-  // 删除批次（包括图片和所有相关字词）
+  // 删除批次（包括图片和所有相关单词）
   const handleDeleteBatch = async (batchImage: string) => {
     if (!selectedLibrary) return
 
     try {
       const response = await fetch(
-        `/api/knowledge-base/chinese/libraries/${selectedLibrary.library.id}/batches/${encodeURIComponent(batchImage)}`,
+        `/api/knowledge-base/english/libraries/${selectedLibrary.library.id}/batches/${encodeURIComponent(batchImage)}`,
         { method: 'DELETE' }
       )
 
@@ -282,7 +285,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
     setReprocessingBatch(batchImage)
     try {
       const response = await fetch(
-        `/api/knowledge-base/chinese/libraries/${selectedLibrary.library.id}/reprocess`,
+        `/api/knowledge-base/english/libraries/${selectedLibrary.library.id}/reprocess`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -295,11 +298,10 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
         loadLibraries()
       } else {
         const error = await response.json()
-        alert(error.error || '重新识别失败')
+        console.error('重新识别失败:', error.error || '未知错误')
       }
     } catch (error) {
       console.error('Failed to reprocess batch:', error)
-      alert('重新识别失败')
     } finally {
       setReprocessingBatch(null)
     }
@@ -319,12 +321,12 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
             返回学科选择
           </Button>
           <div className="flex-1">
-            <h2 className="text-2xl font-bold">语文字词库</h2>
-            <p className="text-gray-600">管理和学习课本中的生字词</p>
+            <h2 className="text-2xl font-bold">英语单词库</h2>
+            <p className="text-gray-600">管理和学习课本中的英语单词</p>
           </div>
           <Button onClick={() => setShowCreateDialog(true)}>
             <Plus className="w-4 h-4 mr-2" />
-            新建字词库
+            新建单词库
           </Button>
         </div>
 
@@ -334,8 +336,8 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
           <Card>
             <CardContent className="py-8 text-center text-gray-500">
               <BookOpen className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-              <p>还没有字词库</p>
-              <p className="text-sm mt-2">点击上方按钮创建你的第一个字词库</p>
+              <p>还没有单词库</p>
+              <p className="text-sm mt-2">点击上方按钮创建你的第一个单词库</p>
             </CardContent>
           </Card>
         ) : (
@@ -351,7 +353,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
                     <div className="flex-1">
                       <CardTitle className="text-lg">{library.name}</CardTitle>
                       <CardDescription className="mt-1">
-                        {library.wordCount} 个字词
+                        {library.wordCount} 个单词
                       </CardDescription>
                     </div>
                     <ChevronRight className="w-5 h-5 text-gray-400" />
@@ -374,14 +376,14 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
         <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>新建字词库</DialogTitle>
+              <DialogTitle>新建单词库</DialogTitle>
               <DialogDescription>
-                创建一个新的字词库来整理课本中的生字词
+                创建一个新的英语单词库来整理课本中的生词
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div>
-                <Label htmlFor="name">字词库名称 *</Label>
+                <Label htmlFor="name">单词库名称 *</Label>
                 <Input
                   id="name"
                   placeholder="例如：七年级上册第一单元"
@@ -393,7 +395,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
                 <Label htmlFor="description">描述（可选）</Label>
                 <Textarea
                   id="description"
-                  placeholder="描述这个字词库的内容..."
+                  placeholder="描述这个单词库的内容..."
                   value={libraryDesc}
                   onChange={(e) => setLibraryDesc(e.target.value)}
                 />
@@ -419,11 +421,11 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
       <div className="flex items-center gap-4">
         <Button variant="ghost" onClick={() => setSelectedLibrary(null)}>
           <ChevronRight className="w-4 h-4 mr-1 rotate-180" />
-          返回字词库列表
+          返回单词库列表
         </Button>
         <div className="flex-1">
           <h2 className="text-2xl font-bold">{selectedLibrary.library.name}</h2>
-          <p className="text-gray-600">{selectedLibrary.library.wordCount} 个字词</p>
+          <p className="text-gray-600">{selectedLibrary.library.wordCount} 个单词</p>
         </div>
         <Button
           variant="outline"
@@ -465,6 +467,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
             }
           } catch (error) {
             console.error('Failed to paste image:', error)
+            // 不显示alert，因为handleImageUpload已经处理了
           }
         }}
         className="cursor-pointer"
@@ -476,43 +479,68 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center gap-4">
-            <input
-              type="file"
-              accept="image/*"
-              className="hidden"
-              id="image-upload"
-              onChange={(e) => {
-                const file = e.target.files?.[0]
-                if (file) {
-                  handleImageUpload(selectedLibrary.library.id, file)
-                }
-              }}
-            />
-            <label htmlFor="image-upload">
-              <Button disabled={uploading} onClick={() => document.getElementById('image-upload')?.click()}>
-                <Upload className="w-4 h-4 mr-2" />
-                {uploading ? '识别中...' : '选择图片'}
-              </Button>
-            </label>
-            <div className="flex-1">
-              <p className="text-sm text-gray-700 font-medium mb-1">💡 使用技巧</p>
-              <p className="text-xs text-gray-600">
-                1. 点击"选择图片"从电脑选择图片文件
-              </p>
-              <p className="text-xs text-gray-600">
-                2. 截图后直接按 Ctrl+V 粘贴图片
-              </p>
+          <div className="space-y-4">
+            {/* 上传类型选择 */}
+            <div className="flex items-center gap-2">
+              <Label className="text-sm font-medium">识别类型：</Label>
+              <div className="flex items-center gap-2">
+                <Button
+                  type="button"
+                  variant={uploadType === 'normal' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setUploadType('normal')}
+                >
+                  普通单词/词组
+                </Button>
+                <Button
+                  type="button"
+                  variant={uploadType === 'irregular' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setUploadType('irregular')}
+                >
+                  不规则动词表格
+                </Button>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <input
+                type="file"
+                accept="image/*"
+                className="hidden"
+                id="image-upload"
+                onChange={(e) => {
+                  const file = e.target.files?.[0]
+                  if (file) {
+                    handleImageUpload(selectedLibrary.library.id, file)
+                  }
+                }}
+              />
+              <label htmlFor="image-upload">
+                <Button disabled={uploading} onClick={() => document.getElementById('image-upload')?.click()}>
+                  <Upload className="w-4 h-4 mr-2" />
+                  {uploading ? '识别中...' : '选择图片'}
+                </Button>
+              </label>
+              <div className="flex-1">
+                <p className="text-sm text-gray-700 font-medium mb-1">💡 使用技巧</p>
+                <p className="text-xs text-gray-600">
+                  1. 点击"选择图片"从电脑选择图片文件
+                </p>
+                <p className="text-xs text-gray-600">
+                  2. 截图后直接按 Ctrl+V 粘贴图片
+                </p>
+              </div>
             </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* 字词列表 - 按批次分组显示 */}
+      {/* 单词列表 - 按批次分组显示 */}
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>字词列表</CardTitle>
+            <CardTitle>单词列表</CardTitle>
             {selectedLibrary.batches.length > 0 && (
               <div className="text-sm text-gray-600">
                 批次 {currentBatchPage + 1} / {selectedLibrary.batches.length}
@@ -524,7 +552,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
           {selectedLibrary.batches.length === 0 ? (
             <div className="text-center py-8 text-gray-500">
               <ImageIcon className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-              <p>还没有字词</p>
+              <p>还没有单词</p>
               <p className="text-sm mt-2">上传课本截图开始识别</p>
             </div>
           ) : (
@@ -570,7 +598,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
                     <div>
                       <span className="text-sm font-medium text-gray-700">批次图片</span>
                       <span className="text-xs text-gray-500 ml-2">
-                        {batch.wordCount} 个字词 · {new Date(batch.uploadedAt).toLocaleString('zh-CN')}
+                        {batch.wordCount} 个单词 · {new Date(batch.uploadedAt).toLocaleString('zh-CN')}
                       </span>
                     </div>
                     <div className="flex gap-2">
@@ -594,24 +622,24 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
                     </div>
                   </div>
 
-                  {/* 左右布局：左侧图片，右侧字词列表 */}
+                  {/* 左右布局：左侧图片，右侧单词列表 */}
                   <div className="flex flex-col md:flex-row gap-4">
                     {/* 左侧：批次图片 */}
                     <div className="md:w-1/3 lg:w-1/4">
                       <div className="border rounded-lg overflow-hidden bg-white">
                         <img
-                          src={`/api/knowledge-base/chinese/libraries/${selectedLibrary.library.id}/images/${batch.image}`}
+                          src={`/api/knowledge-base/english/libraries/${selectedLibrary.library.id}/images/${batch.image}`}
                           alt="批次图片"
                           className="w-full h-auto object-contain"
                         />
                       </div>
                     </div>
 
-                    {/* 右侧：字词列表 */}
+                    {/* 右侧：单词列表 */}
                     <div className="flex-1">
                       {batch.words.length === 0 ? (
                         <div className="text-center py-8 text-gray-500 border-2 border-dashed rounded-lg">
-                          <p>该批次没有识别出字词</p>
+                          <p>该批次没有识别出单词</p>
                           <p className="text-sm mt-1">点击"重新识别"重新处理</p>
                         </div>
                       ) : (
@@ -629,15 +657,38 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
                                     <div className={`text-lg font-bold ${word.errorCount > 0 ? 'text-red-600' : ''}`}>
                                       {word.word}
                                     </div>
-                                    <div className="text-sm text-gray-600">{word.pinyin}</div>
+                                    <div className="text-sm text-gray-600">{word.pronunciation}</div>
+                                    <div className="text-xs text-blue-600">{word.partOfSpeech}</div>
                                   </div>
                                   <div className="text-xs text-gray-600">
-                                    {word.meanings.map((meaning, idx) => (
-                                      <span key={idx} className="mr-2">
-                                        {idx > 0 && '；'}{meaning}
-                                      </span>
-                                    ))}
+                                    <span className="text-gray-400">释义：</span>
+                                    {word.meanings.join('；')}
                                   </div>
+                                  {word.isIrregularVerb && word.pastForm && (
+                                    <div className="text-xs text-purple-700 mt-1">
+                                      <span className="text-purple-400">过去式：</span>
+                                      {word.pastForm}
+                                      {word.pastParticiple && (
+                                        <span>
+                                          <span className="text-gray-400 mx-1">·</span>
+                                          <span className="text-purple-400">过去分词：</span>
+                                          {word.pastParticiple}
+                                        </span>
+                                      )}
+                                      {word.presentParticiple && (
+                                        <span>
+                                          <span className="text-gray-400 mx-1">·</span>
+                                          <span className="text-purple-400">现在分词：</span>
+                                          {word.presentParticiple}
+                                        </span>
+                                      )}
+                                    </div>
+                                  )}
+                                  {word.example && (
+                                    <div className="text-xs text-gray-500 italic mt-1">
+                                      例句：{word.example}
+                                    </div>
+                                  )}
                                   {word.errorCount > 0 && (
                                     <div className="text-xs text-red-600 mt-1">
                                       错误 {word.errorCount} 次
@@ -717,7 +768,7 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
       <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>编辑字词库</DialogTitle>
+            <DialogTitle>编辑单词库</DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
             <div>
@@ -749,46 +800,50 @@ export function ChineseWordLibraryManager({ onBack }: { onBack: () => void }) {
       </Dialog>
 
       {/* 删除确认对话框 */}
-      <AlertDialog open={!!deleteConfirm} onOpenChange={() => setDeleteConfirm(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>确认删除</AlertDialogTitle>
-            <AlertDialogDescription>
-              删除字词库后，其中的所有字词和图片都将被删除，此操作不可恢复。
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>取消</AlertDialogCancel>
-            <AlertDialogAction
+      <Dialog open={!!deleteConfirm} onOpenChange={() => setDeleteConfirm(null)}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>确认删除</DialogTitle>
+            <DialogDescription>
+              删除单词库后，其中的所有单词和图片都将被删除，此操作不可恢复。
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDeleteConfirm(null)}>
+              取消
+            </Button>
+            <Button
               onClick={() => deleteConfirm && handleDeleteLibrary(deleteConfirm)}
               className="bg-red-600 hover:bg-red-700"
             >
               删除
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* 删除批次确认对话框 */}
-      <AlertDialog open={!!deleteBatchConfirm} onOpenChange={() => setDeleteBatchConfirm(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>确认删除批次</AlertDialogTitle>
-            <AlertDialogDescription>
-              删除该批次后，该批次的所有字词和图片都将被删除，此操作不可恢复。
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>取消</AlertDialogCancel>
-            <AlertDialogAction
+      <Dialog open={!!deleteBatchConfirm} onOpenChange={() => setDeleteBatchConfirm(null)}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>确认删除批次</DialogTitle>
+            <DialogDescription>
+              删除该批次后，该批次的所有单词和图片都将被删除，此操作不可恢复。
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDeleteBatchConfirm(null)}>
+              取消
+            </Button>
+            <Button
               onClick={() => deleteBatchConfirm && handleDeleteBatch(deleteBatchConfirm)}
               className="bg-red-600 hover:bg-red-700"
             >
               删除
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

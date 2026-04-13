@@ -1,0 +1,5973 @@
+[
+  {
+    "id": "word-1776081574932-yz9tr0x",
+    "word": "fox",
+    "pronunciation": "/fɒks/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "狐狸"
+    ],
+    "example": "The fox is a clever animal.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-gh0ev3u",
+    "word": "giraffe",
+    "pronunciation": "/dʒɪˈrɑːf/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "长颈鹿"
+    ],
+    "example": "Giraffes have very long necks.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-2hq7ha0",
+    "word": "eagle",
+    "pronunciation": "/ˈiːɡl/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "雕；鹰"
+    ],
+    "example": "An eagle soared high in the sky.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-gxavgfp",
+    "word": "wolf",
+    "pronunciation": "/wʊlf/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "狼"
+    ],
+    "example": "Wolves often hunt in packs.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-8r5gj8t",
+    "word": "penguin",
+    "pronunciation": "/ˈpeŋɡwɪn/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "企鹅"
+    ],
+    "example": "Penguins live in cold climates.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-rvxusdv",
+    "word": "care",
+    "pronunciation": "/keə(r)/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "照顾；护理"
+    ],
+    "example": "She took good care of her sick mother.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-hhgklq2",
+    "word": "take care of",
+    "pronunciation": "/teɪk keər əv/",
+    "partOfSpeech": "verb phrase",
+    "meanings": [
+      "照顾；处理"
+    ],
+    "example": "I will take care of the house while you're away.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-kwx2ecu",
+    "word": "sandwich",
+    "pronunciation": "/ˈsænwɪtʃ/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "三明治"
+    ],
+    "example": "I had a ham sandwich for lunch.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-9wp7qh8",
+    "word": "snake",
+    "pronunciation": "/sneik/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "蛇"
+    ],
+    "example": "Snakes can be dangerous if not handled carefully.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-wnyikt5",
+    "word": "scary",
+    "pronunciation": "/ˈskeəri/",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "吓人的；恐怖的"
+    ],
+    "example": "The movie was really scary.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-9yw8zn7",
+    "word": "neck",
+    "pronunciation": "/nek/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "脖子"
+    ],
+    "example": "He touched his sore neck.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-zlwf205",
+    "word": "guess",
+    "pronunciation": "/ges/",
+    "partOfSpeech": "verb",
+    "meanings": [
+      "猜测；估计"
+    ],
+    "example": "Can you guess how old I am?",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-emwb59t",
+    "word": "shark",
+    "pronunciation": "/ʃɑːrk/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "鲨鱼"
+    ],
+    "example": "Sharks are found in all oceans.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-1efh1c8",
+    "word": "whale",
+    "pronunciation": "/weil/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "鲸"
+    ],
+    "example": "Whales are the largest animals on Earth.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-7k8q7kh",
+    "word": "huge",
+    "pronunciation": "/hjuːdʒ/",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "巨大的；极多的"
+    ],
+    "example": "The elephant is a huge animal.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-ygqvzps",
+    "word": "dangerous",
+    "pronunciation": "/ˈdeɪndʒərəs/",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "危险的；有危害的"
+    ],
+    "example": "Playing with fire is dangerous.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-qmexu99",
+    "word": "save",
+    "pronunciation": "/seiv/",
+    "partOfSpeech": "verb",
+    "meanings": [
+      "救；储蓄；保存"
+    ],
+    "example": "We need to save money for the future.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-888fwjm",
+    "word": "luck",
+    "pronunciation": "/lʌk/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "幸运；运气"
+    ],
+    "example": "Good luck on your exam!",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-2gowk6q",
+    "word": "Thai",
+    "pronunciation": "/taɪ/",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "泰国的；泰国人的"
+    ],
+    "example": "Thai food is very spicy.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-6eeut0c",
+    "word": "trunk",
+    "pronunciation": "/trʌŋk/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "象鼻"
+    ],
+    "example": "An elephant's trunk is very strong.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-0dv3iic",
+    "word": "pick",
+    "pronunciation": "/pik/",
+    "partOfSpeech": "verb",
+    "meanings": [
+      "捡；摘"
+    ],
+    "example": "Pick up the book from the floor.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-nshe1t9",
+    "word": "pick up",
+    "pronunciation": "/pik ʌp/",
+    "partOfSpeech": "verb phrase",
+    "meanings": [
+      "拿起；举起；接载"
+    ],
+    "example": "Can you pick up the package at the post office?",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-pod16st",
+    "word": "carry",
+    "pronunciation": "/ˈkæri/",
+    "partOfSpeech": "verb",
+    "meanings": [
+      "拿；提"
+    ],
+    "example": "I can carry this heavy box.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-g8m9fs0",
+    "word": "playful",
+    "pronunciation": "/ˈpleɪfl/",
+    "partOfSpeech": "adjective",
+    "meanings": [
+      "爱嬉戏的；爱玩的"
+    ],
+    "example": "The puppies were very playful.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-eb1lzb2",
+    "word": "swimmer",
+    "pronunciation": "/ˈswɪmə(r)/",
+    "partOfSpeech": "noun",
+    "meanings": [
+      "游泳者"
+    ],
+    "example": "She is an excellent swimmer.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776081574932-2ugcynx",
+    "word": "one another",
+    "pronunciation": "/wʌn əˈnʌðə(r)/",
+    "partOfSpeech": "pronoun",
+    "meanings": [
+      "互相"
+    ],
+    "example": "They helped one another during the project.",
+    "sourceImage": "image-1776081556897.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T11:59:34.932Z"
+  },
+  {
+    "id": "word-1776083951606-4wgz9ej",
+    "word": "look after",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "照顾"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-mrf1rrg",
+    "word": "culture",
+    "pronunciation": "/ˈkʌltʃə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "文化",
+      "文明"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-e105cre",
+    "word": "however",
+    "pronunciation": "/hauˈevə(r)/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "然而",
+      "不过"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-k72s1sq",
+    "word": "danger",
+    "pronunciation": "/ˈdeɪndʒə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "危险"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-d35gu1n",
+    "word": "in danger",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "处于危险之中"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-1esvmm3",
+    "word": "forest",
+    "pronunciation": "/ˈfɒrɪst/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "森林"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-jcwonwm",
+    "word": "cut down",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "砍伐",
+      "减少"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-vs61c6y",
+    "word": "too many",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "太多"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-5i3rmuy",
+    "word": "kill",
+    "pronunciation": "/kɪl/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "杀死",
+      "弄死"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-q84ey7p",
+    "word": "ivory",
+    "pronunciation": "/ˈaɪvəri/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "象牙"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-wjjkdgj",
+    "word": "made of",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "制成的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-ukyy0uk",
+    "word": "friendly",
+    "pronunciation": "/ˈfrendli/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "友好的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-liqszvr",
+    "word": "quite",
+    "pronunciation": "/kwaɪt/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "相当",
+      "完全"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-8qllrb6",
+    "word": "quite a",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "相当",
+      "非常"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-yv7u1tc",
+    "word": "not ... at all",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "一点也不；完全不"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-ct0mlhm",
+    "word": "fur",
+    "pronunciation": "/fɜː(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "（动物浓厚的）软毛"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-gts8v3l",
+    "word": "blind",
+    "pronunciation": "/blaɪnd/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "瞎的",
+      "失明的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-vwrsjxu",
+    "word": "hearing",
+    "pronunciation": "/ˈhɪərɪŋ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "听力",
+      "听觉"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-yqbaway",
+    "word": "Antarctica",
+    "pronunciation": "/ænˈtɑːktɪkə/",
+    "partOfSpeech": "",
+    "meanings": [
+      "南极洲"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-sq0bepy",
+    "word": "Africa",
+    "pronunciation": "/ˈæfrɪkə/",
+    "partOfSpeech": "",
+    "meanings": [
+      "非洲"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-w4e5pg3",
+    "word": "Malee",
+    "pronunciation": "/mæˈliː/",
+    "partOfSpeech": "",
+    "meanings": [
+      "马莉"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-4k4kwyz",
+    "word": "Thailand",
+    "pronunciation": "/taɪˈlænd/",
+    "partOfSpeech": "",
+    "meanings": [
+      "泰国"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-4ynawx9",
+    "word": "rule",
+    "pronunciation": "/ruːl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "规则",
+      "规章"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-xdmv1tc",
+    "word": "order",
+    "pronunciation": "/ˈɔːdə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "秩序",
+      "命令"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-9p80z72",
+    "word": "follow",
+    "pronunciation": "/ˈfɒləʊ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "遵循",
+      "跟随"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776083951606-lfpaux1",
+    "word": "late for",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "迟到"
+    ],
+    "example": "",
+    "sourceImage": "image-1776083937560.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T12:39:11.606Z"
+  },
+  {
+    "id": "word-1776086885370-7qh784x",
+    "word": "arrive",
+    "pronunciation": "/əˈraɪv/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "到达"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-p2kme4e",
+    "word": "on time",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "准时"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-4p70g0s",
+    "word": "hallway",
+    "pronunciation": "/hɔːlweɪ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "走廊"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-vtntj94",
+    "word": "uniform",
+    "pronunciation": "/ˈjuːnɪfɔːrm/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "校服；制服"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-i4xa91u",
+    "word": "litter",
+    "pronunciation": "/ˈlɪtə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "垃圾"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-d3e8p9w",
+    "word": "polite",
+    "pronunciation": "/pəˈlaɪt/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "有礼貌的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-brjs84d",
+    "word": "treat",
+    "pronunciation": "/triːt/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "对待；招待；治疗"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z",
+    "sourceImages": [
+      "image-1776084569670.png"
+    ]
+  },
+  {
+    "id": "word-1776086885370-fl90c7f",
+    "word": "respect",
+    "pronunciation": "/rɪˈspekt/",
+    "partOfSpeech": "n. & v.",
+    "meanings": [
+      "尊敬",
+      "尊重"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-7cvrcjn",
+    "word": "if",
+    "pronunciation": "/ɪf/",
+    "partOfSpeech": "conj.",
+    "meanings": [
+      "如果"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-pwihgia",
+    "word": "jacket",
+    "pronunciation": "/ˈdʒækɪt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "夹克衫；短上衣"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-wgmchme",
+    "word": "have to",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "不得不"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-9zw4vvq",
+    "word": "everything",
+    "pronunciation": "/ˈevriθɪŋ/",
+    "partOfSpeech": "pron.",
+    "meanings": [
+      "每件事；一切"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-hnsi4km",
+    "word": "lend",
+    "pronunciation": "/lend/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "借给；借出"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-c68j2fv",
+    "word": "sweet",
+    "pronunciation": "/swiːt/",
+    "partOfSpeech": "n. adj.",
+    "meanings": [
+      "糖果",
+      "甜的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-sdjzm34",
+    "word": "snack",
+    "pronunciation": "/snæk/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "点心；小吃"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-c30z1sh",
+    "word": "of course",
+    "pronunciation": "/əv ˈkɔːrs/",
+    "partOfSpeech": "",
+    "meanings": [
+      "当然"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-2f7xlp5",
+    "word": "mobile",
+    "pronunciation": "/ˈməʊbaɪl/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "可移动的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-wi2rnuv",
+    "word": "mobile phone",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "手机"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-aj41wnt",
+    "word": "turn off",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "关掉（水、电或煤气）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-hn0bruw",
+    "word": "queue",
+    "pronunciation": "/kjuː/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "队"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-2pl32m0",
+    "word": "jump the queue",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "插队"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-d9a3oxg",
+    "word": "feed",
+    "pronunciation": "/fiːd/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "喂养；饲养"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-hx01utr",
+    "word": "leave",
+    "pronunciation": "/liːv/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "离开；留下"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-6lzavgt",
+    "word": "absent",
+    "pronunciation": "/ˈæbsənt/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "缺席的；不在的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-hcfb69g",
+    "word": "absent from",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "缺席；不在"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-xle0y0p",
+    "word": "shh",
+    "pronunciation": "/ʃ/ (= sh)",
+    "partOfSpeech": "interj.",
+    "meanings": [
+      "嘘（用以让别人安静下来）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-ebbznxn",
+    "word": "quietly",
+    "pronunciation": "/ˈkwaɪətli/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "轻声地；安静地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-0tx992m",
+    "word": "put on",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "戴上；穿上；增加"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-bey5c07",
+    "word": "belt",
+    "pronunciation": "/belt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "安全带；腰带；皮带"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776086885370-c0htsi7",
+    "word": "noise",
+    "pronunciation": "/nɔɪz/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "声音；噪声"
+    ],
+    "example": "",
+    "sourceImage": "image-1776084569670.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:28:05.370Z"
+  },
+  {
+    "id": "word-1776087054711-peef8xb",
+    "word": "unhappy",
+    "pronunciation": "/ʌnˈhæpi/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "不快乐的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-ylwgali",
+    "word": "Dr (= doctor)",
+    "pronunciation": "",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "博士；医生"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-kjjeyv9",
+    "word": "make sb's/the bed",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "整理床铺；铺床"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-x77ddcw",
+    "word": "either",
+    "pronunciation": "'aɪðə(r); 'i:ðə(r)/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "也（用于否定词组后）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-8cmaoer",
+    "word": "practise",
+    "pronunciation": "/ˈpræktɪs/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "训练；练习"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-ewc5xg8",
+    "word": "hang",
+    "pronunciation": "/hæŋ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "悬挂"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-5gd3x6t",
+    "word": "hang out",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "闲逛；常去某处"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-989n3hc",
+    "word": "weekday",
+    "pronunciation": "/ˈwɪkdeɪ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "工作日",
+      "（星期一至星期五的任何一天）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-id4t6dy",
+    "word": "awful",
+    "pronunciation": "/ˈɔːfl/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "糟糕的；讨厌的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-vvs7z30",
+    "word": "become",
+    "pronunciation": "/bɪˈkʌm/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "变成；成为"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-kyqvfbz",
+    "word": "better",
+    "pronunciation": "/ˈbetə(r)/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "较好的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-8jw747j",
+    "word": "adv.",
+    "pronunciation": "",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "较好地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-8k97pb2",
+    "word": "person",
+    "pronunciation": "/ˈpɜːsn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "人"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-1azmhrg",
+    "word": "focus",
+    "pronunciation": "/ˈfəʊkəs/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "集中（注意力、精力等）；聚焦"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-06d4qte",
+    "word": "focus on",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "集中（注意力、精力等）于"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-hwc4je3",
+    "word": "build",
+    "pronunciation": "/bɪld/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "创建；建造"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-gt6fm48",
+    "word": "spirit",
+    "pronunciation": "/ˈspɪrɪt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "精神；情绪"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-xmnu8nq",
+    "word": "think about",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "思考；考虑"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-hdbaez9",
+    "word": "relax",
+    "pronunciation": "/rɪˈlæks/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "放松；休息"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-h7ziu75",
+    "word": "advice",
+    "pronunciation": "/ədˈvaɪs/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "建议；意见"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-rcnmni4",
+    "word": "understand",
+    "pronunciation": "/ˌʌndəˈstænd/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "理解；领会"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-u7rz4ch",
+    "word": "untidy",
+    "pronunciation": "/ʌnˈtaɪdi/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "不整洁的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z"
+  },
+  {
+    "id": "word-1776087054711-so8ef3s",
+    "word": "fit",
+    "pronunciation": "/fit/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "健康的；健壮的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087039051.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:30:54.711Z",
+    "sourceImages": [
+      "image-1776087039051.png"
+    ]
+  },
+  {
+    "id": "word-1776087161707-ln04z8m",
+    "word": "baseball",
+    "pronunciation": "/ˈbeɪsbɔːl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "棒球（运动）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-qp8xiwq",
+    "word": "glove",
+    "pronunciation": "/ɡlʌv/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "（手指分开的）手套"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-tcmtwir",
+    "word": "mat",
+    "pronunciation": "/mæt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "垫子"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-8w3jk7i",
+    "word": "rope",
+    "pronunciation": "/rəʊp/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "绳子；粗绳"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-46d6zfk",
+    "word": "jump rope",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "跳绳用的绳子",
+      "跳绳（运动）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-cj43avm",
+    "word": "racket",
+    "pronunciation": "/ˈrækɪt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "（网球、羽毛球等的）球拍"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-xi6wuwt",
+    "word": "hardly",
+    "pronunciation": "/ˈhɑːdli/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "几乎不"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-zmv0gb4",
+    "word": "ever",
+    "pronunciation": "/ˈevə(r)/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "在任何时候；从来；曾经"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-6r6k3di",
+    "word": "hardly ever",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "几乎从不"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-xsntvks",
+    "word": "once",
+    "pronunciation": "/wʌns/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "一次；曾经"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-qubst2v",
+    "word": "conjunction",
+    "pronunciation": "",
+    "partOfSpeech": "conj.",
+    "meanings": [
+      "一旦"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-8tytgwi",
+    "word": "twice",
+    "pronunciation": "/twais/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "两次；两倍"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-797ik1f",
+    "word": "mine",
+    "pronunciation": "/maɪn/",
+    "partOfSpeech": "pron.",
+    "meanings": [
+      "我的（所有物）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-v8k4d4x",
+    "word": "hers",
+    "pronunciation": "/hɜːz; 3ːz/",
+    "partOfSpeech": "pron.",
+    "meanings": [
+      "她的（所有物）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-7b53m5f",
+    "word": "maybe",
+    "pronunciation": "/ˈmeɪbi/",
+    "partOfSpeech": "adv./adj.",
+    "meanings": [
+      "也许；大概",
+      "使用得多的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-3ao92bk",
+    "word": "well-used",
+    "pronunciation": "/ˌwel juːzd/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "使用得多的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-f04grxf",
+    "word": "practice",
+    "pronunciation": "/ˈpræktɪs/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "练习；实践"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-3z9xb11",
+    "word": "perfect",
+    "pronunciation": "/pəˈfekt/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "完美的；极好的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-q6n7g7r",
+    "word": "seldom",
+    "pronunciation": "/ˈseldəm/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "很少；不常"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-vzjnau6",
+    "word": "badminton",
+    "pronunciation": "/ˈbædmɪntən/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "羽毛球运动"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-jzzolli",
+    "word": "double",
+    "pronunciation": "/ˈdʌbl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "双打（doubles）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z",
+    "sourceImages": [
+      "image-1776087138535.png"
+    ]
+  },
+  {
+    "id": "word-1776087161707-qv47duz",
+    "word": "sometime",
+    "pronunciation": "/ˈsʌmtaɪm/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "在某个时候"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-76hmgt5",
+    "word": "volleyball",
+    "pronunciation": "/ˈvɒlibɔːl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "排球（运动）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-erob56a",
+    "word": "theirs",
+    "pronunciation": "/ðeəz/",
+    "partOfSpeech": "pron.",
+    "meanings": [
+      "他们的，她们的，它们的（所有物）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-e186jt1",
+    "word": "ours",
+    "pronunciation": "/ˈaʊəz/",
+    "partOfSpeech": "pron.",
+    "meanings": [
+      "我们的（所有物）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-g6nmkwb",
+    "word": "jog",
+    "pronunciation": "/dʒɒɡ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "慢跑"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087161707-fiv5ep4",
+    "word": "few",
+    "pronunciation": "/fjuː/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "（表示否定的）很少的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087138535.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:32:41.707Z"
+  },
+  {
+    "id": "word-1776087217716-ih51dl6",
+    "word": "a few",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "少数；几个"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-guwinct",
+    "word": "excuse",
+    "pronunciation": "/ɪkˈskjuːz/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "原谅；宽恕"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-qn7udgg",
+    "word": "excuse me",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "劳驾；请原谅"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-e409azc",
+    "word": "over there",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "在那边"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-m45e7hx",
+    "word": "just",
+    "pronunciation": "/dʒʌst/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "只是；正好"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-l9w50hc",
+    "word": "T-shirt",
+    "pronunciation": "/ˈtiːʃɜːt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "T恤衫"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-huh6f2b",
+    "word": "belong",
+    "pronunciation": "/bəˈlɒŋ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "应在（某处）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-ankksyh",
+    "word": "belong to",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "属于（某人）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-39m95hl",
+    "word": "working",
+    "pronunciation": "/ˈwɜːkɪŋ/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "工作的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-l47ad8v",
+    "word": "working day",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "工作日"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-552j1v6",
+    "word": "full of",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "有许多；充满"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-b5hza4u",
+    "word": "energy",
+    "pronunciation": "/ˈenədʒi/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "精力；能量"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-76ac7qr",
+    "word": "group",
+    "pronunciation": "/gruːp/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "组；群"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-t77rqdg",
+    "word": "skateboard",
+    "pronunciation": "/ˈskeɪtboːd/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "滑板"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-3d9988k",
+    "word": "encourage",
+    "pronunciation": "/ɪnˈkʌrɪdʒ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "鼓励；激励"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-5n3pvay",
+    "word": "trick",
+    "pronunciation": "/trɪk/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "技巧；戏法"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-489sen4",
+    "word": "succeed",
+    "pronunciation": "/səkˈsiːd/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "成功；达到目标"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-1wckcr3",
+    "word": "skateboarding",
+    "pronunciation": "/ˈskeɪtboːdɪŋ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "滑板运动"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-ouu0qcb",
+    "word": "goal",
+    "pronunciation": "/ɡoʊl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "目标；目的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-1skhbjv",
+    "word": "sit-up",
+    "pronunciation": "/ˈsɪtʌp/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "仰卧起坐"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-kgatpgg",
+    "word": "work out",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "锻炼"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-hfop33z",
+    "word": "app",
+    "pronunciation": "/æp/ (= application /ˌæplɪˈkeɪʃn/)",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "应用程序"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-9eipyer",
+    "word": "progress",
+    "pronunciation": "/ˈprɑːɡres/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "进步；进展"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-plvt972",
+    "word": "match",
+    "pronunciation": "/mætʃ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "比赛；竞赛"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-8ur4w0o",
+    "word": "team",
+    "pronunciation": "/tiːm/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "队；组"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-mvo2m2f",
+    "word": "lose",
+    "pronunciation": "/luːz/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "输掉；丢失"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-l9f48tj",
+    "word": "teenager",
+    "pronunciation": "/ˈtiːnɪdʒə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "青少年"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087217716-vn54a65",
+    "word": "Steve",
+    "pronunciation": "/stiːv/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "史蒂夫"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087196062.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:33:37.716Z"
+  },
+  {
+    "id": "word-1776087268334-iwqmn6x",
+    "word": "watermelon",
+    "pronunciation": "/ˈwɔːtəˌmelən/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "西瓜"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-osza9g5",
+    "word": "cabbage",
+    "pronunciation": "/ˈkæbɪdʒ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "卷心菜"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-ge6ur01",
+    "word": "mutton",
+    "pronunciation": "/ˈmʌtn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "羊肉"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-fbca1iq",
+    "word": "cookie",
+    "pronunciation": "/ˈkʊki/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "曲奇饼"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-inif38v",
+    "word": "onion",
+    "pronunciation": "/ˈʌnjən/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "洋葱；葱头"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-lkg48s9",
+    "word": "dumpling",
+    "pronunciation": "/ˈdʌmplɪŋ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "饺子"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-y1eas9u",
+    "word": "coffee",
+    "pronunciation": "/ˈkɒfi/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "咖啡"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-5mtnq4t",
+    "word": "bean",
+    "pronunciation": "/biːn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "豆"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-7hv1up4",
+    "word": "chip",
+    "pronunciation": "/tʃɪp/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "炸薯条"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-e9uf72g",
+    "word": "fish and chips",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "炸鱼薯条"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-lne4tfh",
+    "word": "salad",
+    "pronunciation": "/ˈsæləd/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "沙拉；色拉"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-od3nqx7",
+    "word": "porridge",
+    "pronunciation": "/ˈpɒrɪdʒ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "粥；麦片粥"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-5u8zr17",
+    "word": "waiter",
+    "pronunciation": "/ˈweɪtə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "(男)服务员"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-s6nsm9r",
+    "word": "What about ...?",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "……怎么样？"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-qe7h7s7",
+    "word": "taste",
+    "pronunciation": "/teɪst/",
+    "partOfSpeech": "v./n.",
+    "meanings": [
+      "有……味道；尝",
+      "味道"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-e29wnlh",
+    "word": "anything",
+    "pronunciation": "/ˈeniθɪŋ/",
+    "partOfSpeech": "pron.",
+    "meanings": [
+      "某事物；任何事物"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-wz3u9pe",
+    "word": "dish",
+    "pronunciation": "/dɪʃ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "一道菜；盘子"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-mn7puxf",
+    "word": "choice",
+    "pronunciation": "/tʃɔɪs/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "选择"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-dzrllo9",
+    "word": "meal",
+    "pronunciation": "/miːl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "一餐所吃的食物；一餐"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-hgci0se",
+    "word": "pork",
+    "pronunciation": "/pɔːk/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "猪肉"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-115rxrg",
+    "word": "strawberry",
+    "pronunciation": "/ˈstrɔːbəri/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "草莓"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-9ewh101",
+    "word": "menu",
+    "pronunciation": "/ˈmenjuː/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "菜单"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-1ktjpuh",
+    "word": "customer",
+    "pronunciation": "/ˈkʌstəmə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "顾客"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-yy6yobh",
+    "word": "serve",
+    "pronunciation": "/sɜːv/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "提供；服务"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-bj1it0f",
+    "word": "waitress",
+    "pronunciation": "/ˈweɪtrəs/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "女服务员"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-kz4efia",
+    "word": "sir",
+    "pronunciation": "/sɜː(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "先生"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-kzv0bss",
+    "word": "bill",
+    "pronunciation": "/bɪl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "账单；钞票"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-fbvls4a",
+    "word": "go with",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "搭配；相配"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-c1e219a",
+    "word": "instead",
+    "pronunciation": "/ɪnˈsted/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "反而；代替"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-tp43cnp",
+    "word": "pear",
+    "pronunciation": "/peə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "梨"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087268334-zultrtb",
+    "word": "too much",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "太多"
+    ],
+    "sourceImage": "image-1776087244023.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:34:28.334Z"
+  },
+  {
+    "id": "word-1776087313457-81ongg2",
+    "word": "sugar",
+    "pronunciation": "/ˈʃuːɡə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "糖"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-p2xwjpi",
+    "word": "newsletter",
+    "pronunciation": "/ˈnjuːzˌleɪtə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "内部通讯",
+      "简讯"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-5bbz0gg",
+    "word": "improve",
+    "pronunciation": "/ɪmˈpruːv/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "改进",
+      "改善"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-19vhdoh",
+    "word": "habit",
+    "pronunciation": "/ˈhæbɪt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "习惯"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-ysmcrh5",
+    "word": "fast food",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "快餐"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-76b34x0",
+    "word": "salt",
+    "pronunciation": "/sɒlt; sɒlt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "盐"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-s73qm6n",
+    "word": "fat",
+    "pronunciation": "/fæt/",
+    "partOfSpeech": "n./adj.",
+    "meanings": [
+      "脂肪",
+      "肥胖的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-frh5lsx",
+    "word": "weight",
+    "pronunciation": "/weɪt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "体重",
+      "重量"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-th2vaiw",
+    "word": "hamburger",
+    "pronunciation": "/ˈhæmbɜːɡə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "汉堡包"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-9uvkiiy",
+    "word": "cause",
+    "pronunciation": "/kɔːz/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "造成",
+      "导致"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-ujr909o",
+    "word": "heart",
+    "pronunciation": "/haːt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "心脏",
+      "中心"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-20quujr",
+    "word": "balanced",
+    "pronunciation": "/ˈbælənst/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "均衡的",
+      "平衡的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-f2owtcr",
+    "word": "too ... to",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "太……以至于不能"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-68k6i4v",
+    "word": "sleepy",
+    "pronunciation": "/ˈsliːpi/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "困倦的",
+      "想睡的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-mo44in4",
+    "word": "after all",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "毕竟",
+      "终归"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-koydy1s",
+    "word": "away",
+    "pronunciation": "/əˈweɪ/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "离开",
+      "在别处"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-xk3ha4z",
+    "word": "poor",
+    "pronunciation": "/pɔː(r); pʊə(r)/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "不好的",
+      "贫穷的",
+      "可怜的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-mgilt43",
+    "word": "result",
+    "pronunciation": "/rɪˈzʌlt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "后果",
+      "结果"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-7f1glfe",
+    "word": "article",
+    "pronunciation": "/ˈɑːtɪkl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "文章",
+      "冠词"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-mwe2ud9",
+    "word": "common",
+    "pronunciation": "/ˈkɒmən/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "共同的",
+      "普遍的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-8gj9vpw",
+    "word": "among",
+    "pronunciation": "/əˈmʌŋ/",
+    "partOfSpeech": "prep.",
+    "meanings": [
+      "在……中",
+      "……之一"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-xrcesgj",
+    "word": "soft",
+    "pronunciation": "/sɒft/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "柔和的",
+      "柔软的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-5q5p4j9",
+    "word": "soft drink",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "软饮料（不含酒精）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-nb164vf",
+    "word": "enough",
+    "pronunciation": "/ɪnˈʌf/",
+    "partOfSpeech": "adj./adv.",
+    "meanings": [
+      "足够的",
+      "充足的",
+      "足够地",
+      "充分地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-e3sg8ey",
+    "word": "pron.",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "足够；充分"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-sce0xt3",
+    "word": "thirsty",
+    "pronunciation": "/ˈθɜːsti/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "渴的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087313458-px89cev",
+    "word": "Gongbao chicken",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "宫保鸡丁"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087294874.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:35:13.457Z"
+  },
+  {
+    "id": "word-1776087380454-465pkqa",
+    "word": "America",
+    "pronunciation": "/əˈmerɪkə/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "美国",
+      "美洲"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-306qvmn",
+    "word": "Dongpo pork",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "东坡肉"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-cnd9ada",
+    "word": "Joy",
+    "pronunciation": "/dʒɔɪ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "快乐"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-pzmgtht",
+    "word": "Clinic",
+    "pronunciation": "/ˈklɪnɪk/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "诊所",
+      "快乐诊所"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-iq9thcf",
+    "word": "right now",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "现在；立刻"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-ow38cli",
+    "word": "ride",
+    "pronunciation": "/raɪd/",
+    "partOfSpeech": "v./n.",
+    "meanings": [
+      "骑",
+      "旅程"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-l5p9q7o",
+    "word": "moment",
+    "pronunciation": "/ˈməʊmənt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "某个时刻",
+      "片刻；瞬间"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-09fx15k",
+    "word": "at the moment",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "现在；此刻"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-c64t6li",
+    "word": "work on",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "做；从事"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-sme6a0p",
+    "word": "dragon",
+    "pronunciation": "/ˈdræɡən/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "龙"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-419gmwf",
+    "word": "festival",
+    "pronunciation": "/ˈfestɪvl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "节日"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-84fkn69",
+    "word": "hold",
+    "pronunciation": "/həuld/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "拿着；抓住"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-o61e2ku",
+    "word": "hold on",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "别挂断电话；等一等"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-4nj2tmt",
+    "word": "voice",
+    "pronunciation": "/vɔɪs/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "嗓音；声音"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-2qalllc",
+    "word": "race",
+    "pronunciation": "/reɪs/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "比赛；竞赛"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-j3gb7mb",
+    "word": "darling",
+    "pronunciation": "/ˈdɑːlɪŋ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "亲爱的；宝贝"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-9576yu2",
+    "word": "somebody",
+    "pronunciation": "/ˈsʌmbədi/",
+    "partOfSpeech": "pron.",
+    "meanings": [
+      "某人；有人"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-2gr0wba",
+    "word": "could",
+    "pronunciation": "/kʊd/",
+    "partOfSpeech": "modal v.",
+    "meanings": [
+      "能；可以"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-e1f5ttu",
+    "word": "message",
+    "pronunciation": "/ˈmesɪdʒ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "消息；信息"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-g1p3fpo",
+    "word": "take a message",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "捎个口信"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-5qqjfs0",
+    "word": "leave a message",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "留个口信"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-4xajg5z",
+    "word": "call back",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "回电话"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-174v1yg",
+    "word": "kick",
+    "pronunciation": "/kɪk/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "踢；踹"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-3591zor",
+    "word": "wow",
+    "pronunciation": "/waʊ/",
+    "partOfSpeech": "interj.",
+    "meanings": [
+      "哇；呀"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-faygu7n",
+    "word": "online",
+    "pronunciation": "/ˈɒnlaɪn/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "在线的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-uldog1o",
+    "word": "shuttlecock",
+    "pronunciation": "/ˈʃʌtlkɒk/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "羽毛球"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-5eowwgu",
+    "word": "sight",
+    "pronunciation": "/saɪt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "名胜；风景；视力"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-91jq0fy",
+    "word": "exam",
+    "pronunciation": "/ɪg'zæm/ (= examination)",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "考试"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-fuhkikz",
+    "word": "hope",
+    "pronunciation": "/həʊp/",
+    "partOfSpeech": "v. & n.",
+    "meanings": [
+      "希望"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-exr6x8f",
+    "word": "forward",
+    "pronunciation": "/fə:wəd/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "向前"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087380454-uqpjnpy",
+    "word": "look forward to",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "盼望"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087356872.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:36:20.454Z"
+  },
+  {
+    "id": "word-1776087455187-1cyqbfs",
+    "word": "skate",
+    "pronunciation": "/skeɪt/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "滑冰"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-kfdrkxa",
+    "word": "happen",
+    "pronunciation": "/ˈhæpən/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "发生"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-ztl93zl",
+    "word": "zone",
+    "pronunciation": "/zəʊn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "地区；地带；区域"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-k32t4b0",
+    "word": "time zone",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "时区"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-7uxao7p",
+    "word": "around the world",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "世界各地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-riinlyr",
+    "word": "rush",
+    "pronunciation": "/rʌʃ/",
+    "partOfSpeech": "v./n.",
+    "meanings": [
+      "冲；奔",
+      "冲；奔"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-m9apynj",
+    "word": "in a hurry",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "匆忙"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-9rutc4o",
+    "word": "shine",
+    "pronunciation": "/ʃaɪn/",
+    "partOfSpeech": "v./n.",
+    "meanings": [
+      "发光；照耀",
+      "光亮"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-m40ttp2",
+    "word": "brightly",
+    "pronunciation": "/ˈbraɪtli/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "明亮地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-4juf3ab",
+    "word": "colourful",
+    "pronunciation": "/ˈkʌləfl/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "色彩鲜艳的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-6xru7ki",
+    "word": "slowly",
+    "pronunciation": "/ˈsləʊli/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "缓慢地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-wih23uz",
+    "word": "such",
+    "pronunciation": "/sʌtʃ/",
+    "partOfSpeech": "adj./pron.",
+    "meanings": [
+      "这样的；那样的",
+      "这样（那样）的人或事物"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-fgekuxv",
+    "word": "such as",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "例如"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-jiorqly",
+    "word": "painting",
+    "pronunciation": "/ˈpeɪntɪŋ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "绘画；油画"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-pgcu4mo",
+    "word": "market",
+    "pronunciation": "/ˈmaːrkɪt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "市场"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-7f2oecw",
+    "word": "side",
+    "pronunciation": "/saɪd/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "边；侧"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-qxsi7yc",
+    "word": "side by side",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "并排；并肩地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-1mwy7vo",
+    "word": "rush hour",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "（上下班时的）交通高峰期"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-7lz2ksj",
+    "word": "subway",
+    "pronunciation": "/ˈsʌbweɪ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "地铁"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-29i8ry8",
+    "word": "bright",
+    "pronunciation": "/braɪt/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "鲜艳的；明亮的",
+      "聪明的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-e908xge",
+    "word": "drop",
+    "pronunciation": "/drɒp/",
+    "partOfSpeech": "v./n.",
+    "meanings": [
+      "运送；落下",
+      "滴；下降"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-tj3z3v5",
+    "word": "drop off (开车) 把某人送到某处",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "把某人送到某处"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-fxejbcj",
+    "word": "passenger",
+    "pronunciation": "/ˈpæsɪndʒə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "乘客"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-b7amht6",
+    "word": "central",
+    "pronunciation": "/ˈsentrl/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "中心的；中央的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-w8t2ygq",
+    "word": "explain",
+    "pronunciation": "/ɪkˈsplæn/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "解释；说明"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-62bh0vc",
+    "word": "take part in",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "参加"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-ew20p6h",
+    "word": "tour",
+    "pronunciation": "/tuə(r)/",
+    "partOfSpeech": "n./v.",
+    "meanings": [
+      "旅行；旅游",
+      "旅行；旅游"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-1p7gbvb",
+    "word": "sunshine",
+    "pronunciation": "/ˈsʌnʃaɪn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "阳光"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087455187-yvl6upe",
+    "word": "drive",
+    "pronunciation": "/draɪv/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "开车；驾驶"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087406688.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:37:35.187Z"
+  },
+  {
+    "id": "word-1776087683238-o294crz",
+    "word": "Adam",
+    "pronunciation": "/ˈædəm/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "亚当"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-ops3axv",
+    "word": "Dragon Boat Festival",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "端午节"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-fjmtprz",
+    "word": "Beth",
+    "pronunciation": "/beθ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "贝丝"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-xu456xb",
+    "word": "Nairobi",
+    "pronunciation": "/naɪˈroʊbi/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "内罗毕（肯尼亚首都）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-udc881h",
+    "word": "New York",
+    "pronunciation": "/ˌnjuːˈjɔrk/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "纽约"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-4nkykbv",
+    "word": "Kenya",
+    "pronunciation": "/ˈkenjə/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "肯尼亚"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-i4nt3t5",
+    "word": "USA",
+    "pronunciation": "/juːˈesə/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "美国"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-x6qon7z",
+    "word": "Central Park",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "中央公园"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-o630kri",
+    "word": "rain or shine",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "不论是雨或是晴；不管发生什么事"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-oadgok0",
+    "word": "affect",
+    "pronunciation": "/əˈfekt/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "影响"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-9o4bwrm",
+    "word": "dry",
+    "pronunciation": "/draɪ/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "干的；干旱的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-94cl38a",
+    "word": "lightning",
+    "pronunciation": "/ˈlaɪtnɪŋ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "闪电"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-5bn5r8w",
+    "word": "stormy",
+    "pronunciation": "/ˈstoːmi/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "有暴风雨（或暴风雪）的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-0k0lc7f",
+    "word": "north",
+    "pronunciation": "/noːθ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "北部；北；北方"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-nvvlf4c",
+    "word": "west",
+    "pronunciation": "/west/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "西部；西；西方"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-k7qadfs",
+    "word": "south",
+    "pronunciation": "/saʊθ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "南部；南；南方"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-1lujsl7",
+    "word": "east",
+    "pronunciation": "/iːst/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "东部；东；东方"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-6v0d7af",
+    "word": "stay in",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "待在家里；没有外出"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-wgac3ag",
+    "word": "lucky",
+    "pronunciation": "/ˈlʌki/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "运气好的；带来好运的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-nfsa2mz",
+    "word": "lucky you",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "你真幸运"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-hm0decv",
+    "word": "sunbathe",
+    "pronunciation": "/ˈsʌnbeɪð/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "沐日光浴；晒太阳"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-v95hgzc",
+    "word": "some day",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "将来；有朝一日"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-yfrg9iv",
+    "word": "temperature",
+    "pronunciation": "/ˈtemprətʃər/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "温度"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-p74vwm6",
+    "word": "snowman",
+    "pronunciation": "/ˈsnəumæn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "雪人 (pl. snowmen /ˈsnəumən/)"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-5yxkgic",
+    "word": "heavily",
+    "pronunciation": "/ˈhevili/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "大量地；沉重地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-12nofiz",
+    "word": "snowy",
+    "pronunciation": "/ˈsnəuvi/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "下雪的；雪白的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087683238-674cccp",
+    "word": "beach volleyball",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "沙滩排球"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087663288.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:41:23.238Z"
+  },
+  {
+    "id": "word-1776087733104-3mqsl64",
+    "word": "high",
+    "pronunciation": "/hai/",
+    "partOfSpeech": "adv./adj.",
+    "meanings": [
+      "高",
+      "极冷的；冰冻的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-sjntl1v",
+    "word": "freezing",
+    "pronunciation": "/ˈfriːzɪŋ/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "极冷的；冰冻的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-c3s5p68",
+    "word": "tourist",
+    "pronunciation": "/ˈtuərɪst/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "旅行者；观光客"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-z9j6e3t",
+    "word": "mount",
+    "pronunciation": "/maunt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "山；山峰（仅用于地名）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-615wjfc",
+    "word": "cloud",
+    "pronunciation": "/klaʊd/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "云；云彩"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-lqx49vu",
+    "word": "feel like",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "感觉像"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-p3g5ljk",
+    "word": "magical",
+    "pronunciation": "/ˈmeɪdʒɪkl/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "魔法的；神奇的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-j1ay9kg",
+    "word": "rock",
+    "pronunciation": "/rɒk/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "岩石"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-gbavq6k",
+    "word": "rest",
+    "pronunciation": "/rest/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "休息；剩余部分"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-8p4t9zz",
+    "word": "area",
+    "pronunciation": "/ˈeəriə/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "场地；地区"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-9kzk37p",
+    "word": "rest area",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "休息区"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-5gbhu8j",
+    "word": "make progress",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "取得进展"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-gz7wuvv",
+    "word": "although",
+    "pronunciation": "/ɔːlˈðəʊ/ /kən.dʒ/",
+    "partOfSpeech": "conj.",
+    "meanings": [
+      "虽然；尽管"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-48wv60z",
+    "word": "still",
+    "pronunciation": "/stɪl/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "还；仍然"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-rtnd9lg",
+    "word": "in high spirits",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "情绪高涨；兴高采烈"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-qzvlhz9",
+    "word": "experience",
+    "pronunciation": "/ɪkˈspɪəriəns/",
+    "partOfSpeech": "n./v.",
+    "meanings": [
+      "经历；经验",
+      "经历"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-360gqo3",
+    "word": "through",
+    "pronunciation": "/θruː/",
+    "partOfSpeech": "prep.",
+    "meanings": [
+      "穿过；凭借"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-pqsijij",
+    "word": "glad",
+    "pronunciation": "/ɡlæd/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "高兴的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-hchu0hl",
+    "word": "peak",
+    "pronunciation": "/piːk/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "山顶；顶点"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-dw3bj9t",
+    "word": "grey",
+    "pronunciation": "/greɪ/ (AmE gray/greɪ/)",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "灰色的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-ou7b1g1",
+    "word": "because of",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "因为"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-gisqifd",
+    "word": "fog",
+    "pronunciation": "/fɒɡ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "雾"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-uuwmo0w",
+    "word": "ground",
+    "pronunciation": "/graʊnd/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "地面"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-j3wtrtw",
+    "word": "wet",
+    "pronunciation": "/wet/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "湿的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-p2cidfz",
+    "word": "tiring",
+    "pronunciation": "/ˈtaɪərɪŋ/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "令人疲倦的；累人的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-2ehw9i6",
+    "word": "seem",
+    "pronunciation": "/siːm/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "似乎；好像"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-zgpcgvn",
+    "word": "sunlight",
+    "pronunciation": "/ˈsʌnlait/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "阳光；日光"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-q9am8dt",
+    "word": "at the top",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "在顶部；在顶端"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-z7sh43a",
+    "word": "description",
+    "pronunciation": "/dɪˈskrɪpʃn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "描述；说明"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087733104-rjl04lx",
+    "word": "mountain",
+    "pronunciation": "/ˈmaʊntən/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "山；高山"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087713347.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:42:13.103Z"
+  },
+  {
+    "id": "word-1776087780199-cm42gqh",
+    "word": "end",
+    "pronunciation": "/end/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "末尾；结束"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-zedmo6o",
+    "word": "at the end",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "最后；在末尾"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-byb4zkz",
+    "word": "storm",
+    "pronunciation": "/stɔːm/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "暴风雨；暴风雪"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-ue112dg",
+    "word": "pour",
+    "pronunciation": "/pɔː(r)/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "倾倒；倒出"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-5oh37qn",
+    "word": "wind",
+    "pronunciation": "/wɪnd/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "风"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-kvbc3h1",
+    "word": "shout",
+    "pronunciation": "/ʃaʊt/",
+    "partOfSpeech": "v. & n.",
+    "meanings": [
+      "喊叫；呼唤"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-bselcp6",
+    "word": "run after",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "追逐"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-49e66uf",
+    "word": "Anna",
+    "pronunciation": "/ˈænə/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "安娜"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-t3e5i93",
+    "word": "John",
+    "pronunciation": "/dʒɒn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "约翰"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-3ct255i",
+    "word": "Stockholm",
+    "pronunciation": "/ˈstɔkˌhɔlm/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "斯德哥尔摩（瑞典首都）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-w8p3vdo",
+    "word": "Mount Huangshan",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "黄山"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-ximy75l",
+    "word": "Bright Peak",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "光明顶"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-7bgzknf",
+    "word": "meet up",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "碰头；相聚"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-0z5er39",
+    "word": "museum",
+    "pronunciation": "/mjʊˈziːəm/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "博物馆"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-505w5wk",
+    "word": "exhibition",
+    "pronunciation": "/ˌeksiˈbiʃn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "展览"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-izjyapk",
+    "word": "direction",
+    "pronunciation": "/dəˈrekʃn; daɪˈrekʃn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "方向"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-vpltddx",
+    "word": "trip",
+    "pronunciation": "/trɪp/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "旅行"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-mmki8fy",
+    "word": "wastewater",
+    "pronunciation": "/ˈweɪstwɑːtə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "废水"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-a99zzop",
+    "word": "plant",
+    "pronunciation": "/plaːnt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "工厂"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-0m4mxig",
+    "word": "into",
+    "pronunciation": "/ˈintuː; ˈintə/",
+    "partOfSpeech": "prep.",
+    "meanings": [
+      "到……里面；进入"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-s9mp7ca",
+    "word": "screen",
+    "pronunciation": "/skriːn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "滤网；隔板；屏障"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-fh7utur",
+    "word": "remove",
+    "pronunciation": "/rɪˈmuːv/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "移开；拿走"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-uyl6is5",
+    "word": "piece",
+    "pronunciation": "/piːs/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "片；块"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-wx03tkg",
+    "word": "waste",
+    "pronunciation": "/weɪst/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "废弃物"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-syyvqbo",
+    "word": "machine",
+    "pronunciation": "/məˈʃiːn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "机器"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-7clo6sy",
+    "word": "germ",
+    "pronunciation": "/dʒɜːrm/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "微生物；细菌"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-74quulj",
+    "word": "step",
+    "pronunciation": "/step/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "步骤；脚步"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087780199-b5rrqkr",
+    "word": "used to",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "过去常常（做）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087762148.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:43:00.199Z"
+  },
+  {
+    "id": "word-1776087872574-syvhcxp",
+    "word": "realize",
+    "pronunciation": "/ˈriːl.aɪz/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "认识到；实现"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-8xh0yro",
+    "word": "inside",
+    "pronunciation": "/ˌɪn.said/",
+    "partOfSpeech": "prep./adv.",
+    "meanings": [
+      "在……里面",
+      "在里面"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-kxzneq8",
+    "word": "go on a trip",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "去旅行"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-ic5leec",
+    "word": "process",
+    "pronunciation": "/ˈprəʊ.ses/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "过程"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-ztyijtu",
+    "word": "theatre",
+    "pronunciation": "/ˈθiə.tə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "戏院；剧场；电影院"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-fke35jn",
+    "word": "factory",
+    "pronunciation": "/ˈfæk.tər.i/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "工厂"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-lqytw70",
+    "word": "terrible",
+    "pronunciation": "/ˈter.ə.bəl/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "糟糕的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-xu5979y",
+    "word": "actor",
+    "pronunciation": "/ˈækt.ə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "演员"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-1ywvc0s",
+    "word": "gun",
+    "pronunciation": "/ɡʌn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "枪"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-osfq5ts",
+    "word": "try on",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "试穿"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-9gripaq",
+    "word": "along",
+    "pronunciation": "/əˈlɔŋ/",
+    "partOfSpeech": "prep.",
+    "meanings": [
+      "沿着；顺着"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-339ct8l",
+    "word": "road",
+    "pronunciation": "/rəʊd/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "道路"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-zfb63c2",
+    "word": "create",
+    "pronunciation": "/kriˈeɪt/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "创造"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-i4rpgia",
+    "word": "record",
+    "pronunciation": "/ˈrek.ə.d/",
+    "partOfSpeech": "n./v.",
+    "meanings": [
+      "记录",
+      "记录"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-mirdhdo",
+    "word": "thought",
+    "pronunciation": "/θɔːt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "想法"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-zjtb41x",
+    "word": "skill",
+    "pronunciation": "/skɪl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "技能"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-be9ybnf",
+    "word": "write down",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "写下；记下"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-rzm7qur",
+    "word": "explore",
+    "pronunciation": "/ɪkˈsplɔː(r)/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "探索"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-01rrb0y",
+    "word": "tent",
+    "pronunciation": "/tent/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "帐篷"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-m1z11lk",
+    "word": "cucumber",
+    "pronunciation": "/ˈkjuː.kʌm.bər/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "黄瓜"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-w91c0kr",
+    "word": "from ... to ...",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "从……到……"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-1fnvlw2",
+    "word": "straight",
+    "pronunciation": "/streɪt/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "直接；立即；笔直地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-fdqbpfb",
+    "word": "fill",
+    "pronunciation": "/fil/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "装满；盛满"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-4dpimdj",
+    "word": "basket",
+    "pronunciation": "/ˈba.skɪt/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "篮子；筐"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-2pjrnza",
+    "word": "teach",
+    "pronunciation": "/tiːtʃ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "教（taught /toːt/）"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-019svah",
+    "word": "branch",
+    "pronunciation": "/brɑːntʃ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "分支；树枝"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-up8uq5q",
+    "word": "leaf",
+    "pronunciation": "/liːf/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "(pl. leaves /liːvz/) 叶；叶子"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-00mcvm3",
+    "word": "finally",
+    "pronunciation": "/ˈfaɪ.nə.li/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "终于"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087872574-zlmgm7h",
+    "word": "think of",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "考虑；想起"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087856707.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:44:32.574Z"
+  },
+  {
+    "id": "word-1776087947102-kjfepo7",
+    "word": "grain",
+    "pronunciation": "/ɡreɪn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "谷物",
+      "谷粒"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-1f7y3ym",
+    "word": "fresh",
+    "pronunciation": "/freʃ/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "新鲜的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-l25hf8z",
+    "word": "certainly",
+    "pronunciation": "/ˈsɜːtnli/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "肯定；当然"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-uj5wxnp",
+    "word": "diary",
+    "pronunciation": "/ˈdaɪəri/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "日记",
+      "日记本"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-ynjk45g",
+    "word": "entry",
+    "pronunciation": "/ˈentri/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "（日记的）一则",
+      "入口"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-kz76n4d",
+    "word": "agree",
+    "pronunciation": "/əˈɡriː/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "赞成",
+      "同意"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-sd2kv2e",
+    "word": "agree with",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "赞成；同意"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-32ugvuj",
+    "word": "upon",
+    "pronunciation": "/əˈpɒn/",
+    "partOfSpeech": "prep.",
+    "meanings": [
+      "在……上"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-eg2f55g",
+    "word": "once upon a time",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "从前；很久以前"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-1abxtio",
+    "word": "bite",
+    "pronunciation": "/baɪt/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "咬",
+      "咬伤"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-h2rz3y2",
+    "word": "bite through",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "咬穿"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-8113srx",
+    "word": "net",
+    "pronunciation": "/net/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "网",
+      "网状物"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-aaqepvv",
+    "word": "hunter",
+    "pronunciation": "/ˈhʌntə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "猎人",
+      "搜寻者"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-3l5ev5f",
+    "word": "promise",
+    "pronunciation": "/ˈprɒmɪs/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "承诺",
+      "保证"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z",
+    "sourceImages": [
+      "image-1776087920686.png"
+    ]
+  },
+  {
+    "id": "word-1776087947102-zjh54uq",
+    "word": "long ago",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "很久以前"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-sd6s0x7",
+    "word": "war",
+    "pronunciation": "/wɔː(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "战争"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-bpf7vvj",
+    "word": "neighbour",
+    "pronunciation": "/ˈneɪbə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "邻居"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-kdvij90",
+    "word": "wise",
+    "pronunciation": "/waɪz/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "明智的",
+      "高明的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-hcebfzk",
+    "word": "emperor",
+    "pronunciation": "/ˈempərə(r)/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "皇帝"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-7ah0fks",
+    "word": "lie",
+    "pronunciation": "/laɪ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "撒谎"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z",
+    "sourceImages": [
+      "image-1776087920686.png"
+    ]
+  },
+  {
+    "id": "word-1776087947102-x0k84mw",
+    "word": "pretend",
+    "pronunciation": "/prɪˈtend/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "假装；伪装"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-0acbay5",
+    "word": "official",
+    "pronunciation": "/əˈfɪʃl/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "官员",
+      "高级职员"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-nlw3del",
+    "word": "silly",
+    "pronunciation": "/ˈsɪli/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "愚蠢的",
+      "傻的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-50lh360",
+    "word": "decide",
+    "pronunciation": "/dɪˈsaɪd/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "决定"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-z2aun0v",
+    "word": "praise",
+    "pronunciation": "/preɪz/",
+    "partOfSpeech": "v. & n.",
+    "meanings": [
+      "赞美",
+      "表扬"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-5ioxms8",
+    "word": "afraid",
+    "pronunciation": "/əˈfreɪd/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "害怕的",
+      "担心的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-89zzdfg",
+    "word": "suddenly",
+    "pronunciation": "/ˈsʌdənli/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "突然地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-tuo48e3",
+    "word": "at first",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "起初；最初"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-qpbqgnn",
+    "word": "truth",
+    "pronunciation": "/truːθ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "真相",
+      "事实"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776087947102-b2ekznq",
+    "word": "tell the truth",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "说实话"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087920686.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T13:45:47.102Z"
+  },
+  {
+    "id": "word-1776092709426-m06324o",
+    "word": "make money",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "赚钱"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-z2pxwic",
+    "word": "true",
+    "pronunciation": "/truː/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "符合事实的",
+      "真正的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-wmvu9sp",
+    "word": "hate",
+    "pronunciation": "/heɪt/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "不喜欢",
+      "厌恶",
+      "讨厌"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-vr15e1t",
+    "word": "get out",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "逃脱",
+      "离开"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-66bc6va",
+    "word": "king",
+    "pronunciation": "/kɪŋ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "君主",
+      "国王"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-ylv0yig",
+    "word": "artist",
+    "pronunciation": "/ˈɑːtɪst/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "美术家",
+      "艺术家"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-1ua7ngw",
+    "word": "quickly",
+    "pronunciation": "/ˈkwɪkli/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "快速地",
+      "很快"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-jpjafwj",
+    "word": "smile",
+    "pronunciation": "/smaɪl/",
+    "partOfSpeech": "v./n.",
+    "meanings": [
+      "微笑",
+      "微笑",
+      "笑容"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-ta2nfkq",
+    "word": "all over",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "到处",
+      "遍及"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-62wta5r",
+    "word": "ugly",
+    "pronunciation": "/ˈʌɡli/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "丑陋的",
+      "难看的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-v8lohpp",
+    "word": "duckling",
+    "pronunciation": "/ˈdʌklɪŋ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "小鸭子"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-xzbhkax",
+    "word": "real",
+    "pronunciation": "/riːəl/",
+    "partOfSpeech": "adj.",
+    "meanings": [
+      "真的",
+      "真正的"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-6yboxim",
+    "word": "laugh at",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "嘲笑"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-72kqidn",
+    "word": "go away",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "走开"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-z1cuygb",
+    "word": "search",
+    "pronunciation": "/sɜːtʃ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "寻找",
+      "搜寻"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-0qmu3cs",
+    "word": "search for",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "寻找"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-za77oy8",
+    "word": "hen",
+    "pronunciation": "/hen/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "母鸡"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-o3hlp6r",
+    "word": "hopefully",
+    "pronunciation": "/ˈhəʊplɪ/",
+    "partOfSpeech": "adv.",
+    "meanings": [
+      "有希望地"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-z25nqix",
+    "word": "purr",
+    "pronunciation": "/pɜː(r)/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "(猫)发出呼噜声"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-9mm7j5i",
+    "word": "lay",
+    "pronunciation": "/leɪ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "(laid /leɪd/) 下（蛋）",
+      "放置；搁"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-xyk8pov",
+    "word": "swan",
+    "pronunciation": "/swɒn/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "天鹅"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-xkal9pa",
+    "word": "feather",
+    "pronunciation": "/ˈfeðə/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "羽毛"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-euoaubd",
+    "word": "to sb's surprise",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "出乎某人的意料"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-k93zkvr",
+    "word": "size",
+    "pronunciation": "/saɪz/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "大小",
+      "尺寸"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-f4tyidy",
+    "word": "only if",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "只有"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-0t4xzmi",
+    "word": "fisherman",
+    "pronunciation": "/ˈfɪʃəmən/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "渔夫"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-r8je0o2",
+    "word": "fishing",
+    "pronunciation": "/ˈfɪʃɪŋ/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "钓鱼",
+      "捕鱼"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-oa6q3sr",
+    "word": "come out",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "出现",
+      "盛开"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-pm48uux",
+    "word": "genie",
+    "pronunciation": "/ˈdʒiːni/",
+    "partOfSpeech": "n.",
+    "meanings": [
+      "妖怪",
+      "鬼"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-pxe73gr",
+    "word": "die",
+    "pronunciation": "/daɪ/",
+    "partOfSpeech": "v.",
+    "meanings": [
+      "死亡",
+      "消失"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-qnma8qv",
+    "word": "make a promise",
+    "pronunciation": "",
+    "partOfSpeech": "",
+    "meanings": [
+      "许下诺言"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  },
+  {
+    "id": "word-1776092709426-mpqe8cy",
+    "word": "someone",
+    "pronunciation": "/ˈsʌmwʌn/",
+    "partOfSpeech": "pron.",
+    "meanings": [
+      "某人",
+      "有人"
+    ],
+    "example": "",
+    "sourceImage": "image-1776087967244.png",
+    "errorCount": 0,
+    "addedAt": "2026-04-13T15:05:09.426Z"
+  }
+]
