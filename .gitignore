@@ -46,3 +46,20 @@ next-env.d.ts
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# Physics runtime data stays in a separate private data package.
+/physics-exam-papers/*
+!/physics-exam-papers/_scripts/
+/physics-exam-papers/_scripts/*
+!/physics-exam-papers/_scripts/*.py
+!/physics-exam-papers/_scripts/*.sh
+!/physics-exam-papers/_scripts/*.html
+!/physics-exam-papers/_scripts/*.command
+!/physics-exam-papers/_scripts/*.md
+!/physics-exam-papers/_scripts/*.conf
+!/physics-exam-papers/_scripts/requirements.txt
+**/__pycache__/
+*.pyc
+*.db
+*.db-*
+*.sqlite*

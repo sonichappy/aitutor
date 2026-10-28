@@ -1,0 +1,11 @@
+{$SITE_ADDRESS} {
+    @home path /
+    redir @home /physics 302
+    @physics path /physics /physics/* /api/physics/* /_next/* /icon.svg /favicon.ico
+    handle @physics {
+        reverse_proxy app:3001
+    }
+    handle {
+        respond "Not found" 404
+    }
+}
